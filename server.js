@@ -33,7 +33,11 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-require( './model/door' );
+require( './model/apartment' );
+require( './model/heatcostallocator' );
+require( './model/smokedetector' );
+require( './model/unit' );
+require( './model/watermeter' );
 require( './routes' )( app );
 
 app.get( '/', function( request, response ) {
