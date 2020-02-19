@@ -1,6 +1,6 @@
 // consumption.js
 //
-// mongo data model definition for a heizkosten consumption
+// mongo data model definition for heizkosten consumption data inclunding meter readings
 //
 // Copyright 2020 by Jeremy Tammik.
 
