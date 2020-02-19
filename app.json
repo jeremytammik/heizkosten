@@ -1,0 +1,6 @@
+{
+  "name": "heizkosten",
+  "description": "node.js mongodb web server for heizkosten",
+  "repository": "https://github.com/jeremytammik/heizkosten",
+  "keywords": ["node", "mongoose"]
+}
