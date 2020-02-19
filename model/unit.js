@@ -25,8 +25,8 @@ id_objekt
 */
 
 var unitSchema = new Schema({
-  unit_id : String,
-  area_m2 : Number,
+  unit_id: String,
+  area_m2: Number,
   apt_count: Number,
   energy_consumption_kwh: Number,
   fuel_consumption_eur: Number,
