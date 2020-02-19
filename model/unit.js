@@ -33,7 +33,7 @@ var unitSchema = new Schema({
   water_consumption_l: Number,
   heating_consumption_calculation_cost_eur: Number,
   heating_maintenance_cost_eur: Number,
-  heating_electrity_cost: Number,
+  heating_electrity_cost_eur: Number,
   hausgeld_eur: Number,
   nebenkosten_eur: Number
 });
