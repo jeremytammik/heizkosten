@@ -35,7 +35,8 @@ var unitSchema = new Schema({
   heating_maintenance_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   hausgeld_eur: Number,
-  nebenkosten_eur: Number
+  nebenkosten_eur: Number,
+  splitting_factor: Number // kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
 });
 
 mongoose.model( 'Unit', unitSchema );
