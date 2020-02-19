@@ -19,6 +19,7 @@ id_objekt
     kosten energieerfassung heizanlage verteilung
     kosten wartung heizanlage
     kosten strom heizanlage
+    splitting kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
   andere rechnungen
     hausgeld
     nebenkosten
@@ -34,9 +35,9 @@ var unitSchema = new Schema({
   heating_consumption_calculation_cost_eur: Number,
   heating_maintenance_cost_eur: Number,
   heating_electrity_cost_eur: Number,
+  splitting_factor: Number,
   hausgeld_eur: Number,
-  nebenkosten_eur: Number,
-  splitting_factor: Number // kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
+  nebenkosten_eur: Number
 });
 
 mongoose.model( 'Unit', unitSchema );
