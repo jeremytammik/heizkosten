@@ -19,10 +19,10 @@ id_energieverbrauchserfassung
 */
 
 var consumptionSchema = new Schema({
-  rent_payments: [{ date:Date, amount:Number }],
-  nebenkosten_payments: [{ date:Date, amount:Number }],
-  deposit_payments: [{ date:Date, amount:Number }],
-  secondaryspace_payments: [{ date:Date, amount:Number }]
+  heatcostallocatorreadings: [{ number:String, date:Date, amount:Number }],
+  coldwatermeters: [{ number:String, date:Date, amount:Number }],
+  hotwatermeters: [{ number:String, date:Date, amount:Number }],
+  smokedetector_maintenance_count: Number,
 });
 
 mongoose.model( 'consumption', consumptionSchema );
