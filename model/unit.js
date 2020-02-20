@@ -32,7 +32,7 @@ var unitSchema = new Schema({
   energy_consumption_kwh: Number,
   fuel_consumption_eur: Number,
   water_consumption_l: Number,
-  heating_consumption_calculation_cost_eur: Number,
+  heating_consumption_allocation_cost_eur: Number,
   heating_maintenance_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   splitting_factor: Number,
