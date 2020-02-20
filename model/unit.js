@@ -23,6 +23,26 @@ id_objekt
   andere rechnungen
     hausgeld
     nebenkosten
+
+drei abrechnungstoepfe:
+einmal im jahr die energiekostenverteilung berechnen
+zweiter abrechnungskreislauf: nutzerbezogene nebenkosten:
+  hausmeister, reningung, listwartung
+  100% per haus und dann anteilig qm-maessig auf mieter verteilt
+  in dem konto sind auch nk-vorauszahlungen drin
+  diese daten kommen von der hausverwaltung
+dritter kreislauf: hausverwaltung
+  alle hauskosten: versicherung hausmeister hausverwalkter pruefgebuehren fuer lift energieeinkauf strassengebuehr kanalisationsgebuehr
+  das muessen wir jetzt nicht koennen
+  sollte aber einfach erweiterbar sein, fuer den fall das es keine hausverwaltung gibt
+
+rechnung:
+  objekt unit ObjectId
+  datum
+  summe
+  konto (lift, hausmeister, satellitenanlage, ...) --> nebenkosten oder hauskosten NK / HK
+  betreff
+  beschreibung
 */
 
 var unitSchema = new Schema({
@@ -37,7 +57,11 @@ var unitSchema = new Schema({
   heating_electrity_cost_eur: Number,
   splitting_factor: Number,
   hausgeld_eur: Number,
-  nebenkosten_eur: Number
+  nebenkosten_eur: Number,
+  invoices: [{
+    date: Date,
+    amount: Number,
+    account: String }] // lift, janitor, etc.
 });
 
 mongoose.model( 'Unit', unitSchema );
