@@ -72,14 +72,14 @@ aus dem konto heraus feststellen kann, ob es sich um HG oder NK handelt.
 
 const enum_unit_accounts = [
   
-  // hausgelds
+  // hausgeld HG
 
   'reparaturen',
   'anschaffungen',
   'verwalterkosten',
   'reparaturrücklage',
 
-  // nebenkostern
+  // nebenkostern NK
 
   'hausmeisterkosten',
   'wartungsarbeiten',
