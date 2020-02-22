@@ -43,7 +43,50 @@ rechnung:
   konto (lift, hausmeister, satellitenanlage, ...) --> nebenkosten oder hauskosten NK / HK
   betreff
   beschreibung
+  
+die objektID braucht zwei listen in den anfallende kosten kontiert werden können:
+
+Hausgeld: sind die konten, die nicht umlagefähig sind 
+Nebenkostengeld: sind die konten die auf die mieter umlagefähig sind
+
+felder des hausgelds sind:
+
+  reparaturen
+  anschaffungen
+  verwalterkosten
+  reparaturrücklage
+
+felder der NK sind:
+
+  hausmeisterkosten
+  wartungsarbeiten
+  versicherungen
+  reinigungskosten
+  grundsteuer
+
+Wenn man sowieso die zahlungen auf verschiedene konten buchen muss,
+dann kann man sie auch alle gleich in einer liste stellen, in der man
+aus dem konto heraus feststellen kann, ob es sich um HG oder NK handelt.
+
 */
+
+const enum_unit_accounts = [
+  
+  // hausgelds
+
+  'reparaturen',
+  'anschaffungen',
+  'verwalterkosten',
+  'reparaturrücklage',
+
+  // nebenkostern
+
+  'hausmeisterkosten',
+  'wartungsarbeiten',
+  'versicherungen',
+  'reinigungskosten',
+  'rundsteuer' ];
+
 
 var unitSchema = new Schema({
   unit_id: String,
@@ -61,7 +104,7 @@ var unitSchema = new Schema({
   invoices: [{
     date: Date,
     amount: Number,
-    account: String }] // lift, janitor, etc.
+    account: { type: String, enum: enum_unit_accounts } }],
 });
 
 mongoose.model( 'Unit', unitSchema );

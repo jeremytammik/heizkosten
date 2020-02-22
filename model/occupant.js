@@ -16,11 +16,17 @@ id_nutzer occupant (tenant or owner)
   verbindliche email
   verbindliche iban
   telefon
-  liste einzahlungen kaltmiete euro
-  liste einzahlungen nebenkosten euro
+  liste einzahlungen wohnungskaltmiete euro
+  liste einzahlungen nebenkostenvorauszahlungen euro
   liste einzahlungen kaution euro
-  liste einzahlungen miete fuer nebenraeume euro 
+  liste einzahlungen miete fuer nebenraeume und anderes euro 
 */
+
+const enum_occupant_accounts = [
+  'apartment_rental',
+  'other_rental',
+  'nebenkosten',
+  'deposit' ];
 
 var occupantSchema = new Schema({
   occupant_id: String,
@@ -33,10 +39,10 @@ var occupantSchema = new Schema({
   email: String,
   iban: String,
   telephone: String,
-  rent_payments: [{ date:Date, amount:Number }],
-  nebenkosten_payments: [{ date:Date, amount:Number }],
-  deposit_payments: [{ date:Date, amount:Number }],
-  secondaryspace_payments: [{ date:Date, amount:Number }]
+  payments: [{
+    date: Date,
+    amount: Number,
+    account: { type: String, enum: enum_occupant_accounts } }],
 });
 
 mongoose.model( 'occupant', occupantSchema );
