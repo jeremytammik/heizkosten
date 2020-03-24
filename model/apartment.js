@@ -46,7 +46,21 @@ sample_apartment_1_drei_zimmer_klein = {
   "smokedetectors": [{ "idnr": "001-05-03-FL", "expires": 2020-12-31 }, { "idnr": "001-05-03-SZ", "expires": 2020-12-31 }, { "idnr": "001-05-03-KI", "expires": 2020-12-31 }],
   "coldwatermeters": [{ "idnr": "4169100-BA", "expires": 2020-12-31 }, { "idnr": "524401116-KU", "expires": 2020-12-31 }],
   "warmwatermeters": [{ "idnr": "4133127-BA", "expires": 2020-12-31 }, { "idnr": "525625030-KU", "expires": 2020-12-31 }],
-  "heatcostallocators": [{ "idnr": "44333607-WO", "expires": 2020-12-31 }, { "idnr": "44333614-BA", "expires": 2020-12-31 }, { "idnr": "44333621-SZ", "expires": 2020-12-31 }, { "idnr": "44333638-KI", "expires": 2020-12-31 }, { "idnr": "44333843-KU", "expires": 2020-12-31 }],
+  "heatcostallocators": [{ "idnr": "44333607-WO", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44333614-BA", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44333621-SZ", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44333638-KI", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44333843-KU", "expires": 2020-12-31, "factor": 0 }],
+  "management_cost_eur": 0,
+  "heating_electrity_cost_eur": 0,
+  "landtax_eur": 0
+};
+
+sample_apartment_2_zwei_zimmer = {
+  "apartment_id": "001-09-02",
+  "owner_id": ObjectId,
+  "area_m2": 66.80,
+  "room_count": 2,
+  "smokedetectors": [{ "idnr": "001-09-02-FL", "expires": 2020-12-31 }, { "idnr": "001-09-02-SZ", "expires": 2020-12-31 }],
+  "coldwatermeters": [{ "idnr": "1425007-BA", "expires": 2020-12-31 }],
+  "warmwatermeters": [{ "idnr": "4133075-BA", "expires": 2020-12-31 }],
+  "heatcostallocators": [{ "idnr": "44318710-WO", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44318734-BA", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44318741-SZ", "expires": 2020-12-31, "factor": 0 }, { "idnr": "44318727-KU", "expires": 2020-12-31, "factor": 0 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
   "landtax_eur": 0
