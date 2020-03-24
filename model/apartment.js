@@ -89,7 +89,7 @@ sample_apartment_4_vier_zimmer = {
   "smokedetectors": [{ "idnr": "001-01-04-FL", "expires": 2020-12-31 }, { "idnr": "001-01-04-SM", "expires": 2020-12-31 }, { "idnr": "001-01-04-SK", "expires": 2020-12-31 }, { "idnr": "001-01-04-SG", "expires": 2020-12-31 }],
   "coldwatermeters": [{ "idnr": "4169109-BA", "expires": 2020-12-31 }, { "idnr": "7278931-KU", "expires": 2020-12-31 }],
   "warmwatermeters": [{ "idnr": "4133141-BA", "expires": 2020-12-31 }, { "idnr": "525624842-KU", "expires": 2020-12-31 }],
-  "heatcostallocators": [{ "idnr": "44322748-WO", "expires": 2020-12-31, "factor": 1.575 }, { "idnr": "4322793-BA", "expires": 2020-12-31, "factor": 0.875 }, { "idnr": "603023628-SM", "expires": 2020-12-31, "factor": 0.875 }, { "idnr": "44322762-SK", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "44322755-KU", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "44322786-WC", "expires": 2020-12-31, "factor": 0.45 }],
+  "heatcostallocators": [{ "idnr": "44322748-WO", "expires": 2020-12-31, "factor": 1.575 }, { "idnr": "44322786-BA", "expires": 2020-12-31, "factor": 0.45 }, { "idnr": "603023628-SM", "expires": 2020-12-31, "factor": 0.875 }, { "idnr": "44322762-SK", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "44322755-KU", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "4322793-SG", "expires": 2020-12-31, "factor": 0.875 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
   "landtax_eur": 0
