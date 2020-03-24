@@ -1,6 +1,6 @@
 // consumption.js
 //
-// mongo data model definition for heizkosten consumption data inclunding meter readings
+// mongo data model definition for heizkosten consumption data inclunding meter readings 
 //
 // Copyright 2020 by Jeremy Tammik.
 
@@ -9,7 +9,7 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 /*
-id_energieverbrauchserfassung
+id_energieverbrauchserfassung anlesedaten
   verbrauchswerte von hkv heizkostenverteiler nummer
     anzahl einheiten
   wasseruhren kalt (koennen mehrere sein)

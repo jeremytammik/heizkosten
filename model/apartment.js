@@ -96,4 +96,8 @@ sample_apartment_4_vier_zimmer = {
 };
 
 four_sample_apartments = [
-  ]
+  sample_apartment_1_zwei_zimmer,
+  sample_apartment_2_drei_zimmer_klein,
+  sample_apartment_3_drei_zimmer_gross,
+  sample_apartment_4_vier_zimmer];
+
