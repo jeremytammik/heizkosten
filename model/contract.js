@@ -28,6 +28,10 @@ var contractSchema = new Schema({
     date: Date,
     amount: Number,
     account: { type: String, enum: enum_occupant_accounts } }],
+  heatcostallocatorreadings: [{ number:String, date:Date, amount:Number }],
+  coldwatermeters: [{ number:String, date:Date, amount:Number }],
+  hotwatermeters: [{ number:String, date:Date, amount:Number }],
+  smokedetector_maintenance_count: Number
 });
 
 mongoose.model( 'contract', contractSchema );
