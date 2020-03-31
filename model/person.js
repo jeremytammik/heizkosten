@@ -19,7 +19,7 @@ var personSchema = new Schema({
   email: String,
   iban: String,
   telephone: String,
-  anrede: String,
+  salutation: String,
   street: String,
   streetnr: String,
   zip: String,
