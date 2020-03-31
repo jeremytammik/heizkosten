@@ -21,6 +21,8 @@ id_wohnung
     verwaltergebuehr
     grundsteuer
   zimmerkuerzel: BA bad, FL flur, KU kueche, SK, SM, SG schlaf klein, mittel und gross
+  nebenkosten_anteil_schluessel is more or less the total unit living area divided by the apartment area m2
+
 */
 
 var apartmentSchema = new Schema({
@@ -34,7 +36,8 @@ var apartmentSchema = new Schema({
   heatcostallocators: [{ idnr: String, expires: Date, factor: Number }],
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
-  landtax_eur: Number
+  landtax_eur: Number,
+  nebenkosten_anteil_schluessel: Number 
 });
 
 mongoose.model( 'apartment', apartmentSchema );
@@ -50,7 +53,8 @@ sample_apartment_1_zwei_zimmer = {
   "heatcostallocators": [{ "idnr": "44318710-WO", "expires": 2020-12-31, "factor": 1.15 }, { "idnr": "44318734-BA", "expires": 2020-12-31, "factor": 0.325 }, { "idnr": "44318741-SM", "expires": 2020-12-31, "factor": 0.9 }, { "idnr": "44318727-KU", "expires": 2020-12-31, "factor": 0.375 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
-  "landtax_eur": 0
+  "landtax_eur": 0,
+  "nebenkosten_anteil_schluessel": 0.0082
 };
 
 sample_apartment_2_drei_zimmer_klein = {
@@ -64,7 +68,8 @@ sample_apartment_2_drei_zimmer_klein = {
   "heatcostallocators": [{ "idnr": "44333607-WO", "expires": 2020-12-31, "factor": 1.35 }, { "idnr": "44333614-BA", "expires": 2020-12-31, "factor": 0.3 }, { "idnr": "44333621-SM", "expires": 2020-12-31, "factor": 0.875 }, { "idnr": "44333638-SK", "expires": 2020-12-31, "factor": 0.575 }, { "idnr": "44333843-KU", "expires": 2020-12-31, "factor": 0.575 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
-  "landtax_eur": 0
+  "landtax_eur": 0,
+  "nebenkosten_anteil_schluessel": 0.0108
 };
 
 sample_apartment_3_drei_zimmer_gross = {
@@ -78,7 +83,8 @@ sample_apartment_3_drei_zimmer_gross = {
   "heatcostallocators": [{ "idnr": "44322335-WO", "expires": 2020-12-31, "factor": 1.35 }, { "idnr": "443323257-BA", "expires": 2020-12-31, "factor": 0.375 }, { "idnr": "44323240-SM", "expires": 2020-12-31, "factor": 0.975 }, { "idnr": "443323233-SK", "expires": 2020-12-31, "factor": 0.675 }, { "idnr": "44322328-KU", "expires": 2020-12-31, "factor": 0.575 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
-  "landtax_eur": 0
+  "landtax_eur": 0,
+  "nebenkosten_anteil_schluessel": 0.0110
 };
 
 sample_apartment_4_vier_zimmer = {
@@ -92,7 +98,8 @@ sample_apartment_4_vier_zimmer = {
   "heatcostallocators": [{ "idnr": "44322748-WO", "expires": 2020-12-31, "factor": 1.575 }, { "idnr": "44322786-BA", "expires": 2020-12-31, "factor": 0.45 }, { "idnr": "603023628-SM", "expires": 2020-12-31, "factor": 0.875 }, { "idnr": "44322762-SK", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "44322755-KU", "expires": 2020-12-31, "factor": 0.525 }, { "idnr": "4322793-SG", "expires": 2020-12-31, "factor": 0.875 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
-  "landtax_eur": 0
+  "landtax_eur": 0,
+  "nebenkosten_anteil_schluessel": 0.0133
 };
 
 four_sample_apartments = [
