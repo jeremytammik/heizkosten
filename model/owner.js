@@ -26,11 +26,7 @@ const enum_owner_accounts = [
 
 var ownerSchema = new Schema({
   owner_id: String,
-  firstname: String,
-  lastname: String,
-  email: String,
-  iban: String,
-  telephone: String,
+  person_id: ObjectId,
   purchasedate: Date,
   payments: [{
     date: Date,

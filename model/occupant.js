@@ -30,15 +30,8 @@ const enum_occupant_accounts = [
 
 var occupantSchema = new Schema({
   occupant_id: String,
-  firstname: String,
-  lastname: String,
-  birthdate: Date,
-  firstname2: String,
-  lastname2: String,
-  birthdate2: Date,
-  email: String,
-  iban: String,
-  telephone: String,
+  person1_id: ObjectId,
+  person2_id: ObjectId,
   payments: [{
     date: Date,
     amount: Number,
