@@ -22,7 +22,6 @@ id_wohnung
     grundsteuer
   zimmerkuerzel: BA bad, FL flur, KU kueche, SK, SM, SG schlaf klein, mittel und gross
   nebenkosten_anteil_schluessel is more or less the total unit living area divided by the apartment area m2
-
 */
 
 var apartmentSchema = new Schema({
@@ -72,7 +71,7 @@ sample_apartment_2_drei_zimmer_klein = {
   "nebenkosten_anteil_schluessel": 0.0108
 };
 
-sample_apartment_3_drei_zimmer_gross = {
+sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019 = {
   "apartment_id": "001-14-05",
   "owner_id": ObjectId,
   "area_m2": 88.95,
@@ -81,6 +80,21 @@ sample_apartment_3_drei_zimmer_gross = {
   "coldwatermeters": [{ "idnr": "4007049-BA", "expires": 2020-12-31 }, { "idnr": "52440355-KU", "expires": 2020-12-31 }],
   "warmwatermeters": [{ "idnr": "4133058-BA", "expires": 2020-12-31 }, { "idnr": "604465496-KU", "expires": 2020-12-31 }],
   "heatcostallocators": [{ "idnr": "44322335-WO", "expires": 2020-12-31, "factor": 1.35 }, { "idnr": "443323257-BA", "expires": 2020-12-31, "factor": 0.375 }, { "idnr": "44323240-SM", "expires": 2020-12-31, "factor": 0.975 }, { "idnr": "443323233-SK", "expires": 2020-12-31, "factor": 0.675 }, { "idnr": "44322328-KU", "expires": 2020-12-31, "factor": 0.575 }],
+  "management_cost_eur": 0,
+  "heating_electrity_cost_eur": 0,
+  "landtax_eur": 0,
+  "nebenkosten_anteil_schluessel": 0.0110
+};
+
+sample_apartment_3_drei_zimmer_gross = {
+  "apartment_id": "001-12-06",
+  "owner_id": ObjectId,
+  "area_m2": 88.95,
+  "room_count": 3,
+  "smokedetectors": [{ "idnr": "001-12-06-FL", "expires": 2020-12-31 }, { "idnr": "001-12-06-SM", "expires": 2020-12-31 }, { "idnr": "001-12-06-SK", "expires": 2020-12-31 }],
+  "coldwatermeters": [{ "idnr": "4168990-BA", "expires": 2020-12-31 }, { "idnr": "604465465-KU", "expires": 2020-12-31 }],
+  "warmwatermeters": [{ "idnr": "4133078-BA", "expires": 2020-12-31 }, { "idnr": "424236221-KU", "expires": 2020-12-31 }],
+  "heatcostallocators": [{ "idnr": "44322311-WO", "expires": 2020-12-31, "factor": 1.35 }, { "idnr": "551540802-BA", "expires": 2020-12-31, "factor": 0.4 }, { "idnr": "44318239-SM", "expires": 2020-12-31, "factor": 0.975 }, { "idnr": "44318222-SK", "expires": 2020-12-31, "factor": 0.575 }, { "idnr": "44318215-KU", "expires": 2020-12-31, "factor": 0.475 }],
   "management_cost_eur": 0,
   "heating_electrity_cost_eur": 0,
   "landtax_eur": 0,
