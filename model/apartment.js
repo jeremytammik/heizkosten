@@ -27,6 +27,7 @@ id_wohnung
 var apartmentSchema = new Schema({
   apartment_id: String,
   owner_id: ObjectId,
+  grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
   smokedetectors: [{ idnr: String, expires: Date }],
@@ -44,6 +45,7 @@ mongoose.model( 'apartment', apartmentSchema );
 sample_apartment_1_zwei_zimmer = {
   "apartment_id": "001-09-02",
   "owner_id": ObjectId,
+  "grundbuchnr": "grundbuchnr_001-09-02",
   "area_m2": 66.80,
   "room_count": 2,
   "smokedetectors": [{ "idnr": "001-09-02-FL", "expires": 2020-12-31 }, { "idnr": "001-09-02-SM", "expires": 2020-12-31 }],
@@ -59,6 +61,7 @@ sample_apartment_1_zwei_zimmer = {
 sample_apartment_2_drei_zimmer_klein = {
   "apartment_id": "001-05-03",
   "owner_id": ObjectId,
+  "grundbuchnr": "grundbuchnr_001-05-03",
   "area_m2": 86.49,
   "room_count": 3,
   "smokedetectors": [{ "idnr": "001-05-03-FL", "expires": 2020-12-31 }, { "idnr": "001-05-03-SM", "expires": 2020-12-31 }, { "idnr": "001-05-03-SK", "expires": 2020-12-31 }],
@@ -74,6 +77,7 @@ sample_apartment_2_drei_zimmer_klein = {
 sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019 = {
   "apartment_id": "001-14-05",
   "owner_id": ObjectId,
+  "grundbuchnr": "grundbuchnr_001-14-05",
   "area_m2": 88.95,
   "room_count": 3,
   "smokedetectors": [{ "idnr": "001-14-05-FL", "expires": 2020-12-31 }, { "idnr": "001-14-05-SM", "expires": 2020-12-31 }, { "idnr": "001-14-05-SK", "expires": 2020-12-31 }],
@@ -89,6 +93,7 @@ sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019 = {
 sample_apartment_3_drei_zimmer_gross = {
   "apartment_id": "001-12-06",
   "owner_id": ObjectId,
+  "grundbuchnr": "grundbuchnr_001-12-06",
   "area_m2": 88.95,
   "room_count": 3,
   "smokedetectors": [{ "idnr": "001-12-06-FL", "expires": 2020-12-31 }, { "idnr": "001-12-06-SM", "expires": 2020-12-31 }, { "idnr": "001-12-06-SK", "expires": 2020-12-31 }],
@@ -104,6 +109,7 @@ sample_apartment_3_drei_zimmer_gross = {
 sample_apartment_4_vier_zimmer = {
   "apartment_id": "001-01-04",
   "owner_id": ObjectId,
+  "grundbuchnr": "grundbuchnr_001-01-04",
   "area_m2": 107.32,
   "room_count": 4,
   "smokedetectors": [{ "idnr": "001-01-04-FL", "expires": 2020-12-31 }, { "idnr": "001-01-04-SM", "expires": 2020-12-31 }, { "idnr": "001-01-04-SK", "expires": 2020-12-31 }, { "idnr": "001-01-04-SG", "expires": 2020-12-31 }],
