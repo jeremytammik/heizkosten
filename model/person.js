@@ -8,9 +8,9 @@ var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
 
-const enum_person_role = [
-  'occupant',
-  'owner' ];
+//const enum_person_role_not_used = [
+//  'occupant',
+//  'owner' ];
 
 var personSchema = new Schema({
   person_id: String,
