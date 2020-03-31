@@ -1,0 +1,41 @@
+// owner.js
+//
+// mongo data model definition for an apartment owner
+//
+// Copyright 2020 by Jeremy Tammik.
+
+var mongoose = require( 'mongoose' );
+
+var Schema = mongoose.Schema;
+
+/*
+id_owner
+  name
+  vorname
+  verbindliche email
+  verbindliche iban
+  telefon
+  kaufdatum
+  liste einzahlungen 
+*/
+
+const enum_owner_accounts = [
+  'hausgeld',
+  'energiekosten',
+  'ruecklagen' ];
+
+var ownerSchema = new Schema({
+  owner_id: String,
+  firstname: String,
+  lastname: String,
+  email: String,
+  iban: String,
+  telephone: String,
+  purchasedate: Date,
+  payments: [{
+    date: Date,
+    amount: Number,
+    account: { type: String, enum: enum_owner_accounts } }],
+});
+
+mongoose.model( 'owner', ownerSchema );
