@@ -22,5 +22,8 @@
   "keywords": [
     "node",
     "mongoose"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^25.2.7"
+  }
 }
