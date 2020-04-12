@@ -42,6 +42,7 @@ var apartmentSchema = new Schema({
 
 mongoose.model( 'apartment', apartmentSchema );
 
+/*
 sample_apartment_1_zwei_zimmer = {
   "apartment_id": "001-09-02",
   "owner_id": ObjectId,
@@ -128,3 +129,4 @@ four_sample_apartments = [
   sample_apartment_3_drei_zimmer_gross,
   sample_apartment_4_vier_zimmer];
 
+*/
