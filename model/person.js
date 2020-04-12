@@ -29,6 +29,7 @@ var personSchema = new Schema({
 
 mongoose.model( 'person', personSchema );
 
+/*
 sample_person_data = [
 
   {"person_id": "", "firstname": "horst", "lastname": "weidenmüller", "email": "h@k7.com", "iban": "DEXXX", "telephone": "+49 30 24724842", "salutation": "herr", "street": "friesenstr.", "streetnr": "15c", "zip": "10965", "city": "10965 berlin", "country": "deutschland"},
@@ -50,3 +51,4 @@ sample_person_data = [
   {"person_id": "", "firstname": "fabio", "lastname": "krüger", "email": "fabio.l.krueger@gmail.com", "iban": "DE30 6835 0048 0101 3240 93", "telephone": "+49 162 2693617‬", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
 ];
+*/
