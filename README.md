@@ -17,8 +17,6 @@ Jeremy Tammik, [The Building Coder](http://thebuildingcoder.typepad.com), [ADN](
 
 ## License
 
-This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+(C) Copyright 2020 Jeremy Tammik. All rights reserved.
+
 Please see the [LICENSE](LICENSE) file for full details.
-
-
-Copyright 2020 by Jeremy Tammik.
