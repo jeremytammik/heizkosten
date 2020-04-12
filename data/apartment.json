@@ -1,5 +1,5 @@
-[
-  {
+{
+  "001-09-02": {
     "_comment" : "sample_apartment_1_zwei_zimmer",
     "apartment_id": "001-09-02",
     "owner_id": "requires_ObjectId",
@@ -15,7 +15,7 @@
     "landtax_eur": 0,
     "nebenkosten_anteil_schluessel": 0.0082
   },
-  {
+  "001-05-03": {
     "_comment" : "sample_apartment_2_drei_zimmer_klein",
     "apartment_id": "001-05-03",
     "owner_id": "requires_ObjectId",
@@ -31,7 +31,7 @@
     "landtax_eur": 0,
     "nebenkosten_anteil_schluessel": 0.0108
   },
-  {
+  "001-14-05": {
     "_comment" : "sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019",
     "apartment_id": "001-14-05",
     "owner_id": "requires_ObjectId",
@@ -47,7 +47,7 @@
     "landtax_eur": 0,
     "nebenkosten_anteil_schluessel": 0.0110
   },
-  {
+  "001-12-06": {
     "_comment" : "sample_apartment_4_drei_zimmer_gross",
     "apartment_id": "001-12-06",
     "owner_id": "requires_ObjectId",
@@ -63,7 +63,7 @@
     "landtax_eur": 0,
     "nebenkosten_anteil_schluessel": 0.0110
   },
-  {
+  "001-01-04": {
     "_comment" :   "sample_apartment_5_vier_zimmer",
     "apartment_id": "001-01-04",
     "owner_id": "requires_ObjectId",
@@ -79,4 +79,4 @@
     "landtax_eur": 0,
     "nebenkosten_anteil_schluessel": 0.0133
   }
-]
+}
