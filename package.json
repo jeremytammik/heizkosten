@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "node.js mongodb web server for heizkosten",
   "main": "server.js",
-  "license": "none",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/jeremytammik/heizkosten"
