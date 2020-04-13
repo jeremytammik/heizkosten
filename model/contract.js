@@ -27,7 +27,7 @@ var contractSchema = new Schema({
   payments: [{
     date: Date,
     amount: Number,
-    account: { type: String, enum: enum_occupant_accounts } }],
+    account: { type: String, enum: enum_contract_accounts } }],
   heatcostallocatorreadings: [{ number:String, date:Date, amount:Number }],
   coldwatermeters: [{ number:String, date:Date, amount:Number }],
   hotwatermeters: [{ number:String, date:Date, amount:Number }],
