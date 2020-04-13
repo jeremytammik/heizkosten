@@ -13,3 +13,10 @@ test('number of days in year', () => {
   var d = util.date_diff_days( begin, end );
   expect(d).toBe(365);
 });
+
+test('number of days in leap year', () => {
+  var begin = new Date(2019, 11, 31);
+  var end = new Date(2020, 11, 31);
+  var d = util.date_diff_days( begin, end );
+  expect(d).toBe(366);
+});
