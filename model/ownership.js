@@ -1,6 +1,6 @@
-// owner.js
+// ownership.js
 //
-// mongo data model definition for an apartment owner, mainly payment
+// mongo data model definition for apartment ownership
 //
 // Copyright 2020 by Jeremy Tammik.
 
@@ -10,11 +10,7 @@ var Schema = mongoose.Schema;
 
 /*
 id_owner
-  name
-  vorname
-  verbindliche email
-  verbindliche iban
-  telefon
+  besitzer
   kaufdatum
   liste einzahlungen 
 */
