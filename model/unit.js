@@ -85,7 +85,8 @@ const enum_unit_accounts = [
   'wartungsarbeiten',
   'versicherungen',
   'reinigungskosten',
-  'grundsteuer' ];
+  //'grundsteuer' // not part of the unit, separate for each owner
+];
 
 
 var unitSchema = new Schema({
@@ -101,7 +102,7 @@ var unitSchema = new Schema({
   splitting_factor: Number,
   hausgeld_eur: Number,
   nebenkosten_eur: Number,
-  invoices: [{
+  payments: [{
     date: Date,
     amount: Number,
     account: { type: String, enum: enum_unit_accounts } }],
