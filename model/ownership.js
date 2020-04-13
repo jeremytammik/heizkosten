@@ -18,7 +18,10 @@ id_owner
 const enum_owner_accounts = [
   'hausgeld',
   'energiekosten',
-  'ruecklagen' ];
+  'ruecklagen',
+  'grundsteuer', // not part of the unit, separate for each owner
+  'hausgeld_umlagefaehig'
+];
 
 var ownerSchema = new Schema({
   owner_id: String,
