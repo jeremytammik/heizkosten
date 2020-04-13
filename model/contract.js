@@ -31,7 +31,8 @@ var contractSchema = new Schema({
   heatcostallocatorreadings: [{ number:String, date:Date, amount:Number }],
   coldwatermeters: [{ number:String, date:Date, amount:Number }],
   hotwatermeters: [{ number:String, date:Date, amount:Number }],
-  smokedetector_maintenance_count: Number
+  smokedetector_maintenance_count: Number,
+  smokedetector_maintenance_cost_eur: Number // constant defined by owner per detector replaced
 });
 
 mongoose.model( 'contract', contractSchema );
