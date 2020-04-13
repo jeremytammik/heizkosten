@@ -9,21 +9,28 @@
  output: einzelabrechnung
 */
 
-function nkabrechnung(
+function Nkabrechnung(
   unit,
   contract,
-  energy_cost_for_this_contract_in_eur )
+  energy_cost_eur )
 {
-  var einzelabrechnung;
+  // always initialize all instance properties
+  this.unit = unit;
+  this.contract = contract;
+  this.energy_cost_eur = energy_cost_eur;
   
-  vorauszahlungen
-  rueckbehalt
-  hauskosten_umlagefaehig
-  energiekosten
-  grundsteuer
-  rauchmelderwartung
-  
-  return einzelabrechnung;
+  this.vorauszahlungen = 
+  this.rueckbehalt = 
+  this.hauskosten_umlagefaehig = 
+  this.energiekosten = 
+  this.grundsteuer = 
+  this.rauchmelderwartung = 
 }
 
-module.exports = nkabrechnung;
+// class methods
+Nkabrechnung.prototype.fooBar = function() {
+
+};
+
+// export the class
+module.exports = Nkabrechnung;
