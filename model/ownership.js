@@ -1,6 +1,6 @@
 // owner.js
 //
-// mongo data model definition for an apartment owner
+// mongo data model definition for an apartment owner, mainly payment
 //
 // Copyright 2020 by Jeremy Tammik.
 
