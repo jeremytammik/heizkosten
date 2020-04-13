@@ -22,4 +22,8 @@ function date_units_diff(a, b, unit_amounts) {
 //document.write("In difference: 0 days, 1 hours, 2 minutes.".replace(
 //   /0|1|2/g, function (x) {return String( d[Number(x)] );} ));
 
-exports.date_units_diff = date_units_diff;
+function date_diff_days(a, b) {
+  return date_units_diff(a,b)[0];
+}
+
+exports.date_diff_days = date_diff_days;
