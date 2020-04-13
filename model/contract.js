@@ -12,7 +12,9 @@ const enum_contract_accounts = [
   'apartment_rental',
   'other_rental',
   'nebenkosten',
-  'deposit' ];
+  'deposit',
+  'nkrueckbehalt'
+];
 
 var contractSchema = new Schema({
   contract_id: String,
