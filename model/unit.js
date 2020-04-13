@@ -76,7 +76,7 @@ const enum_unit_accounts = [
 
   'reparaturen',
   'anschaffungen',
-  'verwalterkosten',
+  //'verwalterkosten', // moved to ownership
   'reparaturruecklage',
 
   // nebenkostern NK

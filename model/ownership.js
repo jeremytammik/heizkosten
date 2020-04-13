@@ -20,7 +20,8 @@ const enum_owner_accounts = [
   'energiekosten',
   'ruecklagen',
   'grundsteuer', // not part of the unit, separate for each owner
-  'hausgeld_umlagefaehig'
+  'hausgeld_umlagefaehig',
+  'verwalterkosten' // moved from unit to ownership  
 ];
 
 var ownerSchema = new Schema({
