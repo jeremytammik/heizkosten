@@ -12,6 +12,8 @@
  output: einzelabrechnung
 */
 
+const loaddata = require('./loaddata');
+
 function Nkabrechnung(
   unit,
   contract,
@@ -22,18 +24,22 @@ function Nkabrechnung(
   this.contract = contract;
   this.energy_cost_eur = energy_cost_eur;
   
+  var apartment = loaddata.apartments[contract.apartment];
+  
+  var contract_duration = 1.0; // whole year
+  
+  
   this.vorauszahlungen = 
   this.rueckbehalt = 
   this.hauskosten_umlagefaehig = 
   this.energiekosten = 
   this.grundsteuer = 
   this.rauchmelderwartung = 
-}
+};
 
 // class methods
 Nkabrechnung.prototype.fooBar = function() {
 
 };
 
-// export the class
 module.exports = Nkabrechnung;
