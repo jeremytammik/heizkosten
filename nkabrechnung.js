@@ -13,6 +13,7 @@
 */
 
 const loaddata = require('./loaddata');
+const util = require('./util');
 
 function Nkabrechnung(
   unit,
@@ -27,7 +28,8 @@ function Nkabrechnung(
   var apartment = loaddata.apartments[contract.apartment];
   
   var contract_duration = 1.0; // whole year
-  
+
+  // if begin or end are not whole year, use util.date_diff_days
   
   this.vorauszahlungen = 
   this.rueckbehalt = 
