@@ -32,6 +32,7 @@ function Nkabrechnung(
   var begin = Date(year-1, 11, 31);
   var end =  Date(year, 11, 31);
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
+  var days = days_in_year;
   
   if((contract.end < begin) || (contract.begin > end))
   {
@@ -46,10 +47,9 @@ function Nkabrechnung(
     }
     days = util.date_diff_days( begin, end );
   }
+  
   var contract_duration = days_in_year / days;
   
-  // if begin or end are not whole year, use util.date_diff_days
-
   var apartment = loaddata.apartments[contract.apartment];
   
   
