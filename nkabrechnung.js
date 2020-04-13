@@ -3,6 +3,9 @@
 // algorithm implementing nebenkostenabrechnung for each contract
 //
 // Copyright 2020 by Jeremy Tammik.
+//
+// Following advice from http://book.mixu.net/node/ch6.html
+//
 
 /*
  input: unit, contract, energy_cost_for_this_contract_in_eur
