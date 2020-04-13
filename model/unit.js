@@ -77,7 +77,7 @@ const enum_unit_accounts = [
   'reparaturen',
   'anschaffungen',
   'verwalterkosten',
-  'reparaturrücklage',
+  'reparaturruecklage',
 
   // nebenkostern NK
 
@@ -85,7 +85,7 @@ const enum_unit_accounts = [
   'wartungsarbeiten',
   'versicherungen',
   'reinigungskosten',
-  'rundsteuer' ];
+  'grundsteuer' ];
 
 
 var unitSchema = new Schema({
