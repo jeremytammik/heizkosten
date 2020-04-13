@@ -1,19 +1,19 @@
 {
-  "horst_weidenmüller": {"person_id": "", "firstname": "horst", "lastname": "weidenmüller", "email": "h@k7.com", "iban": "DEXXX", "telephone": "+49 30 24724842", "salutation": "herr", "street": "friesenstr.", "streetnr": "15c", "zip": "10965", "city": "10965 berlin", "country": "deutschland"},
+  "horst_weidenmueller": {"person_id": "", "firstname": "horst", "lastname": "weidenmüller", "email": "h@k7.com", "iban": "DEXXX", "telephone": "+49 30 24724842", "salutation": "herr", "street": "friesenstr.", "streetnr": "15c", "zip": "10965", "city": "10965 berlin", "country": "deutschland"},
 
-  "weidenmüller gmbh": {"person_id": "", "firstname": "", "lastname": "weidenmüller gmbh", "email": "ml.weidenmüller@t-online.de", "iban": "DE30 6805 2230 0000 013136", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
+  "weidenmüller_gmbh": {"person_id": "", "firstname": "", "lastname": "weidenmüller gmbh", "email": "ml.weidenmüller@t-online.de", "iban": "DE30 6805 2230 0000 013136", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
 
-  "zebra gbr": {"person_id": "", "firstname": "", "lastname": "zebra gbr", "email": "ml.weidenmüller@t-online.de", "iban": "DE82 6805 2230 0000 0080 29", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
+  "zebra_gbr": {"person_id": "", "firstname": "", "lastname": "zebra gbr", "email": "ml.weidenmüller@t-online.de", "iban": "DE82 6805 2230 0000 0080 29", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
 
-  "otto_fröhlich": {"person_id": "", "firstname": "otto", "lastname": "fröhlich", "email": "of@ofd.ch", "iban": "DE82 6835 0048 0001 018076", "telephone": "+49 7621 18364", "salutation": "herr", "street": "adlergässchen", "streetnr": "3", "zip": "79539", "city": "79539 lörrach", "country": "deutschland"},
+  "otto_froehlich": {"person_id": "", "firstname": "otto", "lastname": "fröhlich", "email": "of@ofd.ch", "iban": "DE82 6835 0048 0001 018076", "telephone": "+49 7621 18364", "salutation": "herr", "street": "adlergässchen", "streetnr": "3", "zip": "79539", "city": "79539 lörrach", "country": "deutschland"},
 
   "mandy_schmidt": {"person_id": "", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "+49 7623 3478274", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
-  "herbert_bräuning": {"person_id": "", "firstname": "herbert", "lastname": "bräuning", "email": "????@gmx.de", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 176 81794825‬", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
+  "herbert_braeuning": {"person_id": "", "firstname": "herbert", "lastname": "bräuning", "email": "????@gmx.de", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 176 81794825‬", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
   "alexander_kem": {"person_id": "", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
   "sabine_diesslin": {"person_id": "", "firstname": "sabine", "lastname": "diesslin", "email": "sabineundlucky@gmail.com", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 7623 3090301‬", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
-  "fabio_krüger": {"person_id": "", "firstname": "fabio", "lastname": "krüger", "email": "fabio.l.krueger@gmail.com", "iban": "DE30 6835 0048 0101 3240 93", "telephone": "+49 162 2693617‬", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"}
+  "fabio_krueger": {"person_id": "", "firstname": "fabio", "lastname": "krüger", "email": "fabio.l.krueger@gmail.com", "iban": "DE30 6835 0048 0101 3240 93", "telephone": "+49 162 2693617‬", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"}
 }
