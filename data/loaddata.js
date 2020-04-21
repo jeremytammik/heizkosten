@@ -1,7 +1,8 @@
 var fs = require('fs');
-var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
+var units = JSON.parse(fs.readFileSync('data/unit.json', 'utf8'));
 var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
 var apartments = JSON.parse(fs.readFileSync('data/apartment.json', 'utf8'));
 
+exports.units = units;
 exports.persons = persons;
 exports.apartments = apartments;
