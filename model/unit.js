@@ -11,6 +11,8 @@ var Schema = mongoose.Schema;
 /*
 id_objekt
   energieerfassung
+    anschrift: location
+    verwalter - manager
     gesamt qm
     gesamt anzahl wohnungen
     splitting kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
@@ -101,6 +103,8 @@ const enum_unit_accounts = [
 
 var unitSchema = new Schema({
   unit_id: String,
+  address: String,
+  manager: ObjectId,
   area_m2: Number,
   apt_count: Number,
   splitting_factor: Number,

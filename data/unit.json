@@ -1,6 +1,9 @@
 {
   "001": {
-    "unit_id": "001", 
+    "unit_id": "001",
+    "anschrift": "fecampring 28\n79618 rheinfelden\ndeutschland",
+    "verwalter": "scheuermann_hv",
+    
     "area_m2": Number,
     "apt_count": Number,
   
