@@ -56,11 +56,10 @@ function Nkabrechnung(
   
   this.vorauszahlungen = // get contract payments with account 'nebenkosten'
   this.rueckbehalt =  // get contract payments with account 'nkrueckbehalt'
-  this.hauskosten_umlagefaehig = // retrieve hauskosten and apply umlage factor * contract_duration; is umlagefactor = apartment.nebenkosten_anteil_schluessel?
+  this.hauskosten_umlagefaehig = //retrieve unit.hauskosten and apply umlage factor * contract_duration; is umlagefactor = apartment.nebenkosten_anteil_schluessel?
   this.energiekosten = 
   this.grundsteuer = apartment.landtax_eur * contract_duration;
-  this.rauchmelderwartung = // contract.smokedetector_maintenance_count * contract.smokedetector_maintenance_cost_eur?
-
+  this.rauchmelderwartung = contract.smokedetector_maintenance_count * contract.smokedetector_maintenance_cost_eur * contract_duration;
 };
 
 // class methods
