@@ -4,12 +4,12 @@
     "anschrift": "fecampring 28\n79618 rheinfelden\ndeutschland",
     "verwalter": "scheuermann_hv",
     
-    "area_m2": Number,
-    "apt_count": Number,
+    "area_m2": 8061.92,
+    "apt_count": 96,
   
-    "splitting_factor": Number,
-    "hausgeld_eur": Number, 
-    "hausgeld_umlagefaehig_eur": Number,
+    "splitting_factor_m2": 0.3,
+    "hausgeld_eur": 70000, 
+    "hausgeld_umlagefaehig_eur": 60000,
   
     "fuel_consumption_kwh": 1009969,
     "fuel_consumption_eur": 41817.31,

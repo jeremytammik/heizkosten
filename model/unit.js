@@ -15,7 +15,7 @@ id_objekt
     verwalter - manager
     gesamt qm
     gesamt anzahl wohnungen
-    splitting kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
+    anteil qm am splitting kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g., 0.3 means 70% cost is for measured consumption, 30% for square metres
     hausgeld (zahlt eigentuemer)
     hausgeld umlagefaehig (zahlt mieter)
     gesamtkosten heizung kaltwasser warmwasser HKW (5 posten):
@@ -107,7 +107,7 @@ var unitSchema = new Schema({
   manager: ObjectId,
   area_m2: Number,
   apt_count: Number,
-  splitting_factor: Number,
+  splitting_factor_m2: Number, 
   hausgeld_eur: Number, // zahlen eigentuemer
   hausgeld_umlagefaehig_eur: Number, // zahlen mieter
 
