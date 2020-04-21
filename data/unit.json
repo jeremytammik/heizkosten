@@ -1,33 +1,34 @@
 {
   "001": {
-    "unit_id": "001", }
-  "area_m2": Number,
-  "apt_count": Number,
-
-  "splitting_factor": Number,
-  "hausgeld_eur": Number, 
-  "hausgeld_umlagefaehig_eur": Number,
-
-  "fuel_consumption_kwh": 1009969,
-  "fuel_consumption_eur": 41817.31,
-
-  "heating_nk_consumption_allocation_eur": Number,
-  "heating_nk_maintenance_eur": Number,
-  "heating_nk_electrity_eur": Number,
-  "heating_nk_chimneysweep_eur": Number,
-
-  "heating_zk_heizgeraete_eur": Number,
-
-  "hotwater_zk_eur": Number,
-
-  "house_nk_coldwater_m3": Number,
-  "house_nk_coldwater_eur": Number,
-  "house_nk_coldwater_equipment_eur": Number,
-  "house_nk_coldwater_allocation_fee_eur": Number,
-  "house_nk_coldwater_sonderkoster_eur": Number,
+    "unit_id": "001", 
+    "area_m2": Number,
+    "apt_count": Number,
   
-  "payments": [{
-    "date": Date,
-    "amount": Number,
-    "account: { type: String, enum": enum_unit_accounts } }],
+    "splitting_factor": Number,
+    "hausgeld_eur": Number, 
+    "hausgeld_umlagefaehig_eur": Number,
+  
+    "fuel_consumption_kwh": 1009969,
+    "fuel_consumption_eur": 41817.31,
+  
+    "heating_nk_consumption_allocation_eur": Number,
+    "heating_nk_maintenance_eur": Number,
+    "heating_nk_electrity_eur": Number,
+    "heating_nk_chimneysweep_eur": Number,
+  
+    "heating_zk_heizgeraete_eur": Number,
+  
+    "hotwater_zk_eur": Number,
+  
+    "house_nk_coldwater_m3": Number,
+    "house_nk_coldwater_eur": Number,
+    "house_nk_coldwater_equipment_eur": Number,
+    "house_nk_coldwater_allocation_fee_eur": Number,
+    "house_nk_coldwater_sonderkoster_eur": Number,
+    
+    "payments": [{
+      "date": Date,
+      "amount": Number,
+      "account: { type: String, enum": enum_unit_accounts } }]
+  }
 }
