@@ -30,8 +30,8 @@
     "house_nk_coldwater_sonderkoster_eur": 3381.37,
     
     "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account: { type: String, enum": enum_unit_accounts } }]
+      "date": "2019-04-21",
+      "amount": 5,
+      "account": "reparaturruecklage" }]
   }
 }
