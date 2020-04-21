@@ -13,16 +13,26 @@ id_objekt
   energieerfassung
     gesamt qm
     gesamt anzahl wohnungen
-    gesamt energie joule kwh
-    verbrauch brennstoff material euro oel gas
-    verbrauch wasser
-    kosten energieerfassung heizanlage verteilung
-    kosten wartung heizanlage
-    kosten strom heizanlage
     splitting kostenschlüssel aufteilung energiekosten zwischen qm der wohnung und einheiten am heizkörper, e.g. 50 / 50 siehe in punkt 6 "Aufteilung der Heizkosten". or 70 / 30, etc.
-  andere rechnungen
-    hausgeld
-    nebenkosten
+    hausgeld (zahlt eigentuemer)
+    hausgeld umlagefaehig (zahlt mieter)
+    gesamtkosten heizung kaltwasser warmwasser HKW (5 posten):
+      brennstoff - fuel:
+        verbrauch brennstoff material: oel gas usw, kwh
+        verbrauch brennstoff euro: kosten
+      heiznebenkosten:
+        kosten energie verbrauchserfassung zur verteilung
+        kosten wartung heizanlage
+        kosten strom heizanlage
+        kosten kaminfeger
+      heizzusatzkosten - kosten heizgeraete
+      zusatzkosten warmwasser
+      hausnebenkosten (eigentlich kaltwasseraufbereitung und entsorgung) (5 positionen):
+        verbrauch kaltwasser + abwasser kubikmeter sowie euro
+        kaltwasseraufbereitung, z.b. entkalkung
+        kaltwassergeraete
+        abrechnung hausnebenkosten
+        sonderkosten nutzer
 
 drei abrechnungstoepfe:
 einmal im jahr die energiekostenverteilung berechnen
@@ -93,15 +103,30 @@ var unitSchema = new Schema({
   unit_id: String,
   area_m2: Number,
   apt_count: Number,
-  energy_consumption_kwh: Number,
-  fuel_consumption_eur: Number,
-  water_consumption_l: Number,
-  heating_consumption_allocation_cost_eur: Number,
-  heating_maintenance_cost_eur: Number,
-  heating_electrity_cost_eur: Number,
   splitting_factor: Number,
-  hausgeld_eur: Number,
-  nebenkosten_eur: Number,
+  hausgeld_eur: Number, // zahlen eigentuemer
+  hausgeld_umlagefaehig_eur: Number, // zahlen mieter
+
+  // gesamtkosten heizung kaltwasser warmwasser HKW (5 items):
+  // 1. brennstoff - fuel
+  fuel_consumption_kwh: Number,
+  fuel_consumption_eur: Number,
+  // 2. heiznebenkosten
+  heating_nk_consumption_allocation_eur: Number,
+  heating_nk_maintenance_eur: Number,
+  heating_nk_electrity_eur: Number,
+  heating_nk_chimneysweep_eur: Number,
+  // 3. heizzusatzkosten - kosten heizgeraete
+  heating_zk_heizgeraete_eur: Number,
+  // 4. zusatzkosten warmwasser
+  hotwater_zk_eur: Number,
+  // 5. hausnebenkosten (kaltwasseraufbereitung und entsorgung) enthaelt u.a. (5 positionen):
+  house_nk_coldwater_m3: Number,
+  house_nk_coldwater_eur: Number,
+  house_nk_coldwater_equipment_eur: Number,
+  house_nk_coldwater_allocation_fee_eur: Number,
+  house_nk_coldwater_sonderkoster_eur: Number,
+  
   payments: [{
     date: Date,
     amount: Number,
