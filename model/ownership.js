@@ -24,7 +24,7 @@ const enum_owner_accounts = [
   'verwalterkosten' // moved from unit to ownership  
 ];
 
-var ownerSchema = new Schema({
+var ownershipSchema = new Schema({
   owner_id: String,
   person_id: ObjectId,
   purchasedate: Date,
@@ -34,5 +34,5 @@ var ownerSchema = new Schema({
     account: { type: String, enum: enum_owner_accounts } }],
 });
 
-mongoose.model( 'owner', ownerSchema );
+mongoose.model( 'ownership', ownershipSchema );
 
