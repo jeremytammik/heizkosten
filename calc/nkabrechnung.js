@@ -18,7 +18,7 @@ const util = require('./util');
 function Nkabrechnung(
   unit,
   contract,
-  year,
+  year, // todo, possibly: support flexible begin and end date
   energy_cost_eur )
 {
   // always initialize all instance properties
@@ -29,8 +29,9 @@ function Nkabrechnung(
 
   // Determine contract duration in given year span
   
-  var begin = Date(year-1, 11, 31);
-  var end =  Date(year, 11, 31);
+  //var begin = Date(year-1, 11, 31);
+  //var end =  Date(year, 11, 31);
+  
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
   var days = days_in_year;
   
