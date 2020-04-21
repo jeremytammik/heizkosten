@@ -60,7 +60,7 @@ function Nkabrechnung(
   this.energiekosten = 
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = contract.smokedetector_maintenance_count * contract.smokedetector_maintenance_cost_eur * contract_duration;
-};
+}
 
 // class methods
 Nkabrechnung.prototype.fooBar = function() {
