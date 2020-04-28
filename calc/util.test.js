@@ -20,3 +20,11 @@ test('number of days in leap year', () => {
   var d = util.date_diff_days( begin, end );
   expect(d).toBe(366);
 });
+
+test('JSON parse date reviver', () => {
+  const text = '{ "date": "2016-04-26" }';
+  const obj = JSON.parse(text, util.json_parse_date_reviver);
+  expect(obj.date.getFullYear()).toBe(2016);
+  expect(obj.date.getMonth()).toBe(3);
+  expect(obj.date.getDate()).toBe(26);
+});
