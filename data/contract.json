@@ -40,13 +40,13 @@
   "001-05-03-01": {
     "contract_id": "001-05-03-01",
     "apartment": "001-05-32",
-    "occupants": ["sabine_diesslin"],
-    "begin": "2019-04-01",
+    "occupants": ["esref_esbah"],
+    "begin": "2013-05-01",
     "end": null
-    "apartment_rent_eur": [{ "begin": "2019-04-01", "amount": 478 }],
-    "other_rent_eur": [],
-    "nebenkosten_eur": [{ "begin": "2019-04-01", "amount": 95.82 }],
-    "deposit_eur": 1050,
+    "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 713 }],
+    "other_rent_eur": [{ "begin": "2018-01-01", "amount": 12 }],
+    "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 318 }],
+    "deposit_eur": 1300,
     "payments": [{
       "date": Date,
       "amount": Number,
