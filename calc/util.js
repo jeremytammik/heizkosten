@@ -7,10 +7,12 @@ function date_units_diff(a, b, unit_amounts) {
         for (i = 0; i < unit_amounts.length; i++) {
             time_data.push(parseInt(time_data[i] / unit_amounts[i]));
             time_data[i] = time_data[i] % unit_amounts[i];
-        }; return time_data.reverse();
-    }; if (unit_amounts == undefined) {
-        unit_amounts = [1000, 60, 60, 24];
+        }
+        return time_data.reverse();
     };
+    if (unit_amounts == undefined) {
+        unit_amounts = [1000, 60, 60, 24];
+    }
     var utc_a = new Date(a.toUTCString());
     var utc_b = new Date(b.toUTCString());
     var diff = (utc_b - utc_a);
@@ -36,6 +38,9 @@ function json_parse_date_reviver(key, value) {
   }
   return value;
 }
+
+// https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
+// https://github.com/RickStrahl/json.date-extensions
 
 exports.date_diff_days = date_diff_days;
 exports.json_parse_date_reviver = json_parse_date_reviver;
