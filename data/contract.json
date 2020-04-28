@@ -3,12 +3,12 @@
     "contract_id": "001-09-02-2018",
     "apartment": "001-09-02",
     "occupants": ["erich_klimaczewski"],
-    "begin": Date,
-    "end": Date,
-    "apartment_rent_eur": Number,
-    "other_rent_eur": Number,
-    "nebenkosten_eur": Number,
-    "deposit_eur": Number,
+    "begin": "2002-07-01",
+    "end": "2019-03-31",
+    "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 478 }, { "begin": "2019-01-01", "amount": 500 }],
+    "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50 }],
+    "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 95.82 }],
+    "deposit_eur": 1050,
     "payments": [{
       "date": Date,
       "amount": Number,
@@ -17,6 +17,6 @@
     "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
     "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
     "smokedetector_maintenance_count": Number,
-    "smokedetector_maintenance_cost_eur": Number // constant defined by owner per detector replaced
+    "smokedetector_maintenance_cost_eur": Number
   }
 }
