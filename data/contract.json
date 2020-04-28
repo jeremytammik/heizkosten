@@ -23,7 +23,7 @@
     "apartment": "001-09-02",
     "occupants": ["sabine_diesslin"],
     "begin": "2019-04-01",
-    "end": null
+    "end": null,
     "apartment_rent_eur": [{ "begin": "2019-04-01", "amount": 478 }],
     "other_rent_eur": [],
     "nebenkosten_eur": [{ "begin": "2019-04-01", "amount": 95.82 }],
@@ -65,7 +65,7 @@
     "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 698],
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 60}],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 142],
-    "deposit_eur": 1300
+    "deposit_eur": 1300,
     "payments": [{
       "date": Date,
       "amount": Number,
@@ -84,7 +84,7 @@
     "apartment_rent_eur": [{ "begin": "2018-02-01", "amount": 626],
     "other_rent_eur": [{ "begin": "2018-02-01", "amount": 0}],
     "nebenkosten_eur": [{ "begin": "2018-02-01", "amount": 134],
-    "deposit_eur": 1300
+    "deposit_eur": 1300,
     "payments": [{
       "date": Date,
       "amount": Number,
@@ -103,7 +103,7 @@
     "apartment_rent_eur": [{ "begin": "2017-01-01", "amount": 626],
     "other_rent_eur": [{ "begin": "2017-01-01", "amount": 0}],
     "nebenkosten_eur": [{ "begin": "2017-01-01", "amount": 134],
-    "deposit_eur": 1300
+    "deposit_eur": 1300,
     "payments": [{
       "date": Date,
       "amount": Number,
@@ -122,7 +122,7 @@
     "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 752],
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50}],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 184],
-    "deposit_eur": 1600
+    "deposit_eur": 1600,
     "payments": [{
       "date": Date,
       "amount": Number,
