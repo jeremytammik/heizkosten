@@ -1,8 +1,8 @@
 {
-  "001": {
-    "contract_id": String,
-    "apartment": ObjectId,
-    "occupants": [ObjectId],
+  "001-09-02-2018": {
+    "contract_id": "001-09-02-2018",
+    "apartment": "001-09-02",
+    "occupants": ["erich_klimaczewski"],
     "begin": Date,
     "end": Date,
     "apartment_rent_eur": Number,
