@@ -6,8 +6,8 @@ test('loaded five apartments', () => {
   expect(Object.keys(loaddata.apartments).length).toBe(5);
 });
 
-test('loaded 10 persons', () => {
-  expect(Object.keys(loaddata.persons).length).toBe(10);
+test('loaded N persons', () => {
+  expect(Object.keys(loaddata.persons).length).toBe(12);
 });
 
 test('apartment has valid owner', () => {
