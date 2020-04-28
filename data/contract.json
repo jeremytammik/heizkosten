@@ -75,4 +75,23 @@
     "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
     "smokedetector_maintenance_cost_eur": 5
   },
+  "001-12-06-2018": {
+    "contract_id": "001-12-06-2018",
+    "apartment": "001-12-06",
+    "occupants": ["herbert_braeuning"],
+    "begin": "2018-02-01",
+    "end": "2019-12-31",
+    "apartment_rent_eur": [{ "begin": "2018-02-01", "amount": 626],
+    "other_rent_eur": [{ "begin": "2018-02-01", "amount": 0}],
+    "nebenkosten_eur": [{ "begin": "2018-02-01", "amount": 134],
+    "deposit_eur": 1300
+    "payments": [{
+      "date": Date,
+      "amount": Number,
+      "account": { "type": String, "enum": enum_contract_accounts } }],
+    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
+    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "smokedetector_maintenance_cost_eur": 5
+  },
 }
