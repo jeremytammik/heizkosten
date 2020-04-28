@@ -18,4 +18,23 @@
     "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
     "smokedetector_maintenance_cost_eur": 5
   }
+  "001-09-02-01": {
+    "contract_id": "001-09-02-01",
+    "apartment": "001-09-02",
+    "occupants": ["sabine_diesslin"],
+    "begin": "2019-04-01",
+    "end": null
+    "apartment_rent_eur": [{ "begin": "2019-04-01", "amount": 478 }],
+    "other_rent_eur": [],
+    "nebenkosten_eur": [{ "begin": "2019-04-01", "amount": 95.82 }],
+    "deposit_eur": 1050,
+    "payments": [{
+      "date": Date,
+      "amount": Number,
+      "account": { "type": String, "enum": enum_contract_accounts } }],
+    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
+    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "smokedetector_maintenance_cost_eur": 5
+  }
 }
