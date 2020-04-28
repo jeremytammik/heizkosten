@@ -22,9 +22,9 @@ var contractSchema = new Schema({
   occupants: [ObjectId],
   begin: Date,
   end: Date,
-  apartment_rent_eur: Number,
-  other_rent_eur: Number,
-  nebenkosten_eur: Number,
+  apartment_rent_eur: [{begin: Date, amount: Number}],
+  other_rent_eur: [{begin: Date, amount: Number}],
+  nebenkosten_eur: [{begin: Date, amount: Number}],
   deposit_eur: Number,
   payments: [{
     date: Date,
