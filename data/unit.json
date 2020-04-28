@@ -8,30 +8,35 @@
     "apt_count": 96,
   
     "splitting_factor_m2": 0.3,
-    "hausgeld_eur": 70000, 
-    "hausgeld_umlagefaehig_eur": 60000,
-  
-    "fuel_consumption_kwh": 1009969,
-    "fuel_consumption_eur": 41817.31,
-  
-    "heating_nk_consumption_allocation_eur": 4500.63,
-    "heating_nk_maintenance_eur": 3748.5,
-    "heating_nk_electrity_eur": 1254.51,
-    "heating_nk_chimneysweep_eur": 103.41,
-  
-    "heating_zk_heizgeraete_eur": 1454.43,
-  
-    "hotwater_zk_eur": 2166.31,
-  
-    "house_nk_coldwater_m3": 6640.46,
-    "house_nk_coldwater_eur": 20034.54,
-    "house_nk_coldwater_equipment_eur": 2886.18,
-    "house_nk_coldwater_allocation_fee_eur": 806.34,
-    "house_nk_coldwater_sonderkoster_eur": 3381.37,
     
-    "payments": [{
-      "date": "2019-04-21",
-      "amount": 5,
-      "account": "reparaturruecklage" }]
+    "yearly_data" : {
+      "2018" : {
+        "hausgeld_eur": 128062.01, 
+        "hausgeld_umlagefaehig_eur": 63843.46,
+      
+        "fuel_consumption_kwh": 1009969,
+        "fuel_consumption_eur": 41817.31,
+      
+        "heating_nk_consumption_allocation_eur": 4500.63,
+        "heating_nk_maintenance_eur": 3748.5,
+        "heating_nk_electrity_eur": 1254.51,
+        "heating_nk_chimneysweep_eur": 103.41,
+      
+        "heating_zk_heizgeraete_eur": 1454.43,
+      
+        "hotwater_zk_eur": 2166.31,
+      
+        "house_nk_coldwater_m3": 6640.46,
+        "house_nk_coldwater_eur": 20034.54,
+        "house_nk_coldwater_equipment_eur": 2886.18,
+        "house_nk_coldwater_allocation_fee_eur": 806.34,
+        "house_nk_coldwater_sonderkoster_eur": 3381.37,
+        
+        "payments": [{
+          "date": "2019-04-21",
+          "amount": 5,
+          "account": "reparaturruecklage" }]
+      }
+    }
   }
 }
