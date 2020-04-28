@@ -42,7 +42,7 @@
     "apartment": "001-05-03",
     "occupants": ["esref_esbah"],
     "begin": "2013-05-01",
-    "end": null
+    "end": null,
     "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 713 }],
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 12 }],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 318 }],
@@ -56,16 +56,16 @@
     "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
     "smokedetector_maintenance_cost_eur": 5
   },
-  "001-14-05-01": {
-    "contract_id": "001-14-05-01",
+  "001-14-05-2018": {
+    "contract_id": "001-14-05-2018",
     "apartment": "001-14-05",
-    "occupants": [""],
-    "begin": "2013-05-01",
-    "end": null
-    "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 713 }],
-    "other_rent_eur": [{ "begin": "2018-01-01", "amount": 12 }],
-    "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 318 }],
-    "deposit_eur": 1300,
+    "occupants": ["fabio_krueger"],
+    "begin": "2014-12-01",
+    "end": "2020-04-30",
+    "apartment_rent_eur": [{ "begin": "2018-01-01", "amount": 698],
+    "other_rent_eur": [{ "begin": "2018-01-01", "amount": 60}],
+    "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 142],
+    "deposit_eur": 1300
     "payments": [{
       "date": Date,
       "amount": Number,
