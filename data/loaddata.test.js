@@ -49,3 +49,23 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
     expect(end_is_null_or_later_than_begin).toBeTruthy();
   }  
 });
+
+test('apartment has valid active contract', () => {
+  var map_apt_to_contract = {};
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    // check that contract is currently active:
+    var test_date_time = new Date("2018-07-14").getTime();
+    if(value.begin.getTime() <= test_date_time
+       && ((null == value.end)
+           || (test_date_time <= value.end.getTime()))) {
+      var apt = value.apartment;
+      if(!(apt in map_apt_to_contract)) {
+        map_apt_to_contract[apt] = [];
+      }
+      map_apt_to_contract[apt].push(value);
+    }
+  }
+  var apartment_keys = Object.keys(loaddata.apartments);
+  var map_keys = Object.keys(map_apt_to_contract);
+  apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
+});
