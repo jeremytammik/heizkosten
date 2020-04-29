@@ -2,6 +2,14 @@
 
 const loaddata = require('./loaddata');
 
+test('JSON parse date reviver', () => {
+  const text = '{ "date": "2016-04-26" }';
+  const obj = JSON.parse(text, loaddata.json_parse_date_reviver);
+  expect(obj.date.getFullYear()).toBe(2016);
+  expect(obj.date.getMonth()).toBe(3);
+  expect(obj.date.getDate()).toBe(26);
+});
+
 test('loaded five apartments', () => {
   expect(Object.keys(loaddata.apartments).length).toBe(5);
 });
