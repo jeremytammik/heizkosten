@@ -42,5 +42,10 @@ test('contract has valid begin date, apartment and occupants', () => {
     expect(apartment_keys).toContain( value.apartment );
     value.occupants.forEach( (p) => { expect(person_keys).toContain( p ); } );
     expect(value.begin).toBeInstanceOf(Date);
+    var end_is_null_or_later_than_begin = (null === value.end)
+      ? true
+      : (value.begin.getTime() < value.end.getTime());
+    //expect(value.begin.getTime()).toBeLessThan(value.end.getTime());
+    expect(end_is_null_or_later_than_begin).toBeTruthy();
   }  
 });

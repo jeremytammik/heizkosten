@@ -20,7 +20,7 @@
     "apartment": "001-09-02",
     "occupants": ["sabine_diesslin"],
     "begin": "2019-04-01",
-    "end": "",
+    "end": null,
     "apartment_rent_eur": [{ "begin": "2019-04-01", "amount": 614 }],
     "other_rent_eur": [],
     "nebenkosten_eur": [{ "begin": "2019-04-01", "amount": 116 }],
