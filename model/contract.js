@@ -38,3 +38,15 @@ var contractSchema = new Schema({
 });
 
 mongoose.model( 'contract', contractSchema );
+
+/*
+sample data:
+
+    "payments": [{
+      "date": Date,
+      "amount": Number,
+      "account": { "type": String, "enum": enum_contract_accounts } }],
+    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
+    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+*/

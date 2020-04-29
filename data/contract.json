@@ -9,13 +9,10 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50 }],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 173 }],
     "deposit_eur": 1050,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-09-02-01": {
@@ -28,13 +25,10 @@
     "other_rent_eur": [],
     "nebenkosten_eur": [{ "begin": "2019-04-01", "amount": 116 }],
     "deposit_eur": 1050,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-05-03-01": {
@@ -47,13 +41,10 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 12 }],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 318 }],
     "deposit_eur": 1300,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-14-05-2018": {
@@ -66,13 +57,10 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 60}],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 142],
     "deposit_eur": 1300,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-12-06-2018": {
@@ -85,13 +73,10 @@
     "other_rent_eur": [{ "begin": "2018-02-01", "amount": 0}],
     "nebenkosten_eur": [{ "begin": "2018-02-01", "amount": 134],
     "deposit_eur": 1300,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-12-06-2017": {
@@ -104,13 +89,10 @@
     "other_rent_eur": [{ "begin": "2017-01-01", "amount": 0}],
     "nebenkosten_eur": [{ "begin": "2017-01-01", "amount": 212.70}],
     "deposit_eur": 1300,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-01-04-2018": {
@@ -123,13 +105,10 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50}],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 184],
     "deposit_eur": 1600,
-    "payments": [{
-      "date": Date,
-      "amount": Number,
-      "account": { "type": String, "enum": enum_contract_accounts } }],
-    "heatcostallocatorreadings": [{ "number":String, "date":Date, "amount":Number }],
-    "coldwatermeters": [{ "number":String, "date":Date, "amount":Number }],
-    "hotwatermeters": [{ "number":String, "date":Date, "amount":Number }],
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
 }
