@@ -34,7 +34,7 @@ test('unit has valid manager', () => {
   }  
 });
 
-test('contract has valid begin date, apartment and occupants', () => {
+test('contract has valid apartment, occupants, begin date, and later end', () => {
   var apartment_keys = Object.keys(loaddata.apartments);
   var person_keys = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.contracts)) {
