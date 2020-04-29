@@ -25,3 +25,13 @@ test('unit has valid manager', () => {
     expect(owners).toContain( value.manager );
   }  
 });
+
+test('contract has valid start date, apartment and occupants', () => {
+  var apartment_keys = Object.keys(loaddata.apartment);
+  var person_keys = Object.keys(loaddata.persons);
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    expect(key).toBe( value.contract_id );
+    expect(apartment_keys).toContain( value.apartment );
+    value.occupants.forEach( (p) => { expect(person_keys).toContain( p ); } );
+  }  
+});
