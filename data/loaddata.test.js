@@ -72,9 +72,16 @@ test('apartment has valid active contract', () => {
 
 test('each contracts meter numbers match its apartments ones', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    var apt = value.apartment;
+    var apt = loaddata.apartments[value.apartment];
     var a = Object.keys(apt.coldwatermeters);
     var b = Object.keys(value.coldwatermeters);
-    expect(a.length === b.length && a.every(function(value, index) { return value === b[index]})).toBeTruthy();
+    expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    var a = Object.keys(apt.hotwatermeters);
+    var b = Object.keys(value.hotwatermeters);
+    expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    //var a = Object.keys(apt.heatcostallocators);
+    //console.log(a);
+    //var b = Object.keys(value.heatcostallocatorreadings);
+    //expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
   }
 });
