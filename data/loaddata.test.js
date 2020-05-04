@@ -15,7 +15,7 @@ test('loaded five apartments', () => {
 });
 
 test('loaded N persons', () => {
-  expect(Object.keys(loaddata.persons).length).toBe(12);
+  expect(Object.keys(loaddata.persons).length).toBe(13);
 });
 
 test('apartment has valid owner', () => {
