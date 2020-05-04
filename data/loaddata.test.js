@@ -69,3 +69,13 @@ test('apartment has valid active contract', () => {
   var map_keys = Object.keys(map_apt_to_contract);
   apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
 });
+
+test('each contract has meter readings for all apartment meters', () => {
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    var apt = value.apartment;
+    
+  }
+  var apartment_keys = Object.keys(loaddata.apartments);
+  var map_keys = Object.keys(map_apt_to_contract);
+  apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
+});
