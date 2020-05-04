@@ -47,12 +47,12 @@
       {"date": "2018-11-03", "amount": 173, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 173, "account": "nebenkosten"}
     ],
-    "heatcostallocatorreadings": [
-      { "number":"44318710-WO", "date":"2018-12-31", "amount":3067 },
-      { "number":"44318734-BA", "date":"2018-12-31", "amount":742 },
-      { "number":"44318741-SM", "date":"2018-12-31", "amount":1238 },
-      { "number":"44318727-KU", "date":"2018-12-31", "amount":1 }
-    ],
+    "heatcostallocatorreadings": {
+      "44318710-WO": [{"date":"2018-12-31", "amount":3067 }],
+      "44318734-BA": [{"date":"2018-12-31", "amount":742 }],
+      "44318741-SM": [{"date":"2018-12-31", "amount":1238 }],
+      "44318727-KU": [{"date":"2018-12-31", "amount":1 }]
+    },
     "coldwatermeters": {
       "1425007-BA": [
         { "date":"2017-12-31", "amount":88.08 },
@@ -129,13 +129,13 @@
       {"date": "2018-11-03", "amount": 318, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 318, "account": "nebenkosten"}
     ],
-    "heatcostallocatorreadings": [
-      { "number":"44333607-WO", "date":"2018-12-31", "amount":88 },
-      { "number":"44333614-BA", "date":"2018-12-31", "amount":9 },
-      { "number":"44333621-SM", "date":"2018-12-31", "amount":516 },
-      { "number":"44333638-SK", "date":"2018-12-31", "amount":185 },
-      { "number":"44333843-KU", "date":"2018-12-31", "amount":73 }
-    ],
+    "heatcostallocatorreadings": {
+      "44333607-WO": [{"date":"2018-12-31", "amount":88 }],
+      "44333614-BA": [{"date":"2018-12-31", "amount":9 }],
+      "44333621-SM": [{"date":"2018-12-31", "amount":516 }],
+      "44333638-SK": [{"date":"2018-12-31", "amount":185 }],
+      "44333843-KU": [{"date":"2018-12-31", "amount":73 }]
+    },
     "coldwatermeters": {
       "4169100-BA": [
         {"date":"2017-12-31", "amount":134.79 },
@@ -202,13 +202,13 @@
       {"date": "2018-11-03", "amount": 142, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 142, "account": "nebenkosten"}
     ],    
-    "heatcostallocatorreadings": [
-      { "number":"44322335-WO", "date":"2018-12-31", "amount":502 },
-      { "number":"443323257-BA", "date":"2018-12-31", "amount":0 },
-      { "number":"44323240-SM", "date":"2018-12-31", "amount":910 },
-      { "number":"443323233-SK", "date":"2018-12-31", "amount":89 },
-      { "number":"44322328-KU", "date":"2018-12-31", "amount":0 }
-    ],
+    "heatcostallocatorreadings": {
+      "44322335-WO": [{"date":"2018-12-31", "amount":502 }],
+      "443323257-BA": [{"date":"2018-12-31", "amount":0 }],
+      "44323240-SM": [{"date":"2018-12-31", "amount":910 }],
+      "443323233-SK": [{"date":"2018-12-31", "amount":89 }],
+      "44322328-KU": [{"date":"2018-12-31", "amount":0 }]
+    },
     "coldwatermeters": {
       "4007049-BA": [
         {"date":"2017-12-31", "amount":85.95 },
@@ -242,13 +242,13 @@
       {"date": "2018-01-03", "amount": 637.30, "account": "apartment_rental"},
       {"date": "2018-01-03", "amount": 212.70, "account": "nebenkosten"}
     ],
-    "heatcostallocatorreadings": [
-      { "number":"44322311-WO", "date":"2018-01-31", "amount":209 },
-      { "number":"551540802-BA", "date":"2018-01-31", "amount":0 },
-      { "number":"44318239-SM", "date":"2018-01-31", "amount":214 },
-      { "number":"44318222-SK", "date":"2018-01-31", "amount":177 },
-      { "number":"44318215-KU", "date":"2018-01-31", "amount":5 }
-    ],
+    "heatcostallocatorreadings": {
+      "44322311-WO": [{"date":"2018-01-31", "amount":209 }],
+      "551540802-BA": [{"date":"2018-01-31", "amount":0 }],
+      "44318239-SM": [{"date":"2018-01-31", "amount":214 }],
+      "44318222-SK": [{"date":"2018-01-31", "amount":177 }],
+      "44318215-KU": [{"date":"2018-01-31", "amount":5 }]
+    },
     "coldwatermeters": {
       "4168990-BA": [
         {"date":"2017-12-31", "amount":86.81 },
@@ -302,13 +302,13 @@
       {"date": "2018-11-03", "amount": 134, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 134, "account": "nebenkosten"}
     ],
-    "heatcostallocatorreadings": [
-      { "number":"44322311-WO", "date":"2018-12-31", "amount":1351 },
-      { "number":"551540802-BA", "date":"2018-12-31", "amount":4 },
-      { "number":"44318239-SM", "date":"2018-12-31", "amount":1764 },
-      { "number":"44318222-SK", "date":"2018-12-31", "amount":310 },
-      { "number":"44318215-KU", "date":"2018-12-31", "amount":887 }
-    ],
+    "heatcostallocatorreadings": {
+      "44322311-WO": [{"date":"2018-12-31", "amount":1351 }],
+      "551540802-BA": [{"date":"2018-12-31", "amount":4 }],
+      "44318239-SM": [{"date":"2018-12-31", "amount":1764 }],
+      "44318222-SK": [{"date":"2018-12-31", "amount":310 }],
+      "44318215-KU": [{"date":"2018-12-31", "amount":887 }]
+    },
     "coldwatermeters": {
       "4168990-BA": [{"date":"2018-12-31", "amount":128.66 }],
       "604465465-KU": [{"date":"2018-12-31", "amount":38.75 }]
@@ -367,14 +367,14 @@
       {"date": "2018-11-03", "amount": 184, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 184, "account": "nebenkosten"}
     ],
-    "heatcostallocatorreadings": [
-      { "number":"44322748-WO", "date":"2018-12-31", "amount":471 },
-      { "number":"44322786-BA", "date":"2018-12-31", "amount":7 },
-      { "number":"603023628-SM", "date":"2018-12-31", "amount":914 },
-      { "number":"44322762-SK", "date":"2018-12-31", "amount":300 },
-      { "number":"44322755-KU", "date":"2018-12-31", "amount":7 },
-      { "number":"4322793-SG", "date":"2018-12-31", "amount":196 }
-    ],
+    "heatcostallocatorreadings": {
+      "44322748-WO": [{"date":"2018-12-31", "amount":471 }],
+      "44322786-BA": [{"date":"2018-12-31", "amount":7 }],
+      "603023628-SM": [{"date":"2018-12-31", "amount":914 }],
+      "44322762-SK": [{"date":"2018-12-31", "amount":300 }],
+      "44322755-KU": [{"date":"2018-12-31", "amount":7 }],
+      "4322793-SG": [{"date":"2018-12-31", "amount":196 }]
+    },
     "coldwatermeters": {
       "4169109-BA": [
         {"date":"2017-12-31", "amount":114.47 },

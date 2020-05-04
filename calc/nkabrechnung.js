@@ -53,7 +53,6 @@ function Nkabrechnung(
   
   var apartment = loaddata.apartments[contract.apartment];
   
-  
   this.vorauszahlungen = // get contract payments with account 'nebenkosten'
   this.rueckbehalt =  // get contract payments with account 'nkrueckbehalt'
   this.hauskosten_umlagefaehig = //retrieve unit.hauskosten and apply umlage factor * contract_duration; is umlagefactor = apartment.nebenkosten_anteil_schluessel?
