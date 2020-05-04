@@ -20,6 +20,7 @@ var contractSchema = new Schema({
   contract_id: String,
   apartment: ObjectId,
   occupants: [ObjectId],
+  address_alt: ObjectId, // alternative address, e.g., after giving notice
   begin: Date,
   end: Date,
   apartment_rent_eur: [{begin: Date, amount: Number}],

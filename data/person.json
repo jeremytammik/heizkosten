@@ -13,6 +13,8 @@
 
   "mandy_schmidt": {"person_id": "", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "+49 7623 3478274", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
+  "mandy_schmidt_2": {"person_id": "", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "", "salutation": "frau", "street": "neuhausstr.", "streetnr": "37", "zip": "79800", "city": "neustadt", "country": "deutschland"},
+
   "otto_froehlich": {"person_id": "", "firstname": "otto", "lastname": "fröhlich", "email": "of@ofd.ch", "iban": "DE82 6835 0048 0001 018076", "telephone": "+49 7621 18364", "salutation": "herr", "street": "adlergässchen", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland"},
 
   "sabine_diesslin": {"person_id": "", "firstname": "sabine", "lastname": "diesslin", "email": "sabineundlucky@gmail.com", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 7623 3090301‬", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},

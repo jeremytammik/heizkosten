@@ -83,6 +83,7 @@
     "contract_id": "001-12-06-2017",
     "apartment": "001-12-06",
     "occupants": ["mandy_schmidt"],
+    "address_alt": "mandy_schmidt_2",
     "begin": "2013-09-01",
     "end": "2018-01-31",
     "apartment_rent_eur": [{ "begin": "2017-01-01", "amount": 637.30}],
