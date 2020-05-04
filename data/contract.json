@@ -190,10 +190,31 @@
     "other_rent_eur": [{ "begin": "2017-01-01", "amount": 0}],
     "nebenkosten_eur": [{ "begin": "2017-01-01", "amount": 212.70}],
     "deposit_eur": 1300,
-    "payments": [],
-    "heatcostallocatorreadings": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
+    "payments": [
+      {"date": "2018-01-03", "amount": 637.30, "account": "apartment_rental"},
+      {"date": "2018-01-03", "amount": 212.70, "account": "nebenkosten"}
+    ],
+    "heatcostallocatorreadings": [
+      { "number":"44322311-WO", "date":"2018-01-31", "amount":209 },
+      { "number":"551540802-BA", "date":"2018-01-31", "amount":0 },
+      { "number":"44318239-SM", "date":"2018-01-31", "amount":214 },
+      { "number":"44318222-SK", "date":"2018-01-31", "amount":177 },
+      { "number":"44318215-KU", "date":"2018-01-31", "amount":5 }
+    ],
+    "coldwatermeters": {
+      "4168990-BA": [
+        {"date":"2017-12-31", "amount":86.81 },
+        {"date":"2018-01-31", "amount":88.60 }],
+      "604465465-KU": [
+        {"date":"2017-12-31", "amount":27.64 },
+        {"date":"2018-01-31", "amount":28.43 }]},
+    "hotwatermeters": {
+      "4133078-BA": [
+        {"date":"2017-12-31", "amount":54.53 },
+        {"date":"2018-01-31", "amount":55.49 }],
+      "424236221-KU": [
+        {"date":"2017-12-31", "amount":3.92 },
+        {"date":"2018-01-31", "amount":4.02 }]},
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-01-04-2018": {
