@@ -70,12 +70,11 @@ test('apartment has valid active contract', () => {
   apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
 });
 
-test('each contract has meter readings for all apartment meters', () => {
+test('each contracts meter numbers match its apartments ones', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     var apt = value.apartment;
-    
+    var a = Object.keys(apt.coldwatermeters);
+    var b = Object.keys(value.coldwatermeters);
+    expect(a.length === b.length && a.every(function(value, index) { return value === b[index]})).toBeTruthy();
   }
-  var apartment_keys = Object.keys(loaddata.apartments);
-  var map_keys = Object.keys(map_apt_to_contract);
-  apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
 });
