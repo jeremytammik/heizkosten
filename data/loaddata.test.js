@@ -79,9 +79,8 @@ test('each contracts meter numbers match its apartments ones', () => {
     var a = Object.keys(apt.hotwatermeters);
     var b = Object.keys(value.hotwatermeters);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
-    //var a = Object.keys(apt.heatcostallocators);
-    //console.log(a);
-    //var b = Object.keys(value.heatcostallocatorreadings);
-    //expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    var a = Object.keys(apt.heatcostallocators);
+    var b = Object.keys(value.heatcostallocatorreadings);
+    expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
   }
 });
