@@ -204,7 +204,7 @@
     ],    
     "heatcostallocatorreadings": [
       { "number":"44322335-WO", "date":"2018-12-31", "amount":502 },
-      { "number":"443323257-BA", "date":"2018-12-31", "amount": },
+      { "number":"443323257-BA", "date":"2018-12-31", "amount":0 },
       { "number":"44323240-SM", "date":"2018-12-31", "amount":910 },
       { "number":"443323233-SK", "date":"2018-12-31", "amount":89 },
       { "number":"44322328-KU", "date":"2018-12-31", "amount":0 }
