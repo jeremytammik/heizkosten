@@ -9,10 +9,18 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50 }],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 173 }],
     "deposit_eur": 1050,
-    "payments": [],
-    "heatcostallocatorreadings": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
+    
+    "payments": [{
+      "date": Date,
+      "amount": Number,
+      "account": { "type": String, "enum": enum_contract_accounts } }],
+    "heatcostallocatorreadings": [
+      { "number":"44318710-WO", "date":"2018-12-31", "amount":3067 },
+      { "number":"44318734-BA", "date":"2018-12-31", "amount":742 },
+      { "number":"44318741-SM", "date":"2018-12-31", "amount":1238 },
+      { "number":"44318727-KU", "date":"2018-12-31", "amount":1 }],
+    "coldwatermeters": [{ "number":"1425007-BA", "date":"2018-12-31", "amount":32.75 }],
+    "hotwatermeters": [{ "number":"4133075-BA", "date":"2018-12-31", "amount":13.66 }],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-09-02-01": {
