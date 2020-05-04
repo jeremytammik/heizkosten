@@ -51,8 +51,12 @@
       { "number":"44318734-BA", "date":"2018-12-31", "amount":742 },
       { "number":"44318741-SM", "date":"2018-12-31", "amount":1238 },
       { "number":"44318727-KU", "date":"2018-12-31", "amount":1 }],
-    "coldwatermeters": [{ "number":"1425007-BA", "date":"2018-12-31", "amount":32.75 }],
-    "hotwatermeters": [{ "number":"4133075-BA", "date":"2018-12-31", "amount":13.66 }],
+    "coldwatermeters": [
+      { "number":"1425007-BA", "date":"2017-12-31", "amount":88.08 },
+      { "number":"1425007-BA", "date":"2018-12-31", "amount":120.83 }],
+    "hotwatermeters": [
+      { "number":"4133075-BA", "date":"2017-12-31", "amount":26.81 },
+      { "number":"4133075-BA", "date":"2018-12-31", "amount":40.47 }],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-09-02-01": {
@@ -119,9 +123,23 @@
       {"date": "2018-10-03", "amount": 318, "account": "nebenkosten"},
       {"date": "2018-11-03", "amount": 318, "account": "nebenkosten"},
       {"date": "2018-12-03", "amount": 318, "account": "nebenkosten"}],    
-    "heatcostallocatorreadings": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
+    "heatcostallocatorreadings": [
+      { "number":"44333607-WO", "date":"2018-12-31", "amount":88 },
+      { "number":"44333614-BA", "date":"2018-12-31", "amount":9 },
+      { "number":"44333621-SM", "date":"2018-12-31", "amount":516 },
+      { "number":"44333638-SK", "date":"2018-12-31", "amount":185 },
+      { "number":"44333843-KU", "date":"2018-12-31", "amount":73 },
+      ],
+    "coldwatermeters": [
+      { "number":"4169100-BA", "date":"2017-12-31", "amount":134.79 },
+      { "number":"4169100-BA", "date":"2018-12-31", "amount":202.18 },
+      { "number":"524401116-KU", "date":"2017-12-31", "amount":54.45 }
+      { "number":"524401116-KU", "date":"2018-12-31", "amount":77.86 }],
+    "hotwatermeters": [
+      { "number":"4133127-BA", "date":"2017-12-31", "amount":47.86 },
+      { "number":"4133127-BA", "date":"2018-12-31", "amount":66.17 },
+      { "number":"525625030-KU", "date":"2017-12-31", "amount":41.44 },
+      { "number":"525625030-KU", "date":"2018-12-31", "amount":47.25 }],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-14-05-2018": {
