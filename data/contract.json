@@ -206,10 +206,66 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 50}],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 184}],
     "deposit_eur": 1600,
-    "payments": [],
-    "heatcostallocatorreadings": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
+    "payments": [
+      {"date": "2018-01-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-02-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-03-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-04-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-05-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-06-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-07-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-08-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-09-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-10-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-11-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-12-03", "amount": 752, "account": "apartment_rental"},
+      {"date": "2018-01-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-02-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-03-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-04-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-05-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-06-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-07-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-08-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-09-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-10-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-11-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-12-03", "amount": 50, "account": "other_rental"},
+      {"date": "2018-01-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-02-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-03-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-04-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-05-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-06-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-07-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-08-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-09-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-10-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-11-03", "amount": 184, "account": "nebenkosten"},
+      {"date": "2018-12-03", "amount": 184, "account": "nebenkosten"}
+    ],
+    "heatcostallocatorreadings": [
+      { "number":"44322748-WO", "date":"2018-12-31", "amount":471 },
+      { "number":"44322786-BA", "date":"2018-12-31", "amount":7 },
+      { "number":"603023628-SM", "date":"2018-12-31", "amount":914 },
+      { "number":"44322762-SK", "date":"2018-12-31", "amount":300 },
+      { "number":"44322755-KU", "date":"2018-12-31", "amount":7 },
+      { "number":"4322793-SG", "date":"2018-12-31", "amount":196 }
+    ],
+    "coldwatermeters": {
+      "4169109-BA": [
+        {"date":"2017-12-31", "amount":114.47 },
+        {"date":"2018-12-31", "amount":161.45 }],
+      "7278931-KU": [
+        {"date":"2017-12-31", "amount":234.48 },
+        {"date":"2018-12-31", "amount":256.20 }]},
+    "hotwatermeters": {
+      "4133141-BA": [
+        {"date":"2017-12-31", "amount":51.49 },
+        {"date":"2018-12-31", "amount":78.66 }],
+      "525624842-KU": [
+        {"date":"2017-12-31", "amount":24.61 },
+        {"date":"2018-12-31", "amount":31.70 }]},
     "smokedetector_maintenance_cost_eur": 5
   }
 }
