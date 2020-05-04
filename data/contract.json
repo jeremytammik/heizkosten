@@ -163,22 +163,6 @@
     "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
-  "001-12-06-2018": {
-    "contract_id": "001-12-06-2018",
-    "apartment": "001-12-06",
-    "occupants": ["herbert_braeuning"],
-    "begin": "2018-02-01",
-    "end": "2019-12-31",
-    "apartment_rent_eur": [{ "begin": "2018-02-01", "amount": 626}],
-    "other_rent_eur": [{ "begin": "2018-02-01", "amount": 0}],
-    "nebenkosten_eur": [{ "begin": "2018-02-01", "amount": 134}],
-    "deposit_eur": 1300,
-    "payments": [],
-    "heatcostallocatorreadings": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
-    "smokedetector_maintenance_cost_eur": 5
-  },
   "001-12-06-2017": {
     "contract_id": "001-12-06-2017",
     "apartment": "001-12-06",
@@ -215,6 +199,22 @@
       "424236221-KU": [
         {"date":"2017-12-31", "amount":3.92 },
         {"date":"2018-01-31", "amount":4.02 }]},
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-12-06-2018": {
+    "contract_id": "001-12-06-2018",
+    "apartment": "001-12-06",
+    "occupants": ["herbert_braeuning"],
+    "begin": "2018-02-01",
+    "end": "2019-12-31",
+    "apartment_rent_eur": [{ "begin": "2018-02-01", "amount": 626}],
+    "other_rent_eur": [{ "begin": "2018-02-01", "amount": 0}],
+    "nebenkosten_eur": [{ "begin": "2018-02-01", "amount": 134}],
+    "deposit_eur": 1300,
+    "payments": [],
+    "heatcostallocatorreadings": [],
+    "coldwatermeters": [],
+    "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-01-04-2018": {
