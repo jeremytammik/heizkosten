@@ -20,6 +20,9 @@ function Energycostalloc(
   // always initialize all instance properties
   this.unit = unit;
   this.contract = contract;
+  
+  // contract heatcostallocatorreadings to be multiplied with apartment.heatcostallocators idnr factor
+  
 }
 
 module.exports = Energycostalloc;
