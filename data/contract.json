@@ -87,7 +87,6 @@
     "other_rent_eur": [{ "begin": "2018-01-01", "amount": 12 }],
     "nebenkosten_eur": [{ "begin": "2018-01-01", "amount": 318 }],
     "deposit_eur": 1300,
-    "payments": [],
     "payments": [
       {"date": "2018-01-03", "amount": 713, "account": "apartment_rental"},
       {"date": "2018-02-03", "amount": 713, "account": "apartment_rental"},
