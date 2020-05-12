@@ -95,8 +95,8 @@ function Nkabrechnung(
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = Object.keys( apartment.smokedetectors ).length * contract.smokedetector_maintenance_cost_eur * contract_duration;
-  var cost = this.energy_cost_eur + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung;
-  this.credit = util.round_to_two_digits( this.nkvorauszahlung - cost );
+  this.nebenkosten = this.energy_cost_eur + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung;
+  this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
 }
 
 // class methods
