@@ -39,4 +39,9 @@ function date_diff_days_2(a, b) {
   return Math.floor(diff / oneDay);
 }
 
+function round_to_two_digits( a ) {
+  return Math.round( (a+0.000000001) * 100) / 100;
+}
+
 exports.date_diff_days = date_diff_days;
+exports.round_to_two_digits = round_to_two_digits;
