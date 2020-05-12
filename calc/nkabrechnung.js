@@ -15,12 +15,37 @@
 const loaddata = require('./loaddata');
 const util = require('./util');
 
-function get_contract_payments_total( contract, konto ) {
+function get_contract_payments_total( contract, konto, year ) {
   var total = 0;
+  var year_begin = Date(year-1, 11, 31);
+  var year_end =  Date(year, 11, 31);
   contract.payments.forEach( (p) => {
-    if( konto === p.account ) { total += p.amount; }
+    if( konto === p.account
+       && year_begin < p.date
+       && p.date < year_end ) {
+        total += p.amount;
+    }
   });
   return total;
+}
+
+// https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
+function sum_of_object_values( obj ) {
+  var sum = 0;
+  for( var el in obj ) {
+    if( obj.hasOwnProperty( el ) ) {
+      sum += obj[el]; // parseFloat( obj[el] );
+    }
+  }
+  return sum;
+}
+
+function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year ) {
+  var h = unit.hausgeld_umlagefaehig_eur[year.toString()];
+  var total = sum_of_object_values( h );
+  var total_anteilig = h.kabelgebuehren;
+  var total_propertional = total - total_anteilig;
+  return [total_anteilig, total_propertional];
 }
 
 function Nkabrechnung(
@@ -36,10 +61,7 @@ function Nkabrechnung(
   this.energy_cost_eur = energy_cost_eur;
 
   // Determine contract duration in given year span
-  
-  //var begin = Date(year-1, 11, 31);
-  //var end =  Date(year, 11, 31);
-  
+    
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
   var days = days_in_year;
   
@@ -61,17 +83,17 @@ function Nkabrechnung(
   
   var apartment = loaddata.apartments[contract.apartment];
   
-  this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten' );
-  this.rueckbehalt =  // get contract payments with account 'nkrueckbehalt'
-  this.hauskosten_umlagefaehig = // retrieve unit.hauskosten and apply umlage factor * contract_duration; is umlagefactor = apartment.nebenkosten_anteil_schluessel?
-  this.energiekosten = 
+  this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten', year );
+  this.rueckbehalt = 0; // this information is entered manually
+  var h2 = get_hausgeld_umlagefaehig_anteilig_propotional( unit, year );
+  this.hausgeld_umlagefaehig = contract_duration * h2[0] / unit.apt_count + contract_duration * h2[1] * apartment.nebenkosten_anteil_schluessel;
+  this.energiekosten = 0;
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = contract.smokedetector_maintenance_count * contract.smokedetector_maintenance_cost_eur * contract_duration;
 }
 
 // class methods
-Nkabrechnung.prototype.fooBar = function() {
-
-};
+//Nkabrechnung.prototype.fooBar = function() {
+//};
 
 module.exports = Nkabrechnung;
