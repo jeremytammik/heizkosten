@@ -95,7 +95,7 @@ function Nkabrechnung(
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = Object.keys( apartment.smokedetectors ).length * contract.smokedetector_maintenance_cost_eur * contract_duration;
   var cost = this.energy_cost_eur + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung;
-  this.guthaben = this.nkvorauszahlung = cost;
+  this.credit = this.nkvorauszahlung = cost;
 }
 
 // class methods
