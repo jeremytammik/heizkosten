@@ -15,6 +15,11 @@
 const loaddata = require('./loaddata');
 const util = require('./util');
 
+function get_contract_payments_total( contract, konto ) {
+  var total = 0;
+  contract.payments.forEach( (p) => 
+}
+
 function Nkabrechnung(
   unit,
   contract,

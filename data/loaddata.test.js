@@ -84,3 +84,16 @@ test('each contracts meter numbers match its apartments ones', () => {
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
   }
 });
+
+test('all payment in each contract match expected account enum values', () => {
+  const enum_contract_accounts = [
+    'apartment_rental',
+    'other_rental',
+    'nebenkosten'
+    //'deposit',
+    //'nkrueckbehalt'
+  ];  
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    value.payment.forEach( (p) => expect(enum_contract_accounts).toContain(p.account);
+  }
+});
