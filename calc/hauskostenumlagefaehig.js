@@ -35,13 +35,3 @@ die kabelgebühr wird tatsächlich als einziges pro whg umgelegt....
 
 */
 
-const loaddata = require('./loaddata');
-const util = require('./util');
-
-function Hauskostenumlagefaehig(
-  unit,
-  contract )
-{
-}
-
-module.exports = Hauskostenumlagefaehig;
