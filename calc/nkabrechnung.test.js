@@ -7,5 +7,8 @@ test('test nkabreaachnung', () => {
   var unit = loaddata.units[apartment.unit_id];
   var a = new Nkabrechnung( unit, contract, 2018, 907.54 );
   expect(a.nkvorauszahlung).toBe(2208);
+  expect(a.rauchmelderwartung).toBe(20);
+  expect(a.grundsteuer).toBe(278.44);
+  expect(a.hausgeld_umlagefaehig).toBe(828.65669);
   console.log(a);
 });
