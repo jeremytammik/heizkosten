@@ -1,6 +1,6 @@
 // nkabrechnung.js
 //
-// algorithm implementing nebenkostenabrechnung for each contract
+// algorithm implementing nebenkostenabrechnung for a given contract
 //
 // Copyright 2020 by Jeremy Tammik.
 //
@@ -15,7 +15,8 @@
 const loaddata = require('../data/loaddata');
 const util = require('./util');
 
-function get_contract_payments_total( contract, konto, year ) {
+function get_contract_payments_total( contract, konto, year )
+{
   var total = 0;
   var year_begin = new Date(year-1, 11, 31);
   var year_end =  new Date(year, 11, 31);
@@ -30,7 +31,8 @@ function get_contract_payments_total( contract, konto, year ) {
 }
 
 // https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
-function sum_of_object_values( obj ) {
+function sum_of_object_values( obj )
+{
   var sum = 0;
   for( var el in obj ) {
     if( obj.hasOwnProperty( el ) ) {
@@ -40,7 +42,8 @@ function sum_of_object_values( obj ) {
   return sum;
 }
 
-function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year ) {
+function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year )
+{
   var h = unit.hausgeld_umlagefaehig_eur[year.toString()];
   var total = sum_of_object_values( h );
   var total_anteilig = h.kabelgebuehren;
@@ -49,15 +52,14 @@ function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year ) {
 }
 
 function Nkabrechnung(
-  unit,
-  contract,
+  contract_id,
   year, // todo, possibly: support flexible begin and end date
   energy_cost_eur )
 {
-  // always initialize all instance properties
-  this.unit = unit;
-  this.contract = contract;
-  this.year = year;
+  var contract = loaddata.contracts[contract_id];
+  var apartment = loaddata.apartments[contract.apartment];
+  var unit = loaddata.units[apartment.unit_id];
+  
   this.energy_cost_eur = energy_cost_eur;
 
   // Determine contract duration in given year span
@@ -85,8 +87,6 @@ function Nkabrechnung(
   }
   
   var contract_duration = days_in_year / days;
-  
-  var apartment = loaddata.apartments[contract.apartment];
   
   this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten', year );
   this.rueckbehalt = 0; // this information is entered manually
