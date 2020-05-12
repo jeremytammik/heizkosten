@@ -8,7 +8,10 @@ test('test nkabreaachnung', () => {
   var a = new Nkabrechnung( unit, contract, 2018, 907.54 );
   console.log(a);
   expect(a.nkvorauszahlung).toBe(2208);
-  expect(a.rauchmelderwartung).toBe(20);
-  expect(a.grundsteuer).toBe(278.44);
   expect(a.hausgeld_umlagefaehig).toBe(828.66);
+  expect(a.grundsteuer).toBe(278.44);
+  expect(a.rauchmelderwartung).toBe(20);
+  expect(a.nebenkosten).toBe(2034.64);
+  expect(a.credit).toBe(173.36);
+  expect(a.new_nkvorauszahlung_per_month).toBe(168.93);
 });
