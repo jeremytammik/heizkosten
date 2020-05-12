@@ -17,7 +17,10 @@ const util = require('./util');
 
 function get_contract_payments_total( contract, konto ) {
   var total = 0;
-  contract.payments.forEach( (p) => 
+  contract.payments.forEach( (p) => {
+    if( konto === p.account ) { total += p.amount; }
+  });
+  return total;
 }
 
 function Nkabrechnung(
@@ -58,7 +61,7 @@ function Nkabrechnung(
   
   var apartment = loaddata.apartments[contract.apartment];
   
-  this.vorauszahlungen = // get contract payments with account 'nebenkosten'
+  this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten' );
   this.rueckbehalt =  // get contract payments with account 'nkrueckbehalt'
   this.hauskosten_umlagefaehig = // retrieve unit.hauskosten and apply umlage factor * contract_duration; is umlagefactor = apartment.nebenkosten_anteil_schluessel?
   this.energiekosten = 
