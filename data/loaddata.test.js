@@ -92,8 +92,8 @@ test('all payment in each contract match expected account enum values', () => {
     'nebenkosten'
     //'deposit',
     //'nkrueckbehalt'
-  ];  
+  ];
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    value.payment.forEach( (p) => expect(enum_contract_accounts).toContain(p.account);
+    value.payments.forEach( (p) => expect(enum_contract_accounts).toContain(p.account));
   }
 });
