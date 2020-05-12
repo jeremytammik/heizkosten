@@ -8,6 +8,7 @@
 /*
 
 hier die umlagefähige kosten 2018:
+
 allgemeinstrom: 1.186,14 (summieren)
 müllgebühren hausmeister: 39,60 (summieren)
 streu- und putzmittel: 1.195,92 (summieren)
