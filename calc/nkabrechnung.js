@@ -12,13 +12,13 @@
  output: einzelabrechnung
 */
 
-const loaddata = require('./loaddata');
+const loaddata = require('../data/loaddata');
 const util = require('./util');
 
 function get_contract_payments_total( contract, konto, year ) {
   var total = 0;
-  var year_begin = Date(year-1, 11, 31);
-  var year_end =  Date(year, 11, 31);
+  var year_begin = new Date(year-1, 11, 31);
+  var year_end =  new Date(year, 11, 31);
   contract.payments.forEach( (p) => {
     if( konto === p.account
        && year_begin < p.date
@@ -61,7 +61,12 @@ function Nkabrechnung(
   this.energy_cost_eur = energy_cost_eur;
 
   // Determine contract duration in given year span
-    
+
+  var begin = new Date( year-1, 11, 31 );
+  var end =  new Date( year, 11, 31 );
+  
+  //console.log('here: ' + begin.toString() + ', ' + end.toString() );
+  
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
   var days = days_in_year;
   
@@ -87,7 +92,6 @@ function Nkabrechnung(
   this.rueckbehalt = 0; // this information is entered manually
   var h2 = get_hausgeld_umlagefaehig_anteilig_propotional( unit, year );
   this.hausgeld_umlagefaehig = contract_duration * h2[0] / unit.apt_count + contract_duration * h2[1] * apartment.nebenkosten_anteil_schluessel;
-  this.energiekosten = 0;
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = contract.smokedetector_maintenance_count * contract.smokedetector_maintenance_cost_eur * contract_duration;
 }
