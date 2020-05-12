@@ -7,7 +7,13 @@
 
 /*
 
+geschaetzt
+
+63843.46
+
 hier die umlagefähige kosten 2018:
+
+kabelgebühren: 7004,16 (anteilig auf 96 whg)
 
 allgemeinstrom: 1.186,14 (summieren)
 müllgebühren hausmeister: 39,60 (summieren)
@@ -21,7 +27,6 @@ reinigung: 8.700,00 (summieren)
 hausmeister sozialabgaben: 1.962,50 (summieren)
 hausservice fremdfirmen: 13.955,00 (summieren)
 lift umlagefähig: 5.850,90 (summieren)
-kabelgebühren: 7004,16 (anteilig auf 96 whg)
 feuerlöscher wartung: 5.075,48 (summieren)
 wartung eingangstüren: 452,44 (summieren)
 wartung lüftungsanlage: 249,90 (summieren)
