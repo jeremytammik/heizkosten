@@ -51,23 +51,26 @@ app.get( '/hauskosten', (req, res) => {
   res.sendFile(__dirname + '/form/hauskosten.html');
 });
 
-hauskosten = {};
+var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
 
 app.post( '/hauskosten_submit', (req, res) => {
     //console.log(req.body);
     var h = req.body;
+    var unit_id = h.unit;
+    delete h.unit;
     var year = h.jahr;
     delete h.jahr;
-    hauskosten[year] = h;
-    var n = Object.keys(hauskosten).length;
+    units[unit_id].hausgeld_umlagefaehig_eur[year] = h;
+    var n = Object.keys(units[unit_id].hausgeld_umlagefaehig_eur).length;
     //console.log(hauskosten);
     var fs = require('fs');
-    fs.writeFile( "hauskosten.json", JSON.stringify(hauskosten, null, 2), (err) => {
+    fs.writeFile( "form/units.json", JSON.stringify(units, null, 2), (err) => {
       if (err) { console.log(err); }
       else { res.send(
-        '<p>Hat geklappt, vielen Dank. Hauskosten nun fuer '
-        + n.toString() + ' Jahre erfasst.</p>'
-        + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>'); }
+        '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
+        + unit_id + ' nun fuer ' + n.toString() + ' Jahre erfasst.</p>'
+        + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>');
+      }
     });    
 });
 

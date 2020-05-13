@@ -1,0 +1,60 @@
+{
+  "001": {
+    "hausgeld_umlagefaehig_eur": {
+      "2018": {
+        "kabelgebuehren": "7004.16",
+        "allgemeinstrom": "1186.14",
+        "muellgebuehren_hausmeister": "39.60",
+        "streu_und_putzmittel": "1195.92",
+        "aussenanlage_pflege": "1823.92",
+        "versicherungen": "15437.93",
+        "niederschlagswasser": "368.10",
+        "trinkwasseruntersuchung": "152.72",
+        "material_und_hilfsstoffe": "368.75",
+        "reinigung": "8700.00",
+        "hausmeister_sozialabgaben": "1962.50",
+        "hausservice_fremdfirmen": "13955.00",
+        "lift_umlagefaehig": "5850.90",
+        "feuerloescher_wartung": "5075.48",
+        "wartung_eingangstueren": "452.44",
+        "wartung_lueftungsanlage": "249.90"
+      },
+      "2019": {
+        "kabelgebuehren": "7004.16",
+        "allgemeinstrom": "1186.14",
+        "muellgebuehren_hausmeister": "39.60",
+        "streu_und_putzmittel": "1195.92",
+        "aussenanlage_pflege": "1823.92",
+        "versicherungen": "15437.93",
+        "niederschlagswasser": "368.10",
+        "trinkwasseruntersuchung": "152.72",
+        "material_und_hilfsstoffe": "368.75",
+        "reinigung": "8700.00",
+        "hausmeister_sozialabgaben": "1962.50",
+        "hausservice_fremdfirmen": "13955.00",
+        "lift_umlagefaehig": "5850.90",
+        "feuerloescher_wartung": "5075.48",
+        "wartung_eingangstueren": "452.44",
+        "wartung_lueftungsanlage": "400"
+      },
+      "2020": {
+        "kabelgebuehren": "7004.16",
+        "allgemeinstrom": "1186.14",
+        "muellgebuehren_hausmeister": "39.60",
+        "streu_und_putzmittel": "1195.92",
+        "aussenanlage_pflege": "1823.92",
+        "versicherungen": "15437.93",
+        "niederschlagswasser": "368.10",
+        "trinkwasseruntersuchung": "152.72",
+        "material_und_hilfsstoffe": "368.75",
+        "reinigung": "8700.00",
+        "hausmeister_sozialabgaben": "1962.50",
+        "hausservice_fremdfirmen": "13955.00",
+        "lift_umlagefaehig": "5850.90",
+        "feuerloescher_wartung": "5075.48",
+        "wartung_eingangstueren": "452.44",
+        "wartung_lueftungsanlage": "500"
+      }
+    }
+  }
+}
