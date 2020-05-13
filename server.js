@@ -53,7 +53,7 @@ app.get( '/hauskosten', (req, res) => {
 
 hauskosten = {};
 
-app.post( '/hauskosten', (req, res) => {
+app.post( '/hauskosten_submit', (req, res) => {
     //console.log(req.body);
     var h = req.body;
     var year = h.jahr;
