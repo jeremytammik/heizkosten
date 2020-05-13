@@ -54,12 +54,16 @@ app.get( '/hauskosten', (req, res) => {
 hauskosten = {};
 
 app.post( '/hauskosten', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     var h = req.body;
     var year = h.jahr;
     delete h.jahr;
     hauskosten[year] = h;
-    console.log(hauskosten);
+    //console.log(hauskosten);
+    var fs = require('fs');
+    fs.writeFile( "hauskosten.json", JSON.stringify(hauskosten, null, 2), (err) => {
+      if (err) { console.log(err); }
+    });    
 });
 
 app.get('/express_backend', (req, res) => {
