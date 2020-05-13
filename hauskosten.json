@@ -1,5 +1,5 @@
 {
-  "2018": {
+  "2015": {
     "kabelgebuehren": "7004.16",
     "allgemeinstrom": "1186.14",
     "muellgebuehren_hausmeister": "39.60",
@@ -11,13 +11,31 @@
     "material_und_hilfsstoffe": "368.75",
     "reinigung": "8700.00",
     "hausmeister_sozialabgaben": "1962.50",
+    "hausservice_fremdfirmen": "13955.00",
+    "lift_umlagefaehig": "5850.90",
+    "feuerloescher_wartung": "5555",
+    "wartung_eingangstueren": "452.44",
+    "wartung_lueftungsanlage": "249.90"
+  },
+  "2020": {
+    "kabelgebuehren": "7004.16",
+    "allgemeinstrom": "1186.14",
+    "muellgebuehren_hausmeister": "39.60",
+    "streu_und_putzmittel": "1195.92",
+    "aussenanlage_pflege": "1823.92",
+    "versicherungen": "15437.93",
+    "niederschlagswasser": "368.10",
+    "trinkwasseruntersuchung": "152.72",
+    "material_und_hilfsstoffe": "368.75",
+    "reinigung": "8700.00",
+    "hausmeister_sozialabgaben": "333333",
     "hausservice_fremdfirmen": "13955.00",
     "lift_umlagefaehig": "5850.90",
     "feuerloescher_wartung": "5075.48",
     "wartung_eingangstueren": "452.44",
     "wartung_lueftungsanlage": "249.90"
   },
-  "2019": {
+  "2025": {
     "kabelgebuehren": "7004.16",
     "allgemeinstrom": "1186.14",
     "muellgebuehren_hausmeister": "39.60",
@@ -29,28 +47,10 @@
     "material_und_hilfsstoffe": "368.75",
     "reinigung": "8700.00",
     "hausmeister_sozialabgaben": "1962.50",
-    "hausservice_fremdfirmen": "13955.00",
+    "hausservice_fremdfirmen": "44",
     "lift_umlagefaehig": "5850.90",
     "feuerloescher_wartung": "5075.48",
     "wartung_eingangstueren": "452.44",
-    "wartung_lueftungsanlage": "600"
-  },
-  "2024": {
-    "kabelgebuehren": "7004.16",
-    "allgemeinstrom": "1186.14",
-    "muellgebuehren_hausmeister": "39.60",
-    "streu_und_putzmittel": "1195.92",
-    "aussenanlage_pflege": "1823.92",
-    "versicherungen": "15437.93",
-    "niederschlagswasser": "368.10",
-    "trinkwasseruntersuchung": "152.72",
-    "material_und_hilfsstoffe": "368.75",
-    "reinigung": "8700.00",
-    "hausmeister_sozialabgaben": "1962.50",
-    "hausservice_fremdfirmen": "13955.00",
-    "lift_umlagefaehig": "5850.90",
-    "feuerloescher_wartung": "5075.48",
-    "wartung_eingangstueren": "452.44",
-    "wartung_lueftungsanlage": "700"
+    "wartung_lueftungsanlage": "249.90"
   }
 }
