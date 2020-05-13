@@ -18,6 +18,10 @@
     <form action="/hauskosten" method="POST">
       <table>
         <tr>
+        <td><label for="jahr">jahr:</label></td>
+        <td><input type="number" min="1990" max="2050" maxlength="4" size="6" step="1" placeholder="jahr" id="jahr" name="jahr" value="2000" ></td>
+        </tr>
+        <tr>
         <td><label for="kabelgebuehren">kabelgebuehren:</label></td>
         <td><input type="number" min="0" max="999999.99" maxlength="9" size="12" step="any" placeholder="kabelgebuehren" id="kabelgebuehren" name="kabelgebuehren" value="7004.16" ></td>
         </tr>

@@ -51,8 +51,15 @@ app.get( '/hauskosten', (req, res) => {
   res.sendFile(__dirname + '/form/hauskosten.html');
 });
 
+hauskosten = {};
+
 app.post( '/hauskosten', (req, res) => {
-    console.log('Hellooooooooooooooooo!');
+    console.log(req.body);
+    var h = req.body;
+    var year = h.jahr;
+    delete h.jahr;
+    hauskosten[year] = h;
+    console.log(hauskosten);
 });
 
 app.get('/express_backend', (req, res) => {
