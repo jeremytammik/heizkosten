@@ -40,13 +40,19 @@ app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
 //require( './routes' )( app );
 
-app.get( '/', function( request, response ) {
-  response.send(
+app.get( '/', (req, res) => {
+  res.send(
     'Hello from the cloud-based heizkosten ' +
     ' database ' + pkg.version + '.\n' );
 });
 
-app.set( 'port', process.env.PORT || 3001 );
+app.get('/express_backend', (req, res) => {
+  res.send({ express: 'express backend is connected to react' });
+});
+
+//console.log( 'process.env.PORT=' + process.env.PORT );
+//app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
+app.set( 'port', 5000 ); // 5000 for express/react
 
 var server = app.listen(
   app.get( 'port' ),
@@ -58,3 +64,4 @@ var server = app.listen(
       ' mongodb.');
   }
 );
+
