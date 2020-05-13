@@ -33,16 +33,17 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-require( './model/apartment' );
-require( './model/consumption' );
-require( './model/occupant' );
-require( './model/unit' );
+//require( './model/apartment' );
+//require( './model/consumption' );
+//require( './model/occupant' );
+//require( './model/unit' );
 
-require( './routes' )( app );
+//require( './routes' )( app );
 
 app.get( '/', function( request, response ) {
-  response.send( 'Hello from the cloud-based heizkosten ' +
-                ' database ' + pkg.version + '.\n' );
+  response.send(
+    'Hello from the cloud-based heizkosten ' +
+    ' database ' + pkg.version + '.\n' );
 });
 
 app.set( 'port', process.env.PORT || 3001 );
@@ -50,9 +51,10 @@ app.set( 'port', process.env.PORT || 3001 );
 var server = app.listen(
   app.get( 'port' ),
   function() {
-    console.log( 'Heizkosten server ' + pkg.version +
-                ' listening at port ' + server.address().port +
-                ' with ' + (localMongo ? 'local' : 'remote') +
-                ' mongodb.');
+    console.log(
+      'Heizkosten server ' + pkg.version +
+      ' listening at port ' + server.address().port +
+      ' with ' + (localMongo ? 'local' : 'remote') +
+      ' mongodb.');
   }
 );
