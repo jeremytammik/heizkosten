@@ -44,6 +44,15 @@ app.get( '/', (req, res) => {
   res.send(
     'Hello from the cloud-based heizkosten ' +
     ' database ' + pkg.version + '.\n' );
+  //res.sendFile(__dirname + '/index.html');  
+});
+
+app.get( '/hauskosten', (req, res) => {
+  res.sendFile(__dirname + '/form/hauskosten.html');
+});
+
+app.post( '/hauskosten', (req, res) => {
+    console.log('Hellooooooooooooooooo!');
 });
 
 app.get('/express_backend', (req, res) => {
