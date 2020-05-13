@@ -59,10 +59,15 @@ app.post( '/hauskosten_submit', (req, res) => {
     var year = h.jahr;
     delete h.jahr;
     hauskosten[year] = h;
+    var n = Object.keys(hauskosten).length;
     //console.log(hauskosten);
     var fs = require('fs');
     fs.writeFile( "hauskosten.json", JSON.stringify(hauskosten, null, 2), (err) => {
       if (err) { console.log(err); }
+      else { res.send(
+        '<p>Hat geklappt, vielen Dank. Hauskosten nun fuer '
+        + n.toString() + ' Jahre erfasst.</p>'
+        + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>'); }
     });    
 });
 
