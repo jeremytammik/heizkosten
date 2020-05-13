@@ -1,5 +1,5 @@
 {
-  "2000": {
+  "2018": {
     "kabelgebuehren": "7004.16",
     "allgemeinstrom": "1186.14",
     "muellgebuehren_hausmeister": "39.60",
@@ -17,7 +17,7 @@
     "wartung_eingangstueren": "452.44",
     "wartung_lueftungsanlage": "249.90"
   },
-  "2001": {
+  "2019": {
     "kabelgebuehren": "7004.16",
     "allgemeinstrom": "1186.14",
     "muellgebuehren_hausmeister": "39.60",
@@ -33,9 +33,9 @@
     "lift_umlagefaehig": "5850.90",
     "feuerloescher_wartung": "5075.48",
     "wartung_eingangstueren": "452.44",
-    "wartung_lueftungsanlage": "249.90"
+    "wartung_lueftungsanlage": "600"
   },
-  "2004": {
+  "2024": {
     "kabelgebuehren": "7004.16",
     "allgemeinstrom": "1186.14",
     "muellgebuehren_hausmeister": "39.60",
@@ -51,6 +51,6 @@
     "lift_umlagefaehig": "5850.90",
     "feuerloescher_wartung": "5075.48",
     "wartung_eingangstueren": "452.44",
-    "wartung_lueftungsanlage": "249.90"
+    "wartung_lueftungsanlage": "700"
   }
 }

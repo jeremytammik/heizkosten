@@ -86,7 +86,7 @@ var server = app.listen(
       'Heizkosten server ' + pkg.version +
       ' listening at port ' + server.address().port +
       ' with ' + (localMongo ? 'local' : 'remote') +
-      ' mongodb.');
+      ' mongodb: http://localhost:5000/hauskosten');
   }
 );
 
