@@ -63,7 +63,30 @@ app.get( '/hauskosten', (req, res) => {
   res.sendFile(__dirname + '/form/hauskosten.html');
 });
 
-app.get( '/load_sample_person_data', (req, res) => {
+var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
+
+app.post( '/hauskosten_submit', (req, res) => {
+  //console.log(req.body);
+  var h = req.body;
+  var unit_id = h.unit;
+  delete h.unit;
+  var year = h.jahr;
+  delete h.jahr;
+  units[unit_id].hausgeld_umlagefaehig_eur[year] = h;
+  var n = Object.keys(units[unit_id].hausgeld_umlagefaehig_eur).length;
+  //console.log(hauskosten);
+  var fs = require('fs');
+  fs.writeFile( "form/units.json", JSON.stringify(units, null, 2), (err) => {
+    if (err) { console.log(err); }
+    else { res.send(
+      '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
+      + unit_id + ' nun fuer ' + n.toString() + ' Jahre erfasst.</p>'
+      + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>');
+    }
+  });    
+});
+
+app.get( '/person/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
   for (const [key, value] of Object.entries(persons)) {
@@ -83,27 +106,24 @@ app.get( '/load_sample_person_data', (req, res) => {
   });
 });
 
-var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
+app.get( '/person/create_new', (req, res) => {
+  res.sendFile(__dirname + '/form/person.html');
+});
 
-app.post( '/hauskosten_submit', (req, res) => {
-    //console.log(req.body);
-    var h = req.body;
-    var unit_id = h.unit;
-    delete h.unit;
-    var year = h.jahr;
-    delete h.jahr;
-    units[unit_id].hausgeld_umlagefaehig_eur[year] = h;
-    var n = Object.keys(units[unit_id].hausgeld_umlagefaehig_eur).length;
-    //console.log(hauskosten);
-    var fs = require('fs');
-    fs.writeFile( "form/units.json", JSON.stringify(units, null, 2), (err) => {
-      if (err) { console.log(err); }
-      else { res.send(
-        '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
-        + unit_id + ' nun fuer ' + n.toString() + ' Jahre erfasst.</p>'
-        + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>');
-      }
-    });    
+app.post( '/person/create_new_submit', (req, res) => {
+  //console.log(req.body);
+  var p = req.body;
+  res.send(
+    '<p><a href="person/create_new">Weitere Personendaten eingeben...</a></p>');
+  
+  //Person.countDocuments( {}, (err, count) => {
+  //  if (err) { return console.error(err); }
+  //  console.log( 'Database contains %d people', count );
+  //  return res.send(
+  //    '<p>Hat geklappt, vielen Dank. '
+  //    + 'Database now contains ' + count.toString() + ' people.</p>'
+  //    + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
+  //});
 });
 
 app.get('/express_backend', (req, res) => {
