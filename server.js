@@ -20,7 +20,10 @@ if(localMongo) {
   var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
 }
 
-mongoose.connect( mongo_uri, {useNewUrlParser: true} );
+mongoose.connect( mongo_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true });
+
 var db = mongoose.connection;
 db.on( 'error', function () {
   var msg = 'unable to connect to database at ';
