@@ -86,6 +86,11 @@ app.post( '/hauskosten_submit', (req, res) => {
   });    
 });
 
+app.get( '/person/unit/:uid/list', (req, res) => {
+  console.log(req);
+});
+
+
 app.get( '/person/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
