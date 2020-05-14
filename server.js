@@ -48,7 +48,9 @@ var Cost = require( './model/cost' );
 //require( './model/consumption' );
 //require( './model/occupant' );
 
-require( './routes' )( app );
+console.log( db.modelNames() );
+
+//require( './routes' )( app );
 
 app.get( '/', (req, res) => {
   res.send(
@@ -66,15 +68,24 @@ app.get( '/load_sample_person_data', (req, res) => {
   //db.dropCollection( 'people', (err,res) => {
   //  if (err) { return console.error( err ); }
   //});
+
+  //console.log('hi');
+  //var p = new Person( {"person_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},);
+  //console.log(p);
   
-  var p = new Person( {"person_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},);
-  
-  //var fs = require('fs');
-  //var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
-  //for (const [key, value] of Object.entries(persons)) {
-  //  console.log(value);
-  //  var p = new Person( value );
-  //}
+  var fs = require('fs');
+  var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
+  for (const [key, value] of Object.entries(persons)) {
+    //console.log(value);
+    var p = new Person( value );
+    //console.log(p);
+    p.save( (err, p) => {
+      if (err) { return console.error(err); }
+    });    
+  }
+  Person.countDocuments( {}, (err, count) => {
+    console.log( 'there are %d people', count );
+  });  
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
