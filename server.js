@@ -192,11 +192,12 @@ return s1 + schema_string + s2 + form_string + s3;
 
 function generate_person_edit_form_html(p)
 {
+  var id = p['_id'];
   delete p['_id'];
   delete p['__v'];
   delete p['units'];
 
-  var s1 = '\
+  var s1 = `\
 <head>\
 	<meta charset="utf-8" />\
 	<title>Edit Person Data</title>\
@@ -206,9 +207,9 @@ function generate_person_edit_form_html(p)
 <body>\
 	<form>\
     <p>Person editieren:</p>\
-    <form method="POST">\
+    <form action="/person/${id}/edit_submit" method="POST">\
       <table>\
-';
+`;
 
 var a = [];
 Object.keys(p).forEach( (key,index) => {
@@ -256,7 +257,7 @@ app.get( '/person/:id/edit', (req, res) => {
   });
 });
 
-app.post( '/person/:id/edit', (req, res) => {
+app.post( '/person/:id/edit_submit', (req, res) => {
   console.log(req.params);
 });
 
