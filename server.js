@@ -106,12 +106,12 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   });
 });
 
-function generate_person_edit_form_html(p)
+function generate_person_edit_form_html_with_jsonform(p)
 {
-  console.log('hoho', p);
-  delete p._id;
-  delete p._v;
-  delete p.units;
+  delete p['_id'];
+  delete p['__v'];
+  delete p['units'];
+
   var s1 = '\
 <!DOCTYPE html>\
 <html>\
@@ -149,7 +149,7 @@ function generate_person_edit_form_html(p)
 
 var a = [];
 Object.keys(p).forEach( (key,index) => {
-  a.push('key: {type:"string",title:"' + key + '"}');
+  a.push( key + ': {type:"string", title:"' + key + '"},');
 });
 console.log(a);
 
@@ -162,7 +162,7 @@ var s2 = '\
 
 var b = [];
 Object.keys(p).forEach( (key,index) => {
-  b.push('"key":"' + key + '","value": "' + p[key] + '"}"');
+  b.push('{"key":"' + key + '","value": "' + p[key] + '"},');
 });
 console.log(b);
 
@@ -190,6 +190,63 @@ var s3 = '\
 return s1 + schema_string + s2 + form_string + s3;
 }
 
+function generate_person_edit_form_html(p)
+{
+  delete p['_id'];
+  delete p['__v'];
+  delete p['units'];
+
+  var s1 = '\
+<head>\
+	<meta charset="utf-8" />\
+	<title>Edit Person Data</title>\
+  <style> body { font-family: sans-serif; font-size: small }</style>\
+</head>\
+\
+<body>\
+	<form>\
+    <p>Person editieren:</p>\
+    <form action="/person/:id/edit_submit" method="POST">\
+      <table>\
+';
+
+var sformat = `\ 
+<tr>\
+<td><label for="${k}">${k}:</label></td>
+<td><input type="string" maxlength="20" size="20" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
+</tr>\
+';
+ 
+var a = [];
+Object.keys(p).forEach( (key,index) => {
+  var k = key;
+  var v = p[key];
+  a.push( sformat );
+});
+console.log(a);
+
+var s2 = a.join('\n');
+
+var s3 = '\
+        <tr>\
+          <td colspan="2" style="text-align: center">\
+            <button type="submit">Speichern</button>\
+          </td>\
+        </tr>\
+      </table>\
+    </form>\
+    <ul>\
+      <li><a href="/person/load_sample_person_data">Load sample person data</a></li>\
+      <li><a href="/person/create_new">Create new person</a></li>\
+    </ul>\
+  </body>\
+</html>\
+';
+
+return s1 + s2 + s3;
+}
+
+
 app.get( '/person/:id/edit', (req, res) => {
   console.log(req.params);
   var id = req.params.id;
@@ -197,7 +254,10 @@ app.get( '/person/:id/edit', (req, res) => {
     console.log(err, results);
     if (err) { return console.log(err); }
     else {
-      res.send( generate_person_edit_form_html(results) );
+      var doc = results[0]._doc;
+      var form = generate_person_edit_form_html(doc);
+      console.log(form);
+      res.send( form );
     }
   });
 });
