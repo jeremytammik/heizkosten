@@ -18,6 +18,14 @@ test('loaded N persons', () => {
   expect(Object.keys(loaddata.persons).length).toBe(13);
 });
 
+test('persons are linked to valid units', () => {
+  var unit_ids = Object.keys(loaddata.units);
+  for (const [key, value] of Object.entries(loaddata.persons)) {
+    value.units.forEach( (uid)
+      => expect(unit_ids).toContain( uid );
+  }
+});
+
 test('apartment has valid owner', () => {
   var owners = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.apartments)) {
