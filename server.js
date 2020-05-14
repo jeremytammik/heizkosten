@@ -77,11 +77,15 @@ app.get( '/load_sample_person_data', (req, res) => {
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
   for (const [key, value] of Object.entries(persons)) {
     //console.log(value);
-    var p = new Person( value );
+    //var p = new Person( value );
     //console.log(p);
-    p.save( (err, p) => {
+    //p.save( (err, p) => {
+    //  if (err) { return console.error(err); }
+    //});
+    Person.upsert( { "person_id": value.person_id }, value, { "upsert" = true }, (err,res) -> {
       if (err) { return console.error(err); }
-    });    
+      else { console.log(res); }
+    });
   }
   Person.countDocuments( {}, (err, count) => {
     console.log( 'there are %d people', count );
