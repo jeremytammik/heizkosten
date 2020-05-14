@@ -82,10 +82,14 @@ app.get( '/load_sample_person_data', (req, res) => {
     //p.save( (err, p) => {
     //  if (err) { return console.error(err); }
     //});
-    Person.upsert( { "person_id": value.person_id }, value, { "upsert" = true }, (err,res) -> {
-      if (err) { return console.error(err); }
-      else { console.log(res); }
-    });
+    Person.upsert(
+      { "person_id": value.person_id },
+      value, { "upsert": true }, (err,res) ->
+      {
+        if (err) { return console.error(err); }
+        else { console.log(res); }
+      }
+    );
   }
   Person.countDocuments( {}, (err, count) => {
     console.log( 'there are %d people', count );
