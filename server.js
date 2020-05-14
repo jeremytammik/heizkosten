@@ -205,10 +205,9 @@ function generate_person_edit_form_html(p)
 </head>\
 \
 <body>\
-	<form>\
-    <p>Person editieren:</p>\
-    <form action="/person/${id}/edit_submit" method="POST">\
-      <table>\
+  <p>Person editieren:</p>\
+  <form action="/person/${id}/edit_submit" method="POST">\
+    <table>\
 `;
 
 var a = [];
