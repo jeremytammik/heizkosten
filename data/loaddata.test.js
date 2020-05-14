@@ -21,8 +21,9 @@ test('loaded N persons', () => {
 test('persons are linked to valid units', () => {
   var unit_ids = Object.keys(loaddata.units);
   for (const [key, value] of Object.entries(loaddata.persons)) {
-    value.units.forEach( (uid)
-      => expect(unit_ids).toContain( uid );
+    value.units.forEach( (uid) => {
+      expect(unit_ids).toContain( uid );
+    });
   }
 });
 
