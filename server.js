@@ -108,6 +108,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
 
 function generate_person_edit_form_html(p)
 {
+  console.log('hoho', p);
   delete p._id;
   delete p._v;
   delete p.units;
@@ -147,9 +148,10 @@ function generate_person_edit_form_html(p)
 //country : { type: "string", title: "country"}\
 
 var a = [];
-for (const property in p) {
-  a.push(`${property}: {type:"string",title:${property}}`);
-}
+Object.keys(p).forEach( (key,index) => {
+  a.push('key: {type:"string",title:"' + key + '"}');
+});
+console.log(a);
 
 var schema_string = a.join('\n');
 
@@ -159,9 +161,10 @@ var s2 = '\
 ';
 
 var b = [];
-for (const property in p) {
-  b.push(`"key":"${property}","value": "${object[property]}"`);
+Object.keys(p).forEach( (key,index) => {
+  b.push('"key":"' + key + '","value": "' + p[key] + '"}"');
 }
+console.log(b);
 
 var form_string = b.join('\n');
 
