@@ -44,7 +44,7 @@ function sum_of_object_values( obj )
 
 function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year )
 {
-  var h = unit.hausgeld_umlagefaehig_eur[year.toString()];
+  var h = unit.costs[year.toString()].allocatable;
   var total = sum_of_object_values( h );
   var total_anteilig = h.kabelgebuehren;
   var total_propertional = total - total_anteilig;
