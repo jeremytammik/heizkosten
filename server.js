@@ -210,18 +210,16 @@ function generate_person_edit_form_html(p)
       <table>\
 ';
 
-var sformat = `\ 
-<tr>\
-<td><label for="${k}">${k}:</label></td>\
-<td><input type="string" maxlength="20" size="20" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
-</tr>\
-`;
- 
 var a = [];
 Object.keys(p).forEach( (key,index) => {
   var k = key;
   var v = p[key];
-  a.push( sformat );
+  a.push( `\ 
+<tr>\
+<td><label for="${k}">${k}:</label></td>\
+<td><input type="string" maxlength="30" size="30" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
+</tr>\
+` );
 });
 console.log(a);
 
