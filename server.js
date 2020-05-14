@@ -37,6 +37,9 @@ app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
 var Person = require( './model/person' );
+
+console.log(Person);
+
 require( './model/unit' );
 require( './model/cost' );
 //require( './model/apartment' );

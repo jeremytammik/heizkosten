@@ -28,4 +28,8 @@ var personSchema = new Schema({
   country: String
 });
 
-mongoose.model( 'person', personSchema );
+var Person = mongoose.model( 'person', personSchema );
+
+console.log(Person);
+
+module.exports = Person;
