@@ -263,7 +263,7 @@ app.post( '/person/:id/edit_submit', (req, res) => {
   var id = req.params.id;
   console.log(req.body);
   Person.updateOne(
-    { "_id": id }, value, (err,res) => {
+    { "_id": id }, req.body, (err,res) => {
       if (err) { return console.error(err); }
   });
   Person.countDocuments( {}, (err, count) => {
