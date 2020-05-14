@@ -50,7 +50,7 @@ var Cost = require( './model/cost' );
 
 console.log( db.modelNames() );
 
-//require( './routes' )( app );
+require( './routes' )( app );
 
 app.get( '/', (req, res) => {
   res.send(
@@ -74,13 +74,13 @@ app.get( '/load_sample_person_data', (req, res) => {
     });
   }
   Person.countDocuments( {}, (err, count) => {
+    if (err) { return console.error(err); }
     console.log( 'Database contains %d people', count );
     return res.send(
       '<p>Hat geklappt, vielen Dank. '
       + 'Database now contains ' + count.toString() + ' people.</p>'
       + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
   });
-  res.send('countDocuments failed.');
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
