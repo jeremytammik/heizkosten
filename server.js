@@ -240,7 +240,6 @@ var s3 = '\
 return s1 + s2 + s3;
 }
 
-
 app.get( '/person/:id/edit', (req, res) => {
   console.log(req.params);
   var id = req.params.id;
@@ -257,7 +256,8 @@ app.get( '/person/:id/edit', (req, res) => {
 });
 
 app.post( '/person/:id/edit_submit', (req, res) => {
-  console.log(req.params);
+  var id = req.params.id;
+  console.log(req.body);
 });
 
 app.get( '/person/load_sample_person_data', (req, res) => {
