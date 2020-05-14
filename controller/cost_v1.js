@@ -17,12 +17,12 @@ CostService = {
     });
   },
 
-  //add : function(req, res) {
-  //  Cost.create(req.body, function (err, door) {
-  //    if (err) return console.log(err);
-  //    return res.send(door);
-  //  });
-  //},
+  add : function(req, res) {
+    Cost.create(req.body, function (err, door) {
+      if (err) return console.log(err);
+      return res.send(door);
+    });
+  },
 
   insertBatch : function(req, res) {
     console.log('Insert batch');
