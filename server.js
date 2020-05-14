@@ -90,17 +90,19 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   //console.log(req.params);
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
+    //console.log(err, results);
     if (err) { return console.log(err); }
     else {
       var a = [];
       results.forEach( (p) => {
-        a.push('<p>%s &ndash; <a href="/person/%s/edit">edit</a></p>', p.person_id, p._id );
+        a.push('<li>' + p.person_id + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a></li>' );
       });
       a.sort();
+      //console.log(a);
       a.reverse();
-      a.push( '<p>' + a.length.toString() + ' persons:</p>' );
+      a.push( '<p>' + a.length.toString() + ' persons:</p><ul>' );
       a.reverse();
-      a.push( '<p><a href="/hauskosten">hauskosten</a></p>' );
+      a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p>' );
       return res.send( a.join('\n') );
     }
   });
