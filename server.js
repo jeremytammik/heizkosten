@@ -75,7 +75,12 @@ app.get( '/load_sample_person_data', (req, res) => {
   }
   Person.countDocuments( {}, (err, count) => {
     console.log( 'Database contains %d people', count );
-  });  
+    res.send(
+      '<p>Hat geklappt, vielen Dank. '
+      + 'Database now contains ' + count.toString() + ' people.</p>'
+      + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
+  });
+  res.send('countDocuments failed.');
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
