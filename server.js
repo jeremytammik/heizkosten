@@ -57,10 +57,20 @@ app.get( '/hauskosten', (req, res) => {
 });
 
 app.get( '/load_sample_person_data', (req, res) => {
-  var p = new Person( {"person_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},);
-  p.save(function (err, p) {
-    if (err) return console.error(err);
-  });  
+  
+  db.dropCollection( 'people', (err,res) => {
+    if (err) { return console.error( err ); }
+  });
+  
+  //var p = new Person( {"person_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},);
+  
+  var fs = require('fs');
+  var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
+  for (const [key, value] of Object.entries(persons)) {
+    value.save( (err, p) => {
+      if (err) { return console.error(err); }
+    });
+  }
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
