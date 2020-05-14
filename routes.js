@@ -1,4 +1,12 @@
 module.exports = function(app) {
+  var PersonService = require('./controller/person_v1');
+  app.get('/api/v1/person', PersonService.findAll);
+  app.get('/api/v1/person/:id', PersonService.findById);
+  app.post('/api/v1/person', PersonService.add);
+  app.put('/api/v1/person/:id', PersonService.update);
+  app.delete('/api/v1/person/:id', PersonService.delete);
+  app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
+
   var CostService = require('./controller/cost_v1');
   app.get('/api/v1/cost', CostService.findAll);
   app.get('/api/v1/cost/:id', CostService.findById);
