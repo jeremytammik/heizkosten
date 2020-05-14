@@ -110,7 +110,7 @@ function generate_person_edit_form_html(p)
 {
   delete p._id;
   delete p._v;
-  delete p.units;'
+  delete p.units;
   var s1 = '\
 <!DOCTYPE html>\
 <html>\
