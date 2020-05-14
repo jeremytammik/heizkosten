@@ -13,15 +13,15 @@
 
   "mandy_schmidt": {"person_id": "mandy_schmidt", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "+49 7623 3478274", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
-  "mandy_schmidt_2": {"person_id": "", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "", "salutation": "frau", "street": "neuhausstr.", "streetnr": "37", "zip": "79800", "city": "neustadt", "country": "deutschland"},
+  "mandy_schmidt_2": {"person_id": "mandy_schmidt_2", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DEXXX", "telephone": "", "salutation": "frau", "street": "neuhausstr.", "streetnr": "37", "zip": "79800", "city": "neustadt", "country": "deutschland"},
 
   "otto_froehlich": {"person_id": "otto_froehlich", "firstname": "otto", "lastname": "fröhlich", "email": "of@ofd.ch", "iban": "DE82 6835 0048 0001 018076", "telephone": "+49 7621 18364", "salutation": "herr", "street": "adlergässchen", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland"},
 
   "sabine_diesslin": {"person_id": "sabine_diesslin", "firstname": "sabine", "lastname": "diesslin", "email": "sabineundlucky@gmail.com", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 7623 3090301‬", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland"},
 
-  "scheuermann_hv":  {"person_id": "", "firstname": "", "lastname": "scheuermann hv", "email": "huber@ps-immobilien.de", "iban": "", "telephone": "+49 7621 1688855", "salutation": "firma", "street": "nansenstr.", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland"},
+  "scheuermann_hv":  {"person_id": "scheuermann_hv", "firstname": "", "lastname": "scheuermann hv", "email": "huber@ps-immobilien.de", "iban": "", "telephone": "+49 7621 1688855", "salutation": "firma", "street": "nansenstr.", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland"},
 
-  "weidenmüller_gmbh": {"person_id": "", "firstname": "", "lastname": "weidenmüller gmbh", "email": "ml.weidenmüller@t-online.de", "iban": "DE30 6805 2230 0000 013136", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
+  "weidenmueller_gmbh": {"person_id": "weidenmueller_gmbh", "firstname": "", "lastname": "weidenmüller gmbh", "email": "ml.weidenmüller@t-online.de", "iban": "DE30 6805 2230 0000 013136", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"},
 
   "zebra_gbr": {"person_id": "zebra_gbr", "firstname": "", "lastname": "zebra gbr", "email": "ml.weidenmüller@t-online.de", "iban": "DE82 6805 2230 0000 0080 29", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland"}
 
