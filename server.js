@@ -215,7 +215,7 @@ var sformat = `\
 <td><label for="${k}">${k}:</label></td>\
 <td><input type="string" maxlength="20" size="20" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
 </tr>\
-';
+`;
  
 var a = [];
 Object.keys(p).forEach( (key,index) => {
@@ -235,10 +235,6 @@ var s3 = '\
         </tr>\
       </table>\
     </form>\
-    <ul>\
-      <li><a href="/person/load_sample_person_data">Load sample person data</a></li>\
-      <li><a href="/person/create_new">Create new person</a></li>\
-    </ul>\
   </body>\
 </html>\
 ';
