@@ -201,7 +201,11 @@ function generate_person_edit_form_html(p)
 <head>\
 	<meta charset="utf-8" />\
 	<title>Edit Person Data</title>\
-  <style> body { font-family: sans-serif; font-size: small }</style>\
+  <style>\
+    body { font-family: sans-serif; font-size: small }\
+    td { text-align: right }\
+    table { border: 1px solid black }\
+  </style>\
 </head>\
 \
 <body>\
@@ -258,6 +262,18 @@ app.get( '/person/:id/edit', (req, res) => {
 app.post( '/person/:id/edit_submit', (req, res) => {
   var id = req.params.id;
   console.log(req.body);
+  Person.updateOne(
+    { "_id": id }, value, (err,res) => {
+      if (err) { return console.error(err); }
+  });
+  Person.countDocuments( {}, (err, count) => {
+    if (err) { return console.error(err); }
+    console.log( 'Database contains %d people', count );
+    return res.send(
+      '<p>Hat geklappt, vielen Dank. '
+      + 'Database now contains ' + count.toString() + ' people.</p>'
+      + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
+  });
 });
 
 app.get( '/person/load_sample_person_data', (req, res) => {
