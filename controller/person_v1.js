@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-var Person = require( 'model/person' );
+var mongoose = require('mongoose');
+var Person = require( '../model/person' );
 
 PersonService = {
 
