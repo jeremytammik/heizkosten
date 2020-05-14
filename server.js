@@ -106,12 +106,94 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   });
 });
 
+function generate_person_edit_form_html(p)
+{
+  delete p._id;
+  delete p._v;
+  delete p.units;
+  var s1 = "\
+<!DOCTYPE html>\
+<html>\
+\
+<head>\
+	<meta charset="utf-8" />\
+	<title>Edit Person Data</title>\
+	<link rel="stylesheet" type="text/css" href="/public/bootstrap.css" />\
+</head>\
+\
+<body>\
+	<form></form>\
+	<div id="res" class="alert"></div>\
+	<script type="text/javascript" src="/public/jquery.min.js"></script>\
+	<script type="text/javascript" src="/public/underscore.js"></script>\
+	<script type="text/javascript" src="/public/opt/jsv.js"></script>\
+	<script type="text/javascript" src="/public/jsonform.js"></script>\
+	<script type="text/javascript">\
+		$("form").jsonForm({\
+			schema: {\
+';
+
+
+  p.re
+        person_id : { type: "string", title: "person_id"},\
+        firstname : { type: "string", title: "firstname"},\
+        lastname : { type: "string", title: "lastname"},\
+        email : { type: "string", title: "email"},\
+        iban : { type: "string", title: "iban"},\
+        telephone : { type: "string", title: "telephone"},\
+        salutation : { type: "string", title: "salutation"},\
+        street : { type: "string", title: "street"},\
+        streetnr : { type: "string", title: "streetnr"},\
+        zip : { type: "string", title: "zip"},\
+        city : { type: "string", title: "city"},\
+        country : { type: "string", title: "country"}\
+      },\
+      form: [\
+        { "key": "field", "value": "jeremy" },
+        {
+          "type": "submit",
+          "title": "Submit"
+        }
+      ],
+			onSubmit: function (errors, values) {\
+				if (errors) {\
+					$('#res').html('<p>I beg your pardon?</p>');\
+				} else {\
+					$('#res').html('<p>Hello ' + values.name + '.' +\
+						(values.age ? '<br/>You are ' + values.age + '.' : '') +\
+						'</p>');\
+				}\
+			}\
+		});\
+	</script>\
+</body>\
+\
+</html>';
+}
+
+
+    person_id: 'alexander_kem',
+    city: 'rheinfelden',
+    country: 'deutschland',
+    email: 'valyxa82@mail.ru',
+    firstname: 'alexander',
+    iban: 'DE41 3701 0050 0754 2455 03',
+    lastname: 'kem',
+    salutation: 'herr',
+    street: 'fecampring',
+    streetnr: '28',
+    telephone: '+49 176 ????',
+    zip: '79618'
+  
 app.get( '/person/:id/edit', (req, res) => {
   console.log(req.params);
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
+    console.log(err, results);
     if (err) { return console.log(err); }
     else {
+      var htmlform = 'hi';
+      res.send( htmlform );
     }
   });
 });
