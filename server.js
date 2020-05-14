@@ -67,9 +67,7 @@ app.get( '/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
   for (const [key, value] of Object.entries(persons)) {
-    value.save( (err, p) => {
-      if (err) { return console.error(err); }
-    });
+    var p = new Person( value );
   }
 });
 
