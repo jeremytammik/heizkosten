@@ -71,7 +71,7 @@
     "description": "sample_apartment_5_vier_zimmer",
     "unit_id": "001",
     "apartment_id": "001-01-04",
-    "owner_id": "weidenmüller_gmbh",
+    "owner_id": "weidenmueller_gmbh",
     "grundbuchnr": "grundbuchnr_001-01-04",
     "area_m2": 107.32,
     "room_count": 4,
