@@ -107,7 +107,7 @@ var unitSchema = new Schema({
   type: String,
   unit_id: String,
   address: String,
-  manager: ObjectId,
+  manager: mongoose.ObjectId,
   area_m2: Number,
   apt_count: Number,
   splitting_factor_m2: Number,
