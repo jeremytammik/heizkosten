@@ -106,90 +106,6 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   });
 });
 
-function generate_person_edit_form_html_with_jsonform(p)
-{
-  delete p['_id'];
-  delete p['__v'];
-  delete p['units'];
-
-  var s1 = '\
-<!DOCTYPE html>\
-<html>\
-\
-<head>\
-	<meta charset="utf-8" />\
-	<title>Edit Person Data</title>\
-	<link rel="stylesheet" type="text/css" href="/public/bootstrap.css" />\
-</head>\
-\
-<body>\
-	<form></form>\
-	<div id="res" class="alert"></div>\
-	<script type="text/javascript" src="/public/jquery.min.js"></script>\
-	<script type="text/javascript" src="/public/underscore.js"></script>\
-	<script type="text/javascript" src="/public/opt/jsv.js"></script>\
-	<script type="text/javascript" src="/public/jsonform.js"></script>\
-	<script type="text/javascript">\
-		$("form").jsonForm({\
-			schema: {\
-';
-
-//person_id : { type: "string", title: "person_id"},\
-//firstname : { type: "string", title: "firstname"},\
-//lastname : { type: "string", title: "lastname"},\
-//email : { type: "string", title: "email"},\
-//iban : { type: "string", title: "iban"},\
-//telephone : { type: "string", title: "telephone"},\
-//salutation : { type: "string", title: "salutation"},\
-//street : { type: "string", title: "street"},\
-//streetnr : { type: "string", title: "streetnr"},\
-//zip : { type: "string", title: "zip"},\
-//city : { type: "string", title: "city"},\
-//country : { type: "string", title: "country"}\
-
-var a = [];
-Object.keys(p).forEach( (key,index) => {
-  a.push( key + ': {type:"string", title:"' + key + '"},');
-});
-console.log(a);
-
-var schema_string = a.join('\n');
-
-var s2 = '\
-      },\
-      form: [\
-';
-
-var b = [];
-Object.keys(p).forEach( (key,index) => {
-  b.push('{"key":"' + key + '","value": "' + p[key] + '"},');
-});
-console.log(b);
-
-var form_string = b.join('\n');
-
-var s3 = '\
-        {\
-          "type": "submit",\
-          "title": "Submit"\
-        }\
-      ],\
-			onSubmit: function (errors, values) {\
-				if (errors) {\
-					$("#res").html("<p>I beg your pardon?</p>");\
-				} else {\
-					$("#res").html("<p>Good, my friend</p>");\
-				}\
-			}\
-		});\
-	</script>\
-</body>\
-\
-</html>';
-
-return s1 + schema_string + s2 + form_string + s3;
-}
-
 function generate_person_edit_form_html(p)
 {
   var id = p['_id'];
@@ -202,7 +118,7 @@ function generate_person_edit_form_html(p)
 	<meta charset="utf-8" />\
 	<title>Edit Person Data</title>\
   <style>\
-    body { font-family: sans-serif; font-size: small }\
+    body, td, label { font-family: sans-serif; font-size: small }\
     td { text-align: right }\
     table { border: 1px solid black }\
   </style>\
@@ -272,7 +188,7 @@ app.post( '/person/:id/edit_submit', (req, res) => {
     return res.send(
       '<p>Hat geklappt, vielen Dank. '
       + 'Database now contains ' + count.toString() + ' people.</p>'
-      + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
+      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
   });
 });
 
