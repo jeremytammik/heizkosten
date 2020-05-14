@@ -9,7 +9,8 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 var costSchema = new Schema({
-  unit_id: ObjectId,
+  type: String,
+  unit_id: mongoose.ObjectId,
   year: Number,
   
   // hausgeld_umlagefaehig_eur -- zahlen mieter

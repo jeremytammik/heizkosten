@@ -33,12 +33,13 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
+require( './model/cost' );
 //require( './model/apartment' );
 //require( './model/consumption' );
 //require( './model/occupant' );
 //require( './model/unit' );
 
-//require( './routes' )( app );
+require( './routes' )( app );
 
 app.get( '/', (req, res) => {
   res.send(
