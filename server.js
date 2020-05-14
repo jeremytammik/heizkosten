@@ -90,11 +90,31 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   //console.log(req.params);
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
-    if (err) { console.log(err); }
-    else { console.log(results); }
+    if (err) { return console.log(err); }
+    else {
+      var a = [];
+      results.forEach( (p) => {
+        a.push('<p>%s &ndash; <a href="/person/%s/edit">edit</a></p>', p.person_id, p._id );
+      });
+      a.sort();
+      a.reverse();
+      a.push( '<p>' + a.length.toString() + ' persons:</p>' );
+      a.reverse();
+      a.push( '<p><a href="/hauskosten">hauskosten</a></p>' );
+      return res.send( a.join('\n') );
+    }
   });
 });
 
+app.get( '/person/:id/edit', (req, res) => {
+  console.log(req.params);
+  var id = req.params.id;
+  Person.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+    }
+  });
+});
 
 app.get( '/person/load_sample_person_data', (req, res) => {
   var fs = require('fs');
