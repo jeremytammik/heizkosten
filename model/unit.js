@@ -104,7 +104,6 @@ const enum_unit_accounts = [
 ];
 
 var unitSchema = new Schema({
-  type: String,
   unit_id: String,
   address: String,
   manager: mongoose.ObjectId,

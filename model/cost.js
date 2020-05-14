@@ -9,7 +9,6 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 var costSchema = new Schema({
-  type: String,
   unit_id: mongoose.ObjectId,
   year: Number,
   

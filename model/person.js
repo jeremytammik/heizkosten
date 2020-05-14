@@ -13,7 +13,6 @@ var Schema = mongoose.Schema;
 //  'owner' ];
 
 var personSchema = new Schema({
-  type: String,
   person_id: String,
   firstname: String,
   lastname: String,
