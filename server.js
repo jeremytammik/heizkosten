@@ -84,7 +84,7 @@ app.get( '/load_sample_person_data', (req, res) => {
     //});
     Person.upsert(
       { "person_id": value.person_id },
-      value, { "upsert": true }, (err,res) ->
+      value, { "upsert": true }, (err,res) =>
       {
         if (err) { return console.error(err); }
         else { console.log(res); }
