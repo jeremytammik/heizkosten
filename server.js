@@ -82,7 +82,7 @@ app.get( '/load_sample_person_data', (req, res) => {
     //p.save( (err, p) => {
     //  if (err) { return console.error(err); }
     //});
-    Person.upsert(
+    Person.update(
       { "person_id": value.person_id },
       value, { "upsert": true }, (err,res) =>
       {
