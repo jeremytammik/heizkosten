@@ -56,4 +56,4 @@ var costSchema = new Schema({
   house_nk_coldwater_sonderkosten_eur: Number 
 });
 
-mongoose.model( 'Unit', unitSchema );
+mongoose.model( 'Cost', costSchema );
