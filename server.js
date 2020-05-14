@@ -163,7 +163,7 @@ var s2 = '\
 var b = [];
 Object.keys(p).forEach( (key,index) => {
   b.push('"key":"' + key + '","value": "' + p[key] + '"}"');
-}};
+});
 console.log(b);
 
 var form_string = b.join('\n');
