@@ -87,7 +87,7 @@ app.post( '/hauskosten_submit', (req, res) => {
 });
 
 app.get( '/person/unit/:uid/list', (req, res) => {
-  console.log(req);
+  console.log(req.params);
 });
 
 
