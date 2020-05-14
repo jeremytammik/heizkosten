@@ -87,10 +87,8 @@ app.post( '/hauskosten_submit', (req, res) => {
 });
 
 app.get( '/person/unit/:uid/list', (req, res) => {
-  //console.log(req.params);
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
-    //console.log(err, results);
     if (err) { return console.log(err); }
     else {
       var a = [];
@@ -98,11 +96,11 @@ app.get( '/person/unit/:uid/list', (req, res) => {
         a.push('<li>' + p.person_id + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a></li>' );
       });
       a.sort();
-      //console.log(a);
       a.reverse();
-      a.push( '<p>' + a.length.toString() + ' persons:</p><ul>' );
+      a.push( '<head><style> body { font-family: sans-serif; font-size: small }</style></head>' );
+      a.push( '<body><p>' + a.length.toString() + ' persons:</p><ul>' );
       a.reverse();
-      a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p>' );
+      a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p></body>' );
       return res.send( a.join('\n') );
     }
   });
