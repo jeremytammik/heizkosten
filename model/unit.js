@@ -141,4 +141,6 @@ var unitSchema = new Schema({
     account: { type: String, enum: enum_unit_accounts } }],
 });
 
-mongoose.model( 'Unit', unitSchema );
+var Unit = mongoose.model( 'Unit', unitSchema );
+
+module.exports = Unit;

@@ -57,4 +57,6 @@ var costSchema = new Schema({
   house_nk_coldwater_sonderkosten_eur: Number 
 });
 
-mongoose.model( 'Cost', costSchema );
+var Cost = mongoose.model( 'Cost', costSchema );
+
+module.exports = Cost;

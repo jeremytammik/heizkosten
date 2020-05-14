@@ -30,6 +30,4 @@ var personSchema = new Schema({
 
 var Person = mongoose.model( 'person', personSchema );
 
-console.log(Person);
-
 module.exports = Person;
