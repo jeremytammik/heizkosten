@@ -212,7 +212,7 @@ function generate_person_edit_form_html(p)
 
 var sformat = `\ 
 <tr>\
-<td><label for="${k}">${k}:</label></td>
+<td><label for="${k}">${k}:</label></td>\
 <td><input type="string" maxlength="20" size="20" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
 </tr>\
 ';
@@ -325,4 +325,3 @@ var server = app.listen(
       ' mongodb: http://localhost:5000/hauskosten');
   }
 );
-
