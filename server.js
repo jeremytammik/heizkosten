@@ -110,8 +110,8 @@ function generate_person_edit_form_html(p)
 {
   delete p._id;
   delete p._v;
-  delete p.units;
-  var s1 = "\
+  delete p.units;'
+  var s1 = '\
 <!DOCTYPE html>\
 <html>\
 \
@@ -133,35 +133,49 @@ function generate_person_edit_form_html(p)
 			schema: {\
 ';
 
+//person_id : { type: "string", title: "person_id"},\
+//firstname : { type: "string", title: "firstname"},\
+//lastname : { type: "string", title: "lastname"},\
+//email : { type: "string", title: "email"},\
+//iban : { type: "string", title: "iban"},\
+//telephone : { type: "string", title: "telephone"},\
+//salutation : { type: "string", title: "salutation"},\
+//street : { type: "string", title: "street"},\
+//streetnr : { type: "string", title: "streetnr"},\
+//zip : { type: "string", title: "zip"},\
+//city : { type: "string", title: "city"},\
+//country : { type: "string", title: "country"}\
 
-  p.re
-        person_id : { type: "string", title: "person_id"},\
-        firstname : { type: "string", title: "firstname"},\
-        lastname : { type: "string", title: "lastname"},\
-        email : { type: "string", title: "email"},\
-        iban : { type: "string", title: "iban"},\
-        telephone : { type: "string", title: "telephone"},\
-        salutation : { type: "string", title: "salutation"},\
-        street : { type: "string", title: "street"},\
-        streetnr : { type: "string", title: "streetnr"},\
-        zip : { type: "string", title: "zip"},\
-        city : { type: "string", title: "city"},\
-        country : { type: "string", title: "country"}\
+var a = [];
+for (const property in p) {
+  a.push(`${property}: {type:"string",title:${property}}`);
+}
+
+var schema_string = a.join('\n');
+
+var s2 = '\
       },\
       form: [\
-        { "key": "field", "value": "jeremy" },
-        {
-          "type": "submit",
-          "title": "Submit"
-        }
-      ],
+';
+
+var b = [];
+for (const property in p) {
+  b.push(`"key":"${property}","value": "${object[property]}"`);
+}
+
+var form_string = b.join('\n');
+
+var s3 = '\
+        {\
+          "type": "submit",\
+          "title": "Submit"\
+        }\
+      ],\
 			onSubmit: function (errors, values) {\
 				if (errors) {\
-					$('#res').html('<p>I beg your pardon?</p>');\
+					$("#res").html("<p>I beg your pardon?</p>");\
 				} else {\
-					$('#res').html('<p>Hello ' + values.name + '.' +\
-						(values.age ? '<br/>You are ' + values.age + '.' : '') +\
-						'</p>');\
+					$("#res").html("<p>Good, my friend</p>");\
 				}\
 			}\
 		});\
@@ -169,22 +183,10 @@ function generate_person_edit_form_html(p)
 </body>\
 \
 </html>';
+
+return s1 + schema_string + s2 + form_string + s3;
 }
 
-
-    person_id: 'alexander_kem',
-    city: 'rheinfelden',
-    country: 'deutschland',
-    email: 'valyxa82@mail.ru',
-    firstname: 'alexander',
-    iban: 'DE41 3701 0050 0754 2455 03',
-    lastname: 'kem',
-    salutation: 'herr',
-    street: 'fecampring',
-    streetnr: '28',
-    telephone: '+49 176 ????',
-    zip: '79618'
-  
 app.get( '/person/:id/edit', (req, res) => {
   console.log(req.params);
   var id = req.params.id;
@@ -192,8 +194,7 @@ app.get( '/person/:id/edit', (req, res) => {
     console.log(err, results);
     if (err) { return console.log(err); }
     else {
-      var htmlform = 'hi';
-      res.send( htmlform );
+      res.send( generate_person_edit_form_html(results) );
     }
   });
 });
