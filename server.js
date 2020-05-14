@@ -206,7 +206,7 @@ function generate_person_edit_form_html(p)
 <body>\
 	<form>\
     <p>Person editieren:</p>\
-    <form action="/person/:id/edit_submit" method="POST">\
+    <form method="POST">\
       <table>\
 ';
 
@@ -254,6 +254,10 @@ app.get( '/person/:id/edit', (req, res) => {
       res.send( form );
     }
   });
+});
+
+app.post( '/person/:id/edit', (req, res) => {
+  console.log(req.params);
 });
 
 app.get( '/person/load_sample_person_data', (req, res) => {
