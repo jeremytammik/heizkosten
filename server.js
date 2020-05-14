@@ -111,19 +111,24 @@ app.get( '/person/create_new', (req, res) => {
 });
 
 app.post( '/person/create_new_submit', (req, res) => {
-  //console.log(req.body);
+  console.log(req.body);
   var p = req.body;
-  res.send(
-    '<p><a href="person/create_new">Weitere Personendaten eingeben...</a></p>');
+  p.units = p.units.split(',');
   
-  //Person.countDocuments( {}, (err, count) => {
-  //  if (err) { return console.error(err); }
-  //  console.log( 'Database contains %d people', count );
-  //  return res.send(
-  //    '<p>Hat geklappt, vielen Dank. '
-  //    + 'Database now contains ' + count.toString() + ' people.</p>'
-  //    + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
-  //});
+  Person.updateOne(
+    { "person_id": p.person_id }, p,
+    { "upsert": true }, (err,res) => {
+      if (err) { return console.error(err); }
+  });
+
+  Person.countDocuments( {}, (err, count) => {
+    if (err) { return console.error(err); }
+    console.log( 'Database contains %d people', count );
+    return res.send(
+      '<p>Hat geklappt, vielen Dank. '
+      + 'Database now contains ' + count.toString() + ' people.</p>'
+      + '<p><a href="/person/create_new">Weitere Personendaten erfassen...</a></p>');
+  });
 });
 
 app.get('/express_backend', (req, res) => {
