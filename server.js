@@ -1,10 +1,10 @@
 // server.js
 //
-// main entry point for a cloud-based firerating
+// main entry point for the heizkosten
 // database application, implemented as a node.js
 // REST API driven mongoDB web server.
 //
-// Copyright 2015-2016 by Jeremy Tammik, Autodesk Inc.
+// Copyright 2015-2020 by Jeremy Tammik, Autodesk Inc.
 
 var pkg = require( './package.json' );
 var express = require('express');
