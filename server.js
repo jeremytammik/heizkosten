@@ -36,11 +36,11 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
+require( './model/unit' );
 require( './model/cost' );
 //require( './model/apartment' );
 //require( './model/consumption' );
 //require( './model/occupant' );
-//require( './model/unit' );
 
 require( './routes' )( app );
 
