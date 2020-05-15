@@ -95,7 +95,8 @@ app.get( '/person/unit/:uid/list', (req, res) => {
       results.forEach( (p) => { a.push(
         '<li>' + p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
         + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country
-        + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a></li>' );
+        + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>
+        + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>' );
       });
       a.sort();
       a.reverse();
@@ -108,13 +109,21 @@ app.get( '/person/unit/:uid/list', (req, res) => {
   });
 });
 
-function generate_person_edit_form_html(p)
+function generate_person_edit_form_html(p, create_duplicate)
 {
   var id = p['_id'];
-  delete p['person_id'];
   delete p['_id'];
   delete p['__v'];
-  delete p['units'];
+  
+  if(create_duplicate) {
+    p['person_id'] = '';
+  }
+  else {
+    delete p['person_id'];
+    delete p['units'];
+  }
+  
+  var action = create_duplicate ? 'dupl' : 'edit';
 
   var s1 = `\
 <head>\
@@ -129,7 +138,7 @@ function generate_person_edit_form_html(p)
 \
 <body>\
   <p>Person editieren:</p>\
-  <form action="/person/${id}/edit_submit" method="POST">\
+  <form action="/person/${id}/${action}_submit" method="POST">\
     <table>\
 `;
 
@@ -171,7 +180,7 @@ app.get( '/person/:id/edit', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = generate_person_edit_form_html(doc);
+      var form = generate_person_edit_form_html(doc, false);
       console.log(form);
       res.send( form );
     }
@@ -184,6 +193,37 @@ app.post( '/person/:id/edit_submit', (req, res) => {
   Person.updateOne(
     { "_id": id }, req.body, (err,res) => {
       if (err) { return console.error(err); }
+  });
+  Person.countDocuments( {}, (err, count) => {
+    if (err) { return console.error(err); }
+    console.log( 'Database contains %d people', count );
+    return res.send(
+      '<p>Hat geklappt, vielen Dank. '
+      + 'Database now contains ' + count.toString() + ' people.</p>'
+      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+  });
+});
+
+app.get( '/person/:id/dupl', (req, res) => {
+  console.log(req.params);
+  var id = req.params.id;
+  Person.find( {'_id': id }, (err, results) => {
+    console.log(err, results);
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var form = generate_person_edit_form_html(doc, true);
+      console.log(form);
+      res.send( form );
+    }
+  });
+});
+
+app.post( '/person/:id/dupl_submit', (req, res) => {
+  var id = req.params.id;
+  console.log(req.body);
+  Person.save( req.body, (err,res) => {
+    if (err) { return console.error(err); }
   });
   Person.countDocuments( {}, (err, count) => {
     if (err) { return console.error(err); }
