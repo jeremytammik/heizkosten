@@ -38,8 +38,17 @@ personSchema.methods.get_display_string = function() {
   return display_string_for_person_doc( this );
 };
 
-function generate_person_edit_form_html( p, create_duplicate )
-{
+//personSchema.methods.get_edit_form_html = function() {
+//  return generate_person_edit_form_html( this, false );
+//};
+//
+//personSchema.methods.get_dupl_form_html = function() {
+//  return generate_person_edit_form_html( this, true );
+//};
+
+var Person = mongoose.model( 'Person', personSchema );
+
+Person.get_edit_form_html = ( p, create_duplicate ) => {
   var id = p['_id'];
   delete p['_id'];
   delete p['__v'];
@@ -99,11 +108,5 @@ var s3 = '\
 
 return s1 + s2 + s3;
 }
-
-personSchema.methods.get_edit_form_html = function( create_duplicate ) {
-  return generate_person_edit_form_html( this, create_duplicate );
-};
-
-var Person = mongoose.model( 'Person', personSchema );
 
 module.exports = Person;

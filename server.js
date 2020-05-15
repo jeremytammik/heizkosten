@@ -120,9 +120,10 @@ app.get( '/person/:id/edit', (req, res) => {
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      //var doc = results[0]._doc;
+      var doc = results[0]._doc;
       //var form = generate_person_edit_form_html(doc, false);
-      var form = results[0].get_edit_form_html( false );
+      //var form = doc.get_edit_form_html();
+      var form = Person.get_edit_form_html( doc, false );
       res.send( form );
     }
   });
@@ -144,9 +145,10 @@ app.get( '/person/:id/dupl', (req, res) => {
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      //var doc = results[0]._doc;
-      //var form = generate_person_edit_form_html(doc, true);
-      var form = results[0].get_edit_form_html( true );
+      var doc = results[0]._doc;
+      //var form = person_get_edit_form_html(doc, true);
+      //var form = doc.get_dupl_form_html();
+      var form = Person.get_edit_form_html( doc, true );
       res.send( form );
     }
   });
