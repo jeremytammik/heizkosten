@@ -173,6 +173,13 @@ var s3 = '\
 return s1 + s2 + s3;
 }
 
+function success_with_person_count_string(n)
+{
+  return '<p>Hat geklappt, vielen Dank. '
+    + `Database now contains ${n} people.</p>`
+    + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>';
+}
+
 app.get( '/person/:id/edit', (req, res) => {
   console.log(req.params);
   var id = req.params.id;
@@ -191,17 +198,12 @@ app.get( '/person/:id/edit', (req, res) => {
 app.post( '/person/:id/edit_submit', (req, res) => {
   var id = req.params.id;
   console.log(req.body);
-  Person.updateOne(
-    { "_id": id }, req.body, (err,res) => {
-      if (err) { return console.error(err); }
-  });
-  Person.countDocuments( {}, (err, count) => {
+  Person.updateOne( { "_id": id }, req.body, (err,res) => {
     if (err) { return console.error(err); }
-    console.log( 'Database contains %d people', count );
-    return res.send(
-      '<p>Hat geklappt, vielen Dank. '
-      + 'Database now contains ' + count.toString() + ' people.</p>'
-      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+    Person.countDocuments( {}, (err, count) => {
+      if (err) { return console.error(err); }
+      return res.send( success_with_person_count_string( count.toString() );
+    });
   });
 });
 
@@ -225,14 +227,10 @@ app.post( '/person/:id/dupl_submit', (req, res) => {
   console.log(req.body);
   Person.create( req.body, (err,res) => {
     if (err) { return console.error(err); }
-  });
-  Person.countDocuments( {}, (err, count) => {
-    if (err) { return console.error(err); }
-    console.log( 'Database contains %d people', count );
-    return res.send(
-      '<p>Hat geklappt, vielen Dank. '
-      + 'Database now contains ' + count.toString() + ' people.</p>'
-      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+    Person.countDocuments( {}, (err, count) => {
+      if (err) { return console.error(err); }
+      return res.send( success_with_person_count_string( count.toString() );
+    });
   });
 });
 
@@ -240,25 +238,13 @@ app.get( '/person/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
 
-  //for (const [key, value] of Object.entries(persons)) {
-  //  Person.updateOne(
-  //    { "person_id": value.person_id },
-  //    value, { "upsert": true }, (err,res) => {
-  //      if (err) { return console.error(err); }
-  //  });
-  //}
-  
   Person.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
-    Person.create( Object.values(persons), (err,res) => {
+    Person.create( Object.values(persons), (err,res2) => {
       if (err) { return console.error(err); }
       Person.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        var n = count.toString();
-        return res.send(
-          '<p>Hat geklappt, vielen Dank. '
-          + `Database now contains ${n} people.</p>`
-          + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+        return res.send( success_with_person_count_string( count.toString() );
       });
     });
   });
@@ -273,19 +259,14 @@ app.post( '/person/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
   
-  Person.updateOne(
-    { "person_id": p.person_id }, p,
-    { "upsert": true }, (err,res) => {
+  Person.updateOne( { "person_id": p.person_id },
+    p, { "upsert": true }, (err,res) => {
+      if (err) { return console.error(err);
+    }
+    Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-  });
-
-  Person.countDocuments( {}, (err, count) => {
-    if (err) { return console.error(err); }
-    console.log( 'Database contains %d people', count );
-    return res.send(
-      '<p>Hat geklappt, vielen Dank. '
-      + 'Database now contains ' + count.toString() + ' people.</p>'
-      + '<p><a href="/person/create_new">Weitere Personendaten erfassen...</a></p>');
+      return res.send( success_with_person_count_string( count.toString() );
+    });
   });
 });
 
