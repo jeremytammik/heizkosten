@@ -92,8 +92,10 @@ app.get( '/person/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var a = [];
-      results.forEach( (p) => {
-        a.push('<li>' + p.person_id + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a></li>' );
+      results.forEach( (p) => { a.push(
+        '<li>' + p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
+        + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country
+        + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a></li>' );
       });
       a.sort();
       a.reverse();
@@ -109,6 +111,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
 function generate_person_edit_form_html(p)
 {
   var id = p['_id'];
+  delete p['person_id'];
   delete p['_id'];
   delete p['__v'];
   delete p['units'];
