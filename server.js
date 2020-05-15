@@ -154,7 +154,6 @@ Object.keys(p).forEach( (key,index) => {
 </tr>\
 ` );
 });
-console.log(a);
 
 var s2 = a.join('\n');
 
@@ -181,10 +180,8 @@ function success_with_person_count_string(n)
 }
 
 app.get( '/person/:id/edit', (req, res) => {
-  console.log(req.params);
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    console.log(err, results);
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
@@ -197,8 +194,7 @@ app.get( '/person/:id/edit', (req, res) => {
 
 app.post( '/person/:id/edit_submit', (req, res) => {
   var id = req.params.id;
-  console.log(req.body);
-  Person.updateOne( { "_id": id }, req.body, (err,res) => {
+  Person.updateOne( { "_id": id }, req.body, (err,res2) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
@@ -208,15 +204,12 @@ app.post( '/person/:id/edit_submit', (req, res) => {
 });
 
 app.get( '/person/:id/dupl', (req, res) => {
-  console.log(req.params);
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    console.log(err, results);
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
       var form = generate_person_edit_form_html(doc, true);
-      console.log(form);
       res.send( form );
     }
   });
@@ -224,8 +217,7 @@ app.get( '/person/:id/dupl', (req, res) => {
 
 app.post( '/person/:id/dupl_submit', (req, res) => {
   var id = req.params.id;
-  console.log(req.body);
-  Person.create( req.body, (err,res) => {
+  Person.create( req.body, (err,res2) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
@@ -255,12 +247,11 @@ app.get( '/person/create_new', (req, res) => {
 });
 
 app.post( '/person/create_new_submit', (req, res) => {
-  console.log(req.body);
   var p = req.body;
   p.units = p.units.split(',');
   
   Person.updateOne( { "person_id": p.person_id },
-    p, { "upsert": true }, (err,res) => {
+    p, { "upsert": true }, (err,res2) => {
       if (err) { return console.error(err);
     }
     Person.countDocuments( {}, (err, count) => {
