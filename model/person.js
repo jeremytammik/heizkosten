@@ -62,7 +62,9 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
   }
   
   var url_action = create_duplicate ? 'dupl' : 'edit';
-  var verb = create_duplicate ? 'duplizieren' : 'edititieren';
+  var verb = create_duplicate
+    ? 'duplizieren, also neue Person anlegen mit aehnlichen Daten'
+    : 'edititieren';
 
   var s1 = `\
 <head>\
