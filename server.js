@@ -84,6 +84,12 @@ app.post( '/hauskosten_submit', (req, res) => {
   });    
 });
 
+function display_string_for_person_doc( p )
+{
+  return p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
+    + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
+}
+
 app.get( '/person/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
@@ -91,10 +97,10 @@ app.get( '/person/unit/:uid/list', (req, res) => {
     else {
       var a = [];
       results.forEach( (p) => { a.push(
-        '<li>' + p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
-        + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country
+        '<li>' + display_string_for_person_doc( p )
         + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
-        + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>' );
+        + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>'
+        + ' &ndash; <a href="/person/' + p._id + '/del">del</a></li>' );
       });
       var n = a.length.toString();
       a.sort();
@@ -216,6 +222,33 @@ app.post( '/person/:id/dupl_submit', (req, res) => {
   var id = req.params.id;
   Person.create( req.body, (err,res2) => {
     if (err) { return console.error(err); }
+    Person.countDocuments( {}, (err, count) => {
+      if (err) { return console.error(err); }
+      return res.send( success_with_person_count_string( count.toString() ) );
+    });
+  });
+});
+
+app.get( '/person/:id/del', (req, res) => {
+  var id = req.params.id;
+  Person.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var s = display_string_for_person_doc( doc );
+      var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
+        + `<ul><li>${s}</li></ul>`
+        + `<a href="/person/${id}/del_confirmed">Ja</a> &ndash; `
+        + '<a href="/hauskosten">Nein</a>';
+      res.send( html );
+    }
+  });
+});
+
+app.get( '/person/:id/del_confirmed', (req, res) => {
+  var id = req.params.id;
+  Person.deleteOne( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
       return res.send( success_with_person_count_string( count.toString() ) );
