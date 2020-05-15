@@ -170,8 +170,7 @@ app.get( '/person/:id/del', (req, res) => {
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      var s = doc.get_display_string();
-      var doc = results[0]._doc;
+      var s = results[0].get_display_string();
       var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
         + `<ul><li>${s}</li></ul>`
         + `<a href="/person/${id}/del_confirmed">Ja</a> &ndash; `
