@@ -99,7 +99,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
       results.forEach( (p) => { a.push(
         '<li>' + display_string_for_person_doc( p )
         + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
-        + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>'
+        + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a>'
         + ' &ndash; <a href="/person/' + p._id + '/del">del</a></li>' );
       });
       var n = a.length.toString();
