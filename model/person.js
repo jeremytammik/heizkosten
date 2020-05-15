@@ -100,8 +100,8 @@ var s3 = '\
 return s1 + s2 + s3;
 }
 
-personSchema.methods.get_edit_form_html = function(cb) {
-  return display_string_for_person_doc( this );
+personSchema.methods.get_edit_form_html = function( create_duplicate ) {
+  return generate_person_edit_form_html( this, create_duplicate );
 };
 
 var Person = mongoose.model( 'Person', personSchema );
