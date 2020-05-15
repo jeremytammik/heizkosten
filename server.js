@@ -239,19 +239,27 @@ app.post( '/person/:id/dupl_submit', (req, res) => {
 app.get( '/person/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
-  for (const [key, value] of Object.entries(persons)) {
-    Person.updateOne(
-      { "person_id": value.person_id },
-      value, { "upsert": true }, (err,res) => {
-        if (err) { return console.error(err); }
-    });
-  }
+
+  //for (const [key, value] of Object.entries(persons)) {
+  //  Person.updateOne(
+  //    { "person_id": value.person_id },
+  //    value, { "upsert": true }, (err,res) => {
+  //      if (err) { return console.error(err); }
+  //  });
+  //}
+  
+  Person.deleteMany( {}, (err) => {
+    if (err) { return console.error(err); }
+  });
+  Person.create( Object.values(persons), (err,res) => {
+    if (err) { return console.error(err); }
+  });
   Person.countDocuments( {}, (err, count) => {
     if (err) { return console.error(err); }
-    console.log( 'Database contains %d people', count );
+    var n = count.toString();
     return res.send(
       '<p>Hat geklappt, vielen Dank. '
-      + 'Database now contains ' + count.toString() + ' people.</p>'
+      + `Database now contains ${n} people.</p>`
       + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
   });
 });
