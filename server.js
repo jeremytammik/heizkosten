@@ -95,7 +95,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
       results.forEach( (p) => { a.push(
         '<li>' + p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
         + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country
-        + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>
+        + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
         + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>' );
       });
       a.sort();
