@@ -250,17 +250,17 @@ app.get( '/person/load_sample_person_data', (req, res) => {
   
   Person.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
-  });
-  Person.create( Object.values(persons), (err,res) => {
-    if (err) { return console.error(err); }
-  });
-  Person.countDocuments( {}, (err, count) => {
-    if (err) { return console.error(err); }
-    var n = count.toString();
-    return res.send(
-      '<p>Hat geklappt, vielen Dank. '
-      + `Database now contains ${n} people.</p>`
-      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+    Person.create( Object.values(persons), (err,res) => {
+      if (err) { return console.error(err); }
+      Person.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        var n = count.toString();
+        return res.send(
+          '<p>Hat geklappt, vielen Dank. '
+          + `Database now contains ${n} people.</p>`
+          + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
+      });
+    });
   });
 });
 
