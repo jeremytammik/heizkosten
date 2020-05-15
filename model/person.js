@@ -4,6 +4,8 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
+const { jt_form_generator_for_strings } = require('../form/jtformgen.js');
+
 var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
@@ -66,50 +68,7 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
     ? 'duplizieren, also neue Person anlegen mit aehnlichen Daten'
     : 'edititieren';
 
-  var s1 = `\
-<head>\
-	<meta charset="utf-8" />\
-	<title>Edit Person Data</title>\
-  <style>\
-    body, td, label { font-family: sans-serif; font-size: small }\
-    td { text-align: right }\
-    table { border: 1px solid black }\
-  </style>\
-</head>\
-\
-<body>\
-  <p>Person ${verb}:</p>\
-  <form action="/person/${id}/${url_action}_submit" method="POST">\
-    <table>\
-`;
-
-var a = [];
-Object.keys(p).forEach( (key,index) => {
-  var k = key;
-  var v = p[key];
-  a.push( `\ 
-<tr>\
-<td><label for="${k}">${k}:</label></td>\
-<td><input type="string" maxlength="30" size="30" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
-</tr>\
-` );
-});
-
-var s2 = a.join('\n');
-
-var s3 = '\
-        <tr>\
-          <td colspan="2" style="text-align: center">\
-            <button type="submit">Speichern</button>\
-          </td>\
-        </tr>\
-      </table>\
-    </form>\
-  </body>\
-</html>\
-';
-
-return s1 + s2 + s3;
+  return jt_form_generator_for_strings( p, id, url_action, verb );
 }
 
 module.exports = Person;
