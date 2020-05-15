@@ -66,7 +66,6 @@ app.get( '/hauskosten', (req, res) => {
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
 
 app.post( '/hauskosten_submit', (req, res) => {
-  //console.log(req.body);
   var h = req.body;
   var unit_id = h.unit;
   delete h.unit;
@@ -74,7 +73,6 @@ app.post( '/hauskosten_submit', (req, res) => {
   delete h.jahr;
   units[unit_id].hausgeld_umlagefaehig_eur[year] = h;
   var n = Object.keys(units[unit_id].hausgeld_umlagefaehig_eur).length;
-  //console.log(hauskosten);
   var fs = require('fs');
   fs.writeFile( "form/units.json", JSON.stringify(units, null, 2), (err) => {
     if (err) { console.log(err); }
@@ -186,7 +184,6 @@ app.get( '/person/:id/edit', (req, res) => {
     else {
       var doc = results[0]._doc;
       var form = generate_person_edit_form_html(doc, false);
-      console.log(form);
       res.send( form );
     }
   });
