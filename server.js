@@ -267,12 +267,15 @@ app.get('/express_backend', (req, res) => {
 app.set( 'port', 5000 ); // 5000 for express/react
 
 var server = app.listen(
-  app.get( 'port' ),
-  function() {
-    console.log(
-      'Heizkosten server ' + pkg.version +
-      ' listening at port ' + server.address().port +
-      ' with ' + (localMongo ? 'local' : 'remote') +
-      ' mongodb: http://localhost:5000/hauskosten');
+  app.get( 'port' ), () => {
+    require('dns').lookup(
+      require('os').hostname(), (err, add, fam) => {
+        console.log(
+          'Heizkosten server version ' + pkg.version
+          + ' listening at port ' + server.address().port
+          + ' with ' + (localMongo ? 'local' : 'remote')
+          + ` mongodb:\nhttp://${add}:5000/hauskosten` );
+      }
+    )
   }
 );
