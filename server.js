@@ -202,7 +202,7 @@ app.post( '/person/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() );
+      return res.send( success_with_person_count_string( count.toString() ) );
     });
   });
 });
@@ -229,7 +229,7 @@ app.post( '/person/:id/dupl_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() );
+      return res.send( success_with_person_count_string( count.toString() ) );
     });
   });
 });
@@ -244,7 +244,7 @@ app.get( '/person/load_sample_person_data', (req, res) => {
       if (err) { return console.error(err); }
       Person.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_person_count_string( count.toString() );
+        return res.send( success_with_person_count_string( count.toString() ) );
       });
     });
   });
@@ -265,7 +265,7 @@ app.post( '/person/create_new_submit', (req, res) => {
     }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() );
+      return res.send( success_with_person_count_string( count.toString() ) );
     });
   });
 });
