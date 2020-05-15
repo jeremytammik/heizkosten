@@ -34,9 +34,9 @@ function display_string_for_person_doc( p )
     + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
 }
 
-personSchema.methods.get_display_string = () => {
+personSchema.methods.get_display_string = function(cb) {
   return display_string_for_person_doc( this );
-}
+};
 
 var Person = mongoose.model( 'Person', personSchema );
 

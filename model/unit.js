@@ -111,7 +111,7 @@ var unitSchema = new Schema({
   apt_count: Number,
   splitting_factor_m2: Number,
   
-  costs: [ObjectId],
+  costs: [mongoose.ObjectId],
 
   //hausgeld_eur: Number, // zahlen eigentuemer
   //hausgeld_umlagefaehig_eur: Number, // zahlen mieter
