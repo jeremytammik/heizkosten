@@ -98,10 +98,11 @@ app.get( '/person/unit/:uid/list', (req, res) => {
         + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
         + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a></li>' );
       });
+      var n = a.length.toString();
       a.sort();
       a.reverse();
       a.push( '<head><style> body { font-family: sans-serif; font-size: small }</style></head>' );
-      a.push( '<body><p>' + a.length.toString() + ' persons:</p><ul>' );
+      a.push( '<body><p>${n} persons associated with unit ${uid}:</p><ul>' );
       a.reverse();
       a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p></body>' );
       return res.send( a.join('\n') );
@@ -222,7 +223,7 @@ app.get( '/person/:id/dupl', (req, res) => {
 app.post( '/person/:id/dupl_submit', (req, res) => {
   var id = req.params.id;
   console.log(req.body);
-  Person.save( req.body, (err,res) => {
+  Person.create( req.body, (err,res) => {
     if (err) { return console.error(err); }
   });
   Person.countDocuments( {}, (err, count) => {
