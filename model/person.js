@@ -28,6 +28,16 @@ var personSchema = new Schema({
   country: String
 });
 
+function display_string_for_person_doc( p )
+{
+  return p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
+    + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
+}
+
+personSchema.methods.get_display_string = () => {
+  return display_string_for_person_doc( this );
+}
+
 var Person = mongoose.model( 'Person', personSchema );
 
 module.exports = Person;

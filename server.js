@@ -84,12 +84,6 @@ app.post( '/hauskosten_submit', (req, res) => {
   });    
 });
 
-function display_string_for_person_doc( p )
-{
-  return p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
-    + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
-}
-
 app.get( '/person/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
@@ -97,7 +91,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
     else {
       var a = [];
       results.forEach( (p) => { a.push(
-        '<li>' + display_string_for_person_doc( p )
+        '<li>' + p.get_display_string()
         + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
         + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a>'
         + ' &ndash; <a href="/person/' + p._id + '/del">del</a></li>' );
@@ -234,8 +228,8 @@ app.get( '/person/:id/del', (req, res) => {
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
     else {
+      var s = doc.get_display_string();
       var doc = results[0]._doc;
-      var s = display_string_for_person_doc( doc );
       var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
         + `<ul><li>${s}</li></ul>`
         + `<a href="/person/${id}/del_confirmed">Ja</a> &ndash; `
