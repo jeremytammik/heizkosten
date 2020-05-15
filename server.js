@@ -81,7 +81,7 @@ app.post( '/hauskosten_submit', (req, res) => {
     else { res.send(
       '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
       + unit_id + ' nun fuer ' + n.toString() + ' Jahre erfasst.</p>'
-      + '<p><a href="hauskosten">Weitere Hauskosten eingeben...</a></p>');
+      + '<p><a href="/hauskosten">Weitere Hauskosten eingeben...</a></p>');
     }
   });    
 });
@@ -211,7 +211,7 @@ app.get( '/person/load_sample_person_data', (req, res) => {
     return res.send(
       '<p>Hat geklappt, vielen Dank. '
       + 'Database now contains ' + count.toString() + ' people.</p>'
-      + '<p><a href="hauskosten">Weiter Hauskosten erfassen...</a></p>');
+      + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>');
   });
 });
 
