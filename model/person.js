@@ -61,7 +61,8 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
     delete p['units'];
   }
   
-  var action = create_duplicate ? 'dupl' : 'edit';
+  var url_action = create_duplicate ? 'dupl' : 'edit';
+  var verb = create_duplicate ? 'duplizieren' : 'edititieren';
 
   var s1 = `\
 <head>\
@@ -75,8 +76,8 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
 </head>\
 \
 <body>\
-  <p>Person editieren:</p>\
-  <form action="/person/${id}/${action}_submit" method="POST">\
+  <p>Person ${verb}:</p>\
+  <form action="/person/${id}/${url_action}_submit" method="POST">\
     <table>\
 `;
 
