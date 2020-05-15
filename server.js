@@ -102,7 +102,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
       a.sort();
       a.reverse();
       a.push( '<head><style> body { font-family: sans-serif; font-size: small }</style></head>' );
-      a.push( '<body><p>${n} persons associated with unit ${uid}:</p><ul>' );
+      a.push( `<body><p>${n} persons associated with unit ${uid}:</p><ul>` );
       a.reverse();
       a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p></body>' );
       return res.send( a.join('\n') );
