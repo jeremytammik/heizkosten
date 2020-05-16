@@ -80,7 +80,7 @@ app.post( '/hauskosten_submit', (req, res) => {
     else { res.send(
       '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
       + unit_id + ' nun fuer ' + n.toString() + ' Jahre erfasst.</p>'
-      + '<p><a href="/hauskosten">Weitere Hauskosten eingeben...</a></p>');
+      + '<p><a href="/hauskosten.html">Weitere Hauskosten eingeben...</a></p>');
     }
   });    
 });
@@ -103,7 +103,7 @@ app.get( '/person/unit/:uid/list', (req, res) => {
       a.push( '<head><style> body { font-family: sans-serif; font-size: small }</style></head>' );
       a.push( `<body><p>${n} persons associated with unit ${uid}:</p><ul>` );
       a.reverse();
-      a.push( '</ul><p><a href="/hauskosten">return to hauskosten</a></p></body>' );
+      a.push( '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>' );
       return res.send( a.join('\n') );
     }
   });
@@ -113,7 +113,7 @@ function success_with_person_count_string(n)
 {
   return '<p>Hat geklappt, vielen Dank. '
     + `Database now contains ${n} people.</p>`
-    + '<p><a href="/hauskosten">Weiter Hauskosten erfassen...</a></p>';
+    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>';
 }
 
 app.get( '/person/:id/edit', (req, res) => {
@@ -175,7 +175,7 @@ app.get( '/person/:id/del', (req, res) => {
       var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
         + `<ul><li>${s}</li></ul>`
         + `<a href="/person/${id}/del_confirmed">Ja</a> &ndash; `
-        + '<a href="/hauskosten">Nein</a>';
+        + '<a href="/hauskosten.html">Nein</a>';
       res.send( html );
     }
   });
