@@ -1,3 +1,4 @@
 body { font-family: sans-serif; font-size: small }
 td { text-align: right }
+td.center { text-align: center }
 table { border: 1px solid black }
