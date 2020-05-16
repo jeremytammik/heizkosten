@@ -6,7 +6,7 @@
 //
 // Copyright 2015-2020 by Jeremy Tammik, Autodesk Inc.
 
-var pkg = require( './package.json' );
+var pkg = require( '../package.json' );
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
@@ -41,9 +41,9 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-var Person = require( './model/person' );
-var Unit = require( './model/unit' );
-var Cost = require( './model/cost' );
+var Person = require( '../model/person' );
+var Unit = require( '../model/unit' );
+var Cost = require( '../model/cost' );
 //require( './model/apartment' );
 //require( './model/consumption' );
 //require( './model/occupant' );
@@ -231,8 +231,8 @@ app.get('/express_backend', (req, res) => {
 });
 
 //console.log( 'process.env.PORT=' + process.env.PORT );
-//app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
-app.set( 'port', 5000 ); // 5000 for express/react
+app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
+//app.set( 'port', 5000 ); // 5000 for express/react
 
 var server = app.listen(
   app.get( 'port' ), () => {
