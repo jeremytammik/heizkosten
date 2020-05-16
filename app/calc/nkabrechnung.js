@@ -12,7 +12,7 @@
  output: einzelabrechnung
 */
 
-const loaddata = require('../data/loaddata');
+const loaddata = require('../../data/loaddata');
 const util = require('./util');
 
 function get_contract_payments_total( contract, konto, year )

@@ -6,8 +6,8 @@ app.get( '/', (req, res) => {
 
 app.use( '/person', require( './rperson' ));
 
-var Unit = require( '../../model/unit' );
-var Cost = require( '../../model/cost' );
+var Unit = require( '../model/unit' );
+var Cost = require( '../model/cost' );
 //require( './model/apartment' );
 //require( './model/consumption' );
 //require( './model/occupant' );
@@ -16,7 +16,7 @@ var mongoose = require( 'mongoose' );
 
 console.log( 'Database models', mongoose.connection.modelNames() );
 
-var CostService = require( '../../controller/cost_v1' );
+var CostService = require( '../controller/cost_v1' );
 app.get('/api/v1/cost', CostService.findAll);
 app.get('/api/v1/cost/:id', CostService.findById);
 app.post('/api/v1/cost', CostService.add); // is this used any longer at all, now that update3 is available?

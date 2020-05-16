@@ -1,8 +1,8 @@
 const app = module.exports = require('express')();
 
-var Person = require( '../../model/person' );
+var Person = require( '../model/person' );
 
-var PersonService = require( '../../controller/person_v1' );
+var PersonService = require( '../controller/person_v1' );
 app.get('/api/v1/person', PersonService.findAll);
 app.get('/api/v1/person/:id', PersonService.findById);
 app.post('/api/v1/person', PersonService.add);
