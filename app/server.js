@@ -47,19 +47,7 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-require( './routes' )( app, db );
-
-app.get( '/', (req, res) => {
-  var v = pkg.version;
-  res.send( `Hello from the cloud-based heizkosten database ${v}.\n` );
-  //res.sendFile(__dirname + '/index.html');  
-});
-
-app.all( '*', (req, res) => {
-  res.status( 404 ).send( `not found` );
-});
-
-// server
+app.use(routes);
 
 app.set( 'port', process.env.PORT || 3001 );
 
