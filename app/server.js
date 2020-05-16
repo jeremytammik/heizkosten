@@ -36,6 +36,7 @@ db.once('open', () => {
 });
 
 var app = express();
+app.use(express.static('public'));
 
 var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
@@ -53,9 +54,8 @@ console.log( db.modelNames() );
 require( './routes' )( app );
 
 app.get( '/', (req, res) => {
-  res.send(
-    'Hello from the cloud-based heizkosten ' +
-    ' database ' + pkg.version + '.\n' );
+  var v = pkg.version;
+  res.send( `Hello from the cloud-based heizkosten database ${v}.\n` );
   //res.sendFile(__dirname + '/index.html');  
 });
 
