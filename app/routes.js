@@ -1,5 +1,7 @@
+
 module.exports = function(app) {
-  var PersonService = require( '../controller/person_v1 ');
+
+  var PersonService = require( '../controller/person_v1' );
   app.get('/api/v1/person', PersonService.findAll);
   app.get('/api/v1/person/:id', PersonService.findById);
   app.post('/api/v1/person', PersonService.add);
