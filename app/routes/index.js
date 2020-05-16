@@ -13,7 +13,9 @@ var Cost = require( '../../model/cost' );
 //require( './model/consumption' );
 //require( './model/occupant' );
 
-console.log( 'Database models', db.modelNames() );
+var mongoose = require( 'mongoose' );
+
+console.log( 'Database models', mongoose.connection.modelNames() );
 
 var PersonService = require( '../../controller/person_v1' );
 app.get('/api/v1/person', PersonService.findAll);

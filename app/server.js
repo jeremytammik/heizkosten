@@ -39,15 +39,18 @@ db.once('open', () => {
 
 // routes
 
-var express = require('express');
-var app = express();
-app.use(express.static('public'));
+const express = require('express');
+const bodyParser = require( 'body-parser' );
+//const cors = require('cors');
+const routes = require('./routes');
 
-var bodyParser = require( 'body-parser' );
+const app = express();
+
+app.use( express.static('public') );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
-
-app.use(routes);
+//app.use( cors() );
+app.use( routes );
 
 app.set( 'port', process.env.PORT || 3001 );
 
