@@ -117,7 +117,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
   });
 });
 
-app.get( '/load_sample_person_data', (req, res) => {
+app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
   
