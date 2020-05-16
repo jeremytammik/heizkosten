@@ -60,7 +60,7 @@ app.get( '/', (req, res) => {
 });
 
 app.get( '/hauskosten', (req, res) => {
-  res.sendFile(__dirname + '/form/hauskosten.html');
+  res.sendFile(__dirname + '../form/hauskosten.html');
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
@@ -208,7 +208,7 @@ app.get( '/person/load_sample_person_data', (req, res) => {
 });
 
 app.get( '/person/create_new', (req, res) => {
-  res.sendFile(__dirname + '/form/person.html');
+  res.sendFile(__dirname + '../form/person.html');
 });
 
 app.post( '/person/create_new_submit', (req, res) => {
@@ -237,12 +237,12 @@ app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
 var server = app.listen(
   app.get( 'port' ), () => {
     require('dns').lookup(
-      require('os').hostname(), (err, add, fam) => {
+      require('os').hostname(), (err, addr, fam) => {
         console.log(
           'Heizkosten server version ' + pkg.version
           + ' listening at port ' + server.address().port
           + ' with ' + (localMongo ? 'local' : 'remote')
-          + ` mongodb:\nhttp://${add}:5000/hauskosten` );
+          + ` mongodb:\nhttp://${addr}:5000/hauskosten` );
       }
     )
   }
