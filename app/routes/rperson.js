@@ -1,3 +1,5 @@
+const app = module.exports = require('express')();
+
 var Person = require( '../../model/person' );
 
 var PersonService = require( '../../controller/person_v1' );

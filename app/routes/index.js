@@ -1,4 +1,4 @@
-var app = module.exports = require('express')();
+const app = module.exports = require('express')();
 
 app.get( '/', (req, res) => {
   res.send( 'Hello from the heizkosten database.' );
