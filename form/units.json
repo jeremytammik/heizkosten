@@ -2,7 +2,7 @@
   "001": {
     "hausgeld_umlagefaehig_eur": {
       "2018": {
-        "kabelgebuehren": "7004.16",
+        "kabelgebuehren": "7004.1645",
         "allgemeinstrom": "1186.14",
         "muellgebuehren_hausmeister": "39.60",
         "streu_und_putzmittel": "1195.92",
@@ -17,7 +17,7 @@
         "lift_umlagefaehig": "5850.90",
         "feuerloescher_wartung": "5075.48",
         "wartung_eingangstueren": "452.44",
-        "wartung_lueftungsanlage": "2.66"
+        "wartung_lueftungsanlage": "249.90"
       }
     }
   }
