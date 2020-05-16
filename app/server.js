@@ -59,11 +59,6 @@ app.get( '/', (req, res) => {
   //res.sendFile(__dirname + '/index.html');  
 });
 
-//app.get( '/hauskosten', (req, res) => {
-//  console.log('dir', __dirname);
-//  res.sendFile(__dirname + '/../form/hauskosten.html');
-//});
-
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
 
 app.post( '/hauskosten_submit', (req, res) => {
@@ -223,9 +218,9 @@ app.post( '/person/create_new_submit', (req, res) => {
   });
 });
 
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'express backend is connected to react' });
-});
+//app.get('/express_backend', (req, res) => {
+//  res.send({ express: 'express backend is connected to react' });
+//});
 
 //console.log( 'process.env.PORT=' + process.env.PORT );
 app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
