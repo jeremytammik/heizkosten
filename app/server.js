@@ -59,9 +59,9 @@ app.all( '*', (req, res) => {
   res.status( 404 ).send( `not found` );
 });
 
-//console.log( 'process.env.PORT=' + process.env.PORT );
-app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
-//app.set( 'port', 5000 ); // 5000 for express/react
+// server
+
+app.set( 'port', process.env.PORT || 3001 );
 
 var server = app.listen(
   app.get( 'port' ), () => {
