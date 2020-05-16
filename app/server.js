@@ -37,15 +37,6 @@ db.once('open', () => {
   // we're connected!
 });
 
-var Person = require( '../model/person' );
-var Unit = require( '../model/unit' );
-var Cost = require( '../model/cost' );
-//require( './model/apartment' );
-//require( './model/consumption' );
-//require( './model/occupant' );
-
-console.log( 'Database models', db.modelNames() );
-
 // routes
 
 var express = require('express');

@@ -1,6 +1,15 @@
 
 module.exports = function(app) {
+
+  var Person = require( '../model/person' );
+  var Unit = require( '../model/unit' );
+  var Cost = require( '../model/cost' );
+  //require( './model/apartment' );
+  //require( './model/consumption' );
+  //require( './model/occupant' );
   
+  console.log( 'Database models', db.modelNames() );
+
   var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
   
   app.post( '/hauskosten_submit', (req, res) => {
