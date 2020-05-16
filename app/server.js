@@ -47,7 +47,7 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-require( './routes' )( app );
+require( './routes' )( app, db );
 
 app.get( '/', (req, res) => {
   var v = pkg.version;

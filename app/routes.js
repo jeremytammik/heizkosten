@@ -1,5 +1,5 @@
 
-module.exports = function(app) {
+module.exports = function( app, db ) {
 
   var Person = require( '../model/person' );
   var Unit = require( '../model/unit' );
