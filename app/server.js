@@ -2,7 +2,7 @@
 //
 // main entry point for the heizkosten
 // database application, implemented as a node.js
-// REST API driven mongoDB web server.
+// REST API and UI driven mongodb web server.
 //
 // Copyright 2015-2020 by Jeremy Tammik, Autodesk Inc.
 
