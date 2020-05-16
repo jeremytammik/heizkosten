@@ -61,7 +61,7 @@ app.get( '/', (req, res) => {
 
 app.get( '/hauskosten', (req, res) => {
   console.log('dir', __dirname);
-  res.sendFile(__dirname + '../form/hauskosten.html');
+  res.sendFile(__dirname + '/../form/hauskosten.html');
 });
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
@@ -209,7 +209,7 @@ app.get( '/person/load_sample_person_data', (req, res) => {
 });
 
 app.get( '/person/create_new', (req, res) => {
-  res.sendFile(__dirname + '../form/person.html');
+  res.sendFile(__dirname + '/../form/person.html');
 });
 
 app.post( '/person/create_new_submit', (req, res) => {
