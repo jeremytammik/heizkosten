@@ -1,9 +1,7 @@
 var app = module.exports = require('express')();
 
 app.get( '/', (req, res) => {
-  var v = pkg.version;
-  res.send( `Hello from the cloud-based heizkosten database ${v}.\n` );
-  //res.sendFile(__dirname + '/index.html');  
+  res.send( 'Hello from the heizkosten database.' );
 });
 
 var Person = require( '../../model/person' );

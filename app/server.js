@@ -8,23 +8,18 @@
 
 var pkg = require( '../package.json' );
 
-// db
-
 var mongoose = require( 'mongoose' );
 
 var localMongo = true;
 
-if(localMongo) {
-  // local database
-  var mongo_uri = 'mongodb://localhost/heizkosten';
-} else {
-  // mongolab hosted
-  var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
-}
+var mongo_uri = localMongo
+  ? 'mongodb://localhost/heizkosten'
+  : 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
 
 mongoose.connect( mongo_uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true });
+  useUnifiedTopology: true
+});
 
 var db = mongoose.connection;
 
@@ -37,11 +32,8 @@ db.once('open', () => {
   // we're connected!
 });
 
-// routes
-
 const express = require('express');
 const bodyParser = require( 'body-parser' );
-//const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
@@ -49,7 +41,6 @@ const app = express();
 app.use( express.static('public') );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
-//app.use( cors() );
 app.use( routes );
 
 app.set( 'port', process.env.PORT || 3001 );
