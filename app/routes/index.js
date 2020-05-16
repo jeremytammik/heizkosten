@@ -47,6 +47,6 @@ app.post( '/hauskosten_submit', (req, res) => {
   });    
 });
 
-app.all( '*', (req, res) => {
-  res.status( 404 ).send( `not found` );
-});
+//app.all( '*', (req, res) => {
+//  res.status( 404 ).send( `not found` );
+//});

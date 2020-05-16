@@ -10,7 +10,7 @@ app.put('/api/v1/person/:id', PersonService.update);
 app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
-app.get( '/person/unit/:uid/list', (req, res) => {
+app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { return console.log(err); }
@@ -41,7 +41,7 @@ function success_with_person_count_string(n)
     + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>';
 }
 
-app.get( '/person/:id/edit', (req, res) => {
+app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
@@ -55,7 +55,7 @@ app.get( '/person/:id/edit', (req, res) => {
   });
 });
 
-app.post( '/person/:id/edit_submit', (req, res) => {
+app.post( '/:id/edit_submit', (req, res) => {
   var id = req.params.id;
   Person.updateOne( { "_id": id }, req.body, (err,res2) => {
     if (err) { return console.error(err); }
@@ -66,7 +66,7 @@ app.post( '/person/:id/edit_submit', (req, res) => {
   });
 });
 
-app.get( '/person/:id/dupl', (req, res) => {
+app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
@@ -80,7 +80,7 @@ app.get( '/person/:id/dupl', (req, res) => {
   });
 });
 
-app.post( '/person/:id/dupl_submit', (req, res) => {
+app.post( '/:id/dupl_submit', (req, res) => {
   var id = req.params.id;
   Person.create( req.body, (err,res2) => {
     if (err) { return console.error(err); }
@@ -91,7 +91,7 @@ app.post( '/person/:id/dupl_submit', (req, res) => {
   });
 });
 
-app.get( '/person/:id/del', (req, res) => {
+app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
@@ -106,7 +106,7 @@ app.get( '/person/:id/del', (req, res) => {
   });
 });
 
-app.get( '/person/:id/del_confirmed', (req, res) => {
+app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
   Person.deleteOne( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
@@ -117,7 +117,7 @@ app.get( '/person/:id/del_confirmed', (req, res) => {
   });
 });
 
-app.get( '/person/load_sample_person_data', (req, res) => {
+app.get( '/load_sample_person_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
   
@@ -133,7 +133,7 @@ app.get( '/person/load_sample_person_data', (req, res) => {
   });
 });
 
-app.post( '/person/create_new_submit', (req, res) => {
+app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
   
