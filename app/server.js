@@ -208,9 +208,9 @@ app.get( '/person/load_sample_person_data', (req, res) => {
   });
 });
 
-app.get( '/person/create_new', (req, res) => {
-  res.sendFile(__dirname + '/../form/person.html');
-});
+//app.get( '/person/create_new', (req, res) => {
+//  res.sendFile(__dirname + '/../form/person.html');
+//});
 
 app.post( '/person/create_new_submit', (req, res) => {
   var p = req.body;
