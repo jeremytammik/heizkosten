@@ -37,7 +37,7 @@ app.post( '/hauskosten_submit', (req, res) => {
   units[unit_id].hausgeld_umlagefaehig_eur[year] = h;
   var n = Object.keys(units[unit_id].hausgeld_umlagefaehig_eur).length;
   var fs = require('fs');
-  fs.writeFile( "../form/units.json", JSON.stringify(units, null, 2), (err) => {
+  fs.writeFile( "data/tmp/units.json", JSON.stringify(units, null, 2), (err) => {
     if (err) { console.log(err); }
     else { res.send(
       '<p>Hat geklappt, vielen Dank. Hauskosten fuer '
