@@ -60,6 +60,7 @@ app.get( '/', (req, res) => {
 });
 
 app.get( '/hauskosten', (req, res) => {
+  console.log('dir', __dirname);
   res.sendFile(__dirname + '../form/hauskosten.html');
 });
 
@@ -238,11 +239,13 @@ var server = app.listen(
   app.get( 'port' ), () => {
     require('dns').lookup(
       require('os').hostname(), (err, addr, fam) => {
+        var v = pkg.version;
+        var p = server.address().port;
+        var lr = localMongo ? 'local' : 'remote';
         console.log(
-          'Heizkosten server version ' + pkg.version
-          + ' listening at port ' + server.address().port
-          + ' with ' + (localMongo ? 'local' : 'remote')
-          + ` mongodb:\nhttp://${addr}:5000/hauskosten` );
+          `Heizkosten server version ${v}`
+          + ` listening at port ${p} with ${lr}`
+          + ` mongodb:\nhttp://${addr}:${p}/hauskosten` );
       }
     )
   }
