@@ -8,32 +8,6 @@
 
 var pkg = require( '../package.json' );
 var express = require('express');
-var mongoose = require( 'mongoose' );
-
-var localMongo = true;
-
-if(localMongo) {
-  // local database
-  var mongo_uri = 'mongodb://localhost/heizkosten';
-} else {
-  // mongolab hosted
-  var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
-}
-
-mongoose.connect( mongo_uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true });
-
-var db = mongoose.connection;
-
-db.on( 'error', () => {
-  var msg = 'unable to connect to database at ';
-  throw new Error( msg + mongo_uri );
-});
-
-db.once('open', () => {
-  // we're connected!
-});
 
 var app = express();
 app.use(express.static('public'));
@@ -41,15 +15,6 @@ app.use(express.static('public'));
 var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
-
-var Person = require( '../model/person' );
-var Unit = require( '../model/unit' );
-var Cost = require( '../model/cost' );
-//require( './model/apartment' );
-//require( './model/consumption' );
-//require( './model/occupant' );
-
-console.log( db.modelNames() );
 
 require( './routes' )( app );
 
@@ -221,6 +186,42 @@ app.post( '/person/create_new_submit', (req, res) => {
 //app.get('/express_backend', (req, res) => {
 //  res.send({ express: 'express backend is connected to react' });
 //});
+
+var mongoose = require( 'mongoose' );
+
+var localMongo = true;
+
+if(localMongo) {
+  // local database
+  var mongo_uri = 'mongodb://localhost/heizkosten';
+} else {
+  // mongolab hosted
+  var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
+}
+
+mongoose.connect( mongo_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true });
+
+var db = mongoose.connection;
+
+db.on( 'error', () => {
+  var msg = 'unable to connect to database at ';
+  throw new Error( msg + mongo_uri );
+});
+
+db.once('open', () => {
+  // we're connected!
+});
+
+var Person = require( '../model/person' );
+var Unit = require( '../model/unit' );
+var Cost = require( '../model/cost' );
+//require( './model/apartment' );
+//require( './model/consumption' );
+//require( './model/occupant' );
+
+console.log( db.modelNames() );
 
 //console.log( 'process.env.PORT=' + process.env.PORT );
 app.set( 'port', process.env.PORT || 3001 ); // 3001 for mongoose
