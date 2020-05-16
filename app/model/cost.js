@@ -1,6 +1,6 @@
 // cost.js
 //
-// mongo data model definition for heizkosten yearly unit cost
+// mongo data model definition for yearly unit heating and running costs
 //
 // Copyright 2020 by Jeremy Tammik.
 
@@ -9,7 +9,8 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 var costSchema = new Schema({
-  unit_id: mongoose.ObjectId,
+  
+  unit_id: String,
   year: Number,
   
   // hausgeld nicht umlagefaehig, zahlen eigentuemer
