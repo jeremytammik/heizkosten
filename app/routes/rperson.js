@@ -151,7 +151,11 @@ app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
   
-  Person.create( p ).then( person => res.json(person) );
+  Person
+    .create( p )
+    .then( person =>
+      //res.json(person)
+      res.send( success_with_person_count_string( count.toString() ) ) );
   
   /*
   , (err,res2) => {
