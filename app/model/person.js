@@ -40,7 +40,8 @@ var personSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) {
-        return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(s);
+        return 0 == s.length
+          || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(s);
       },
       message: props => `${props.value} is not a valid email address`
     }},
@@ -48,7 +49,8 @@ var personSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) {
-        return /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/.test(s);
+        return 0 == s.length
+          || /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/.test(s);
       },
       message: props => `${props.value} is not a valid IBAN`
     }},
@@ -56,7 +58,8 @@ var personSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) {
-        return /^([0-9\+\/\- ]{2,20}$/.test(s);
+        return 0 == s.length
+          || /^([0-9\+\/\- ]{2,20}$/.test(s);
       },
       message: props => `${props.value} is not a valid telephone number`
     }},

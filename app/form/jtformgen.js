@@ -29,10 +29,10 @@ function jtformgen_confirm_delete( description, id )
 
 function jtformgen_edit_for_strings( p, id, url_action, verb, error )
 {
-  console.log('err', error);
+  //console.log('err', error);
   var errlist = [];
   if( error ) {
-    var n = errlist.length;
+    var n = error.errors.length;
     var s = (1==n) ? '' : 's';
     errlist.push( `${n} error${s}:<ul>` );
     for (const [key, value] of Object.entries(error.errors)) {
