@@ -1,5 +1,5 @@
 {
-  "alexander_kem": {"_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 ????", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland", "units": ["001"] },
+  "alexander_kem": {"_id": "alexander_kem", "firstname": "alexander", "lastname": "kem", "email": "valyxa82@mail.ru", "iban": "DE41 3701 0050 0754 2455 03", "telephone": "+49 176 -----", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland", "units": ["001"] },
 
   "erich_klimaczewski": {"_id": "erich_klimaczewski", "firstname": "erich", "lastname": "klimaczewski", "email": "placeholder.erich.klimaczewski@gmx.de", "iban": "DE30 6835 0048 0101 XXXX YY", "telephone": "+49 7623 3090301", "salutation": "herr", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland", "units": ["001"] },
 
