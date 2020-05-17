@@ -147,18 +147,43 @@ app.get( '/create_sendfile', (req, res) => {
   return res.sendFile( path.join( pub, 'person.html'));
 });
 
-app.post( '/create_new_submit', (req, res) => {
-  var p = req.body;
-  p.units = p.units.split(',');
+const { check, validationResult } = require('express-validator');
+
+app.post( '/create_new_submit',
+  [
+    check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
+    check('email').isEmail().normalizeEmail(), // ensure valid email
+  units: [String], // persons are restricted to units
+  firstname: String,
+  lastname: String,
+  email: String,
+  iban: String,
+  telephone: String,
+  salutation: String,
+  street: String,
+  streetnr: String,
+  zip: String,
+  city: String,
+  country: String },    
+  ],          
+  (req, res) => {
+    var p = req.body;
+    p.units = p.units.split(',');
   
-  Person
-    .create( p )
-    .then( person =>
-      //res.json(person) );
-      Person.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
-        return res.send( success_with_person_count_string( count.toString() ) );
-      }));
+    // Find validation errors request and wrap them in an object with handy functions
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+    Person
+      .create( p )
+      .then( person =>
+        //res.json(person) );
+        Person.countDocuments( {}, (err, count) => {
+          if (err) { return console.error(err); }
+          return res.send( success_with_person_count_string( count.toString() ) );
+        }));
   
   /*
   , (err,res2) => {

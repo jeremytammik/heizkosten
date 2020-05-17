@@ -13,13 +13,53 @@ var Schema = mongoose.Schema;
 //  'owner' ];
 
 var personSchema = new Schema({
-  _id: String, // suppress automatic generation  
-  units: [String], // persons are restricted to units
+  _id: {  // suppress automatic generation  
+    type: String,
+    unique: true,
+    min: 1,
+    max: 20,
+    validate: {
+      validator: function(s) {
+        return /[0-9a-z_]{1,20}/.test(s);
+      },
+      message: props => `${props.value} is not a valid person_id`
+    }},
+  units: { // persons are restricted to units
+    String,
+    min: 3,
+    max: 40,
+    validate: {
+      validator: function(s) {
+        return /[0-9,]{3,40}/.test(s);
+      },
+      message: props => `${props.value} is not a valid list of unit ids`
+    }},
   firstname: String,
   lastname: String,
-  email: String,
-  iban: String,
-  telephone: String,
+  email: {
+    type: String,
+    validate: {
+      validator: function(s) {
+        return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(s);
+      },
+      message: props => `${props.value} is not a valid email address`
+    }},
+  iban: {
+    type: String,
+    validate: {
+      validator: function(s) {
+        return /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/.test(s);
+      },
+      message: props => `${props.value} is not a valid IBAN`
+    }},
+  telephone: {
+    type: String,
+    validate: {
+      validator: function(s) {
+        return /^([0-9\+\/\- ]{2,20}$/.test(s);
+      },
+      message: props => `${props.value} is not a valid telephone number`
+    }},
   salutation: String,
   street: String,
   streetnr: String,
