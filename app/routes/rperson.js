@@ -99,8 +99,8 @@ app.get( '/:id/del', (req, res) => {
       var s = results[0].get_display_string();
       var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
         + `<ul><li>${s}</li></ul>`
-        + `<a href="/person/${id}/del_confirmed">Ja</a> &ndash; `
-        + '<a href="/hauskosten.html">Nein</a>';
+        + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
+        + '<button><a href="/hauskosten.html">Nein</a></button>';
       res.send( html );
     }
   });
