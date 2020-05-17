@@ -15,8 +15,8 @@ var Schema = mongoose.Schema;
 //  'owner' ];
 
 var personSchema = new Schema({
+  _id: String, // suppress automatic generation  
   units: [String], // persons are restricted to units
-  person_id: String,
   firstname: String,
   lastname: String,
   email: String,
@@ -27,8 +27,9 @@ var personSchema = new Schema({
   streetnr: String,
   zip: String,
   city: String,
-  country: String
-});
+  country: String },
+  { _id: false } // suppress automatic generation
+);
 
 function display_string_for_person_doc( p )
 {
@@ -52,14 +53,13 @@ var Person = mongoose.model( 'Person', personSchema );
 
 Person.get_edit_form_html = ( p, create_duplicate ) => {
   var id = p['_id'];
-  delete p['_id'];
   delete p['__v'];
   
   if(create_duplicate) {
-    p['person_id'] = '';
+    p['_id'] = '';
   }
   else {
-    delete p['person_id'];
+    delete p['_id'];
     delete p['units'];
   }
   

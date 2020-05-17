@@ -137,7 +137,7 @@ app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
   
-  Person.updateOne( { "person_id": p.person_id },
+  Person.updateOne( { "_id": p._id },
     p, { "upsert": true }, (err,res2) => {
       if (err) { return console.error(err);
     }

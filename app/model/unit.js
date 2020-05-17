@@ -104,7 +104,7 @@ const enum_unit_accounts = [
 ];
 
 var unitSchema = new Schema({
-  unit_id: String,
+  _id: String, // suppress automatic generation  
   address: String,
   manager: mongoose.ObjectId,
   area_m2: Number,
@@ -139,8 +139,10 @@ var unitSchema = new Schema({
   payments: [{
     date: Date,
     amount: Number,
-    account: { type: String, enum: enum_unit_accounts } }],
-});
+    account: { type: String, enum: enum_unit_accounts } }]
+  },
+  { _id: false } // suppress automatic generation
+);
 
 var Unit = mongoose.model( 'Unit', unitSchema );
 
