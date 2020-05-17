@@ -34,10 +34,10 @@ function jtformgen_edit_for_strings( p, id, url_action, verb, error )
   if( error ) {
     var n = errlist.length;
     var s = (1==n) ? '' : 's';
-    errlist.push( `${n}rror{$s}:<ul>` );
+    errlist.push( `${n} error${s}:<ul>` );
     for (const [key, value] of Object.entries(error.errors)) {
-      errlist.push( `<li>'${value.path}' ${value.messagv}</li>` );
-    });
+      errlist.push( `<li>'${value.path}' ${value.message}</li>` );
+    }
     errlist.push( `</ul>` );
   }
   var serr = errlist.join('\n');
