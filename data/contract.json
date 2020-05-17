@@ -1,6 +1,6 @@
 {
   "001-09-02-2018": {
-    "contract_id": "001-09-02-2018",
+    "_id": "001-09-02-2018",
     "apartment": "001-09-02",
     "occupants": ["erich_klimaczewski"],
     "begin": "2002-07-01",
@@ -66,7 +66,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-09-02-01": {
-    "contract_id": "001-09-02-01",
+    "_id": "001-09-02-01",
     "apartment": "001-09-02",
     "occupants": ["sabine_diesslin"],
     "begin": "2019-04-01",
@@ -82,7 +82,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-05-03-01": {
-    "contract_id": "001-05-03-01",
+    "_id": "001-05-03-01",
     "apartment": "001-05-03",
     "occupants": ["esref_esbah"],
     "begin": "2013-05-01",
@@ -155,7 +155,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-14-05-2018": {
-    "contract_id": "001-14-05-2018",
+    "_id": "001-14-05-2018",
     "apartment": "001-14-05",
     "occupants": ["fabio_krueger"],
     "begin": "2014-12-01",
@@ -228,7 +228,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-12-06-2017": {
-    "contract_id": "001-12-06-2017",
+    "_id": "001-12-06-2017",
     "apartment": "001-12-06",
     "occupants": ["mandy_schmidt"],
     "address_alt": "mandy_schmidt_2",
@@ -268,7 +268,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-12-06-2018": {
-    "contract_id": "001-12-06-2018",
+    "_id": "001-12-06-2018",
     "apartment": "001-12-06",
     "occupants": ["herbert_braeuning"],
     "begin": "2018-02-01",
@@ -320,7 +320,7 @@
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-01-04-2018": {
-    "contract_id": "001-01-04-2018",
+    "_id": "001-01-04-2018",
     "apartment": "001-01-04",
     "occupants": ["alexander_kem"],
     "begin": "2015-12-16",

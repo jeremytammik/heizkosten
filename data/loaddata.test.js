@@ -33,19 +33,6 @@ test('person is linked to valid units', () => {
   }
 });
 
-test('apartment id matches dictionary key', () => {
-  for (const [key, value] of Object.entries(loaddata.units)) {
-    expect(value._id).toBe( key );
-  }
-});
-
-test('apartment has valid owner', () => {
-  var person_ids = Object.keys(loaddata.persons);
-  for (const [key, value] of Object.entries(loaddata.apartments)) {
-    expect(person_ids).toContain( value.owner_id );
-  }  
-});
-
 test('unit id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.units)) {
     expect(value._id).toBe( key );
@@ -59,19 +46,16 @@ test('unit has valid manager', () => {
   }  
 });
 
-test('contract has valid apartment, occupants, begin date, and later end', () => {
-  var apartment_keys = Object.keys(loaddata.apartments);
-  var person_keys = Object.keys(loaddata.persons);
-  for (const [key, value] of Object.entries(loaddata.contracts)) {
-    expect(key).toBe( value.contract_id );
-    expect(apartment_keys).toContain( value.apartment );
-    value.occupants.forEach( (p) => { expect(person_keys).toContain( p ); } );
-    expect(value.begin).toBeInstanceOf(Date);
-    var end_is_null_or_later_than_begin = (null === value.end)
-      ? true
-      : (value.begin.getTime() < value.end.getTime());
-    //expect(value.begin.getTime()).toBeLessThan(value.end.getTime());
-    expect(end_is_null_or_later_than_begin).toBeTruthy();
+test('apartment id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.apartments)) {
+    expect(value._id).toBe( key );
+  }
+});
+
+test('apartment has valid owner', () => {
+  var person_ids = Object.keys(loaddata.persons);
+  for (const [key, value] of Object.entries(loaddata.apartments)) {
+    expect(person_ids).toContain( value.owner_id );
   }  
 });
 
@@ -90,9 +74,29 @@ test('apartment has valid active contract', () => {
       map_apt_to_contract[apt].push(value);
     }
   }
-  var apartment_keys = Object.keys(loaddata.apartments);
+  var apartment_ids = Object.keys(loaddata.apartments);
   var map_keys = Object.keys(map_apt_to_contract);
-  apartment_keys.forEach( (a) => { expect(map_keys).toContain( a ); } );
+  apartment_ids.forEach( (a) => { expect(map_keys).toContain( a ); } );
+});
+
+test('contract id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    expect(value._id).toBe( key );
+  }
+});
+
+test('contract has valid apartment, occupants, begin date, and later end', () => {
+  var apartment_ids = Object.keys(loaddata.apartments);
+  var person_ids = Object.keys(loaddata.persons);
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    expect(apartment_ids).toContain( value.apartment );
+    value.occupants.forEach( (p) => { expect(person_ids).toContain( p ); } );
+    expect(value.begin).toBeInstanceOf(Date);
+    var end_is_null_or_later_than_begin = (null === value.end)
+      ? true
+      : (value.begin.getTime() < value.end.getTime());
+    expect(end_is_null_or_later_than_begin).toBeTruthy();
+  }  
 });
 
 test('each contracts meter numbers match its apartments ones', () => {
