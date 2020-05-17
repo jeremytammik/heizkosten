@@ -154,8 +154,11 @@ app.post( '/create_new_submit', (req, res) => {
   Person
     .create( p )
     .then( person =>
-      //res.json(person)
-      res.send( success_with_person_count_string( count.toString() ) ) );
+      //res.json(person) );
+      Person.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        return res.send( success_with_person_count_string( count.toString() ) );
+      }));
   
   /*
   , (err,res2) => {
