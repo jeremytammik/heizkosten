@@ -1,8 +1,8 @@
 {
   "001-09-02": {
     "description": "sample_apartment_1_zwei_zimmer",
+    "_id": "001-09-02",
     "unit_id": "001",
-    "apartment_id": "001-09-02",
     "owner_id": "otto_froehlich",
     "grundbuchnr": "grundbuchnr_001-09-02",
     "area_m2": 66.80,
@@ -18,8 +18,8 @@
   },
   "001-05-03": {
     "description": "sample_apartment_2_drei_zimmer_klein",
+    "_id": "001-05-03",
     "unit_id": "001",
-    "apartment_id": "001-05-03",
     "owner_id": "zebra_gbr",
     "grundbuchnr": "grundbuchnr_001-05-03",
     "area_m2": 86.49,
@@ -35,8 +35,8 @@
   },
   "001-14-05": {
     "description": "sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019",
+    "_id": "001-14-05",
     "unit_id": "001",
-    "apartment_id": "001-14-05",
     "owner_id": "horst_weidenmueller",
     "grundbuchnr": "grundbuchnr_001-14-05",
     "area_m2": 88.95,
@@ -52,8 +52,8 @@
   },
   "001-12-06": {
     "description": "sample_apartment_4_drei_zimmer_gross",
+    "_id": "001-12-06",
     "unit_id": "001",
-    "apartment_id": "001-12-06",
     "owner_id": "zebra_gbr",
     "grundbuchnr": "grundbuchnr_001-12-06",
     "area_m2": 88.95,
@@ -69,8 +69,8 @@
   },
   "001-01-04": {
     "description": "sample_apartment_5_vier_zimmer",
+    "_id": "001-01-04",
     "unit_id": "001",
-    "apartment_id": "001-01-04",
     "owner_id": "weidenmueller_gmbh",
     "grundbuchnr": "grundbuchnr_001-01-04",
     "area_m2": 107.32,

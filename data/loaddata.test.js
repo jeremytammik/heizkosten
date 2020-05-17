@@ -18,18 +18,24 @@ test('loaded N persons', () => {
   expect(Object.keys(loaddata.persons).length).toBe(13);
 });
 
-test('persons ids match dictionary keys', () => {
+test('person id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.persons)) {
     expect(value._id).toBe( key );
   }
 });
 
-test('persons are linked to valid units', () => {
+test('person is linked to valid units', () => {
   var unit_ids = Object.keys(loaddata.units);
   for (const [key, value] of Object.entries(loaddata.persons)) {
     value.units.forEach( (uid) => {
       expect(unit_ids).toContain( uid );
     });
+  }
+});
+
+test('apartment id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.units)) {
+    expect(value._id).toBe( key );
   }
 });
 
@@ -39,6 +45,12 @@ test('apartment has valid owner', () => {
     expect(key).toBe( value.apartment_id );
     expect(owners).toContain( value.owner_id );
   }  
+});
+
+test('unit id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.units)) {
+    expect(value._id).toBe( key );
+  }
 });
 
 test('unit has valid manager', () => {
