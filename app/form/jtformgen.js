@@ -36,7 +36,7 @@ function jtformgen_edit_for_strings( p, id, url_action, verb, error )
     var s = (1==n) ? '' : 's';
     errlist.push( `${n} error${s}:<ul>` );
     for (const [key, value] of Object.entries(error.errors)) {
-      errlist.push( `<li>'${value.path}' ${value.message}</li>` );
+      errlist.push( `<li>${value.path}: ${value.message}</li>` );
     }
     errlist.push( `</ul>` );
   }

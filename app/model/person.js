@@ -22,7 +22,7 @@ var personSchema = new Schema({
       validator: function(s) {
         return /[0-9a-z_]{1,20}/.test(s);
       },
-      message: props => `${props.value} is not a valid person_id`
+      message: props => `'${props.value}' is not a valid person_id`
     }},
   units: { // persons are restricted to units
     type: String,
@@ -32,13 +32,17 @@ var personSchema = new Schema({
       validator: function(s) {
         return /[0-9,]{3,40}/.test(s);
       },
-      message: props => `${props.value} is not a valid list of unit ids`
+      message: props => `'${props.value}' is not a valid list of unit ids`
     }},
   firstname: String,
   lastname:  {
     type: String,
-    min: 1,
-    max: 20 },
+    validate: {
+      validator: function(s) {
+        return /^[a-zA-Z0-9][a-zA-Z0-9_- ]*$/.test(s);
+      },
+      message: props => `'${props.value}' is not a valid last name`
+    }},
   email: {
     type: String,
     validate: {
@@ -46,7 +50,7 @@ var personSchema = new Schema({
         return 0 == s.length
           || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(s);
       },
-      message: props => `${props.value} is not a valid email address`
+      message: props => `'${props.value}' is not a valid email address`
     }},
   iban: {
     type: String,
@@ -55,7 +59,7 @@ var personSchema = new Schema({
         return 0 == s.length
           || /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/.test(s);
       },
-      message: props => `${props.value} is not a valid IBAN`
+      message: props => `'${props.value}' is not a valid IBAN`
     }},
   telephone: {
     type: String,
@@ -64,7 +68,7 @@ var personSchema = new Schema({
         return 0 == s.length
           || /^([0-9\+\/\- ]{2,20}$/.test(s);
       },
-      message: props => `${props.value} is not a valid telephone number`
+      message: props => `'${props.value}' is not a valid telephone number`
     }},
   salutation: String,
   street: String,
