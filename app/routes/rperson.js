@@ -131,6 +131,22 @@ app.get( '/load_sample_data', (req, res) => {
   });
 });
 
+/*
+app.get( '/css/heizkosten.css', (req, res) => {
+  console.log(req);
+  const dircss = __dirname + '/../../public/css/';
+  console.log( '__dir', __dirname, 'css', dircss );
+  return res.sendFile( dircss + 'heizkosten.css' );
+});
+
+app.get( '/create', (req, res) => {
+  const path = require('path');
+  const pub = path.join( __dirname, '../../public' );
+  console.log( '__dir', __dirname, 'pub', pub );
+  return res.sendFile( path.join( pub, 'person.html'));
+});
+*/
+
 app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
