@@ -32,11 +32,11 @@ function jtformgen_edit_for_strings( p, id, url_action, verb, error )
   var errlist = [];
   if( error ) {
     var n = errlist.length;
-    var s = (1==n): '' : 's';
+    var s = (1==n) ? '' : 's';
     errlist.push( `${n}rror{$s}:<ul>` );
     error.forEach( (e,i) => {
       errlist.push( `<li>'${e.path}' ${e.message}</li>` );
-    }
+    });
     errlist.push( `</ul>` );
   }
   var serr = errlist.join('\n');

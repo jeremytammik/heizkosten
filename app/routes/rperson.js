@@ -167,7 +167,7 @@ app.post( '/create_new_submit',
     error = person.validateSync();
     //console.log( error );
     if( error ) {
-      var form = Person.get_edit_form_html( doc, false, error );
+      var form = Person.get_edit_form_html( p, false, error );
       return res.send( form );      
     }
     Person
