@@ -4,17 +4,7 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-function jtformgen_confirm_delete( description, id )
-{
-  return '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
-    + `<ul><li>${description}</li></ul>`
-    + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
-    + '<button><a href="/hauskosten.html">Nein</a></button>';
-}
-
-function jtformgen_edit_for_strings( p, id, url_action, verb )
-{
-  var s1 = `\
+const shead '\
 <head>\
 	<meta charset="utf-8" />\
 	<title>Edit Person Data</title>\
@@ -24,7 +14,22 @@ function jtformgen_edit_for_strings( p, id, url_action, verb )
     table { border: 1px solid black }\
   </style>\
 </head>\
-\
+';
+
+function jtformgen_confirm_delete( description, id )
+{
+  s1 = '<body>'
+    + '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
+    + `<ul><li>${description}</li></ul>`
+    + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
+    + '<button><a href="/hauskosten.html">Nein</a></button></body>';
+    
+  return shead + s1;    
+}
+
+function jtformgen_edit_for_strings( p, id, url_action, verb )
+{
+  var s1 = `
 <body>\
   <p>Person ${verb}:</p>\
   <form action="/person/${id}/${url_action}_submit" method="POST">\
@@ -57,7 +62,7 @@ var s3 = '\
 </html>\
 ';
 
-return s1 + s2 + s3;
+return shead + s1 + s2 + s3;
 }
 
 module.exports = {
