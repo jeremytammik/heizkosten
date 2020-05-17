@@ -40,6 +40,7 @@ var s2 = a.join('\n');
 var s3 = '\
         <tr>\
           <td colspan="2" style="text-align: center">\
+            <button onclick="history.back()">Abbruch und zurueck</button>\
             <button type="submit">Speichern</button>\
           </td>\
         </tr>\
