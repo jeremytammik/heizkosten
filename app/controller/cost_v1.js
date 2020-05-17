@@ -80,6 +80,9 @@ CostService = {
 
   delete : function(req, res){
     var id = req.params.id;
+    
+    // Replace remove() with deleteOne() or deleteMany() -- https://stackoverflow.com/questions/51960171/node63208-deprecationwarning-collection-ensureindex-is-deprecated-use-creat#51962721
+
     Cost.remove({'_id':id},function(err,result) {
       return res.send(result);
     });
@@ -94,6 +97,9 @@ CostService = {
 
   deleteAllForUnit : function(req, res){
     var uid = req.params.uid;
+
+    // Replace remove() with deleteOne() or deleteMany() -- https://stackoverflow.com/questions/51960171/node63208-deprecationwarning-collection-ensureindex-is-deprecated-use-creat#51962721
+
     Cost.remove({'unit_id':uid},function(err, results) {
       return res.send(results);
     });

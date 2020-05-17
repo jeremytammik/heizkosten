@@ -10,6 +10,12 @@ var pkg = require( '../package.json' );
 
 var mongoose = require( 'mongoose' );
 
+// suppress DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+
+mongoose.set( 'useNewUrlParser', true );
+mongoose.set( 'useFindAndModify', false );
+mongoose.set( 'useCreateIndex', true );
+
 var localdb = true;
 
 var mongo_uri = localdb

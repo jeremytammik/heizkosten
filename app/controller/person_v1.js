@@ -35,6 +35,9 @@ PersonService = {
     var id = req.params.id;
     //console.log(req.body);
     console.log('Updating ' + id);
+    
+    // Replace update() with updateOne(), updateMany(), or replaceOne() -- https://stackoverflow.com/questions/51960171/node63208-deprecationwarning-collection-ensureindex-is-deprecated-use-creat#51962721
+
     Person.update({"_id":id}, req.body, {upsert:true},
       function (err, numberAffected) {
         if (err) return console.log(err);
@@ -45,6 +48,9 @@ PersonService = {
 
   delete : function(req, res){
     var id = req.params.id;
+    
+    // Replace remove() with deleteOne() or deleteMany() -- https://stackoverflow.com/questions/51960171/node63208-deprecationwarning-collection-ensureindex-is-deprecated-use-creat#51962721
+    
     Person.remove({'_id':id},function(err,result) {
       return res.send(result);
     });

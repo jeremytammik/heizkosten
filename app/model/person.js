@@ -15,7 +15,7 @@ var Schema = mongoose.Schema;
 var personSchema = new Schema({
   _id: {  // suppress automatic generation  
     type: String,
-    unique: true,
+    //unique: true, // cf. https://github.com/Automattic/mongoose/issues/8462
     min: 1,
     max: 20,
     validate: {
@@ -66,7 +66,7 @@ var personSchema = new Schema({
     validate: {
       validator: function(s) {
         return 0 == s.length
-          || /^([0-9\+\/\- ]{2,20}$/.test(s);
+          || /^[0-9\+\/\- ]{2,20}$/.test(s);
       },
       message: props => `'${props.value}' is not a valid telephone number`
     }},
