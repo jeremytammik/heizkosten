@@ -35,7 +35,7 @@ const routes = require('./routes');
 const app = express();
 
 const pub = __dirname + '/../public';
-console.log( '__dir', __dirname, 'pub', pub );
+//console.log( '__dir', __dirname, 'pub', pub );
 
 app.use( express.static( pub ) );
 app.use( bodyParser.json({ limit: '1mb' }) );
