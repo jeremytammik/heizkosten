@@ -18,6 +18,12 @@ test('loaded N persons', () => {
   expect(Object.keys(loaddata.persons).length).toBe(13);
 });
 
+test('persons ids match dictionary keys', () => {
+  for (const [key, value] of Object.entries(loaddata.persons)) {
+    expect(value._id).toBe( key );
+  }
+});
+
 test('persons are linked to valid units', () => {
   var unit_ids = Object.keys(loaddata.units);
   for (const [key, value] of Object.entries(loaddata.persons)) {
