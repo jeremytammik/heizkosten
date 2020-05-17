@@ -35,7 +35,10 @@ var personSchema = new Schema({
       message: props => `${props.value} is not a valid list of unit ids`
     }},
   firstname: String,
-  lastname: String,
+  lastname:  {
+    type: String,
+    min: 1,
+    max: 20 },
   email: {
     type: String,
     validate: {
