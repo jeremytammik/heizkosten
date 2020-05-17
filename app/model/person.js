@@ -85,7 +85,7 @@ var Person = mongoose.model( 'Person', personSchema );
 
 const { jtformgen_edit_for_strings } = require('../form/jtformgen.js');
 
-Person.get_edit_form_html = ( p, create_duplicate ) => {
+Person.get_edit_form_html = ( p, create_duplicate, error ) => {
   var id = p['_id'];
   delete p['__v'];
   
@@ -99,7 +99,7 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
     ? 'duplizieren, also neue Person anlegen mit aehnlichen Daten'
     : 'edititieren';
 
-  return jtformgen_edit_for_strings( p, id, url_action, verb );
+  return jtformgen_edit_for_strings( p, id, url_action, verb, error );
 }
 
 module.exports = Person;
