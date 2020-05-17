@@ -47,8 +47,6 @@ app.get( '/:id/edit', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      //var form = generate_person_edit_form_html(doc, false);
-      //var form = doc.get_edit_form_html();
       var form = Person.get_edit_form_html( doc, false );
       res.send( form );
     }
@@ -72,8 +70,6 @@ app.get( '/:id/dupl', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      //var form = person_get_edit_form_html(doc, true);
-      //var form = doc.get_dupl_form_html();
       var form = Person.get_edit_form_html( doc, true );
       res.send( form );
     }
@@ -169,9 +165,11 @@ app.post( '/create_new_submit',
 
     var person = new Person( p );
     error = person.validateSync();
-    
-    console.log( error );
-    
+    //console.log( error );
+    if( error ) {
+      var form = Person.get_edit_form_html( doc, false, error );
+      return res.send( form );      
+    }
     Person
       .create( p )
       .then( person =>
