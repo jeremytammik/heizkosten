@@ -16,6 +16,15 @@ const shead = '\
 </head>\
 ';
 
+
+function success_with_person_count_string(n)
+{
+  return shead + '<body><p>Hat geklappt, vielen Dank. '
+    + `Database now contains ${n} people.</p>`
+    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>'
+    + '</body>';
+}
+
 function jtformgen_confirm_delete( description, id )
 {
   s1 = '<body>'
@@ -79,6 +88,7 @@ return shead + s1 + s2 + s3;
 }
 
 module.exports = {
+  success_with_person_count,
   jtformgen_confirm_delete,
   jtformgen_edit_for_strings
 };

@@ -10,6 +10,8 @@ app.put('/api/v1/person/:id', PersonService.update);
 app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
+const { success_with_person_count, jtformgen_confirm_delete } = require('../form/jtformgen.js');
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
@@ -34,13 +36,6 @@ app.get( '/unit/:uid/list', (req, res) => {
   });
 });
 
-function success_with_person_count_string(n)
-{
-  return '<p>Hat geklappt, vielen Dank. '
-    + `Database now contains ${n} people.</p>`
-    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>';
-}
-
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
@@ -59,7 +54,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() ) );
+      return res.send( success_with_person_count( count.toString() ) );
     });
   });
 });
@@ -82,12 +77,10 @@ app.post( '/:id/dupl_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() ) );
+      return res.send( success_with_person_count( count.toString() ) );
     });
   });
 });
-
-const { jtformgen_confirm_delete } = require('../form/jtformgen.js');
 
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
@@ -106,7 +99,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() ) );
+      return res.send( success_with_person_count( count.toString() ) );
     });
   });
 });
@@ -121,7 +114,7 @@ app.get( '/load_sample_data', (req, res) => {
       if (err) { return console.error(err); }
       Person.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_person_count_string( count.toString() ) );
+        return res.send( success_with_person_count( count.toString() ) );
       });
     });
   });
@@ -176,7 +169,7 @@ app.post( '/create_new_submit',
         //res.json(person) );
         Person.countDocuments( {}, (err, count) => {
           if (err) { return console.error(err); }
-          return res.send( success_with_person_count_string( count.toString() ) );
+          return res.send( success_with_person_count( count.toString() ) );
         }));
   
   /*
@@ -185,7 +178,7 @@ app.post( '/create_new_submit',
     }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count_string( count.toString() ) );
+      return res.send( success_with_person_count( count.toString() ) );
     });
   });
   */
