@@ -140,7 +140,7 @@ app.get( '/css/heizkosten.css', (req, res) => {
 });
 */
 
-app.get( '/create', (req, res) => {
+app.get( '/create_sendfile', (req, res) => {
   const path = require('path');
   const pub = path.join( __dirname, '../../public' );
   console.log( '__dir', __dirname, 'pub', pub );
