@@ -151,8 +151,10 @@ app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
   p.units = p.units.split(',');
   
-  Person.updateOne( { "_id": p._id },
-    p, { "upsert": true }, (err,res2) => {
+  Person.create( p ).then( person => res.json(person) );
+  
+  /*
+  , (err,res2) => {
       if (err) { return console.error(err);
     }
     Person.countDocuments( {}, (err, count) => {
@@ -160,4 +162,5 @@ app.post( '/create_new_submit', (req, res) => {
       return res.send( success_with_person_count_string( count.toString() ) );
     });
   });
+  */
 });
