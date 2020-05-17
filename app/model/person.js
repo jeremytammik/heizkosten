@@ -39,7 +39,8 @@ var personSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) {
-        return /^[a-zA-Z0-9][a-zA-Z0-9_- ]*$/.test(s);
+        //return /^[[:alnum:]_][[:alnum:]_ ]*$/.test(s);
+        return /^\w[äöü\w ]*$/.test(s);
       },
       message: props => `'${props.value}' is not a valid last name`
     }},
@@ -48,7 +49,7 @@ var personSchema = new Schema({
     validate: {
       validator: function(s) {
         return 0 == s.length
-          || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(s);
+          || /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/.test(s);
       },
       message: props => `'${props.value}' is not a valid email address`
     }},
