@@ -91,17 +91,15 @@ app.post( '/:id/dupl_submit', (req, res) => {
   });
 });
 
+const { jtformgen_confirm_delete } = require('../form/jtformgen.js');
+
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      var html = '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
-        + `<ul><li>${s}</li></ul>`
-        + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
-        + '<button><a href="/hauskosten.html">Nein</a></button>';
-      res.send( html );
+      res.send( jtformgen_confirm_delete( s, id ) );
     }
   });
 });

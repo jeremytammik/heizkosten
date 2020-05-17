@@ -4,7 +4,15 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-function jt_form_generator_for_strings( p, id, url_action, verb )
+function jtformgen_confirm_delete( description, id )
+{
+  return '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
+    + `<ul><li>${description}</li></ul>`
+    + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
+    + '<button><a href="/hauskosten.html">Nein</a></button>';
+}
+
+function jtformgen_edit_for_strings( p, id, url_action, verb )
 {
   var s1 = `\
 <head>\
@@ -53,5 +61,6 @@ return s1 + s2 + s3;
 }
 
 module.exports = {
-  jt_form_generator_for_strings
+  jtformgen_confirm_delete,
+  jtformgen_edit_for_strings
 };
