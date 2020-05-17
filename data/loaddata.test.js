@@ -27,7 +27,7 @@ test('person id matches dictionary key', () => {
 test('person is linked to valid units', () => {
   var unit_ids = Object.keys(loaddata.units);
   for (const [key, value] of Object.entries(loaddata.persons)) {
-    value.units.forEach( (uid) => {
+    value.units.split(',').forEach( (uid) => {
       expect(unit_ids).toContain( uid );
     });
   }
