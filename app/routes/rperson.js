@@ -147,23 +147,31 @@ app.get( '/create_sendfile', (req, res) => {
   return res.sendFile( path.join( pub, 'person.html'));
 });
 
-const { check, validationResult } = require('express-validator');
+//const { check, validationResult } = require('express-validator');
 
 app.post( '/create_new_submit',
-  [
-    check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
-    check('email').isEmail().normalizeEmail(), // ensure valid email
-  ],          
+  // using express-validator
+  //[
+  //  check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
+  //  check('email').isEmail().normalizeEmail(), // ensure valid email
+  //],          
   (req, res) => {
     var p = req.body;
-    p.units = p.units.split(',');
+    //p.units = p.units.split(',');
   
     // Find validation errors request and wrap them in an object with handy functions
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
+    // using express-validator
+    //const errors = validationResult(req);
+    //if (!errors.isEmpty()) {
+    //  return res.status(422).json({ errors: errors.array() });
+    //}
+
+    var person = new Person( p );
+    error = person.validateSync();
+    
+    console.log( error );
+    
     Person
       .create( p )
       .then( person =>
