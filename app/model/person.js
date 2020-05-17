@@ -4,8 +4,6 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-const { jt_form_generator_for_strings } = require('../form/jtformgen.js');
-
 var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
@@ -41,15 +39,11 @@ personSchema.methods.get_display_string = function() {
   return display_string_for_person_doc( this );
 };
 
-//personSchema.methods.get_edit_form_html = function() {
-//  return generate_person_edit_form_html( this, false );
-//};
-//
-//personSchema.methods.get_dupl_form_html = function() {
-//  return generate_person_edit_form_html( this, true );
-//};
-
 var Person = mongoose.model( 'Person', personSchema );
+
+// form generator
+
+const { jt_form_generator_for_strings } = require('../form/jtformgen.js');
 
 Person.get_edit_form_html = ( p, create_duplicate ) => {
   var id = p['_id'];
