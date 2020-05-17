@@ -4,7 +4,7 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-const shead '\
+const shead = '\
 <head>\
 	<meta charset="utf-8" />\
 	<title>Edit Person Data</title>\
