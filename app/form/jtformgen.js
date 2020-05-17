@@ -16,8 +16,7 @@ const shead = '\
 </head>\
 ';
 
-
-function success_with_person_count_string(n)
+function success_with_person_count( n )
 {
   return shead + '<body><p>Hat geklappt, vielen Dank. '
     + `Database now contains ${n} people.</p>`
