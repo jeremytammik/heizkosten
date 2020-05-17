@@ -153,18 +153,6 @@ app.post( '/create_new_submit',
   [
     check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
     check('email').isEmail().normalizeEmail(), // ensure valid email
-  units: [String], // persons are restricted to units
-  firstname: String,
-  lastname: String,
-  email: String,
-  iban: String,
-  telephone: String,
-  salutation: String,
-  street: String,
-  streetnr: String,
-  zip: String,
-  city: String,
-  country: String },    
   ],          
   (req, res) => {
     var p = req.body;

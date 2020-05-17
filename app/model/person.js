@@ -25,7 +25,7 @@ var personSchema = new Schema({
       message: props => `${props.value} is not a valid person_id`
     }},
   units: { // persons are restricted to units
-    String,
+    type: String,
     min: 3,
     max: 40,
     validate: {
