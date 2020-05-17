@@ -138,6 +138,7 @@ app.get( '/css/heizkosten.css', (req, res) => {
   console.log( '__dir', __dirname, 'css', dircss );
   return res.sendFile( dircss + 'heizkosten.css' );
 });
+*/
 
 app.get( '/create', (req, res) => {
   const path = require('path');
@@ -145,7 +146,6 @@ app.get( '/create', (req, res) => {
   console.log( '__dir', __dirname, 'pub', pub );
   return res.sendFile( path.join( pub, 'person.html'));
 });
-*/
 
 app.post( '/create_new_submit', (req, res) => {
   var p = req.body;
