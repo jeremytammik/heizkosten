@@ -49,10 +49,7 @@ Person.get_edit_form_html = ( p, create_duplicate ) => {
   var id = p['_id'];
   delete p['__v'];
   
-  if(create_duplicate) {
-    p['_id'] = '';
-  }
-  else {
+  if( !create_duplicate ) {
     delete p['_id'];
     delete p['units'];
   }
