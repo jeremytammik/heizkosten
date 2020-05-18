@@ -1,4 +1,4 @@
-const { date_format } = require( 'jtregex' );
+const { date_format } = require( './jtregex' );
 
 function json_parse_date_reviver(key, value) {
   if (typeof value === "string" && date_format.test(value)) {
