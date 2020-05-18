@@ -85,12 +85,12 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
   var p = util.trimAllFieldsInObjectAndChildren( req.body );
   var id = p._id;
-  console.log('id_original', id_original, 'id', id, 'p0', p);
+  //console.log('id_original', id_original, 'id', id, 'p0', p);
   Person.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
       return console.error(err);
     }
-    console.log('count', count);
+    //console.log('count', count);
     if( 0 < count ) {
       var error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
       var form = Person.get_edit_form_html( req.body, true, error );
