@@ -5,8 +5,9 @@ app.get( '/', (req, res) => {
 });
 
 app.use( '/person', require( './rperson' ));
+app.use( '/unit', require( './runit' ));
 
-var Unit = require( '../model/unit' );
+//var Unit = require( '../model/unit' );
 var Cost = require( '../model/cost' );
 //require( './model/apartment' );
 //require( './model/consumption' );

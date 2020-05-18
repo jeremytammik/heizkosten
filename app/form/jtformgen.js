@@ -16,10 +16,11 @@ const shead = '\
 </head>\
 ';
 
-function success_with_person_count( n )
+function success_with_document_count( n, thing )
 {
+  var s = (1==n) ? '' : 's';
   return shead + '<body><p>Hat geklappt, vielen Dank. '
-    + `Database now contains ${n} people.</p>`
+    + `Database now contains ${n} ${thing}${s}.</p>`
     + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>'
     + '</body>';
 }
@@ -87,7 +88,7 @@ return shead + s1 + s2 + s3;
 }
 
 module.exports = {
-  success_with_person_count,
+  success_with_document_count,
   jtformgen_confirm_delete,
   jtformgen_edit_for_strings
 };

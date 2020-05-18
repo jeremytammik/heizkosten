@@ -12,7 +12,7 @@ app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 const {
-  success_with_person_count,
+  success_with_document_count,
   jtformgen_confirm_delete } = require('../form/jtformgen.js');
 
 app.get( '/unit/:uid/list', (req, res) => {
@@ -66,7 +66,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count( count.toString() ) );
+      return res.send( success_with_document_count( count.toString(), 'person' ) );
     });
   });
 });
@@ -112,7 +112,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Person.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_person_count( count.toString() ) );
+        return res.send( success_with_document_count( count.toString(), 'person' ) );
       });
     });
   });
@@ -135,7 +135,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_person_count( count.toString() ) );
+      return res.send( success_with_document_count( count.toString(), 'person' ) );
     });
   });
 });
@@ -152,7 +152,7 @@ app.get( '/load_sample_data', (req, res) => {
       if (err) { return console.error(err); }
       Person.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_person_count( count.toString() ) );
+        return res.send( success_with_document_count( count.toString(), 'person' ) );
       });
     });
   });
@@ -199,6 +199,6 @@ app.post( '/create_new_submit', (req, res) => {
       .then( person =>
         Person.countDocuments( {}, (err, count) => {
           if (err) { return console.error(err); }
-          return res.send( success_with_person_count( count.toString() ) );
+          return res.send( success_with_document_count( count.toString(), 'person' ) );
         }));
 });
