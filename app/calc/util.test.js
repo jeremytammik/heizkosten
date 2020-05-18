@@ -1,16 +1,16 @@
-import * as _ from 'lodash';
+//import * as _ from 'lodash';
 const util = require('./util');
 
 test('trimAllFieldsInObjectAndChildren', () => {
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren('2 '), '2'));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(['2 ', ' bob ']), ['2', 'bob']));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob '}), {'b': 'bob'}));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true }), {'b': 'bob', 'c': 5, d: true}));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}), {'b': 'bob', 'c': {'d': 'alica c c'}}));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}), {'a': 'bob', 'b': {'c': {'d': 'e'}}}));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}), {'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
-  assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren('2 '), '2'));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(['2 ', ' bob ']), ['2', 'bob']));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob '}), {'b': 'bob'}));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true }), {'b': 'bob', 'c': 5, d: true}));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}), {'b': 'bob', 'c': {'d': 'alica c c'}}));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}), {'a': 'bob', 'b': {'c': {'d': 'e'}}}));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}), {'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
+  //assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
   
   expect(trimAllFieldsInObjectAndChildren('2 ').toBe('2'));
   expect(trimAllFieldsInObjectAndChildren(['2 ', ' bob ']).toBe(['2', 'bob']));
