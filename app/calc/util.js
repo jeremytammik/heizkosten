@@ -48,6 +48,6 @@ function round_to_two_digits( a ) {
   return Math.round( (a+0.000000001) * 100) / 100;
 }
 
-exports.trimAllFieldsInObjectAndChildren = trimAllFieldsInObjectAndChildren
+exports.trimAllFieldsInObjectAndChildren = trimAllFieldsInObjectAndChildren;
 exports.date_diff_days = date_diff_days;
 exports.round_to_two_digits = round_to_two_digits;
