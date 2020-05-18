@@ -10,15 +10,15 @@ test('trimAllFieldsInObjectAndChildren', () => {
   //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}), {'b': 'bob', 'c': {'d': 'alica c c'}}));
   //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}), {'a': 'bob', 'b': {'c': {'d': 'e'}}}));
   //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}), {'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
-  
+
+  expect(util.trimAllFieldsInObjectAndChildren(' bob ')).toBe('bob');
   expect(util.trimAllFieldsInObjectAndChildren('2 ')).toBe('2');
-  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).toBe(['2', 'bob']);
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '})).toBe({'b': 'bob'});
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true })).toBe({'b': 'bob', 'c': 5, d: true});
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}})).toBe({'b': 'bob', 'c': {'d': 'alica c c'}});
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}})).toBe({'a': 'bob', 'b': {'c': {'d': 'e'}}});
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).toBe({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
+  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).equals(['2', 'bob']);
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '})).equals({'b': 'bob'});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true })).equals({'b': 'bob', 'c': 5, d: true});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}})).equals({'b': 'bob', 'c': {'d': 'alica c c'}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}})).equals({'a': 'bob', 'b': {'c': {'d': 'e'}}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).equals({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
 });
 
 test('date difference', () => {

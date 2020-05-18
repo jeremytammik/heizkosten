@@ -1,6 +1,9 @@
 //https://stackoverflow.com/questions/33510625/trim-white-spaces-in-both-object-key-and-value-recursively
 function trimAllFieldsInObjectAndChildren( o ) {
-  return JSON.parse(JSON.stringify(o).replace(/"\s+|\s+"/g, '"'));
+  console.log(o);
+  x = JSON.parse(JSON.stringify(o).replace(/"\s+|\s+"/g, '"'));
+  console.log(x);
+  return x;
 }
 
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
