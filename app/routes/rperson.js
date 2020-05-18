@@ -50,8 +50,8 @@ app.get( '/:id/edit', (req, res) => {
 });
 
 app.post( '/:id/edit_submit', (req, res) => {
-  var p = util.trimAllFieldsInObjectAndChildren( req.params );
-  var id = p.id;
+  var id = req.params.id;
+  var p = util.trimAllFieldsInObjectAndChildren( req.body );
   Person.updateOne( { "_id": id }, req.body, (err,res2) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
