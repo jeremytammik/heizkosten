@@ -1,6 +1,6 @@
 'use strict';
 
-const {   non_empty_alpha_mumeric, empty_or_ascii_or_umlaut } = require( './jtregex' );
+const { non_empty_alpha_mumeric, empty_or_ascii_or_umlaut } = require( './jtregex' );
 const loaddata = require('./loaddata');
 
 test('JSON parse date reviver', () => {
