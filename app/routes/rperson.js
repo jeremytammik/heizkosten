@@ -140,7 +140,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
 
 app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
-  var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
+  var persons = JSON.parse( fs.readFileSync( 'data/person.json', 'utf8' ));
   
   Person.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
@@ -151,6 +151,16 @@ app.get( '/load_sample_data', (req, res) => {
         return res.send( success_with_person_count( count.toString() ) );
       });
     });
+  });
+});
+
+app.get( '/save_sample_data', (req, res) => {
+  Person.find( {}, function( err, docs ) {
+    if (err) { return console.error(err); }
+    console.log(docs);
+    var fs = require('fs');
+    fs.writeFileSync( 'data/tmp/person.json', JSON.stringify(docs));
+    return res.send( 'ok' );
   });
 });
 
