@@ -1,6 +1,6 @@
 // apartment.js
 //
-// mongo data model definition for a heizkosten apartment
+// mongo data model definition for an apartment
 //
 // Copyright 2020 by Jeremy Tammik.
 

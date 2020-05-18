@@ -1,6 +1,6 @@
 {
-  "name": "heizkosten",
-  "description": "node.js mongodb web server for heizkosten",
-  "repository": "https://github.com/jeremytammik/heizkosten",
+  "name": "herucoal",
+  "description": "herucoal housing unit heating and running cost allocation node.js mongodb web server app",
+  "repository": "https://github.com/jeremytammik/herucoal",
   "keywords": ["node", "mongoose"]
 }

@@ -1,12 +1,12 @@
 {
-  "name": "heizkosten",
+  "name": "herucoal",
   "version": "0.0.0",
-  "description": "node.js mongodb web server for heizkosten",
+  "description": "herucoal housing unit heating and running cost allocation node.js mongodb web server app",
   "main": "server.js",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremytammik/heizkosten"
+    "url": "https://github.com/jeremytammik/herucoal"
   },
   "scripts": {
     "start": "node app/server.js",

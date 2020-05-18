@@ -1,6 +1,6 @@
 // unit.js
 //
-// mongo data model definition for a heizkosten housing unit
+// mongo data model definition for a housing unit
 //
 // Copyright 2020 by Jeremy Tammik.
 

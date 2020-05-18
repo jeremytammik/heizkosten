@@ -1,7 +1,7 @@
 const app = module.exports = require('express')();
 
 app.get( '/', (req, res) => {
-  res.send( 'Hello from the heizkosten database.' );
+  res.send( 'Hello from herucoal.' );
 });
 
 app.use( '/person', require( './rperson' ));

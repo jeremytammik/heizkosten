@@ -1,8 +1,7 @@
 // server.js
 //
-// main entry point for the heizkosten
-// database application, implemented as a node.js
-// REST API and UI driven mongodb web server.
+// main entry point for node.js REST API
+// and UI driven mongodb web server.
 //
 // Copyright 2015-2020 by Jeremy Tammik, Autodesk Inc.
 
@@ -19,8 +18,8 @@ mongoose.set( 'useCreateIndex', true );
 var localdb = true;
 
 var mongo_uri = localdb
-  ? 'mongodb://localhost/heizkosten'
-  : 'mongodb://revit:revit@ds047742.mongolab.com:47742/heizkosten';
+  ? 'mongodb://localhost/herucoal'
+  : 'mongodb://revit:revit@ds047742.mongolab.com:47742/herucoal';
 
 mongoose.connect( mongo_uri, {
   useNewUrlParser: true,

@@ -1,6 +1,6 @@
 // occupant.js
 //
-// mongo data model definition for a heizkosten occupant
+// mongo data model definition for an apartment occupant
 //
 // Copyright 2020 by Jeremy Tammik.
 
