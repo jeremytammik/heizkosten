@@ -106,7 +106,7 @@ const enum_unit_accounts = [
 var unitSchema = new Schema({
   _id: String, // suppress automatic generation  
   address: String,
-  manager: mongoose.ObjectId,
+  manager: String, // person_id, not mongoose.ObjectId,
   area_m2: Number,
   apt_count: Number,
   splitting_factor_m2: Number,
