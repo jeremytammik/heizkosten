@@ -157,10 +157,17 @@ app.get( '/load_sample_data', (req, res) => {
 app.get( '/save_sample_data', (req, res) => {
   Person.find( {}, function( err, docs ) {
     if (err) { return console.error(err); }
-    console.log(docs);
+    var persons = {};
+    docs.forEach( (d) => { persons[d._id] = d; } );
     var fs = require('fs');
-    fs.writeFileSync( 'data/tmp/person.json', JSON.stringify(docs));
-    return res.send( 'ok' );
+    var fn = 'data/tmp/person.json';
+    fs.writeFile( fn,
+      JSON.stringify( persons, null, 2 ), 'utf8',
+      function (err) {
+        if (err) { return console.log(err); }
+        return res.send( `Person data saved in '${fn}'` );
+      }
+    );
   });
 });
 
