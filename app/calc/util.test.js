@@ -19,7 +19,7 @@ test('trimAllFieldsInObjectAndChildren', () => {
   expect(trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}).toBe({'b': 'bob', 'c': {'d': 'alica c c'}}));
   expect(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}).toBe({'a': 'bob', 'b': {'c': {'d': 'e'}}}));
   expect(trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}).toBe({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
-}
+});
 
 test('date difference', () => {
   var begin = new Date(2019, 0, 1);
