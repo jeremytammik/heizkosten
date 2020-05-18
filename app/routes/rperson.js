@@ -83,30 +83,32 @@ app.get( '/:id/dupl', (req, res) => {
 
 app.post( '/:id/dupl_submit', (req, res) => {
   var id = req.params.id;
-  Person.find( {'_id': id }, (err, results) => {
-    if (err) { console.log(err); }
-    else {
-      error = { 'errors': { 'id': { 'path': 'id', 'message': 'duplicate id' }}};
-      var form = Person.get_edit_form_html( req.body, true, error );
-      res.send( form );
-    }
-  });
-  var p = util.trimAllFieldsInObjectAndChildren( req.body );
-  //console.log('p1', p);
-  var person = new Person( p );
-  error = person.validateSync();
-  if( error ) {
-    var form = Person.get_edit_form_html( p, true, error );
-    return res.send( form );      
-  }
-  //console.log('p2', p);
-  Person.create( req.body, (err,res2) => {
+  Person.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
       return console.error(err);
     }
-    Person.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
-      return res.send( success_with_person_count( count.toString() ) );
+    if( 0 < count ) {
+      error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
+      var form = Person.get_edit_form_html( req.body, true, error );
+      return res.send( form );
+    }
+    var p = util.trimAllFieldsInObjectAndChildren( req.body );
+    //console.log('p1', p);
+    var person = new Person( p );
+    error = person.validateSync();
+    if( error ) {
+      var form = Person.get_edit_form_html( p, true, error );
+      return res.send( form );      
+    }
+    //console.log('p2', p);
+    Person.create( req.body, (err,res2) => {
+      if (err) {
+        return console.error(err);
+      }
+      Person.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        return res.send( success_with_person_count( count.toString() ) );
+      });
     });
   });
 });
