@@ -82,6 +82,15 @@ app.get( '/:id/dupl', (req, res) => {
 });
 
 app.post( '/:id/dupl_submit', (req, res) => {
+  var p = util.trimAllFieldsInObjectAndChildren( req.body );
+  //console.log('p1', p);
+  var person = new Person( p );
+  error = person.validateSync();
+  if( error ) {
+    var form = Person.get_edit_form_html( p, true, error );
+    return res.send( form );      
+  }
+  //console.log('p2', p);
   var id = req.params.id;
   Person.create( req.body, (err,res2) => {
     if (err) { return console.error(err); }
