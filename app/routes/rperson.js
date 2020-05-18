@@ -11,7 +11,9 @@ app.put('/api/v1/person/:id', PersonService.update);
 app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
-const { success_with_person_count, jtformgen_confirm_delete } = require('../form/jtformgen.js');
+const {
+  success_with_person_count,
+  jtformgen_confirm_delete } = require('../form/jtformgen.js');
 
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
@@ -177,15 +179,6 @@ app.get( '/save_sample_data', (req, res) => {
   });
 });
 
-/*
-app.get( '/css/heizkosten.css', (req, res) => {
-  console.log(req);
-  const dircss = __dirname + '/../../public/css/';
-  console.log( '__dir', __dirname, 'css', dircss );
-  return res.sendFile( dircss + 'heizkosten.css' );
-});
-*/
-
 app.get( '/create_sendfile', (req, res) => {
   const path = require('path');
   const pub = path.join( __dirname, '../../public' );
@@ -193,29 +186,8 @@ app.get( '/create_sendfile', (req, res) => {
   return res.sendFile( path.join( pub, 'person.html'));
 });
 
-//const { check, validationResult } = require('express-validator');
-
-app.post( '/create_new_submit',
-         
-  // using express-validator
-  //[
-  //  check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
-  //  check('email').isEmail().normalizeEmail(), // ensure valid email
-  //],
-  
-  (req, res) => {
+app.post( '/create_new_submit', (req, res) => {
     var p = req.body;
-    
-    //p.units = p.units.split(',');
-  
-    // Find validation errors request and wrap them in an object with handy functions
-
-    // using express-validator
-    //const errors = validationResult(req);
-    //if (!errors.isEmpty()) {
-    //  return res.status(422).json({ errors: errors.array() });
-    //}
-
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
@@ -225,20 +197,8 @@ app.post( '/create_new_submit',
     Person
       .create( p )
       .then( person =>
-        //res.json(person) );
         Person.countDocuments( {}, (err, count) => {
           if (err) { return console.error(err); }
           return res.send( success_with_person_count( count.toString() ) );
         }));
-  
-  /*
-  , (err,res2) => {
-      if (err) { return console.error(err);
-    }
-    Person.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
-      return res.send( success_with_person_count( count.toString() ) );
-    });
-  });
-  */
 });
