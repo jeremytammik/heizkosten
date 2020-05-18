@@ -51,12 +51,14 @@ app.get( '/:id/edit', (req, res) => {
 
 app.post( '/:id/edit_submit', (req, res) => {
   var p = util.trimAllFieldsInObjectAndChildren( req.body );
+  //console.log('p1', p);
   var person = new Person( p );
   error = person.validateSync();
   if( error ) {
     var form = Person.get_edit_form_html( p, false, error );
     return res.send( form );      
   }
+  //console.log('p2', p);
   var id = req.params.id;
   Person.updateOne( { "_id": id }, p, (err,res2) => {
     if (err) { return console.error(err); }
