@@ -1,5 +1,6 @@
 'use strict';
 
+const {   non_empty_alpha_mumeric, empty_or_ascii_or_umlaut } = require( './jtregex' );
 const loaddata = require('./loaddata');
 
 test('JSON parse date reviver', () => {
@@ -11,8 +12,6 @@ test('JSON parse date reviver', () => {
 });
 
 test('all data characters are ascii or umlaut', () => {
-  const non_empty_alpha_mumeric = /^[0-9a-zA-Z\_]+$/;
-  const empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/;
   for (const [key, value] of Object.entries(loaddata)) {
     for (const [key2, value2] of Object.entries(value)) {
       for (const [key3, value3] of Object.entries(value2)) {
