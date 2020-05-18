@@ -1,6 +1,4 @@
-// https://mariusschulz.com/blog/deserializing-json-strings-as-javascript-date-objects
-//const date_time_format = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
-const date_format = /^\d{4}-\d{2}-\d{2}$/;
+const { date_format } = require( 'jtregex' );
 
 function json_parse_date_reviver(key, value) {
   if (typeof value === "string" && date_format.test(value)) {

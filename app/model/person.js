@@ -12,6 +12,9 @@ var Schema = mongoose.Schema;
 //  'occupant',
 //  'owner' ];
 
+const regex_empty_or_alnum_or_umlaut_with_space = /^[0-9a-zA-Zäöü\-\ ]*$/;
+const regex_empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/;
+
 var personSchema = new Schema({
   _id: {  // suppress automatic generation  
     type: String,
