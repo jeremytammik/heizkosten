@@ -50,8 +50,14 @@ app.get( '/:id/edit', (req, res) => {
 });
 
 app.post( '/:id/edit_submit', (req, res) => {
-  var id = req.params.id;
   var p = util.trimAllFieldsInObjectAndChildren( req.body );
+  var person = new Person( p );
+  error = person.validateSync();
+  if( error ) {
+    var form = Person.get_edit_form_html( p, false, error );
+    return res.send( form );      
+  }
+  var id = req.params.id;
   Person.updateOne( { "_id": id }, p, (err,res2) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
@@ -141,13 +147,16 @@ app.get( '/create_sendfile', (req, res) => {
 //const { check, validationResult } = require('express-validator');
 
 app.post( '/create_new_submit',
+         
   // using express-validator
   //[
   //  check( '_id' ).isLength( { min: 1 } ), // ensure _id is defined
   //  check('email').isEmail().normalizeEmail(), // ensure valid email
-  //],          
+  //],
+  
   (req, res) => {
     var p = req.body;
+    
     //p.units = p.units.split(',');
   
     // Find validation errors request and wrap them in an object with handy functions
@@ -160,7 +169,6 @@ app.post( '/create_new_submit',
 
     var person = new Person( p );
     error = person.validateSync();
-    //console.log( error );
     if( error ) {
       var form = Person.get_edit_form_html( p, false, error );
       return res.send( form );      
