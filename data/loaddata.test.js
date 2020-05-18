@@ -10,6 +10,20 @@ test('JSON parse date reviver', () => {
   expect(obj.date.getDate()).toBe(26);
 });
 
+test('all data characters are ascii or umlaut', () => {
+  const expected = /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/;
+  for (const [key, value] of Object.entries(loaddata)) {
+    for (const [key2, value2] of Object.entries(value)) {
+      for (const [key3, value3] of Object.entries(value2)) {
+        expect(key3).toMatch(expected);
+        if (typeof value3 === 'string' || value3 instanceof String) {
+          expect(value3).toMatch(expected);
+        }
+      }
+    }
+  }
+});
+
 test('loaded five apartments', () => {
   expect(Object.keys(loaddata.apartments).length).toBe(5);
 });
