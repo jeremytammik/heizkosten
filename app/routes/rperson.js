@@ -1,8 +1,9 @@
 const app = module.exports = require('express')();
 
-var Person = require( '../model/person' );
+const util = require( '../calc/util' );
+const Person = require( '../model/person' );
+const PersonService = require( '../controller/person_v1' );
 
-var PersonService = require( '../controller/person_v1' );
 app.get('/api/v1/person', PersonService.findAll);
 app.get('/api/v1/person/:id', PersonService.findById);
 app.post('/api/v1/person', PersonService.add);
@@ -49,8 +50,8 @@ app.get( '/:id/edit', (req, res) => {
 });
 
 app.post( '/:id/edit_submit', (req, res) => {
-  //var p = trim_all( req.params );
-  var id = req.params.id;
+  var p = util.trimAllFieldsInObjectAndChildren( req.params );
+  var id = p.id;
   Person.updateOne( { "_id": id }, req.body, (err,res2) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
