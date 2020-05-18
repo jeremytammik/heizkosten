@@ -82,7 +82,10 @@ app.get( '/:id/dupl', (req, res) => {
 });
 
 app.post( '/:id/dupl_submit', (req, res) => {
-  var id = req.params.id;
+  var id_original = req.params.id;
+  var p = util.trimAllFieldsInObjectAndChildren( req.body );
+  var id = p._id;
+  console.log('id_original', id_original, 'id', id, 'p0', p);
   Person.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
       return console.error(err);
@@ -93,15 +96,14 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Person.get_edit_form_html( req.body, true, error );
       return res.send( form );
     }
-    var p = util.trimAllFieldsInObjectAndChildren( req.body );
-    console.log('p1', p);
+    //console.log('p1', p);
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
       var form = Person.get_edit_form_html( p, true, error );
       return res.send( form );      
     }
-    console.log('p2', p);
+    //console.log('p2', p);
     Person.create( req.body, (err2,res2) => {
       if (err2) {
         return console.error(err2);
