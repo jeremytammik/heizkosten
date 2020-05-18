@@ -5,6 +5,7 @@
 // Copyright 2020 by Jeremy Tammik.
 
 var mongoose = require( 'mongoose' );
+const { non_empty_alpha_mumeric, empty_or_ascii_or_umlaut } = require( '../../data/jtregex' );
 
 var Schema = mongoose.Schema;
 
@@ -12,6 +13,11 @@ var Schema = mongoose.Schema;
 //  'occupant',
 //  'owner' ];
 
+const regex_valid_name_chars = /^[äöü\w][äöü\w\ ]*$/;
+const regex_valid_email_address = /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/;
+const regex_valid_iban = /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/;
+const regex_valid_telephone_number = /^[0-9\+][0-9\/\- ]{4,20}$/;
+const regex_empty_or_alnum_or_umlaut_with_space = /^[0-9a-zA-Zäöü\-\ ]*$/;
 const regex_empty_or_alnum_or_umlaut_with_space = /^[0-9a-zA-Zäöü\-\ ]*$/;
 const regex_empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/;
 
@@ -23,7 +29,7 @@ var personSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
-        return /[0-9a-z_]{1,20}/.test(s);
+        return /[0-9a-z_]{1,20}/.test(s); // non-empty lowercase alphanumeric with underscore max 20 length
       },
       message: props => `'${props.value}' is not a valid person_id`
     }},
@@ -33,45 +39,38 @@ var personSchema = new Schema({
     max: 40,
     validate: {
       validator: function(s) {
-        return /[0-9,]{3,40}/.test(s);
+        return /[0-9,]{3,40}/.test(s); // comma-separated digits only, min 3 max 40 length
       },
       message: props => `'${props.value}' is not a valid list of unit ids`
     }},
-  firstname: String,
+  firstname:  {
+    type: String,
+    validate: {
+      validator: function(s) { return regex_valid_name_chars.test(s); },
+      message: props => `invalid characters in '${props.value}'`
+    }},
   lastname:  {
     type: String,
     validate: {
-      validator: function(s) {
-        //return /^[[:alnum:]_][[:alnum:]_ ]*$/.test(s);
-        return /^\w[äöü\w ]*$/.test(s);
-      },
-      message: props => `'${props.value}' is not a valid last name`
+      validator: function(s) { return regex_valid_name_chars.test(s); },
+      message: props => `invalid characters in '${props.value}'`
     }},
   email: {
     type: String,
     validate: {
-      validator: function(s) {
-        return 0 == s.length
-          || /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/.test(s);
-      },
+      validator: function(s) { return (!s) || regex_valid_email_address.test(s); },
       message: props => `'${props.value}' is not a valid email address`
     }},
   iban: {
     type: String,
     validate: {
-      validator: function(s) {
-        return 0 == s.length
-          || /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/.test(s);
-      },
+      validator: function(s) { return (!s) || regex_valid_iban.test(s); },
       message: props => `'${props.value}' is not a valid IBAN`
     }},
   telephone: {
     type: String,
     validate: {
-      validator: function(s) {
-        return 0 == s.length
-          || /^[0-9\+\/\- ]{2,20}$/.test(s);
-      },
+      validator: function(s) { return (!s) || regex_valid_telephone_number.test(s); },
       message: props => `'${props.value}' is not a valid telephone number`
     }},
   salutation: String,
