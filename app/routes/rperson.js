@@ -158,7 +158,10 @@ app.get( '/save_sample_data', (req, res) => {
   Person.find( {}, function( err, docs ) {
     if (err) { return console.error(err); }
     var persons = {};
-    docs.forEach( (d) => { persons[d._id] = d; } );
+    docs.forEach( (d) => {
+      delete d.__v;
+      persons[d._id] = d;
+    });
     var fs = require('fs');
     var fn = 'data/tmp/person.json';
     fs.writeFile( fn,
