@@ -107,4 +107,4 @@ dist
 yarn.lock
 
 # temporary test output file
-data/tmp/units.json
+data/tmp/
