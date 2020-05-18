@@ -13,7 +13,7 @@
 
   "mandy_schmidt": {"_id": "mandy_schmidt", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DE00 0000", "telephone": "+49 7623 3478274", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland", "units": "001" },
 
-  "mandy_schmidt_2": {"_id": "mandy_schmidt_2", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DE00 0000", "telephone": "", "salutation": "frau", "street": "neuhausstr.", "streetnr": "37", "zip": "79800", "city": "neustadt", "country": "deutschland", "units": "001" },
+  "mandy_schmidt_2": {"_id": "mandy_schmidt_2", "firstname": "mandy", "lastname": "schmidt", "email": "m.schmidt78@gmx.de", "iban": "DE00 0000", "telephone": "+49 ----", "salutation": "frau", "street": "neuhausstr.", "streetnr": "37", "zip": "79800", "city": "neustadt", "country": "deutschland", "units": "001" },
 
   "otto_froehlich": {"_id": "otto_froehlich", "firstname": "otto", "lastname": "fröhlich", "email": "of@ofd.ch", "iban": "DE82 6835 0048 0001 018076", "telephone": "+49 7621 18364", "salutation": "herr", "street": "adlergässchen", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland", "units": "001" },
 
