@@ -46,7 +46,7 @@ var personSchema = new Schema({
   firstname:  {
     type: String,
     validate: {
-      validator: function(s) { return regex_valid_name_chars.test(s); },
+      validator: function(s) { return (!s) || regex_valid_name_chars.test(s); },
       message: props => `invalid characters in '${props.value}'`
     }},
   lastname:  {
