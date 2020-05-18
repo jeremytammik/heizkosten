@@ -1,6 +1,6 @@
 const util = require('./util');
 
-test('trimAllFieldsInObjectAndChildren', () ={
+test('trimAllFieldsInObjectAndChildren', () => {
   import * as _ from 'lodash';
   
   assert.true(_.isEqual(trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
