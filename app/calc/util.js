@@ -1,5 +1,5 @@
 //https://stackoverflow.com/questions/33510625/trim-white-spaces-in-both-object-key-and-value-recursively
-function trimAllFieldsInObjectAndChildren(o: any) {
+function trimAllFieldsInObjectAndChildren( o ) {
   return JSON.parse(JSON.stringify(o).replace(/"\s+|\s+"/g, '"'));
 }
 
