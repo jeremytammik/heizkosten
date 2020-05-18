@@ -87,26 +87,27 @@ app.post( '/:id/dupl_submit', (req, res) => {
     if (err) {
       return console.error(err);
     }
+    console.log('count', count);
     if( 0 < count ) {
-      error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
+      var error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
       var form = Person.get_edit_form_html( req.body, true, error );
       return res.send( form );
     }
     var p = util.trimAllFieldsInObjectAndChildren( req.body );
-    //console.log('p1', p);
+    console.log('p1', p);
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
       var form = Person.get_edit_form_html( p, true, error );
       return res.send( form );      
     }
-    //console.log('p2', p);
-    Person.create( req.body, (err,res2) => {
-      if (err) {
-        return console.error(err);
+    console.log('p2', p);
+    Person.create( req.body, (err2,res2) => {
+      if (err2) {
+        return console.error(err2);
       }
-      Person.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
+      Person.countDocuments( {}, (err3, count) => {
+        if (err3) { return console.error(err3); }
         return res.send( success_with_person_count( count.toString() ) );
       });
     });
