@@ -9,6 +9,7 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 var costSchema = new Schema({
+  _id: String, // suppress automatic generation  
   
   unit_id: String,
   year: Number,
@@ -67,8 +68,10 @@ var costSchema = new Schema({
   house_nk_coldwater_eur: Number,
   house_nk_coldwater_equipment_eur: Number,
   house_nk_coldwater_allocation_fee_eur: Number,
-  house_nk_coldwater_sonderkosten_eur: Number 
-});
+  house_nk_coldwater_sonderkosten_eur: Number },
+  
+  { _id: false } // suppress automatic generation
+);
 
 var Cost = mongoose.model( 'Cost', costSchema );
 
