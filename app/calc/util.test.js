@@ -13,12 +13,12 @@ test('trimAllFieldsInObjectAndChildren', () => {
 
   expect(util.trimAllFieldsInObjectAndChildren(' bob ')).toBe('bob');
   expect(util.trimAllFieldsInObjectAndChildren('2 ')).toBe('2');
-  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).equals(['2', 'bob']);
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '})).equals({'b': 'bob'});
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true })).equals({'b': 'bob', 'c': 5, d: true});
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}})).equals({'b': 'bob', 'c': {'d': 'alica c c'}});
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}})).equals({'a': 'bob', 'b': {'c': {'d': 'e'}}});
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).equals({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
+  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).toEqual(['2', 'bob']);
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '})).toEqual({'b': 'bob'});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true })).toEqual({'b': 'bob', 'c': 5, d: true});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}})).toEqual({'b': 'bob', 'c': {'d': 'alica c c'}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}})).toEqual({'a': 'bob', 'b': {'c': {'d': 'e'}}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).toEqual({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
 });
 
 test('date difference', () => {
