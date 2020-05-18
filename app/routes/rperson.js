@@ -140,7 +140,9 @@ app.get( '/:id/del_confirmed', (req, res) => {
 
 app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
-  var persons = JSON.parse( fs.readFileSync( 'data/person.json', 'utf8' ));
+  var persons = JSON.parse(
+    fs.readFileSync(
+      'data/person.json', 'utf8' ));
   
   Person.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
@@ -158,9 +160,10 @@ app.get( '/save_sample_data', (req, res) => {
   Person.find( {}, function( err, docs ) {
     if (err) { return console.error(err); }
     var persons = {};
-    docs.forEach( (d) => {
-      delete d.__v;
-      persons[d._id] = d;
+    docs.forEach( (doc) => {
+      var p = doc._doc;
+      delete p['__v'];
+      persons[p._id] = p;
     });
     var fs = require('fs');
     var fn = 'data/tmp/person.json';
