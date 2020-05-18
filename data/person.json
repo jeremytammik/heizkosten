@@ -19,7 +19,7 @@
 
   "sabine_diesslin": {"_id": "sabine_diesslin", "firstname": "sabine", "lastname": "diesslin", "email": "sabineundlucky@gmail.com", "iban": "DE75 3002 0900 5380 0369 89", "telephone": "+49 7623 3090301", "salutation": "frau", "street": "fecampring", "streetnr": "28", "zip": "79618", "city": "rheinfelden", "country": "deutschland", "units": "001" },
 
-  "scheuermann_hv":  {"_id": "scheuermann_hv", "firstname": "", "lastname": "scheuermann hv", "email": "huber@ps-immobilien.de", "iban": "", "telephone": "+49 7621 1688855", "salutation": "firma", "street": "nansenstr.", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland", "units": "001" },
+  "scheuermann_hv":  {"_id": "scheuermann_hv", "firstname": "", "lastname": "scheuermann hv", "email": "huber@ps-immobilien.de", "iban": "DE00 0000", "telephone": "+49 7621 1688855", "salutation": "firma", "street": "nansenstr.", "streetnr": "3", "zip": "79539", "city": "lörrach", "country": "deutschland", "units": "001" },
 
   "weidenmueller_gmbh": {"_id": "weidenmueller_gmbh", "firstname": "", "lastname": "weidenmüller gmbh", "email": "ml.weidenmüller@t-online.de", "iban": "DE30 6805 2230 0000 013136", "telephone": "+49 7675 442", "salutation": "firma", "street": "todtmooser str.", "streetnr": "67", "zip": "79872", "city": "bernau", "country": "deutschland", "units": "001" },
 

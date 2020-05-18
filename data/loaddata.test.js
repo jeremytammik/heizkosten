@@ -47,7 +47,7 @@ test('person id matches dictionary key', () => {
     expect(value._id).toBe( key );
     expect(value._id).toMatch( regex_valid_person_id );
     expect(value.units).toMatch( regex_valid_unit_list );
-    expect(value.firstname).toMatch( regex_valid_name_chars );
+    if(value.firstname) { expect(value.firstname).toMatch( regex_valid_name_chars ); }
     expect(value.lastname).toMatch( regex_valid_name_chars );
     expect(value.email).toMatch( regex_valid_email_address );
     expect(value.iban).toMatch( regex_valid_iban );
