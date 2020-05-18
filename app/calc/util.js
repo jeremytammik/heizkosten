@@ -1,3 +1,8 @@
+//https://stackoverflow.com/questions/33510625/trim-white-spaces-in-both-object-key-and-value-recursively
+function trimAllFieldsInObjectAndChildren(o: any) {
+  return JSON.parse(JSON.stringify(o).replace(/"\s+|\s+"/g, '"'));
+}
+
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
 function date_units_diff(a, b, unit_amounts) {
   var split_to_whole_units = function (milliseconds, unit_amounts) {

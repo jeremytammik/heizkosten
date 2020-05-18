@@ -49,6 +49,7 @@ app.get( '/:id/edit', (req, res) => {
 });
 
 app.post( '/:id/edit_submit', (req, res) => {
+  //var p = trim_all( req.params );
   var id = req.params.id;
   Person.updateOne( { "_id": id }, req.body, (err,res2) => {
     if (err) { return console.error(err); }
