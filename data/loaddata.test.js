@@ -1,6 +1,16 @@
 'use strict';
 
-const { non_empty_alpha_mumeric, empty_or_ascii_or_umlaut } = require( './jtregex' );
+const {
+  non_empty_alpha_mumeric,
+  empty_or_ascii_or_umlaut,
+  regex_valid_person_id,
+  regex_valid_unit_list,
+  regex_valid_name_chars,
+  regex_valid_email_address,
+  regex_valid_iban,
+  regex_valid_telephone_number
+} = require( './jtregex' );
+
 const loaddata = require('./loaddata');
 
 test('JSON parse date reviver', () => {
@@ -35,6 +45,19 @@ test('loaded N persons', () => {
 test('person id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.persons)) {
     expect(value._id).toBe( key );
+    expect(value._id).toMatch( regex_valid_person_id );
+    expect(value.units).toMatch( regex_valid_unit_list );
+    expect(value.firstname).toMatch( regex_valid_name_chars );
+    expect(value.lastname).toMatch( regex_valid_name_chars );
+    expect(value.email).toMatch( regex_valid_email_address );
+    expect(value.iban).toMatch( regex_valid_iban );
+    expect(value.telephone).toMatch( regex_valid_telephone_number );
+    //expect(value.salutation).toMatch( );
+    //expect(value.street).toMatch( );
+    //expect(value.streetnr).toMatch( );
+    //expect(value.zip).toMatch( );
+    //expect(value.city).toMatch( );
+    expect(value.country).toMatch( regex_valid_name_chars );
   }
 });
 

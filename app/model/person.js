@@ -13,6 +13,8 @@ var Schema = mongoose.Schema;
 //  'owner' ];
 
 const {
+  regex_valid_person_id,
+  regex_valid_unit_list,
   regex_valid_name_chars,
   regex_valid_email_address,
   regex_valid_iban,
@@ -27,7 +29,7 @@ var personSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
-        return /[0-9a-z_]{1,20}/.test(s); // non-empty lowercase alphanumeric with underscore max 20 length
+        return regex_valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
     }},
@@ -37,7 +39,7 @@ var personSchema = new Schema({
     max: 40,
     validate: {
       validator: function(s) {
-        return /[0-9,]{3,40}/.test(s); // comma-separated digits only, min 3 max 40 length
+        return regex_valid_unit_list.test(s);
       },
       message: props => `'${props.value}' is not a valid list of unit ids`
     }},
