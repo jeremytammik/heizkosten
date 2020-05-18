@@ -1,4 +1,4 @@
-# heizkosten &ndash; heruco4l
+# herucoal
 
 Housing unit heating and running cost allocation
 [node.js](https://nodejs.org) app
