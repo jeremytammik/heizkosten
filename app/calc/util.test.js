@@ -13,12 +13,12 @@ test('trimAllFieldsInObjectAndChildren', () => {
   //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
   
   expect(util.trimAllFieldsInObjectAndChildren('2 ').toBe('2'));
-  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob ']).toBe(['2', 'bob']));
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '}).toBe({'b': 'bob'}));
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true }).toBe({'b': 'bob', 'c': 5, d: true}));
-  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}).toBe({'b': 'bob', 'c': {'d': 'alica c c'}}));
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}).toBe({'a': 'bob', 'b': {'c': {'d': 'e'}}}));
-  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}).toBe({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
+  expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).toBe(['2', 'bob']);
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '})).toBe({'b': 'bob'});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true })).toBe({'b': 'bob', 'c': 5, d: true});
+  expect(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}})).toBe({'b': 'bob', 'c': {'d': 'alica c c'}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}})).toBe({'a': 'bob', 'b': {'c': {'d': 'e'}}});
+  expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).toBe({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
 });
 
 test('date difference', () => {
