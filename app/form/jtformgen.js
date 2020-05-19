@@ -56,6 +56,19 @@ function jtformgen_list_documents( thing, where, docs, enable_select )
   return shead + s1 + s2 + s3;
 }
 
+function jtformgen_unit_selected( uid )
+{
+  var s2 = `<body><p>Unit ${uid} selected.</p><ul>`
+    + `<li><a href="/unit/${uid}/cost">yearly costs</a></li>`
+    + `<li><a href="/unit/${uid}/apartment">apartments</a></li>`
+    + `<li><a href="/unit/${uid}/person">persons</a></li>`
+    + `<li><a href="/unit/${uid}/nk">nebenkosten</a></li>`
+    + `<li><a href="/unit/${uid}/hv">hausverwaltung</a></li>`
+    + '</li></body>';
+  
+  return shead + s1;
+}
+
 function jtformgen_edit_for_strings( p, id, url_action, verb, error )
 {
   //console.log('err', error);
@@ -111,5 +124,6 @@ module.exports = {
   success_with_document_count,
   jtformgen_confirm_delete,
   jtformgen_list_documents,
+  jtformgen_unit_selected,
   jtformgen_edit_for_strings
 };

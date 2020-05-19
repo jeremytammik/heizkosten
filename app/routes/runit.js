@@ -4,7 +4,8 @@ const Unit = require( '../model/unit' );
 
 const {
   success_with_document_count,
-  jtformgen_list_documents } = require('../form/jtformgen.js');
+  jtformgen_list_documents,
+  jtformgen_unit_selected } = require('../form/jtformgen.js');
 
 app.get( '/', (req, res) => {
   Unit.find( {}, (err, results) => {
@@ -29,7 +30,8 @@ app.get( '/:id/del', (req, res) => {
 });
 
 app.get( '/:id/select', (req, res) => {
-  res.send( 'Okay, let\'s go to the next level.' );
+  var id = req.params.id;
+  res.send( jtformgen_unit_selected( id ) );
 });
 
 app.get( '/load_sample_data', (req, res) => {
