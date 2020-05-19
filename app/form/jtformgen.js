@@ -36,7 +36,7 @@ function jtformgen_confirm_delete( description, id )
   return shead + s1;    
 }
 
-function jtformgen_list_documents( thing, docs )
+function jtformgen_list_documents( thing, where, docs )
 {
   var a = [];
   docs.forEach( (d) => { a.push(
@@ -47,7 +47,7 @@ function jtformgen_list_documents( thing, docs )
   });
   var n = a.length.toString();
   var s = (1==n) ? '' : 's';
-  var s1 = `<body><p>${n} ${thing}${s}:</p><ul>`;
+  var s1 = `<body><p>${n} ${thing}${s}${where}:</p><ul>`;
   var s2 =  a.join('\n');
   var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>';
 

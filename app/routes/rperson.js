@@ -13,7 +13,8 @@ app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 const {
   success_with_document_count,
-  jtformgen_confirm_delete } = require('../form/jtformgen.js');
+  jtformgen_confirm_delete,
+  jtformgen_list_documents } = require('../form/jtformgen.js');
 
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
@@ -35,7 +36,7 @@ app.get( '/unit/:uid/list', (req, res) => {
       //a.reverse();
       //a.push( '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>' );
       //return res.send( a.join('\n') );
-      return res.send( jtformgen_list_documents( 'person', results ) );
+      return res.send( jtformgen_list_documents( 'person', ` in ${uid}`, results ) );
     }
   });
 });
