@@ -82,15 +82,18 @@ var Cost = mongoose.model( 'Cost', costSchema );
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
-Cost.get_edit_form_html = ( a, thing_display, create_duplicate, error ) => {
-
+Cost.get_edit_form_html = ( a, create_duplicate, error ) => {
+  var route = 'cost';
+  var id = a['_id'];
   var url_action = create_duplicate ? 'dupl' : 'edit';
+  url_action = `/${route}/${id}/${url_action}_submit`;
+
+  var thing_display = 'Kosten';
   var verb = create_duplicate
     ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
     : `in ${a.year} fuer ${a.unit_id} edititieren`;
   verb = thing_display + ' ' + verb;
 
-  var id = a['_id'];
   delete a['__v'];
   
   if( !create_duplicate ) {
@@ -99,7 +102,7 @@ Cost.get_edit_form_html = ( a, thing_display, create_duplicate, error ) => {
     delete a['year'];
   }
   
-  return jtformgen_edit_document( a, id, url_action, verb, false, error );
+  return jtformgen_edit_document( a, url_action, verb, false, error );
 }
 
 module.exports = Cost;

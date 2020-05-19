@@ -69,7 +69,7 @@ function jtformgen_unit_selected( uid )
   return shead + s1;
 }
 
-function jtformgen_edit_document( p, id, url_action, verb, for_string, error )
+function jtformgen_edit_document( p, url_action, verb, for_string, error )
 {
   var errlist = [];
   if( error ) {
