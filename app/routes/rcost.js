@@ -32,7 +32,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        'yearly cost', ` in ${uid}`, results, false ) );
+        'cost', ` in ${uid}`, results, false ) );
     }
   });
 });
