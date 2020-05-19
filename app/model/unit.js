@@ -144,6 +144,10 @@ var unitSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
+personSchema.methods.get_display_string = function() {
+  return this._id + ' ' + this.address;
+};
+
 var Unit = mongoose.model( 'Unit', unitSchema );
 
 module.exports = Unit;
