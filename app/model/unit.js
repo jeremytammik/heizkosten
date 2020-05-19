@@ -145,7 +145,7 @@ var unitSchema = new Schema({
 );
 
 unitSchema.methods.get_display_string = function() {
-  return this._id + ' ' + this.address;
+  return this._id + ' ' + this.address.replace(';',',');
 };
 
 var Unit = mongoose.model( 'Unit', unitSchema );

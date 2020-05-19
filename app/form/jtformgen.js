@@ -7,7 +7,7 @@
 const shead = '\
 <head>\
 	<meta charset="utf-8" />\
-	<title>Edit Person Data</title>\
+	<title>Herucoal</title>\
   <style>\
     body, td, label { font-family: sans-serif; font-size: small }\
     td { text-align: right }\
