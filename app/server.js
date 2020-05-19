@@ -48,7 +48,7 @@ app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 app.use( routes );
 
 console.log( 'Database models loaded:',
-  mongoose.connection.modelNames().join() );
+  mongoose.connection.modelNames().join( ', ' ) );
 
 app.set( 'port', process.env.PORT || 3001 );
 
