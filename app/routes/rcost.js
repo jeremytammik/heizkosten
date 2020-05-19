@@ -39,7 +39,34 @@ app.get( '/unit/:uid/list', (req, res) => {
 });
 
 app.get( '/:id/edit', (req, res) => {
-  res.send( 'Sorry, please ask your admin.' );
+  var id = req.params.id;
+  Cost.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var form = Cost.get_edit_form_html( doc, false );
+      res.send( form );
+    }
+  });
+});
+
+app.post( '/:id/edit_submit', (req, res) => {
+  var c = util.trimAllFieldsInObjectAndChildren( req.body );
+  var cost = new Cost( c );
+  error = cost.validateSync();
+  if( error ) {
+    var form = Cost.get_edit_form_html( p, false, error );
+    return res.send( form );      
+  }
+  var id = req.params.id;
+  Cost.updateOne( { "_id": id }, c, (err,res2) => {
+    if (err) { return console.error(err); }
+    Cost.countDocuments( {}, (err, count) => {
+      if (err) { return console.error(err); }
+      return res.send( success_with_document_count(
+        count.toString(), 'yearly cost' ) );
+    });
+  });
 });
 
 app.get( '/:id/dupl', (req, res) => {
