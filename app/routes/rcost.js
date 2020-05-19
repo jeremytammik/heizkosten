@@ -49,11 +49,6 @@ app.get( '/:id/del', (req, res) => {
   res.send( 'Sorry, please ask your admin.' );
 });
 
-app.get( '/:id/select', (req, res) => {
-  var id = req.params.id;
-  res.send( jtformgen_unit_selected( id ) );
-});
-
 app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
