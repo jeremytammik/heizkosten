@@ -69,9 +69,8 @@ function jtformgen_unit_selected( uid )
   return shead + s1;
 }
 
-function jtformgen_edit_for_strings( p, id, url_action, verb, error )
+function jtformgen_edit_document( p, id, url_action, verb, for_string, error )
 {
-  //console.log('err', error);
   var errlist = [];
   if( error ) {
     var n = Object.keys( error.errors ).length;
@@ -91,6 +90,10 @@ function jtformgen_edit_for_strings( p, id, url_action, verb, error )
     <table>\
 `;
 
+var input_attributes = for_string
+  ? 'type="string" maxlength="40" size="30"'
+  : 'type="number" min="0" max="999999.99" maxlength="9" size="12" step="any"';
+
 var a = [];
 Object.keys(p).forEach( (key,index) => {
   var k = key;
@@ -98,7 +101,7 @@ Object.keys(p).forEach( (key,index) => {
   a.push( `\ 
 <tr>\
 <td><label for="${k}">${k}:</label></td>\
-<td><input type="string" maxlength="30" size="30" placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
+<td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
 </tr>\
 ` );
 });
@@ -125,5 +128,5 @@ module.exports = {
   jtformgen_confirm_delete,
   jtformgen_list_documents,
   jtformgen_unit_selected,
-  jtformgen_edit_for_strings
+  jtformgen_edit_document
 };

@@ -94,7 +94,7 @@ personSchema.methods.get_display_string = function() {
 
 var Person = mongoose.model( 'Person', personSchema );
 
-const { jtformgen_edit_for_strings } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Person.get_edit_form_html = ( p, thing_display, create_duplicate, error ) => {
   var id = p['_id'];
@@ -110,7 +110,7 @@ Person.get_edit_form_html = ( p, thing_display, create_duplicate, error ) => {
     ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
     : 'edititieren';
 
-  return jtformgen_edit_for_strings( p, id, url_action, verb, error );
+  return jtformgen_edit_document( p, id, url_action, verb, true, error );
 }
 
 module.exports = Person;

@@ -80,7 +80,7 @@ costSchema.methods.get_display_string = function() {
 
 var Cost = mongoose.model( 'Cost', costSchema );
 
-const { jtformgen_edit_for_strings } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Cost.get_edit_form_html = ( a, thing_display, create_duplicate, error ) => {
   var id = a['_id'];
@@ -96,7 +96,7 @@ Cost.get_edit_form_html = ( a, thing_display, create_duplicate, error ) => {
     ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
     : 'edititieren';
 
-  return jtformgen_edit_for_strings( p, id, url_action, verb, error );
+  return jtformgen_edit_document( p, id, url_action, verb, false, error );
 }
 
 module.exports = Cost;
