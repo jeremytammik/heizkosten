@@ -58,7 +58,7 @@ function jtformgen_list_documents( thing, where, docs, enable_select )
 
 function jtformgen_unit_selected( uid )
 {
-  var s2 = `<body><p>Unit ${uid} selected.</p><ul>`
+  var s1 = `<body><p>Unit ${uid} selected.</p><ul>`
     + `<li><a href="/unit/${uid}/cost">yearly costs</a></li>`
     + `<li><a href="/unit/${uid}/apartment">apartments</a></li>`
     + `<li><a href="/unit/${uid}/person">persons</a></li>`
