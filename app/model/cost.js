@@ -73,6 +73,11 @@ var costSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
+costSchema.methods.get_display_string = function() {
+  return this._id + ' &ndash; ' +
+    `yearly costs in ${this.year} for ${this.unit_id}`;
+};
+
 var Cost = mongoose.model( 'Cost', costSchema );
 
 module.exports = Cost;
