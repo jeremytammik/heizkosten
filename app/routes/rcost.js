@@ -44,7 +44,7 @@ app.get( '/:id/edit', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, false );
+      var form = Cost.get_edit_form_html( doc, 'Kosten', false );
       res.send( form );
     }
   });
