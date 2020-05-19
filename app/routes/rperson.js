@@ -21,22 +21,8 @@ app.get( '/unit/:uid/list', (req, res) => {
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      //var a = [];
-      //results.forEach( (p) => { a.push(
-      //  '<li>' + p.get_display_string()
-      //  + ' &ndash; <a href="/person/' + p._id + '/edit">edit</a>'
-      //  + ' &ndash; <a href="/person/' + p._id + '/dupl">dupl</a>'
-      //  + ' &ndash; <a href="/person/' + p._id + '/del">del</a></li>' );
-      //});
-      //var n = a.length.toString();
-      //a.sort();
-      //a.reverse();
-      //a.push( '<head><style> body { font-family: sans-serif; font-size: small }</style></head>' );
-      //a.push( `<body><p>${n} persons associated with unit ${uid}:</p><ul>` );
-      //a.reverse();
-      //a.push( '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>' );
-      //return res.send( a.join('\n') );
-      return res.send( jtformgen_list_documents( 'person', ` in ${uid}`, results ) );
+      return res.send( jtformgen_list_documents(
+        'person', ` in ${uid}`, results ) );
     }
   });
 });
@@ -55,14 +41,12 @@ app.get( '/:id/edit', (req, res) => {
 
 app.post( '/:id/edit_submit', (req, res) => {
   var p = util.trimAllFieldsInObjectAndChildren( req.body );
-  //console.log('p1', p);
   var person = new Person( p );
   error = person.validateSync();
   if( error ) {
     var form = Person.get_edit_form_html( p, false, error );
     return res.send( form );      
   }
-  //console.log('p2', p);
   var id = req.params.id;
   Person.updateOne( { "_id": id }, p, (err,res2) => {
     if (err) { return console.error(err); }
@@ -89,25 +73,21 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
   var p = util.trimAllFieldsInObjectAndChildren( req.body );
   var id = p._id;
-  //console.log('id_original', id_original, 'id', id, 'p0', p);
   Person.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
       return console.error(err);
     }
-    //console.log('count', count);
     if( 0 < count ) {
       var error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
       var form = Person.get_edit_form_html( req.body, true, error );
       return res.send( form );
     }
-    //console.log('p1', p);
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
       var form = Person.get_edit_form_html( p, true, error );
       return res.send( form );      
     }
-    //console.log('p2', p);
     Person.create( req.body, (err2,res2) => {
       if (err2) {
         return console.error(err2);
