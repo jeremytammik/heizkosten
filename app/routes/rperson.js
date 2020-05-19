@@ -52,7 +52,8 @@ app.post( '/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), 'person' ) );
+      return res.send( success_with_document_count(
+        count.toString(), 'person' ) );
     });
   });
 });
@@ -78,7 +79,8 @@ app.post( '/:id/dupl_submit', (req, res) => {
       return console.error(err);
     }
     if( 0 < count ) {
-      var error = { 'errors': { '_id': { 'path': '_id', 'message': 'duplicate id' }}};
+      var error = { 'errors': { '_id': {
+        'path': '_id', 'message': 'duplicate id' }}};
       var form = Person.get_edit_form_html( req.body, true, error );
       return res.send( form );
     }

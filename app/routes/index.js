@@ -6,26 +6,7 @@ app.get( '/', (req, res) => {
 
 app.use( '/person', require( './rperson' ));
 app.use( '/unit', require( './runit' ));
-
-//var Unit = require( '../model/unit' );
-var Cost = require( '../model/cost' );
-//require( './model/apartment' );
-//require( './model/consumption' );
-//require( './model/occupant' );
-
-var mongoose = require( 'mongoose' );
-
-console.log( 'Database models', mongoose.connection.modelNames() );
-
-var CostService = require( '../controller/cost_v1' );
-app.get('/api/v1/cost', CostService.findAll);
-app.get('/api/v1/cost/:id', CostService.findById);
-app.post('/api/v1/cost', CostService.add); // is this used any longer at all, now that update3 is available?
-//app.post('/api/v1/cost', CostService.insertBatch); // add multiple records
-app.put('/api/v1/cost/:id', CostService.update3); // added {upsert:true} option
-app.delete('/api/v1/cost/:id', CostService.delete);
-app.get('/api/v1/cost/unit/:uid', CostService.findAllForUnit);
-app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
+app.use( '/cost', require( './rcost' ));
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
 
