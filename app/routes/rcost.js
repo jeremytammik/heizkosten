@@ -14,6 +14,7 @@ app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
 
 const {
   success_with_document_count,
+  jtformgen_confirm_delete,
   jtformgen_list_documents } = require('../form/jtformgen.js');
 
 app.get( '/', (req, res) => {
@@ -47,6 +48,28 @@ app.get( '/:id/dupl', (req, res) => {
 
 app.get( '/:id/del', (req, res) => {
   res.send( 'Sorry, please ask your admin.' );
+});
+
+app.get( '/:id/del', (req, res) => {
+  var id = req.params.id;
+  Cost.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var s = results[0].get_display_string();
+      res.send( jtformgen_confirm_delete( 'cost', 'Kosten', s, id ) );
+    }
+  });
+});
+
+app.get( '/:id/del_confirmed', (req, res) => {
+  var id = req.params.id;
+  Person.deleteOne( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    Person.countDocuments( {}, (err, count) => {
+      if (err) { return console.error(err); }
+      return res.send( success_with_document_count( count.toString(), 'person' ) );
+    });
+  });
 });
 
 app.get( '/load_sample_data', (req, res) => {

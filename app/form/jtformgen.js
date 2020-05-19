@@ -25,12 +25,12 @@ function success_with_document_count( n, thing )
     + '</body>';
 }
 
-function jtformgen_confirm_delete( description, id )
+function jtformgen_confirm_delete( thing, thing_display, description, id )
 {
   s1 = '<body>'
-    + '<p>Sollen die Daten der folgenden Person wirklich geloescht werden?</p>'
+    + `<p>Sollen die Daten der folgenden ${thing_display} wirklich geloescht werden?</p>`
     + `<ul><li>${description}</li></ul>`
-    + `<button><a href="/person/${id}/del_confirmed">Ja</a></button> &ndash; `
+    + `<button><a href="/${thing}/${id}/del_confirmed">Ja</a></button> &ndash; `
     + '<button><a href="/hauskosten.html">Nein</a></button></body>';
     
   return shead + s1;    

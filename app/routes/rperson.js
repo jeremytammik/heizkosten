@@ -108,7 +108,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( s, id ) );
+      res.send( jtformgen_confirm_delete( 'person', 'Person', s, id ) );
     }
   });
 });
