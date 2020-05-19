@@ -63,7 +63,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), 'cost' ) );
+      return res.send( success_with_document_count( count.toString(), 'yearly cost' ) );
     });
   });
 });
