@@ -22,6 +22,7 @@ app.get( '/load_sample_data', (req, res) => {
   });
 });
 
+/*
 app.get( '/load_sample_data_promise', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
@@ -35,3 +36,4 @@ app.get( '/load_sample_data_promise', (req, res) => {
         return res.send( success_with_document_count( count.toString(), 'unit' ) ); } ) )
     .catch( function (err) { return console.error( 'catch', err ); } ); 
 });
+*/
