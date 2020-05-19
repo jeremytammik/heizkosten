@@ -47,10 +47,6 @@ app.get( '/:id/dupl', (req, res) => {
 });
 
 app.get( '/:id/del', (req, res) => {
-  res.send( 'Sorry, please ask your admin.' );
-});
-
-app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
@@ -63,11 +59,11 @@ app.get( '/:id/del', (req, res) => {
 
 app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
-  Person.deleteOne( {'_id': id }, (err, results) => {
+  Cost.deleteOne( {'_id': id }, (err, results) => {
     if (err) { return console.log(err); }
-    Person.countDocuments( {}, (err, count) => {
+    Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), 'person' ) );
+      return res.send( success_with_document_count( count.toString(), 'cost' ) );
     });
   });
 });
