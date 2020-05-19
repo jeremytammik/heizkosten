@@ -42,13 +42,33 @@ function sum_of_object_values( obj )
   return sum;
 }
 
-function get_hausgeld_umlagefaehig_anteilig_propotional( unit, year )
+function get_hausgeld_umlagefaehig_anteilig( costs )
 {
-  var h = unit.costs[year.toString()].allocatable;
-  var total = sum_of_object_values( h );
-  var total_anteilig = h.kabelgebuehren;
-  var total_propertional = total - total_anteilig;
-  return [total_anteilig, total_propertional];
+  //var h = unit.costs[year.toString()].allocatable;
+  //var total = sum_of_object_values( h );
+  //var total_propertional = total - total_anteilig;
+  //var total_anteilig = costs.kabelgebuehren;
+  
+  return costs.kabelgebuehren;
+}
+
+function get_hausgeld_umlagefaehig_proportional( costs )
+{
+  return costs.allgemeinstrom
+    + costs.muellgebuehren_hausmeister
+    + costs.streu_und_putzmittel
+    + costs.aussenanlage_pflege
+    + costs.versicherungen
+    + costs.niederschlagswasser
+    + costs.trinkwasseruntersuchung
+    + costs.material_und_hilfsstoffe
+    + costs.reinigung
+    + costs.hausmeister_sozialabgaben
+    + costs.hausservice_fremdfirmen
+    + costs.lift_umlagefaehig
+    + costs.feuerloescher_wartung
+    + costs.wartung_eingangstueren
+    + costs.wartung_lueftungsanlage;
 }
 
 function Nkabrechnung(
@@ -59,6 +79,7 @@ function Nkabrechnung(
   var contract = loaddata.contracts[contract_id];
   var apartment = loaddata.apartments[contract.apartment];
   var unit = loaddata.units[apartment.unit_id];
+  var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
   
   this.energy_cost_eur = energy_cost_eur;
 
@@ -90,8 +111,9 @@ function Nkabrechnung(
   
   this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten', year );
   this.rueckbehalt = 0; // this information is entered manually
-  var h2 = get_hausgeld_umlagefaehig_anteilig_propotional( unit, year );
-  var h = contract_duration * h2[0] / unit.apt_count + contract_duration * h2[1] * apartment.nebenkosten_anteil_schluessel;
+  var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
+  var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
+  var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.nebenkosten_anteil_schluessel);
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
   this.grundsteuer = apartment.landtax_eur * contract_duration;
   this.rauchmelderwartung = Object.keys( apartment.smokedetectors ).length * contract.smokedetector_maintenance_cost_eur * contract_duration;
