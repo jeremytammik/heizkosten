@@ -2,7 +2,19 @@ const app = module.exports = require('express')();
 
 const Unit = require( '../model/unit' );
 
-const { success_with_document_count } = require('../form/jtformgen.js');
+const {
+  success_with_document_count,
+  jtformgen_list_documents } = require('../form/jtformgen.js');
+
+app.get( '/', (req, res) => {
+  Unit.find( {}, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      return res.send( jtformgen_list_documents(
+        'unit', '', results ) );
+    }
+  });
+});
 
 app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
