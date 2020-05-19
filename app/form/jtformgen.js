@@ -36,6 +36,24 @@ function jtformgen_confirm_delete( description, id )
   return shead + s1;    
 }
 
+function jtformgen_list_documents( thing, docs )
+{
+  var a = [];
+  docs.forEach( (d) => { a.push(
+    '<li>' + d.get_display_string()
+    + ` &ndash; <a href="/${thing}/${d._id}/edit">edit</a>`
+    + ` &ndash; <a href="/${thing}/${d._id}/dupl">dupl</a>`
+    + ` &ndash; <a href="/${thing}/${d._id}/del">del</a></li>` );
+  });
+  var n = a.length.toString();
+  var s = (1==n) ? '' : 's';
+  var s1 = `<body><p>${n} ${thing}${s}:</p><ul>`;
+  var s2 =  a.join('\n');
+  var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>';
+
+  return shead + s1 + s2 + s3;
+}
+
 function jtformgen_edit_for_strings( p, id, url_action, verb, error )
 {
   //console.log('err', error);
@@ -90,5 +108,6 @@ return shead + s1 + s2 + s3;
 module.exports = {
   success_with_document_count,
   jtformgen_confirm_delete,
+  jtformgen_list_documents,
   jtformgen_edit_for_strings
 };
