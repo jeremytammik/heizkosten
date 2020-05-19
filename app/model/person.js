@@ -97,6 +97,13 @@ var Person = mongoose.model( 'Person', personSchema );
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Person.get_edit_form_html = ( p, thing_display, create_duplicate, error ) => {
+  var url_action = create_duplicate ? 'dupl' : 'edit';
+  
+  var verb = create_duplicate
+    ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
+    : 'edititieren';
+  verb = thing_display + ' ' + verb;
+
   var id = p['_id'];
   delete p['__v'];
   
@@ -105,13 +112,6 @@ Person.get_edit_form_html = ( p, thing_display, create_duplicate, error ) => {
     delete p['units'];
   }
   
-  var url_action = create_duplicate ? 'dupl' : 'edit';
-  
-  var verb = create_duplicate
-    ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
-    : 'edititieren';
-  verb = thing_display + ' ' + verb;
-
   return jtformgen_edit_document( p, id, url_action, verb, true, error );
 }
 
