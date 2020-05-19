@@ -52,10 +52,11 @@ app.get( '/:id/edit', (req, res) => {
 
 app.post( '/:id/edit_submit', (req, res) => {
   //var c = util.trimAllFieldsInObjectAndChildren( req.body );
+  var c = req.body;
   var cost = new Cost( req.body );
   error = cost.validateSync();
   if( error ) {
-    var form = Cost.get_edit_form_html( p, false, error );
+    var form = Cost.get_edit_form_html( c, false, error );
     return res.send( form );      
   }
   var id = req.params.id;
