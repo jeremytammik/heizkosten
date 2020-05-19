@@ -34,8 +34,31 @@ test('all data characters are ascii or umlaut', () => {
   }
 });
 
-test('loaded five apartments', () => {
-  expect(Object.keys(loaddata.apartments).length).toBe(5);
+test('unit id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.units)) {
+    expect(value._id).toBe( key );
+  }
+});
+
+test('unit has valid manager', () => {
+  var person_ids = Object.keys(loaddata.persons);
+  for (const [key, value] of Object.entries(loaddata.units)) {
+    expect(person_ids).toContain( value.manager );
+  }  
+});
+
+test('cost id matches dictionary key', () => {
+  for (const [key, value] of Object.entries(loaddata.costs)) {
+    expect(value._id).toBe( key );
+  }
+});
+
+test('cost has valid unit and year matching dictionary key', () => {
+  var unit_ids = Object.keys(loaddata.units);
+  for (const [key, value] of Object.entries(loaddata.costs)) {
+    expect( unit_ids ).toContain( value.unit_id );
+    expect( value._id ).toBe( value.unit_id + '-' + value.year );
+  }
 });
 
 test('loaded N persons', () => {
@@ -70,17 +93,8 @@ test('person is linked to valid units', () => {
   }
 });
 
-test('unit id matches dictionary key', () => {
-  for (const [key, value] of Object.entries(loaddata.units)) {
-    expect(value._id).toBe( key );
-  }
-});
-
-test('unit has valid manager', () => {
-  var person_ids = Object.keys(loaddata.persons);
-  for (const [key, value] of Object.entries(loaddata.units)) {
-    expect(person_ids).toContain( value.manager );
-  }  
+test('loaded five apartments', () => {
+  expect(Object.keys(loaddata.apartments).length).toBe(5);
 });
 
 test('apartment id matches dictionary key', () => {
@@ -136,7 +150,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   }  
 });
 
-test('each contracts meter numbers match its apartments ones', () => {
+test('all contract meter numbers match its apartment ones', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     var apt = loaddata.apartments[value.apartment];
     var a = Object.keys(apt.coldwatermeters);
