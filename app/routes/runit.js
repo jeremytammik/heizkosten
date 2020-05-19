@@ -16,6 +16,18 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/:id/edit', (req, res) => {
+  res.send( 'Sorry, please ask your admin.' );
+});
+
+app.get( '/:id/dupl', (req, res) => {
+  res.send( 'Sorry, please ask your admin.' );
+});
+
+app.get( '/:id/del', (req, res) => {
+  res.send( 'Sorry, please ask your admin.' );
+});
+
 app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
