@@ -85,7 +85,7 @@ function jtformgen_edit_document( p, id, url_action, verb, for_string, error )
 
   var s1 = `
 <body>\
-  <p>Person ${verb}:</p>${serr}\
+  <p>${verb}:</p>${serr}\
   <form action="/person/${id}/${url_action}_submit" method="POST">\
     <table>\
 `;

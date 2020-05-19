@@ -88,15 +88,17 @@ Cost.get_edit_form_html = ( a, thing_display, create_duplicate, error ) => {
   
   if( !create_duplicate ) {
     delete a['_id'];
-    delete a['units'];
+    delete a['unit_id'];
+    delete a['year'];
   }
   
   var url_action = create_duplicate ? 'dupl' : 'edit';
   var verb = create_duplicate
     ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
-    : 'edititieren';
+    : `in ${a.year} fuer ${a.unit_id} edititieren`;
+  verb = thing_display + ' ' + verb;
 
-  return jtformgen_edit_document( p, id, url_action, verb, false, error );
+  return jtformgen_edit_document( a, id, url_action, verb, false, error );
 }
 
 module.exports = Cost;

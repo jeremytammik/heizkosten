@@ -106,9 +106,11 @@ Person.get_edit_form_html = ( p, thing_display, create_duplicate, error ) => {
   }
   
   var url_action = create_duplicate ? 'dupl' : 'edit';
+  
   var verb = create_duplicate
     ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
     : 'edititieren';
+  verb = thing_display + ' ' + verb;
 
   return jtformgen_edit_document( p, id, url_action, verb, true, error );
 }
