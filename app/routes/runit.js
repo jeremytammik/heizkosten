@@ -30,7 +30,8 @@ app.get( '/load_sample_data_promise', (req, res) => {
   
   Unit.deleteMany( {} )
     .then( Unit.create( Object.values(units) ) )
-    .then( Unit.countDocuments( {} ) )
-    .then( return res.send( success_with_document_count( count.toString(), 'unit' ) ) )
-    .catch( return console.error( 'catch' ) ); 
+    .then( Unit.countDocuments( {}, function(err, count) {
+        if (err) { return console.error(err); }
+        return res.send( success_with_document_count( count.toString(), 'unit' ) ); } ) )
+    .catch( function (err) { return console.error( 'catch', err ); } ); 
 });
