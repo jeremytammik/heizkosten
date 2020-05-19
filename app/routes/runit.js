@@ -11,7 +11,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        'unit', '', results ) );
+        'unit', '', results, true ) );
     }
   });
 });
@@ -26,6 +26,10 @@ app.get( '/:id/dupl', (req, res) => {
 
 app.get( '/:id/del', (req, res) => {
   res.send( 'Sorry, please ask your admin.' );
+});
+
+app.get( '/:id/select', (req, res) => {
+  res.send( 'Okay, let\'s go to the next level.' );
 });
 
 app.get( '/load_sample_data', (req, res) => {

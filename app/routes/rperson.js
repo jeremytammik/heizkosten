@@ -22,7 +22,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        'person', ` in ${uid}`, results ) );
+        'person', ` in ${uid}`, results, false ) );
     }
   });
 });

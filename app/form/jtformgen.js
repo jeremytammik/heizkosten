@@ -36,14 +36,16 @@ function jtformgen_confirm_delete( description, id )
   return shead + s1;    
 }
 
-function jtformgen_list_documents( thing, where, docs )
+function jtformgen_list_documents( thing, where, docs, enable_select )
 {
   var a = [];
-  docs.forEach( (d) => { a.push(
-    '<li>' + d.get_display_string()
-    + ` &ndash; <a href="/${thing}/${d._id}/edit">edit</a>`
-    + ` &ndash; <a href="/${thing}/${d._id}/dupl">dupl</a>`
-    + ` &ndash; <a href="/${thing}/${d._id}/del">del</a></li>` );
+  docs.forEach( (d) => {
+    var options = enable_select
+      ? ` &ndash; <a href="/${thing}/${d._id}/select">select</a>`
+      : ` &ndash; <a href="/${thing}/${d._id}/edit">edit</a>`
+      + ` &ndash; <a href="/${thing}/${d._id}/dupl">dupl</a>`
+      + ` &ndash; <a href="/${thing}/${d._id}/del">del</a>`;
+    a.push( '<li>' + d.get_display_string() + options + '</li>' );
   });
   var n = a.length.toString();
   var s = (1==n) ? '' : 's';
