@@ -58,32 +58,16 @@ app.get( '/load_sample_data', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
     fs.readFileSync(
-      'data/unit.json', 'utf8' ));
+      'data/cost.json', 'utf8' ));
   
-  Unit.deleteMany( {}, (err) => {
+  Cost.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
-    Unit.create( Object.values(units), (err,res2) => {
+    Cost.create( Object.values(units), (err,res2) => {
       if (err) { return console.error(err); }
-      Unit.countDocuments( {}, (err, count) => {
+      Cost.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'unit' ) );
+        return res.send( success_with_document_count( count.toString(), 'yearly cost' ) );
       });
     });
   });
 });
-
-/*
-app.get( '/load_sample_data_promise', (req, res) => {
-  var fs = require('fs');
-  var units = JSON.parse(
-    fs.readFileSync(
-      'data/unit.json', 'utf8' ));
-  
-  Unit.deleteMany( {} )
-    .then( Unit.create( Object.values(units) ) )
-    .then( Unit.countDocuments( {}, function(err, count) {
-        if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'unit' ) ); } ) )
-    .catch( function (err) { return console.error( 'catch', err ); } ); 
-});
-*/
