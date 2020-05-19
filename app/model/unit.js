@@ -144,7 +144,7 @@ var unitSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
-personSchema.methods.get_display_string = function() {
+unitSchema.methods.get_display_string = function() {
   return this._id + ' ' + this.address;
 };
 
