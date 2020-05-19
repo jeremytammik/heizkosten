@@ -22,3 +22,15 @@ app.get( '/load_sample_data', (req, res) => {
   });
 });
 
+app.get( '/load_sample_data_promise', (req, res) => {
+  var fs = require('fs');
+  var units = JSON.parse(
+    fs.readFileSync(
+      'data/unit.json', 'utf8' ));
+  
+  Unit.deleteMany( {} )
+    .then( Unit.create( Object.values(units) ) )
+    .then( Unit.countDocuments( {} ) )
+    .then( return res.send( success_with_document_count( count.toString(), 'unit' ) ) )
+    .catch( return console.error( 'catch' ) ); 
+});
