@@ -13,6 +13,9 @@
     "coldwatermeters": {
       "meter-id-cold-BA": "2020-12-31"
     },
+    "warmwatermeters": {
+      "meter-id-warm-BA": "2020-12-31"
+    },
     "heatcostallocators": {
       "meter-id-heat-WO": [
         "2020-12-31",
@@ -49,6 +52,9 @@
     },
     "coldwatermeters": {
       "1425007-BA": "2020-12-31"
+    },
+    "warmwatermeters": {
+      "4133075-BA": "2020-12-31"
     },
     "heatcostallocators": {
       "44318710-WO": [
@@ -88,6 +94,10 @@
     "coldwatermeters": {
       "4169100-BA": "2020-12-31",
       "524401116-KU": "2020-12-31"
+    },
+    "warmwatermeters": {
+      "4133127-BA": "2020-12-31",
+      "525625030-KU": "2020-12-31"
     },
     "heatcostallocators": {
       "44333607-WO": [
@@ -132,6 +142,10 @@
       "4007049-BA": "2020-12-31",
       "52440355-KU": "2020-12-31"
     },
+    "warmwatermeters": {
+      "4133058-BA": "2020-12-31",
+      "604465496-KU": "2020-12-31"
+    },
     "heatcostallocators": {
       "44322335-WO": [
         "2020-12-31",
@@ -174,6 +188,10 @@
     "coldwatermeters": {
       "4168990-BA": "2020-12-31",
       "604465465-KU": "2020-12-31"
+    },
+    "warmwatermeters": {
+      "4133078-BA": "2020-12-31",
+      "424236221-KU": "2020-12-31"
     },
     "heatcostallocators": {
       "44322311-WO": [
@@ -218,6 +236,10 @@
     "coldwatermeters": {
       "4169109-BA": "2020-12-31",
       "7278931-KU": "2020-12-31"
+    },
+    "warmwatermeters": {
+      "4133141-BA": "2020-12-31",
+      "525624842-KU": "2020-12-31"
     },
     "heatcostallocators": {
       "44322748-WO": [

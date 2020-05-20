@@ -156,6 +156,23 @@ app.get( '/save_data', (req, res) => {
       delete p['__v'];
       d[p._id] = p;
     });
+    
+    // MongooseMap converts the haet allocation meter
+    // factor number to a string for us, so let's
+    // convert it back again to ensure round-trip
+    // perfection.
+    
+    //console.log(d);
+    for (const [key, value] of Object.entries(d)) {
+      console.log(value.heatcostallocators);
+      value.heatcostallocators.forEach( (value, key) => { ...
+                                       
+    var keys = key.split('.'),
+        last = keys.pop();
+    keys.reduce((r, a) => r[a] = r[a] || {}, object)[last] = value;
+});
+    }
+
     var fs = require('fs');
     var fn = `data/tmp/${Apartment.route}.json`;
     fs.writeFile( fn,
