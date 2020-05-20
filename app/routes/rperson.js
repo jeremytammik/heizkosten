@@ -16,13 +16,23 @@ const {
   jtformgen_confirm_delete,
   jtformgen_list_documents } = require('../form/jtformgen.js');
 
+app.get( '/', (req, res) => {
+  Person.find( {}, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      return res.send( jtformgen_list_documents(
+        Person.thing_en, '', results, false ) );
+    }
+  });
+});
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        'person', ` in ${uid}`, results, false ) );
+        Person.thing_en, ` in ${uid}`, results, false ) );
     }
   });
 });
@@ -127,9 +137,8 @@ app.get( '/:id/del_confirmed', (req, res) => {
 
 app.get( '/load_data', (req, res) => {
   var fs = require('fs');
-  var persons = JSON.parse(
-    fs.readFileSync(
-      'data/person.json', 'utf8' ));
+  var persons = JSON.parse( fs.readFileSync(
+      `data/${Person.route}.json`, 'utf8' ));
   
   Person.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }

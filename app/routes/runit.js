@@ -12,7 +12,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        'unit', '', results, true ) );
+        Unit.thing_en, '', results, true ) );
     }
   });
 });
@@ -36,9 +36,8 @@ app.get( '/:id/select', (req, res) => {
 
 app.get( '/load_data', (req, res) => {
   var fs = require('fs');
-  var units = JSON.parse(
-    fs.readFileSync(
-      'data/unit.json', 'utf8' ));
+  var units = JSON.parse( fs.readFileSync(
+    `data/${Unit.route}.json`, 'utf8' ));
   
   Unit.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
