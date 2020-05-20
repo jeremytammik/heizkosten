@@ -49,9 +49,6 @@ var apartmentSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
-    "smokedetectors": { "001-09-02-FL": { "expires": "2020-12-31" }, "001-09-02-SM": { "expires": "2020-12-31" }},
-
-
 apartmentSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
 };
