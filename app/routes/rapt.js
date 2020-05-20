@@ -165,16 +165,19 @@ app.get( '/save_data', (req, res) => {
     //console.log(d);
     for (const [key, value] of Object.entries(d)) {
       console.log(value.heatcostallocators);
+      var hca2 = {};
       value.heatcostallocators.forEach( (value2, key2) => {
-        console.log(value2);
-        d[key].heatcostallocators[key2] = [value2[0],Number(value2[1])];
+        var x = Number(value2[1]);
+        console.log( value2[1], '-->', x );
+        hca2[key2] = [value2[0],x];
       });
-    });
+      d[key].heatcostallocators = hca2;
+    };
+    console.log(d);
 
     var fs = require('fs');
     var fn = `data/tmp/${Apartment.route}.json`;
-    fs.writeFile( fn,
-      JSON.stringify( d, null, 2 ), 'utf8',
+    fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
       function (err) {
         if (err) { return console.log(err); }
         return res.send( `${Apartment.thing_en} data saved in '${fn}'` );

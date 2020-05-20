@@ -29,8 +29,9 @@ mongoose.connect( mongo_uri, {
 var db = mongoose.connection;
 
 db.on( 'error', () => {
-  var msg = 'unable to connect to database at ';
-  throw new Error( msg + mongo_uri );
+  var msg = 'unable to connect to database at ' + mongo_uri;
+  console.log( msg );
+  throw new Error( msg );
 });
 
 const express = require('express');
