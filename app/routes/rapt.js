@@ -185,3 +185,33 @@ app.get( '/save_data', (req, res) => {
     );
   });
 });
+
+app.get( '/generate_missing', (req, res) => {
+  
+  // 001-09-02 – 2 rooms with 66.8 m2
+  // 001-05-03 – 3 rooms with 86.49 m2
+  // 001-01-04 – 4 rooms with 107.32 m2
+  // 001-14-05 – 3 rooms with 88.95 m2
+  // 001-12-06 – 3 rooms with 88.95 m2
+  
+  var model_ids = [ "001-01-04", "001-05-03", "001-09-02", "001-12-06" ];
+
+  var nlevels = 16;
+  
+  model_ids.forEach( (id) => {
+    Apartment.find( {'_id': id }, (err, results) => {
+      if (err) { return console.log(err); }
+      else {
+        [sunit,slevel,sapttyp] = id.split(',');
+        for (var i = 0; i < nlevels; ++i) {
+          var s = i.toString();
+          if( 10 > i ) { s = '0' + s; }
+          if( s === slevel ) { continue; }
+          console.log(s);
+         }
+        var apt = new Apartment
+      }
+    });
+  
+});
+
