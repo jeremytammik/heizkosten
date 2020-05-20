@@ -20,7 +20,7 @@ function success_with_document_count( n, thing_en )
 {
   var s = (1==n) ? '' : 's';
   return shead + '<body><p>Hat geklappt, vielen Dank. '
-    + `Database now contains ${n} ${thing}${s}.</p>`
+    + `Database now contains ${n} ${thing_en}${s}.</p>`
     + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>'
     + '</body>';
 }
@@ -60,7 +60,7 @@ function jtformgen_unit_selected( uid )
 {
   var s1 = `<body><p>Unit ${uid} selected.</p><ul>`
     + `<li><a href="/cost/unit/${uid}/list">yearly costs</a></li>`
-    + `<li><a href="/unit/${uid}/apartment">apartments</a></li>`
+    + `<li><a href="/apt/unit/${uid}/list">apartments</a></li>`
     + `<li><a href="/unit/${uid}/contract">contracts</a></li>`
     + `<li><a href="/person/unit/${uid}/list">persons</a></li>`
     + `<li><a href="/unit/${uid}/nk">nebenkosten</a></li>`
