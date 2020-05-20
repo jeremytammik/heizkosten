@@ -47,6 +47,7 @@ function jtformgen_list_documents( thing, where, docs, enable_select )
       + ` &ndash; <a href="/${thing}/${d._id}/del">del</a>`;
     a.push( '<li>' + d.get_display_string() + options + '</li>' );
   });
+  a.sort();
   var n = a.length.toString();
   var s = (1==n) ? '' : 's';
   var s1 = `<body><p>${n} ${thing}${s}${where}:</p><ul>`;
