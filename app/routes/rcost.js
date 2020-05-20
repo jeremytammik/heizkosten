@@ -1,7 +1,8 @@
 const app = module.exports = require('express')();
-
 const Cost = require( '../model/cost' );
 var CostService = require( '../controller/cost_v1' );
+
+console.log('Cost: ', Cost);
 
 app.get('/api/v1/cost', CostService.findAll);
 app.get('/api/v1/cost/:id', CostService.findById);
