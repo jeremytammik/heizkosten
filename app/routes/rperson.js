@@ -146,19 +146,19 @@ app.get( '/load_data', (req, res) => {
 app.get( '/save_data', (req, res) => {
   Person.find( {}, function( err, docs ) {
     if (err) { return console.error(err); }
-    var persons = {};
+    var d = {};
     docs.forEach( (doc) => {
       var p = doc._doc;
       delete p['__v'];
-      persons[p._id] = p;
+      d[p._id] = p;
     });
     var fs = require('fs');
-    var fn = 'data/tmp/person.json';
+    var fn = `data/tmp/${Person.route}.json`;
     fs.writeFile( fn,
-      JSON.stringify( persons, null, 2 ), 'utf8',
+      JSON.stringify( d, null, 2 ), 'utf8',
       function (err) {
         if (err) { return console.log(err); }
-        return res.send( `Person data saved in '${fn}'` );
+        return res.send( `${Person.thing_en} data saved in '${fn}'` );
       }
     );
   });
