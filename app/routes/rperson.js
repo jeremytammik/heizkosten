@@ -108,7 +108,8 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( 'person', 'Person', s, id ) );
+      res.send( jtformgen_confirm_delete(
+        Person.route, Person.thing_display, s, id ) );
     }
   });
 });
@@ -175,7 +176,8 @@ app.post( '/create_new_submit', (req, res) => {
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
-      var form = Person.get_edit_form_html( doc, 'Person', false, error );
+      var form = Person.get_edit_form_html(
+        doc, Person.thing_display, false, error );
       return res.send( form );      
     }
     Person

@@ -94,19 +94,20 @@ personSchema.methods.get_display_string = function() {
 
 var Person = mongoose.model( 'Person', personSchema );
 
+Person.route = Person.modelName.toLowerCase();
+Person.thing_display = Person.modelName;
+
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Person.get_edit_form_html = ( p, create_duplicate, error ) => {
-  var route = 'person';
   var id = p['_id'];
   var url_action = create_duplicate ? 'dupl' : 'edit';
-  url_action = `/${route}/${id}/${url_action}_submit`;
+  url_action = `/${Person.route}/${id}/${url_action}_submit`;
   
-  var thing_display = 'Person';
   var verb = create_duplicate
-    ? `duplizieren, also neue ${thing_display} anlegen mit aehnlichen Daten`
+    ? `duplizieren, also neue ${Person.thing_display} anlegen mit aehnlichen Daten`
     : 'edititieren';
-  verb = thing_display + ' ' + verb;
+  verb = Person.thing_display + ' ' + verb;
 
   delete p['__v'];
   

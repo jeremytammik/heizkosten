@@ -2,8 +2,6 @@ const app = module.exports = require('express')();
 const Cost = require( '../model/cost' );
 var CostService = require( '../controller/cost_v1' );
 
-console.log('Cost: ', Cost);
-
 app.get('/api/v1/cost', CostService.findAll);
 app.get('/api/v1/cost/:id', CostService.findById);
 app.post('/api/v1/cost', CostService.add); // is this used any longer at all, now that update3 is available?
@@ -125,7 +123,8 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( 'cost', 'Kosten', s, id ) );
+      res.send( jtformgen_confirm_delete(
+        Cost.route, Cost.thing_display, s, id ) );
     }
   });
 });

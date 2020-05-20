@@ -150,4 +150,6 @@ unitSchema.methods.get_display_string = function() {
 
 var Unit = mongoose.model( 'Unit', unitSchema );
 
+Unit.route = Unit.modelName.toLowerCase();
+
 module.exports = Unit;
