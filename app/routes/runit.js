@@ -34,7 +34,7 @@ app.get( '/:id/select', (req, res) => {
   res.send( jtformgen_unit_selected( id ) );
 });
 
-app.get( '/load_sample_data', (req, res) => {
+app.get( '/load_data', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
     fs.readFileSync(
@@ -46,7 +46,7 @@ app.get( '/load_sample_data', (req, res) => {
       if (err) { return console.error(err); }
       Unit.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'unit' ) );
+        return res.send( success_with_document_count( count.toString(), Unit.thing_en ) );
       });
     });
   });
@@ -63,7 +63,7 @@ app.get( '/load_sample_data_promise', (req, res) => {
     .then( Unit.create( Object.values(units) ) )
     .then( Unit.countDocuments( {}, function(err, count) {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'unit' ) ); } ) )
+        return res.send( success_with_document_count( count.toString(), Unit.thing_en ) ); } ) )
     .catch( function (err) { return console.error( 'catch', err ); } ); 
 });
 */

@@ -16,7 +16,7 @@ const shead = '\
 </head>\
 ';
 
-function success_with_document_count( n, thing )
+function success_with_document_count( n, thing_en )
 {
   var s = (1==n) ? '' : 's';
   return shead + '<body><p>Hat geklappt, vielen Dank. '
@@ -25,7 +25,7 @@ function success_with_document_count( n, thing )
     + '</body>';
 }
 
-function jtformgen_confirm_delete( thing, thing_display, description, id )
+function jtformgen_confirm_delete( route, thing_de, description, id )
 {
   s1 = '<body>'
     + `<p>Sollen die Daten der folgenden ${thing_display} wirklich geloescht werden?</p>`

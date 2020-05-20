@@ -64,7 +64,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
       return res.send( success_with_document_count(
-        count.toString(), 'yearly cost' ) );
+        count.toString(), Cost.thing_en ) );
     });
   });
 });
@@ -111,7 +111,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Cost.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count( count.toString(), 'cost' ) );
+        return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
       });
     });
   });
@@ -124,7 +124,7 @@ app.get( '/:id/del', (req, res) => {
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen_confirm_delete(
-        Cost.route, Cost.thing_display, s, id ) );
+        Cost.route, Cost.thing_de, s, id ) );
     }
   });
 });
@@ -135,12 +135,12 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), 'yearly cost' ) );
+      return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
     });
   });
 });
 
-app.get( '/load_sample_data', (req, res) => {
+app.get( '/load_data', (req, res) => {
   var fs = require('fs');
   var units = JSON.parse(
     fs.readFileSync(
@@ -152,7 +152,7 @@ app.get( '/load_sample_data', (req, res) => {
       if (err) { return console.error(err); }
       Cost.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'yearly cost' ) );
+        return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
       });
     });
   });

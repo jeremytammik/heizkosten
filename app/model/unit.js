@@ -151,5 +151,7 @@ unitSchema.methods.get_display_string = function() {
 var Unit = mongoose.model( 'Unit', unitSchema );
 
 Unit.route = Unit.modelName.toLowerCase();
+Unit.thing_en = Unit.modelName.toLowerCase();
+Unit.thing_de = 'Gebaeude';
 
 module.exports = Unit;

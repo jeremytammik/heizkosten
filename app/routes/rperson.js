@@ -53,7 +53,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
       return res.send( success_with_document_count(
-        count.toString(), 'person' ) );
+        count.toString(), Person.thing_en ) );
     });
   });
 });
@@ -96,7 +96,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Person.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count( count.toString(), 'person' ) );
+        return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
       });
     });
   });
@@ -109,7 +109,7 @@ app.get( '/:id/del', (req, res) => {
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen_confirm_delete(
-        Person.route, Person.thing_display, s, id ) );
+        Person.route, Person.thing_de, s, id ) );
     }
   });
 });
@@ -120,12 +120,12 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), 'person' ) );
+      return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
     });
   });
 });
 
-app.get( '/load_sample_data', (req, res) => {
+app.get( '/load_data', (req, res) => {
   var fs = require('fs');
   var persons = JSON.parse(
     fs.readFileSync(
@@ -137,13 +137,13 @@ app.get( '/load_sample_data', (req, res) => {
       if (err) { return console.error(err); }
       Person.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), 'person' ) );
+        return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
       });
     });
   });
 });
 
-app.get( '/save_sample_data', (req, res) => {
+app.get( '/save_data', (req, res) => {
   Person.find( {}, function( err, docs ) {
     if (err) { return console.error(err); }
     var persons = {};
@@ -177,7 +177,7 @@ app.post( '/create_new_submit', (req, res) => {
     error = person.validateSync();
     if( error ) {
       var form = Person.get_edit_form_html(
-        doc, Person.thing_display, false, error );
+        doc, Person.thing_de, false, error );
       return res.send( form );      
     }
     Person
@@ -185,6 +185,6 @@ app.post( '/create_new_submit', (req, res) => {
       .then( person =>
         Person.countDocuments( {}, (err, count) => {
           if (err) { return console.error(err); }
-          return res.send( success_with_document_count( count.toString(), 'person' ) );
+          return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
         }));
 });
