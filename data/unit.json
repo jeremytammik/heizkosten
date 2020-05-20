@@ -2,7 +2,7 @@
   "001": {
     "_id": "001",
     "address": "fecampring 28; 79618 rheinfelden; deutschland",
-    "manager": "scheuermann_hv",
+    "manager_id": "scheuermann_hv",
     "area_m2": 8061.92,
     "apt_count": 96,
     "splitting_factor_m2": 0.3,

@@ -40,10 +40,10 @@ test('unit id matches dictionary key', () => {
   }
 });
 
-test('unit has valid manager', () => {
+test('unit has a valid manager', () => {
   var person_ids = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.units)) {
-    expect(person_ids).toContain( value.manager );
+    expect( person_ids ).toContain( value.manager_id );
   }  
 });
 

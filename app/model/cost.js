@@ -11,7 +11,7 @@ var Schema = mongoose.Schema;
 var costSchema = new Schema({
   _id: String, // suppress automatic generation  
   
-  unit_id: String,
+  unit_id: String, // unit
   year: Number,
   
   // hausgeld nicht umlagefaehig, zahlen eigentuemer

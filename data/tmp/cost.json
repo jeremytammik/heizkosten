@@ -2,7 +2,7 @@
   "001-2018": {
     "_id": "001-2018",
     "unit_id": "001",
-    "year": 2018,
+    "year": "2018",
     "hausgeld_eur": 128062.01,
     "kabelgebuehren": 7004.16,
     "allgemeinstrom": 1186.14,

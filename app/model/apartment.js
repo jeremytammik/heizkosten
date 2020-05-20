@@ -32,7 +32,7 @@ id_wohnung
 
 var apartmentSchema = new Schema({
   apartment_id: String,
-  owner_id: ObjectId,
+  owner_id: String, // person
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
@@ -46,4 +46,10 @@ var apartmentSchema = new Schema({
   nebenkosten_anteil_schluessel: Number 
 });
 
-mongoose.model( 'apartment', apartmentSchema );
+var Apartment = mongoose.model( 'apartment', apartmentSchema );
+
+Apartment.route = Apartment.modelName.toLowerCase();
+Apartment.thing_en = Apartment.modelName.toLowerCase();
+Apartment.thing_de = Apartment.modelName;
+
+module.exports = Apartment;
