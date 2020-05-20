@@ -95,9 +95,9 @@ Cost.get_edit_form_html = ( a, create_duplicate, error ) => {
   verb = thing_display + ' ' + verb;
 
   delete a['__v'];
+  delete a['_id'];
   
   if( !create_duplicate ) {
-    delete a['_id'];
     delete a['unit_id'];
     delete a['year'];
   }

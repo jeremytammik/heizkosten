@@ -93,7 +93,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
     }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
-        'path': '_id', 'message': 'duplicate id; ;
+        'path': '_id', 'message': 'duplicate id; '
         + `costs already defined for year ${p.year} for unit ${p.unit_id}` }}};
       var form = Cost.get_edit_form_html( req.body, true, error );
       return res.send( form );
