@@ -104,6 +104,8 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Cost.get_edit_form_html( doc, true, error );
       return res.send( form );      
     }
+    var p3 = req.body;
+    p3['_id'] = id;
     Cost.create( req.body, (err2,res2) => {
       if (err2) {
         return console.error(err2);
