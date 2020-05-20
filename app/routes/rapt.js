@@ -165,13 +165,10 @@ app.get( '/save_data', (req, res) => {
     //console.log(d);
     for (const [key, value] of Object.entries(d)) {
       console.log(value.heatcostallocators);
-      value.heatcostallocators.forEach( (value, key) => { ...
-                                       
-    var keys = key.split('.'),
-        last = keys.pop();
-    keys.reduce((r, a) => r[a] = r[a] || {}, object)[last] = value;
-});
-    }
+      value.heatcostallocators.forEach( (value2, key2) => {
+        d[key].heatcostallocators[key2] = Number(value2);
+      });
+    });
 
     var fs = require('fs');
     var fn = `data/tmp/${Apartment.route}.json`;
