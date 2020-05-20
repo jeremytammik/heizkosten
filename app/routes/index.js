@@ -7,6 +7,7 @@ app.get( '/', (req, res) => {
 app.use( '/person', require( './rperson' ));
 app.use( '/unit', require( './runit' ));
 app.use( '/cost', require( './rcost' ));
+app.use( '/apt', require( './rapartment' ));
 
 var units = { "001": { "hausgeld_umlagefaehig_eur": {} }};
 
