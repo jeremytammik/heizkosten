@@ -13,8 +13,7 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 186.80,
-    "nebenkosten_anteil_schluessel": 0.0082,
-    "description": "zwei_zimmer"
+    "nebenkosten_anteil_schluessel": 0.0082
   },
   "001-05-03": {
     "_id": "001-05-03",
@@ -30,8 +29,7 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 237.64,
-    "nebenkosten_anteil_schluessel": 0.0108,
-    "description": "drei_zimmer_klein"
+    "nebenkosten_anteil_schluessel": 0.0108
   },
   "001-14-05": {
     "_id": "001-14-05",
@@ -47,8 +45,7 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 234.08,
-    "nebenkosten_anteil_schluessel": 0.0110,
-    "description": "drei_zimmer_gross_mieter_wechsel_2019"
+    "nebenkosten_anteil_schluessel": 0.0110
   },
   "001-12-06": {
     "_id": "001-12-06",
@@ -64,8 +61,7 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 249.08,
-    "nebenkosten_anteil_schluessel": 0.0110,
-    "description": "drei_zimmer_gross"
+    "nebenkosten_anteil_schluessel": 0.0110
   },
   "001-01-04": {
     "_id": "001-01-04",
@@ -81,7 +77,6 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 278.44,
-    "nebenkosten_anteil_schluessel": 0.0133,
-    "description": "vier_zimmer"
+    "nebenkosten_anteil_schluessel": 0.0133
   }
 }
