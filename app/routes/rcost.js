@@ -164,6 +164,7 @@ app.get( '/save_data', (req, res) => {
     var d = {};
     docs.forEach( (doc) => {
       var p = doc._doc;
+      p.year = p.year.toString();
       delete p['__v'];
       d[p._id] = p;
     });
