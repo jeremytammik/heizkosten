@@ -36,8 +36,10 @@ function jtformgen_confirm_delete( route, thing_de, description, id )
   return shead + s1;    
 }
 
-function jtformgen_list_documents( route, thing, where, docs, enable_select )
+function jtformgen_list_documents( model, where, docs, enable_select )
 {
+  route = model,route;
+  thing = model.thing;
   var a = [];
   docs.forEach( (d) => {
     var options = enable_select
