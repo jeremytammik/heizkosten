@@ -38,8 +38,8 @@ function jtformgen_confirm_delete( route, thing_de, description, id )
 
 function jtformgen_list_documents( model, where, docs, enable_select )
 {
-  route = model,route;
-  thing = model.thing;
+  var route = model.route;
+  var thing = model.thing_en;
   var a = [];
   docs.forEach( (d) => {
     var options = enable_select

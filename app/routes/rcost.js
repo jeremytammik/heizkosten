@@ -21,7 +21,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        Cost.route, Cost.thing_en, '', results, true ) );
+        Cost, '', results, true ) );
     }
   });
 });

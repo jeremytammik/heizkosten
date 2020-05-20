@@ -11,7 +11,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        Apartment.route, Apartment.thing_en, '', results, true ) );
+        Apartment, '', results, true ) );
     }
   });
 });
@@ -22,7 +22,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        Apartment.route, Apartment.thing_en, ` in ${uid}`, results, false ) );
+        Apartment, ` in ${uid}`, results, false ) );
     }
   });
 });

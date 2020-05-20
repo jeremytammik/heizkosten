@@ -44,14 +44,13 @@ var apartmentSchema = new Schema({
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
-  nebenkosten_anteil_schluessel: Number,
-  description: String },
+  nebenkosten_anteil_schluessel: Number },
   
   { _id: false } // suppress automatic generation
 );
 
 apartmentSchema.methods.get_display_string = function() {
-  return this._id + ' &ndash; ' + this.description;
+  return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
 };
 
 var Apartment = mongoose.model( 'apartment', apartmentSchema );
