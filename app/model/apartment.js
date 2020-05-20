@@ -31,7 +31,8 @@ id_wohnung
 */
 
 var apartmentSchema = new Schema({
-  _id: String, // suppress automatic generation  
+  _id: String, // suppress automatic generation
+  unit_id: String, // unit
   owner_id: String, // person
   grundbuchnr: String,
   area_m2: Number,
