@@ -71,7 +71,49 @@ app.post( '/:id/edit_submit', (req, res) => {
 });
 
 app.get( '/:id/dupl', (req, res) => {
-  res.send( 'Sorry, please ask your admin.' );
+  var id = req.params.id;
+  Cost.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var form = Cost.get_edit_form_html( doc, true );
+      res.send( form );
+    }
+  });
+});
+
+app.post( '/:id/dupl_submit', (req, res) => {
+  var id_original = req.params.id;
+  //var p = util.trimAllFieldsInObjectAndChildren( req.body );
+  var p = req.body;
+  var id = p.unit_id + '-' + p.year;
+  Cost.countDocuments( {'_id': id }, (err, count) => {
+    if (err) {
+      return console.error(err);
+    }
+    if( 0 < count ) {
+      var error = { 'errors': { '_id': {
+        'path': '_id', 'message': 'duplicate id; ;
+        + `costs already defined for year ${p.year} for unit ${p.unit_id}` }}};
+      var form = Cost.get_edit_form_html( req.body, true, error );
+      return res.send( form );
+    }
+    var p2 = new Cost( p );
+    error = p2.validateSync();
+    if( error ) {
+      var form = Cost.get_edit_form_html( doc, true, error );
+      return res.send( form );      
+    }
+    Cost.create( req.body, (err2,res2) => {
+      if (err2) {
+        return console.error(err2);
+      }
+      Cost.countDocuments( {}, (err3, count) => {
+        if (err3) { return console.error(err3); }
+        return res.send( success_with_document_count( count.toString(), 'cost' ) );
+      });
+    });
+  });
 });
 
 app.get( '/:id/del', (req, res) => {
