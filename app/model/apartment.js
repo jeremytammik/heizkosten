@@ -31,7 +31,7 @@ id_wohnung
 */
 
 var apartmentSchema = new Schema({
-  apartment_id: String,
+  _id: String, // suppress automatic generation  
   owner_id: String, // person
   grundbuchnr: String,
   area_m2: Number,
@@ -43,8 +43,10 @@ var apartmentSchema = new Schema({
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
-  nebenkosten_anteil_schluessel: Number 
-});
+  nebenkosten_anteil_schluessel: Number },
+  
+  { _id: false } // suppress automatic generation
+);
 
 var Apartment = mongoose.model( 'apartment', apartmentSchema );
 
