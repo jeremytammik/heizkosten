@@ -44,10 +44,15 @@ var apartmentSchema = new Schema({
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
-  nebenkosten_anteil_schluessel: Number },
+  nebenkosten_anteil_schluessel: Number,
+  description: String },
   
   { _id: false } // suppress automatic generation
 );
+
+apartmentSchema.methods.get_display_string = function() {
+  return this._id + ' &ndash; ' + description;
+};
 
 var Apartment = mongoose.model( 'apartment', apartmentSchema );
 

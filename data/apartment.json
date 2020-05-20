@@ -1,6 +1,5 @@
 {
   "001-09-02": {
-    "description": "sample_apartment_1_zwei_zimmer",
     "_id": "001-09-02",
     "unit_id": "001",
     "owner_id": "otto_froehlich",
@@ -14,10 +13,10 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 186.80,
-    "nebenkosten_anteil_schluessel": 0.0082
+    "nebenkosten_anteil_schluessel": 0.0082,
+    "description": "zwei_zimmer"
   },
   "001-05-03": {
-    "description": "sample_apartment_2_drei_zimmer_klein",
     "_id": "001-05-03",
     "unit_id": "001",
     "owner_id": "zebra_gbr",
@@ -31,10 +30,10 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 237.64,
-    "nebenkosten_anteil_schluessel": 0.0108
+    "nebenkosten_anteil_schluessel": 0.0108,
+    "description": "drei_zimmer_klein"
   },
   "001-14-05": {
-    "description": "sample_apartment_3_drei_zimmer_gross_mieter_wechsel_2019",
     "_id": "001-14-05",
     "unit_id": "001",
     "owner_id": "horst_weidenmueller",
@@ -48,10 +47,10 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 234.08,
-    "nebenkosten_anteil_schluessel": 0.0110
+    "nebenkosten_anteil_schluessel": 0.0110,
+    "description": "drei_zimmer_gross_mieter_wechsel_2019"
   },
   "001-12-06": {
-    "description": "sample_apartment_4_drei_zimmer_gross",
     "_id": "001-12-06",
     "unit_id": "001",
     "owner_id": "zebra_gbr",
@@ -65,10 +64,10 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 249.08,
-    "nebenkosten_anteil_schluessel": 0.0110
+    "nebenkosten_anteil_schluessel": 0.0110,
+    "description": "drei_zimmer_gross"
   },
   "001-01-04": {
-    "description": "sample_apartment_5_vier_zimmer",
     "_id": "001-01-04",
     "unit_id": "001",
     "owner_id": "weidenmueller_gmbh",
@@ -82,6 +81,7 @@
     "management_cost_eur": 0,
     "heating_electrity_cost_eur": 0,
     "landtax_eur": 278.44,
-    "nebenkosten_anteil_schluessel": 0.0133
+    "nebenkosten_anteil_schluessel": 0.0133,
+    "description": "vier_zimmer"
   }
 }
