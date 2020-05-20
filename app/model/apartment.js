@@ -56,7 +56,7 @@ apartmentSchema.methods.get_display_string = function() {
 
 var Apartment = mongoose.model( 'apartment', apartmentSchema );
 
-Apartment.route = Apartment.modelName.toLowerCase();
+Apartment.route = 'apt';
 Apartment.thing_en = Apartment.modelName.toLowerCase();
 Apartment.thing_de = Apartment.modelName;
 

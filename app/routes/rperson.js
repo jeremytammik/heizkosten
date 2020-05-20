@@ -21,7 +21,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        Person.thing_en, '', results, false ) );
+        Person.route, Person.thing_en, '', results, false ) );
     }
   });
 });
@@ -32,7 +32,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen_list_documents(
-        Person.thing_en, ` in ${uid}`, results, false ) );
+        Person.route, Person.thing_en, ` in ${uid}`, results, false ) );
     }
   });
 });
