@@ -93,8 +93,8 @@ test('person is linked to valid units', () => {
   }
 });
 
-test('loaded five apartments', () => {
-  expect(Object.keys(loaddata.apartments).length).toBe(5);
+test('loaded N apartments', () => {
+  expect(Object.keys(loaddata.apartments).length).toBe(6);
 });
 
 test('apartment id matches dictionary key', () => {
@@ -106,7 +106,7 @@ test('apartment id matches dictionary key', () => {
 test('apartment has valid owner', () => {
   var person_ids = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.apartments)) {
-    expect(person_ids).toContain( value.owner_id );
+    if( value.owner_id ) { expect(person_ids).toContain( value.owner_id ); }
   }  
 });
 
@@ -125,9 +125,12 @@ test('apartment has valid active contract', () => {
       map_apt_to_contract[apt].push(value);
     }
   }
-  var apartment_ids = Object.keys(loaddata.apartments);
   var map_keys = Object.keys(map_apt_to_contract);
-  apartment_ids.forEach( (a) => { expect(map_keys).toContain( a ); } );
+  //var apartment_ids = Object.keys(loaddata.apartments);
+  //apartment_ids.forEach( (a) => { expect(map_keys).toContain( a ); } );
+  for (const [key, value] of Object.entries(loaddata.apartments)) {
+    if( value.owner_id ) { expect(map_keys).toContain( value._id ); }
+  }  
 });
 
 test('contract id matches dictionary key', () => {
