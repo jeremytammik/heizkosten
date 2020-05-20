@@ -1,0 +1,142 @@
+{
+  "001-09-02": {
+    "_id": "001-09-02",
+    "unit_id": "001",
+    "owner_id": "otto_froehlich",
+    "grundbuchnr": "grundbuchnr_001-09-02",
+    "area_m2": 66.8,
+    "room_count": 2,
+    "smokedetectors": [
+      {
+        "_id": "5ec53945dfdff70b036b25a1"
+      }
+    ],
+    "coldwatermeters": [
+      {
+        "_id": "5ec53945dfdff70b036b25a2"
+      }
+    ],
+    "heatcostallocators": [
+      {
+        "_id": "5ec53945dfdff70b036b25a3"
+      }
+    ],
+    "management_cost_eur": 0,
+    "heating_electrity_cost_eur": 0,
+    "landtax_eur": 186.8,
+    "nebenkosten_anteil_schluessel": 0.0082,
+    "warmwatermeters": []
+  },
+  "001-05-03": {
+    "_id": "001-05-03",
+    "unit_id": "001",
+    "owner_id": "zebra_gbr",
+    "grundbuchnr": "grundbuchnr_001-05-03",
+    "area_m2": 86.49,
+    "room_count": 3,
+    "smokedetectors": [
+      {
+        "_id": "5ec53945dfdff70b036b25a4"
+      }
+    ],
+    "coldwatermeters": [
+      {
+        "_id": "5ec53945dfdff70b036b25a5"
+      }
+    ],
+    "heatcostallocators": [
+      {
+        "_id": "5ec53945dfdff70b036b25a6"
+      }
+    ],
+    "management_cost_eur": 0,
+    "heating_electrity_cost_eur": 0,
+    "landtax_eur": 237.64,
+    "nebenkosten_anteil_schluessel": 0.0108,
+    "warmwatermeters": []
+  },
+  "001-14-05": {
+    "_id": "001-14-05",
+    "unit_id": "001",
+    "owner_id": "horst_weidenmueller",
+    "grundbuchnr": "grundbuchnr_001-14-05",
+    "area_m2": 88.95,
+    "room_count": 3,
+    "smokedetectors": [
+      {
+        "_id": "5ec53945dfdff70b036b25a7"
+      }
+    ],
+    "coldwatermeters": [
+      {
+        "_id": "5ec53945dfdff70b036b25a8"
+      }
+    ],
+    "heatcostallocators": [
+      {
+        "_id": "5ec53945dfdff70b036b25a9"
+      }
+    ],
+    "management_cost_eur": 0,
+    "heating_electrity_cost_eur": 0,
+    "landtax_eur": 234.08,
+    "nebenkosten_anteil_schluessel": 0.011,
+    "warmwatermeters": []
+  },
+  "001-12-06": {
+    "_id": "001-12-06",
+    "unit_id": "001",
+    "owner_id": "zebra_gbr",
+    "grundbuchnr": "grundbuchnr_001-12-06",
+    "area_m2": 88.95,
+    "room_count": 3,
+    "smokedetectors": [
+      {
+        "_id": "5ec53945dfdff70b036b25aa"
+      }
+    ],
+    "coldwatermeters": [
+      {
+        "_id": "5ec53945dfdff70b036b25ab"
+      }
+    ],
+    "heatcostallocators": [
+      {
+        "_id": "5ec53945dfdff70b036b25ac"
+      }
+    ],
+    "management_cost_eur": 0,
+    "heating_electrity_cost_eur": 0,
+    "landtax_eur": 249.08,
+    "nebenkosten_anteil_schluessel": 0.011,
+    "warmwatermeters": []
+  },
+  "001-01-04": {
+    "_id": "001-01-04",
+    "unit_id": "001",
+    "owner_id": "weidenmueller_gmbh",
+    "grundbuchnr": "grundbuchnr_001-01-04",
+    "area_m2": 107.32,
+    "room_count": 4,
+    "smokedetectors": [
+      {
+        "_id": "5ec53945dfdff70b036b25ad"
+      }
+    ],
+    "coldwatermeters": [
+      {
+        "_id": "5ec53945dfdff70b036b25ae"
+      }
+    ],
+    "heatcostallocators": [
+      {
+        "_id": "5ec53945dfdff70b036b25af"
+      }
+    ],
+    "management_cost_eur": 0,
+    "heating_electrity_cost_eur": 0,
+    "landtax_eur": 278.44,
+    "nebenkosten_anteil_schluessel": 0.0133,
+    "warmwatermeters": []
+  }
+}

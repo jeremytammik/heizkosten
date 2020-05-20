@@ -37,10 +37,10 @@ var apartmentSchema = new Schema({
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
-  smokedetectors: [{ idnr: String, expires: Date }],
-  coldwatermeters: [{ idnr: String, expires: Date }],
-  warmwatermeters: [{ idnr: String, expires: Date }],
-  heatcostallocators: [{ idnr: String, expires: Date, factor: Number }],
+  smokedetectors: { type: Map, of: String }, // dictionary mapping meter_id to expires Date
+  coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
+  warmwatermeters: { type: Map, of: String }, // map meter_id to expires Date
+  heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
@@ -48,6 +48,9 @@ var apartmentSchema = new Schema({
   
   { _id: false } // suppress automatic generation
 );
+
+    "smokedetectors": { "001-09-02-FL": { "expires": "2020-12-31" }, "001-09-02-SM": { "expires": "2020-12-31" }},
+
 
 apartmentSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
