@@ -166,7 +166,8 @@ app.get( '/save_data', (req, res) => {
     for (const [key, value] of Object.entries(d)) {
       console.log(value.heatcostallocators);
       value.heatcostallocators.forEach( (value2, key2) => {
-        d[key].heatcostallocators[key2] = Number(value2);
+        console.log(value2);
+        d[key].heatcostallocators[key2] = [value2[0],Number(value2[1])];
       });
     });
 
