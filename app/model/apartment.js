@@ -51,7 +51,7 @@ var apartmentSchema = new Schema({
 );
 
 apartmentSchema.methods.get_display_string = function() {
-  return this._id + ' &ndash; ' + description;
+  return this._id + ' &ndash; ' + this.description;
 };
 
 var Apartment = mongoose.model( 'apartment', apartmentSchema );
