@@ -131,61 +131,47 @@ app.get( '/:id/del_confirmed', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  //var fs = require('fs');
-  //var units = JSON.parse( fs.readFileSync(
-  //  `data/${Apartment.route}.json`, 'utf8' ));
-  //
-  //Apartment.deleteMany( {}, (err) => {
-  //  if (err) { return console.error(err); }
-  //  Apartment.create( Object.values(units), (err,res2) => {
-  //    if (err) { return console.error(err); }
-  //    Apartment.countDocuments( {}, (err, count) => {
-  //      if (err) { return console.error(err); }
-  //      return res.send( success_with_document_count(
-  //        count.toString(), Apartment.thing_en ) );
-  //    });
-  //  });
-  //});
   return load_data_for_model( Apartment, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  Apartment.find( {}, function( err, docs ) {
-    if (err) { return console.error(err); }
-    var d = {};
-    docs.forEach( (doc) => {
-      var p = doc._doc;
-      delete p['__v'];
-      d[p._id] = p;
-    });
-    
-    // MongooseMap converts the haet allocation meter
-    // factor number to a string for us, so let's
-    // convert it back again to ensure round-trip
-    // perfection.
-    
-    //console.log(d);
-    for (const [key, value] of Object.entries(d)) {
-      console.log(value.heatcostallocators);
-      var hca2 = {};
-      value.heatcostallocators.forEach( (value2, key2) => {
-        var x = Number(value2[1]);
-        console.log( value2[1], '-->', x );
-        hca2[key2] = [value2[0],x];
-      });
-      d[key].heatcostallocators = hca2;
-    };
-    console.log(d);
+  //Apartment.find( {}, function( err, docs ) {
+  //  if (err) { return console.error(err); }
+  //  var d = {};
+  //  docs.forEach( (doc) => {
+  //    var p = doc._doc;
+  //    delete p['__v'];
+  //    d[p._id] = p;
+  //  });
+  //  
+  //  // MongooseMap converts the haet allocation meter
+  //  // factor number to a string for us, so let's
+  //  // convert it back again to ensure round-trip
+  //  // perfection.
+  //  
+  //  //console.log(d);
+  //  for (const [key, value] of Object.entries(d)) {
+  //    console.log(value.heatcostallocators);
+  //    var hca2 = {};
+  //    value.heatcostallocators.forEach( (value2, key2) => {
+  //      var x = Number(value2[1]);
+  //      console.log( value2[1], '-->', x );
+  //      hca2[key2] = [value2[0],x];
+  //    });
+  //    d[key].heatcostallocators = hca2;
+  //  };
+  //  console.log(d);
 
-    var fs = require('fs');
-    var fn = `data/tmp/${Apartment.route}.json`;
-    fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
-      function (err) {
-        if (err) { return console.log(err); }
-        return res.send( `${Apartment.thing_en} data saved in '${fn}'` );
-      }
-    );
-  });
+  //  var fs = require('fs');
+  //  var fn = `data/tmp/${Apartment.route}.json`;
+  //  fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
+  //    function (err) {
+  //      if (err) { return console.log(err); }
+  //      return res.send( `${Apartment.thing_en} data saved in '${fn}'` );
+  //    }
+  //  );
+  //});
+  save_data_for_model( Apartment, res, req );
 });
 
 app.get( '/generate_missing', (req, res) => {

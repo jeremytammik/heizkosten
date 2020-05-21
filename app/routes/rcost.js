@@ -142,41 +142,28 @@ app.get( '/:id/del_confirmed', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  //var fs = require('fs');
-  //var units = JSON.parse( fs.readFileSync(
-  //  `data/${Cost.route}.json`, 'utf8' ));
-  //
-  //Cost.deleteMany( {}, (err) => {
-  //  if (err) { return console.error(err); }
-  //  Cost.create( Object.values(units), (err,res2) => {
-  //    if (err) { return console.error(err); }
-  //    Cost.countDocuments( {}, (err, count) => {
-  //      if (err) { return console.error(err); }
-  //      return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
-  //    });
-  //  });
-  //});
   return load_data_for_model( Cost, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  Cost.find( {}, function( err, docs ) {
-    if (err) { return console.error(err); }
-    var d = {};
-    docs.forEach( (doc) => {
-      var p = doc._doc;
-      p.year = p.year.toString();
-      delete p['__v'];
-      d[p._id] = p;
-    });
-    var fs = require('fs');
-    var fn = `data/tmp/${Cost.route}.json`;
-    fs.writeFile( fn,
-      JSON.stringify( d, null, 2 ), 'utf8',
-      function (err) {
-        if (err) { return console.log(err); }
-        return res.send( `${Cost.thing_en} data saved in '${fn}'` );
-      }
-    );
-  });
+  //Cost.find( {}, function( err, docs ) {
+  //  if (err) { return console.error(err); }
+  //  var d = {};
+  //  docs.forEach( (doc) => {
+  //    var p = doc._doc;
+  //    p.year = p.year.toString();
+  //    delete p['__v'];
+  //    d[p._id] = p;
+  //  });
+  //  var fs = require('fs');
+  //  var fn = `data/tmp/${Cost.route}.json`;
+  //  fs.writeFile( fn,
+  //    JSON.stringify( d, null, 2 ), 'utf8',
+  //    function (err) {
+  //      if (err) { return console.log(err); }
+  //      return res.send( `${Cost.thing_en} data saved in '${fn}'` );
+  //    }
+  //  );
+  //});
+  save_data_for_model( Cost, res, req );
 });
