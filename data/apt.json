@@ -6,7 +6,7 @@
     "grundbuchnr": "grundbuchnr_001-09-01",
     "area_m2": 66.80,
     "room_count": 2,
-    "smokedetectors": { "meter-id-smoke-FL": "2020-12-31", "meter-id-smoke-SM": "2020-12-31" },
+    "smokedetector-FL": { "001-09-01-smoke-FL": "2020-12-31", "001-09-01-smoke-SM": "2020-12-31" },
     "coldwatermeters": { "meter-id-cold-BA": "2020-12-31" },
     "warmwatermeters": { "meter-id-warm-BA": "2020-12-31"  },
     "heatcostallocators": { "meter-id-heat-WO": ["2020-12-31", 1.15], "meter-id-heat-BA": ["2020-12-31", 0.325], "meter-id-heat-SM": ["2020-12-31", 0.9], "meter-id-heat-KU": ["2020-12-31", 0.375] },

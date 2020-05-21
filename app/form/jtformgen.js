@@ -79,6 +79,23 @@ function jtformgen_unit_selected( uid )
   return wrap_html( s1 );
 }
 
+function create_editor_for_map( k, m )
+{
+ s = `\ 
+<td><label for="${k}">${k}:</label></td>\
+<td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
+`;
+
+  m.forEach( function( val, key ) {
+    var e = mapname + ' ' + (++i).toString() + ' ';
+    d[e + keyname] = key;
+    d[e + valname] = val;
+  });
+  delete d[mapname];
+}
+  
+}
+
 function jtformgen_edit_document( p, url_action, verb, for_string, error )
 {
   var errlist = [];
@@ -107,12 +124,16 @@ var a = [];
 Object.keys(p).forEach( (key,index) => {
   var k = key;
   var v = p[key];
-  a.push( `\ 
-<tr>\
+  console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
+  
+  var editor = ('MongooseMap' === v.constructor.name)
+    ? create_editor_for_map( v )
+    : `\ 
 <td><label for="${k}">${k}:</label></td>\
 <td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
-</tr>\
-` );
+`;
+
+  a.push( `<tr>${editor}</tr>`);
 });
 
 var s2 = a.join('\n');

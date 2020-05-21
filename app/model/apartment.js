@@ -47,10 +47,14 @@ var apartmentSchema = new Schema({
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
-  smokedetectors: { type: Map, of: String }, // dictionary mapping meter_id to expires Date
-  coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
-  warmwatermeters: { type: Map, of: String }, // map meter_id to expires Date
-  heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
+  //smokedetectors: { type: Map, of: String }, // dictionary mapping meter_id to expires Date
+  //coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
+  //warmwatermeters: { type: Map, of: String }, // map meter_id to expires Date
+  //heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
+  smokedetectors: { type: Object }, // dictionary mapping meter_id to expires Date
+  coldwatermeters: { type: Object }, // map meter_id to expires Date
+  warmwatermeters: { type: Object }, // map meter_id to expires Date
+  heatcostallocators: { type: Object }, // map meter_id to [expires: Date, factor: Number]
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
@@ -71,9 +75,8 @@ Apartment.thing_de = Apartment.modelName;
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
-/*
- * Turn the given map<String, String> into separate dictionary entries d[] = mapto an Object so it can be converted to JSON
- */
+// Turn the given map<String, String> into separate dictionary
+// entries d[] = mapto an Object so it can be converted to JSON
 function unwrap_map_into_d( d, mapname, keyname, valname)
 {
   var map = d[mapname];
@@ -103,10 +106,10 @@ Apartment.get_edit_form_html = ( d, create_duplicate, error ) => {
     delete d['unit_id'];
   }
   
-  unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry' );
-  unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry' );
-  unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry' );
-  unwrap_map_into_d( d, 'heatcostallocators', 'nr', 'expiry' );
+  //unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry' );
+  //unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry' );
+  //unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry' );
+  //unwrap_map_into_d( d, 'heatcostallocators', 'nr', 'expiry' );
 
   return jtformgen_edit_document( d, url_action, verb, true, error );
 }
