@@ -99,7 +99,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
   
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  console.log(c);
+  //console.log(c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
@@ -123,9 +123,9 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Apartment.get_edit_form_html( doc, true, error );
       return res.send( form );      
     }
-    var p3 = req.body;
-    p3['_id'] = id;
-    Apartment.create( req.body, (err2,res2) => {
+    //var p3 = req.body;
+    c['_id'] = id;
+    Apartment.create( c, (err2,res2) => {
       if (err2) {
         return console.error(err2);
       }
