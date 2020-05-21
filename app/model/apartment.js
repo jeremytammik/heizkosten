@@ -74,17 +74,19 @@ const { jtformgen_edit_document } = require('../form/jtformgen.js');
 /*
  * Turn the given map<String, String> into separate dictionary entries d[] = mapto an Object so it can be converted to JSON
  */
-function unwrap_map_into_d( d, description, keyname, valname, map ) {
-  int i = 0;
+function unwrap_map_into_d( d, mapname, keyname, valname)
+{
+  var map = d[mapname];
+  var i = 0;
   map.forEach( function( val, key ) {
-    var e = description + ' ' + ++i.toString() + ' ';
+    var e = mapname + ' ' + (++i).toString() + ' ';
     d[e + keyname] = key;
-    d[e + valname] = value;
+    d[e + valname] = val;
   });
-  return obj;
+  delete d[mapname];
 }
 
-Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
+Apartment.get_edit_form_html = ( d, create_duplicate, error ) => {
   var id = d['_id'];
   var url_action = create_duplicate ? 'dupl' : 'edit';
   url_action = `/${Apartment.route}/${id}/${url_action}_submit`;
@@ -101,9 +103,10 @@ Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
     delete d['unit_id'];
   }
   
-  unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry', d['smokedetectors'] );
-  unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry', d['coldwatermeters'] );
-  unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry', d['warmwatermeters'] );
+  unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry' );
+  unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry' );
+  unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry' );
+  unwrap_map_into_d( d, 'heatcostallocators', 'nr', 'expiry' );
 
   return jtformgen_edit_document( d, url_action, verb, true, error );
 }
