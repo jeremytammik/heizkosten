@@ -69,4 +69,26 @@ Apartment.route = 'apt';
 Apartment.thing_en = Apartment.modelName.toLowerCase();
 Apartment.thing_de = Apartment.modelName;
 
+const { jtformgen_edit_document } = require('../form/jtformgen.js');
+
+Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
+  var id = p['_id'];
+  var url_action = create_duplicate ? 'dupl' : 'edit';
+  url_action = `/${Apartment.route}/${id}/${url_action}_submit`;
+  
+  var verb = create_duplicate
+    ? `duplizieren, also neue ${Apartment.thing_de} anlegen mit aehnlichen Daten`
+    : 'edititieren';
+  verb = Apartment.thing_de + ' ' + verb;
+
+  delete p['__v'];
+  
+  if( !create_duplicate ) {
+    delete p['_id'];
+    delete p['units'];
+  }
+  
+  return jtformgen_edit_document( p, url_action, verb, true, error );
+}
+
 module.exports = Apartment;
