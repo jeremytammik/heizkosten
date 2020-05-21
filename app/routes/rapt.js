@@ -3,12 +3,12 @@ const Apartment = require( '../model/apartment' );
 
 const {
   load_data_for_model,
-  save_data_for_model } = require('./datautil.js');
+  save_data_for_model } = require('../model/datautil');
 
 const {
   success_with_document_count,
   jtformgen_confirm_delete,
-  jtformgen_list_documents } = require('../form/jtformgen.js');
+  jtformgen_list_documents } = require('../form/jtformgen');
 
 app.get( '/', (req, res) => {
   Apartment.find( {}, (err, results) => {
