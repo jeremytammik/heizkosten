@@ -49,11 +49,11 @@ var apartmentSchema = new Schema({
   room_count: Number,
   //smokedetectors: { type: Map, of: String }, // dictionary mapping meter_id to expires Date
   //coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
-  //warmwatermeters: { type: Map, of: String }, // map meter_id to expires Date
+  //hotwatermeters: { type: Map, of: String }, // map meter_id to expires Date
   //heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
   smokedetectors: { type: Object }, // dictionary mapping meter_id to expires Date
   coldwatermeters: { type: Object }, // map meter_id to expires Date
-  warmwatermeters: { type: Object }, // map meter_id to expires Date
+  hotwatermeters: { type: Object }, // map meter_id to expires Date
   heatcostallocators: { type: Object }, // map meter_id to [expires: Date, factor: Number]
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
@@ -108,7 +108,7 @@ Apartment.get_edit_form_html = ( d, create_duplicate, error ) => {
   
   //unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry' );
   //unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry' );
-  //unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry' );
+  //unwrap_map_into_d( d, 'hotwatermeters', 'nr', 'expiry' );
   //unwrap_map_into_d( d, 'heatcostallocators', 'nr', 'expiry' );
 
   return jtformgen_edit_document( d, url_action, verb, true, error );
