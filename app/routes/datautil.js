@@ -1,3 +1,5 @@
+const { success_with_document_count } = require('../form/jtformgen.js');
+
 function load_data_for_model( model, res, req )
 {
   var fs = require('fs');

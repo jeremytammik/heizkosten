@@ -1,6 +1,8 @@
 const app = module.exports = require('express')();
 const Apartment = require( '../model/apartment' );
 
+const { load_data_for_model } = require('./datautil.js');
+
 const {
   success_with_document_count,
   jtformgen_confirm_delete,
@@ -128,25 +130,6 @@ app.get( '/:id/del_confirmed', (req, res) => {
   });
 });
 
-function load_data_for_model( model, res, req )
-{
-  var fs = require('fs');
-  var units = JSON.parse( fs.readFileSync(
-    `data/${model.route}.json`, 'utf8' ));
-  
-  model.deleteMany( {}, (err) => {
-    if (err) { return console.error(err); }
-    model.create( Object.values(units), (err,res2) => {
-      if (err) { return console.error(err); }
-      model.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
-        return res.send( success_with_document_count(
-          count.toString(), model.thing_en ) );
-      });
-    });
-  });
-}
-
 app.get( '/load_data', (req, res) => {
   //var fs = require('fs');
   //var units = JSON.parse( fs.readFileSync(
@@ -233,7 +216,3 @@ app.get( '/generate_missing', (req, res) => {
     });
   });
 });
-
-module.exports = {
-  load_data_for_model
-}
