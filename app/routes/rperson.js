@@ -12,6 +12,10 @@ app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 const {
+  load_data_for_model,
+  save_data_for_model } = require('./datautil.js');
+
+const {
   success_with_document_count,
   jtformgen_confirm_delete,
   jtformgen_list_documents } = require('../form/jtformgen.js');
@@ -135,41 +139,11 @@ app.get( '/:id/del_confirmed', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  var fs = require('fs');
-  var persons = JSON.parse( fs.readFileSync(
-      `data/${Person.route}.json`, 'utf8' ));
-  
-  Person.deleteMany( {}, (err) => {
-    if (err) { return console.error(err); }
-    Person.create( Object.values(persons), (err,res2) => {
-      if (err) { return console.error(err); }
-      Person.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
-      });
-    });
-  });
+  return load_data_for_model( Person, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  Person.find( {}, function( err, docs ) {
-    if (err) { return console.error(err); }
-    var d = {};
-    docs.forEach( (doc) => {
-      var p = doc._doc;
-      delete p['__v'];
-      d[p._id] = p;
-    });
-    var fs = require('fs');
-    var fn = `data/tmp/${Person.route}.json`;
-    fs.writeFile( fn,
-      JSON.stringify( d, null, 2 ), 'utf8',
-      function (err) {
-        if (err) { return console.log(err); }
-        return res.send( `${Person.thing_en} data saved in '${fn}'` );
-      }
-    );
-  });
+  return save_data_for_model( Person, res, req );
 });
 
 app.get( '/create_sendfile', (req, res) => {

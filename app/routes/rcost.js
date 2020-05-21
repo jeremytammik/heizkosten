@@ -148,24 +148,5 @@ app.get( '/load_data', (req, res) => {
 });
 
 app.get( '/save_data', (req, res) => {
-  //Cost.find( {}, function( err, docs ) {
-  //  if (err) { return console.error(err); }
-  //  var d = {};
-  //  docs.forEach( (doc) => {
-  //    var p = doc._doc;
-  //    p.year = p.year.toString();
-  //    delete p['__v'];
-  //    d[p._id] = p;
-  //  });
-  //  var fs = require('fs');
-  //  var fn = `data/tmp/${Cost.route}.json`;
-  //  fs.writeFile( fn,
-  //    JSON.stringify( d, null, 2 ), 'utf8',
-  //    function (err) {
-  //      if (err) { return console.log(err); }
-  //      return res.send( `${Cost.thing_en} data saved in '${fn}'` );
-  //    }
-  //  );
-  //});
-  save_data_for_model( Cost, res, req );
+  return save_data_for_model( Cost, res, req );
 });
