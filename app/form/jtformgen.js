@@ -85,11 +85,12 @@ function jtformgen_unit_selected( uid )
 
 function create_editor_for_obj( k, o )
 {
-  a = [`<tr><td><label for="${k}">${k}:</label></td></tr>`];
+  a = [`<tr><td><label for="${k}">${k}:</label></td>`];
   var i = 0;
   for( var key in o ) {
     if( o.hasOwnProperty( key ) ) {
-      a.push( `<tr><td></td>\
+      var trtd = (0 < i? ? '<tr><td></td>' : ''; // skip initial tr td tags on first
+      a.push( `${trtd}\
 <td><input ${input_attributes_meter} id="${k}_${i}_key" name="${k}_${i}_key" value="${key}">\
 <input ${input_attributes_meter} id="${k}_${i}_val" name="${k}_${i}_val" value="${o[key]}"></td>\
 </tr>` );
@@ -97,7 +98,7 @@ function create_editor_for_obj( k, o )
     }
   }
   // add count of entries:
-  a[0] = `<tr><td><label for="${k}">${i} ${k}:</label></td></tr>`;
+  a[0] = `<tr><td><label for="${k}">${i} ${k}:</label></td>`;
   return a.join('\n');
 }
 
