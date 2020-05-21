@@ -28,6 +28,16 @@ id_wohnung
   03 is 3 rooms small
   04 is 4 rooms
   05 + 06 are 3 rooms large
+  
+  erste ziffer: unit: 001
+  zweite ziffer: etage: 00: EG bis 15. etage
+  dritte ziffer: whg: 01-06
+  vierte ziffer: vertragszusatz: 00 is owner; 01-09 mieter
+  
+  whg 01 & 02: 76 qm
+  whg 03: 87 qm
+  whg 04: 107 qm
+  whg 05 & 06: 89 qm  
 */
 
 var apartmentSchema = new Schema({
