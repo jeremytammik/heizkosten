@@ -12,13 +12,14 @@ const shead = '\
     body, td, label { font-family: sans-serif; font-size: small }\
     td { text-align: right }\
     table { border: 1px solid black }\
+    img { height: 1em } \
   </style>\
 </head>\
 ';
 
 function wrap_html(s)
 {
-  return shead + `<body>\n<img src="select.png"/>\n${s}\n</body></html>`;
+  return shead + `<body>\n${s}\n</body></html>`;
 }
 
 function success_with_document_count( n, thing_en )
@@ -45,7 +46,7 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   var a = [];
   docs.forEach( (d) => {
     var options = enable_select
-      ? ` &ndash; <a href="/${route}/${d._id}/select">select</a>`
+      ? ` &ndash; <a href="/${route}/${d._id}/select"><img src="select.png"/></a>`
       : ` &ndash; <a href="/${route}/${d._id}/edit">edit</a>`
       + ` &ndash; <a href="/${route}/${d._id}/dupl">dupl</a>`
       + ` &ndash; <a href="/${route}/${d._id}/del">del</a>`;
@@ -72,7 +73,7 @@ function jtformgen_unit_selected( uid )
     + `<li><a href="/unit/${uid}/hv">hausverwaltung</a></li>`
     + '</li>';
   
-  return return wrap_html( s1 );
+  return wrap_html( s1 );
 }
 
 function jtformgen_edit_document( p, url_action, verb, for_string, error )
@@ -122,7 +123,7 @@ var s3 = '\
       </table>\
     </form>';
 
-return return wrap_html( s1 + s2 + s3 );
+return wrap_html( s1 + s2 + s3 );
 }
 
 module.exports = {

@@ -212,6 +212,6 @@ app.get( '/generate_missing', (req, res) => {
         var apt = new Apartment
       }
     });
-  
+  });
 });
 
