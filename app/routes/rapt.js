@@ -1,7 +1,9 @@
 const app = module.exports = require('express')();
 const Apartment = require( '../model/apartment' );
 
-const { load_data_for_model } = require('./datautil.js');
+const {
+  load_data_for_model,
+  save_data_for_model } = require('./datautil.js');
 
 const {
   success_with_document_count,

@@ -64,5 +64,6 @@ function save_data_for_model( model, res, req )
 }
 
 module.exports = {
-  load_data_for_model
+  load_data_for_model,
+  save_data_for_model
 }

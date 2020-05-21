@@ -11,7 +11,9 @@ app.delete('/api/v1/cost/:id', CostService.delete);
 app.get('/api/v1/cost/unit/:uid', CostService.findAllForUnit);
 app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
 
-const { load_data_for_model } = require('./datautil.js');
+const {
+  load_data_for_model,
+  save_data_for_model } = require('./datautil.js');
 
 const {
   success_with_document_count,
