@@ -71,8 +71,21 @@ Apartment.thing_de = Apartment.modelName;
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
+/*
+ * Turn the given map<String, String> into separate dictionary entries d[] = mapto an Object so it can be converted to JSON
+ */
+function unwrap_map_into_d( d, description, keyname, valname, map ) {
+  int i = 0;
+  map.forEach( function( val, key ) {
+    var e = description + ' ' + ++i.toString() + ' ';
+    d[e + keyname] = key;
+    d[e + valname] = value;
+  });
+  return obj;
+}
+
 Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
-  var id = p['_id'];
+  var id = d['_id'];
   var url_action = create_duplicate ? 'dupl' : 'edit';
   url_action = `/${Apartment.route}/${id}/${url_action}_submit`;
   
@@ -81,14 +94,18 @@ Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
     : 'edititieren';
   verb = Apartment.thing_de + ' ' + verb;
 
-  delete p['__v'];
+  delete d['__v'];
   
   if( !create_duplicate ) {
-    delete p['_id'];
-    delete p['unit_id'];
+    delete d['_id'];
+    delete d['unit_id'];
   }
   
-  return jtformgen_edit_document( p, url_action, verb, true, error );
+  unwrap_map_into_d( d, 'smokedetectors', 'nr', 'expiry', d['smokedetectors'] );
+  unwrap_map_into_d( d, 'coldwatermeters', 'nr', 'expiry', d['coldwatermeters'] );
+  unwrap_map_into_d( d, 'warmwatermeters', 'nr', 'expiry', d['warmwatermeters'] );
+
+  return jtformgen_edit_document( d, url_action, verb, true, error );
 }
 
 module.exports = Apartment;
