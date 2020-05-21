@@ -1,4 +1,5 @@
 const app = module.exports = require('express')();
+const { load_data_for_model } = require('./rapt.js');
 const Cost = require( '../model/cost' );
 var CostService = require( '../controller/cost_v1' );
 
@@ -140,20 +141,21 @@ app.get( '/:id/del_confirmed', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  var fs = require('fs');
-  var units = JSON.parse( fs.readFileSync(
-    `data/${Cost.route}.json`, 'utf8' ));
-  
-  Cost.deleteMany( {}, (err) => {
-    if (err) { return console.error(err); }
-    Cost.create( Object.values(units), (err,res2) => {
-      if (err) { return console.error(err); }
-      Cost.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
-        return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
-      });
-    });
-  });
+  //var fs = require('fs');
+  //var units = JSON.parse( fs.readFileSync(
+  //  `data/${Cost.route}.json`, 'utf8' ));
+  //
+  //Cost.deleteMany( {}, (err) => {
+  //  if (err) { return console.error(err); }
+  //  Cost.create( Object.values(units), (err,res2) => {
+  //    if (err) { return console.error(err); }
+  //    Cost.countDocuments( {}, (err, count) => {
+  //      if (err) { return console.error(err); }
+  //      return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
+  //    });
+  //  });
+  //});
+  return load_data_for_model( Cost, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
