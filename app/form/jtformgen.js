@@ -46,7 +46,7 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   var a = [];
   docs.forEach( (d) => {
     var options = enable_select
-      ? ` &ndash; <a href="/${route}/${d._id}/select"><img src="select.png"/></a>`
+      ? ` &ndash; <a href="/${route}/${d._id}/select"><img src="img/select.png"/></a>`
       : ` &ndash; <a href="/${route}/${d._id}/edit">edit</a>`
       + ` &ndash; <a href="/${route}/${d._id}/dupl">dupl</a>`
       + ` &ndash; <a href="/${route}/${d._id}/del">del</a>`;
