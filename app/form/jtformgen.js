@@ -11,6 +11,7 @@ const shead = '\
   <style>\
     body, td, label { font-family: sans-serif; font-size: small }\
     td { text-align: right }\
+    ul.actions { list-style-type: none; margin: 0; padding: 0 } \
     table { border: 1px solid black }\
     img { height: 1em } \
   </style>\
@@ -47,17 +48,17 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   var thing = model.thing_en;
   var a = [];
   docs.forEach( (d) => {
-    var options = enable_select
-      ? ` &nbsp; <a href="/${route}/${d._id}/select"><img src="img/select.png"/></a>`
-      : ` &ndash; <a href="/${route}/${d._id}/edit">edit</a>`
-      + ` &ndash; <a href="/${route}/${d._id}/dupl">dupl</a>`
-      + ` &ndash; <a href="/${route}/${d._id}/del">del</a>`;
+    var actions = enable_select
+      ? `<a href="/${route}/${d._id}/select"><img src="img/select.png"/></a> &nbsp; `
+      : `<a href="/${route}/${d._id}/edit"><img src="img/edit.png"/></a> &nbsp; `
+      + `<a href="/${route}/${d._id}/dupl"><img src="img/dupl.png"/></a> &nbsp; `
+      + `<a href="/${route}/${d._id}/del"><img src="img/del.png"/></a> &nbsp; `;
     a.push( '<li>' + d.get_display_string() + options + '</li>' );
   });
   a.sort();
   var n = a.length.toString();
   var s = (1==n) ? '' : 's';
-  var s1 = `<p>${n} ${thing}${s}${where}:</p><ul>`;
+  var s1 = `<p>${n} ${thing}${s}${where}:</p><ul class="actions">`;
   var s2 =  a.join('\n');
   var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p>';
 
