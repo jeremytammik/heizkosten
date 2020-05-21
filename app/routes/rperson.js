@@ -118,8 +118,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete(
-        Person.route, Person.thing_de, s, id ) );
+      res.send( jtformgen_confirm_delete( Person, s, id ) );
     }
   });
 });

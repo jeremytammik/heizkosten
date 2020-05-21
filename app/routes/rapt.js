@@ -112,8 +112,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete(
-        Apartment.route, Apartment.thing_de, s, id ) );
+      res.send( jtformgen_confirm_delete( Apartment, s, id ) );
     }
   });
 });
