@@ -85,7 +85,7 @@ Apartment.get_edit_form_html = ( p, create_duplicate, error ) => {
   
   if( !create_duplicate ) {
     delete p['_id'];
-    delete p['units'];
+    delete p['unit_id'];
   }
   
   return jtformgen_edit_document( p, url_action, verb, true, error );
