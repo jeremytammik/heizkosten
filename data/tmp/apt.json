@@ -7,8 +7,8 @@
     "area_m2": 66.8,
     "room_count": 2,
     "smokedetectors": {
-      "meter-id-smoke-FL": "2020-12-31",
-      "meter-id-smoke-SM": "2020-12-31"
+      "001-09-01-smoke-FL": "2020-12-31",
+      "001-09-01-smoke-SM": "2020-12-31"
     },
     "coldwatermeters": {
       "meter-id-cold-BA": "2020-12-31"

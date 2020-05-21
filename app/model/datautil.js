@@ -31,7 +31,7 @@ function save_data_for_model( model, res, req )
       d[p._id] = p;
     });
     
-    if( 'apt' === model.route )
+    if( false /*'apt' === model.route*/ ) // currently using Mixed==Object, not MongooseMap
     {
       // MongooseMap converts the haet allocation meter
       // factor number to a string for us, so let's

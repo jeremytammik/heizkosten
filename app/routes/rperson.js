@@ -1,5 +1,4 @@
 const app = module.exports = require('express')();
-
 const util = require( '../calc/util' );
 const Person = require( '../model/person' );
 const PersonService = require( '../controller/person_v1' );

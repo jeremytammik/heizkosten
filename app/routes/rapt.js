@@ -1,4 +1,5 @@
 const app = module.exports = require('express')();
+const util = require( '../calc/util' );
 const Apartment = require( '../model/apartment' );
 
 const {
@@ -43,9 +44,24 @@ app.get( '/:id/edit', (req, res) => {
   });
 });
 
+function convert_to_dict( c, keyprefix )
+{
+  d = {};
+  var i = 0;
+  while( c.hasOwnProperty( k = `${keyprefix}_${i}_key` ) ) {
+    d[c[k]] = c[v = `${keyprefix}_${i}_val`];
+    delete c[k];
+    delete c[v];
+  }
+  return d;
+}
+
 app.post( '/:id/edit_submit', (req, res) => {
-  //var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  var c = req.body;
+  var c = util.trimAllFieldsInObjectAndChildren( req.body );
+  console.log(c);
+  c.smokedetectors = convert_to_dict(c,'smokedetectors');
+  console.log(c);
+
   var a = new Apartment( req.body );
   error = a.validateSync();
   if( error ) {

@@ -4,6 +4,10 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
+const input_attributes_string = 'type="string" maxlength="40" size="30"';
+const input_attributes_number = 'type="number" min="0" max="999999.99" maxlength="9" size="12" step="any"';
+const input_attributes_meter = 'type="string" maxlength="20" size="15"';
+
 const shead = '\
 <head>\
 	<meta charset="utf-8" />\
@@ -79,21 +83,22 @@ function jtformgen_unit_selected( uid )
   return wrap_html( s1 );
 }
 
-function create_editor_for_map( k, m )
+function create_editor_for_obj( k, o )
 {
- s = `\ 
-<td><label for="${k}">${k}:</label></td>\
-<td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
-`;
-
-  m.forEach( function( val, key ) {
-    var e = mapname + ' ' + (++i).toString() + ' ';
-    d[e + keyname] = key;
-    d[e + valname] = val;
-  });
-  delete d[mapname];
-}
-  
+  a = [`<tr><td><label for="${k}">${k}:</label></td></tr>`];
+  var i = 0;
+  for( var key in o ) {
+    if( o.hasOwnProperty( key ) ) {
+      a.push( `<tr><td></td>\
+<td><input ${input_attributes_meter} id="${k}_${i}_key" name="${k}_${i}_key" value="${key}">\
+<input ${input_attributes_meter} id="${k}_${i}_val" name="${k}_${i}_val" value="${o[key]}"></td>\
+</tr>` );
+      ++i;
+    }
+  }
+  // add count of entries:
+  a[0] = `<tr><td><label for="${k}">${i} ${k}:</label></td></tr>`;
+  return a.join('\n');
 }
 
 function jtformgen_edit_document( p, url_action, verb, for_string, error )
@@ -124,10 +129,10 @@ var a = [];
 Object.keys(p).forEach( (key,index) => {
   var k = key;
   var v = p[key];
-  console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
+  //console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
   
-  var editor = ('MongooseMap' === v.constructor.name)
-    ? create_editor_for_map( v )
+  var editor = ('Object' === v.constructor.name) // MongooseMap
+    ? create_editor_for_obj( k, v )
     : `\ 
 <td><label for="${k}">${k}:</label></td>\
 <td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
