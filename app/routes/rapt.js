@@ -52,6 +52,7 @@ function convert_to_dict( c, keyprefix )
     d[c[k]] = c[v = `${keyprefix}_${i}_val`];
     delete c[k];
     delete c[v];
+    ++i;
   }
   return d;
 }
@@ -60,6 +61,9 @@ app.post( '/:id/edit_submit', (req, res) => {
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
   console.log(c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
+  c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
+  c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
+  c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
   console.log(c);
 
   var a = new Apartment( req.body );
