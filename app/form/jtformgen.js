@@ -16,24 +16,26 @@ const shead = '\
 </head>\
 ';
 
+function wrap_html(s)
+{
+  return shead + `<body>\n<img src="select.png"/>\n${s}\n</body></html>`;
+}
+
 function success_with_document_count( n, thing_en )
 {
   var s = (1==n) ? '' : 's';
-  return shead + '<body><p>Hat geklappt, vielen Dank. '
+  return wrap_html( '<p>Hat geklappt, vielen Dank. '
     + `Database now contains ${n} ${thing_en}${s}.</p>`
-    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>'
-    + '</body>';
+    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>' );
 }
 
 function jtformgen_confirm_delete( route, thing_de, description, id )
 {
-  s1 = '<body>'
+  return wrap_html( '<body>'
     + `<p>Sollen die Daten der folgenden ${thing_display} wirklich geloescht werden?</p>`
     + `<ul><li>${description}</li></ul>`
     + `<button><a href="/${thing}/${id}/del_confirmed">Ja</a></button> &ndash; `
-    + '<button><a href="/hauskosten.html">Nein</a></button></body>';
-    
-  return shead + s1;    
+    + '<button><a href="/hauskosten.html">Nein</a></button>' );
 }
 
 function jtformgen_list_documents( model, where, docs, enable_select )
@@ -52,25 +54,25 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   a.sort();
   var n = a.length.toString();
   var s = (1==n) ? '' : 's';
-  var s1 = `<body><p>${n} ${thing}${s}${where}:</p><ul>`;
+  var s1 = `<p>${n} ${thing}${s}${where}:</p><ul>`;
   var s2 =  a.join('\n');
-  var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p></body>';
+  var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p>';
 
-  return shead + s1 + s2 + s3;
+  return wrap_html( s1 + s2 + s3 );
 }
 
 function jtformgen_unit_selected( uid )
 {
-  var s1 = `<body><p>Unit ${uid} selected.</p><ul>`
+  var s1 = `<p>Unit ${uid} selected.</p><ul>`
     + `<li><a href="/cost/unit/${uid}/list">yearly costs</a></li>`
     + `<li><a href="/apt/unit/${uid}/list">apartments</a></li>`
     + `<li><a href="/unit/${uid}/contract">contracts</a></li>`
     + `<li><a href="/person/unit/${uid}/list">persons</a></li>`
     + `<li><a href="/unit/${uid}/nk">nebenkosten</a></li>`
     + `<li><a href="/unit/${uid}/hv">hausverwaltung</a></li>`
-    + '</li></body>';
+    + '</li>';
   
-  return shead + s1;
+  return return wrap_html( s1 );
 }
 
 function jtformgen_edit_document( p, url_action, verb, for_string, error )
@@ -88,7 +90,6 @@ function jtformgen_edit_document( p, url_action, verb, for_string, error )
   var serr = errlist.join('\n');
 
   var s1 = `
-<body>\
   <p>${verb}:</p>${serr}\
   <form action="${url_action}" method="POST">\
     <table>\
@@ -119,12 +120,9 @@ var s3 = '\
           </td>\
         </tr>\
       </table>\
-    </form>\
-  </body>\
-</html>\
-';
+    </form>';
 
-return shead + s1 + s2 + s3;
+return return wrap_html( s1 + s2 + s3 );
 }
 
 module.exports = {
