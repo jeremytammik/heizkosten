@@ -59,12 +59,12 @@ function convert_to_dict( c, keyprefix )
 
 app.post( '/:id/edit_submit', (req, res) => {
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  console.log(c);
+  //console.log(c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
-  console.log(c);
+  //console.log(c);
 
   var a = new Apartment( req.body );
   error = a.validateSync();
@@ -97,9 +97,16 @@ app.get( '/:id/dupl', (req, res) => {
 
 app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
-  //var p = util.trimAllFieldsInObjectAndChildren( req.body );
-  var p = req.body;
-  var id = p.unit_id + '-' + p.year;
+  
+  var c = util.trimAllFieldsInObjectAndChildren( req.body );
+  //console.log(c);
+  c.smokedetectors = convert_to_dict(c,'smokedetectors');
+  c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
+  c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
+  c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
+  //console.log(c);
+  
+  var id = c._id;
   Apartment.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
       return console.error(err);
@@ -110,7 +117,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Apartment.get_edit_form_html( req.body, true, error );
       return res.send( form );
     }
-    var p2 = new Apartment( p );
+    var p2 = new Apartment( c );
     error = p2.validateSync();
     if( error ) {
       var form = Apartment.get_edit_form_html( doc, true, error );
