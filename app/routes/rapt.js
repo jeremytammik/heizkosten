@@ -99,12 +99,12 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
   
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  //console.log(c);
+  console.log(c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
-  //console.log(c);
+  console.log(c);
   
   var id = c._id;
   Apartment.countDocuments( {'_id': id }, (err, count) => {
