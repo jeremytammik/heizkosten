@@ -128,22 +128,42 @@ app.get( '/:id/del_confirmed', (req, res) => {
   });
 });
 
-app.get( '/load_data', (req, res) => {
+function load_data_for_model( model, res, req )
+{
   var fs = require('fs');
   var units = JSON.parse( fs.readFileSync(
-    `data/${Apartment.route}.json`, 'utf8' ));
+    `data/${model.route}.json`, 'utf8' ));
   
-  Apartment.deleteMany( {}, (err) => {
+  model.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
-    Apartment.create( Object.values(units), (err,res2) => {
+    model.create( Object.values(units), (err,res2) => {
       if (err) { return console.error(err); }
-      Apartment.countDocuments( {}, (err, count) => {
+      model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         return res.send( success_with_document_count(
-          count.toString(), Apartment.thing_en ) );
+          count.toString(), model.thing_en ) );
       });
     });
   });
+}
+
+app.get( '/load_data', (req, res) => {
+  //var fs = require('fs');
+  //var units = JSON.parse( fs.readFileSync(
+  //  `data/${Apartment.route}.json`, 'utf8' ));
+  //
+  //Apartment.deleteMany( {}, (err) => {
+  //  if (err) { return console.error(err); }
+  //  Apartment.create( Object.values(units), (err,res2) => {
+  //    if (err) { return console.error(err); }
+  //    Apartment.countDocuments( {}, (err, count) => {
+  //      if (err) { return console.error(err); }
+  //      return res.send( success_with_document_count(
+  //        count.toString(), Apartment.thing_en ) );
+  //    });
+  //  });
+  //});
+  return load_data_for_model( Apartment, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
