@@ -234,3 +234,4 @@ app.get( '/generate_missing', (req, res) => {
   });
 });
 
+exports.load_data_for_model = load_data_for_model;
