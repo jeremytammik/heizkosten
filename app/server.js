@@ -34,12 +34,13 @@ var db = mongoose.connection;
 
 // when successfully connected
 db.on( 'connected', function () {
-  console.log('Mongoose default connection open to ' + dbURI);
+  console.log( 'Mongoose default connection open to '
+    + mongo_uri );
 }); 
   
 // connection throws an error
 db.on( 'error', function (err) { 
-  console.log('Mongoose default connection error: ' + err);
+  console.log( 'Mongoose default connection error: ' + err );
   //var msg = 'unable to connect to database at ' + mongo_uri;
   //console.log( msg );
   //throw new Error( msg );
@@ -47,14 +48,14 @@ db.on( 'error', function (err) {
 
 // connection is disconnected
 db.on( 'disconnected', function () { 
-  console.log('Mongoose default connection disconnected'); 
+  console.log( 'Mongoose default connection disconnected' ); 
 });
 
 // If the Node process ends, close the Mongoose connection 
 process.on('SIGINT', function() {   
   db.close( function () { 
-    console.log('Mongoose default connection disconnected through app termination'); 
-    process.exit(0); 
+    console.log( 'Mongoose default connection disconnected through app termination' ); 
+    process.exit( 0 ); 
   }); 
 });
 
