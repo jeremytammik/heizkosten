@@ -33,7 +33,7 @@ function success_with_document_count( n, thing_en )
 function jtformgen_confirm_delete( route, thing_de, description, id )
 {
   return wrap_html( '<body>'
-    + `<p>Sollen die Daten der folgenden ${thing_display} wirklich geloescht werden?</p>`
+    + `<p>Sollen die Daten der folgenden ${thing_de} wirklich geloescht werden?</p>`
     + `<ul><li>${description}</li></ul>`
     + `<button><a href="/${thing}/${id}/del_confirmed">Ja</a></button> &ndash; `
     + '<button><a href="/hauskosten.html">Nein</a></button>' );
