@@ -89,7 +89,7 @@ function create_editor_for_obj( k, o )
   var i = 0;
   for( var key in o ) {
     if( o.hasOwnProperty( key ) ) {
-      var trtd = (0 < i? ? '<tr><td></td>' : ''; // skip initial tr td tags on first
+      var trtd = (0 < i) ? '<tr><td></td>' : ''; // skip initial tr td tags on first
       a.push( `${trtd}\
 <td><input ${input_attributes_meter} id="${k}_${i}_key" name="${k}_${i}_key" value="${key}">\
 <input ${input_attributes_meter} id="${k}_${i}_val" name="${k}_${i}_val" value="${o[key]}"></td>\
