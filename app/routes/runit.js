@@ -16,6 +16,18 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/:id', (req, res) => {
+  var id = req.params.id;
+  Unit.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var form = Unit.get_edit_form_html( doc, 'view' );
+      res.send( form );
+    }
+  });
+});
+
 app.get( '/:id/edit', (req, res) => {
   res.send( 'Sorry, please ask your admin.' );
 });

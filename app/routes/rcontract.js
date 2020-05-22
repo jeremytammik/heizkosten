@@ -31,6 +31,18 @@ app.get( '/unit/:uid/list', (req, res) => {
   });
 });
 
+app.get( '/:id', (req, res) => {
+  var id = req.params.id;
+  Contract.find( {'_id': id }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      var doc = results[0]._doc;
+      var form = Contract.get_edit_form_html( doc, 'view' );
+      res.send( form );
+    }
+  });
+});
+
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
