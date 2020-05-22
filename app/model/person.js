@@ -103,8 +103,8 @@ const { jtformgen_edit_document } = require('../form/jtformgen.js');
 Person.get_edit_form_html = ( p, action, error ) => {
   var id = p['_id'];
   //var url_action = create_duplicate ? 'dupl' : 'edit';
-  var url_action = 'view' === action ? '' : action;
-  url_action = `/${Person.route}/${id}/${url_action}_submit`;
+  var url_action = 'view' === action ? '' : action + '_submit';
+  url_action = `/${Apartment.route}/${id}/${url_action}`;
   
   var verb = create_duplicate
     ? `duplizieren, also neue ${Person.thing_de} anlegen mit aehnlichen Daten`

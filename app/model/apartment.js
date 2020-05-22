@@ -121,8 +121,8 @@ function unwrap_map_into_d( d, mapname, keyname, valname)
 Apartment.get_edit_form_html = ( d, action, error ) => {
   var id = d['_id'];
   //var url_action = create_duplicate ? 'dupl' : 'edit';
-  var url_action = 'view' === action ? '' : action;
-  url_action = `/${Apartment.route}/${id}/${url_action}_submit`;
+  var url_action = 'view' === action ? '' : action + '_submit';
+  url_action = `/${Apartment.route}/${id}/${url_action}`;
   
   var verb = create_duplicate
     ? `duplizieren, also neue ${Apartment.thing_de} anlegen mit aehnlichen Daten`
