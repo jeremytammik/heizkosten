@@ -30,6 +30,14 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/load_data', (req, res) => {
+  return load_data_for_model( Cost, res, req );
+});
+
+app.get( '/save_data', (req, res) => {
+  return save_data_for_model( Cost, res, req );
+});
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Cost.find( { 'unit_id': uid }, (err, results) => {
@@ -153,12 +161,4 @@ app.get( '/:id/del_confirmed', (req, res) => {
       return res.send( success_with_document_count( count.toString(), Cost.thing_en ) );
     });
   });
-});
-
-app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Cost, res, req );
-});
-
-app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Cost, res, req );
 });

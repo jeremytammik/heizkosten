@@ -29,6 +29,14 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/load_data', (req, res) => {
+  return load_data_for_model( Person, res, req );
+});
+
+app.get( '/save_data', (req, res) => {
+  return save_data_for_model( Person, res, req );
+});
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
@@ -147,12 +155,4 @@ app.get( '/:id/del_confirmed', (req, res) => {
       return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
     });
   });
-});
-
-app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Person, res, req );
-});
-
-app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Person, res, req );
 });

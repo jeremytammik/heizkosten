@@ -16,6 +16,10 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/load_data', (req, res) => {
+  return load_data_for_model( Unit, res, req );
+});
+
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Unit.find( {'_id': id }, (err, results) => {
@@ -43,8 +47,4 @@ app.get( '/:id/del', (req, res) => {
 app.get( '/:id/select', (req, res) => {
   var id = req.params.id;
   res.send( jtformgen_unit_selected( id ) );
-});
-
-app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Unit, res, req );
 });

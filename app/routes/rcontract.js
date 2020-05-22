@@ -20,6 +20,14 @@ app.get( '/', (req, res) => {
   });
 });
 
+app.get( '/load_data', (req, res) => {
+  return load_data_for_model( Contract, res, req );
+});
+
+app.get( '/save_data', (req, res) => {
+  return save_data_for_model( Contract, res, req );
+});
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Contract.find( { 'unit_id': uid }, (err, results) => {
@@ -170,10 +178,3 @@ app.get( '/:id/del_confirmed', (req, res) => {
   });
 });
 
-app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Contract, res, req );
-});
-
-app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Contract, res, req );
-});
