@@ -1,5 +1,5 @@
 const app = module.exports = require('express')();
-const Contract = require( '../model/constrct' );
+const Contract = require( '../model/contarct' );
 
 const {
   load_data_for_model,
