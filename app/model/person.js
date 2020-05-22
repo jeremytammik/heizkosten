@@ -100,9 +100,10 @@ Person.thing_de = Person.modelName;
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
-Person.get_edit_form_html = ( p, create_duplicate, error ) => {
+Person.get_edit_form_html = ( p, action, error ) => {
   var id = p['_id'];
-  var url_action = create_duplicate ? 'dupl' : 'edit';
+  //var url_action = create_duplicate ? 'dupl' : 'edit';
+  var url_action = 'view' === action ? '' : action;
   url_action = `/${Person.route}/${id}/${url_action}_submit`;
   
   var verb = create_duplicate

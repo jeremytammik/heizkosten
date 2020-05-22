@@ -47,7 +47,7 @@ app.get( '/:id/edit', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, false );
+      var form = Cost.get_edit_form_html( doc, 'edit' );
       res.send( form );
     }
   });
@@ -59,7 +59,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   var cost = new Cost( req.body );
   error = cost.validateSync();
   if( error ) {
-    var form = Cost.get_edit_form_html( c, false, error );
+    var form = Cost.get_edit_form_html( c, 'edit', error );
     return res.send( form );      
   }
   var id = req.params.id;
@@ -79,7 +79,7 @@ app.get( '/:id/dupl', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, true );
+      var form = Cost.get_edit_form_html( doc, 'dupl' );
       res.send( form );
     }
   });
@@ -98,13 +98,13 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id; '
         + `costs already defined for year ${p.year} for unit ${p.unit_id}` }}};
-      var form = Cost.get_edit_form_html( req.body, true, error );
+      var form = Cost.get_edit_form_html( req.body, 'dupl', error );
       return res.send( form );
     }
     var p2 = new Cost( p );
     error = p2.validateSync();
     if( error ) {
-      var form = Cost.get_edit_form_html( doc, true, error );
+      var form = Cost.get_edit_form_html( doc, 'dupl', error );
       return res.send( form );      
     }
     var p3 = req.body;

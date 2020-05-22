@@ -86,9 +86,10 @@ Cost.route = Cost.modelName.toLowerCase();
 Cost.thing_en = 'yearly cost';
 Cost.thing_de = 'Kosten';
 
-Cost.get_edit_form_html = ( a, create_duplicate, error ) => {
+Cost.get_edit_form_html = ( a, action, error ) => {
   var id = a['_id'];
-  var url_action = create_duplicate ? 'dupl' : 'edit';
+  //var url_action = create_duplicate ? 'dupl' : 'edit';
+  var url_action = 'view' === action ? '' : action;
   url_action = `/${Cost.route}/${id}/${url_action}_submit`;
 
   var verb = create_duplicate

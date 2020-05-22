@@ -46,7 +46,7 @@ app.get( '/:id/edit', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = Person.get_edit_form_html( doc, false );
+      var form = Person.get_edit_form_html( doc, 'edit' );
       res.send( form );
     }
   });
@@ -57,7 +57,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   var person = new Person( p );
   error = person.validateSync();
   if( error ) {
-    var form = Person.get_edit_form_html( doc, false, error );
+    var form = Person.get_edit_form_html( doc, 'edit', error );
     return res.send( form );      
   }
   var id = req.params.id;
@@ -77,7 +77,7 @@ app.get( '/:id/dupl', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var doc = results[0]._doc;
-      var form = Person.get_edit_form_html( doc, true );
+      var form = Person.get_edit_form_html( doc, 'dupl' );
       res.send( form );
     }
   });
@@ -94,13 +94,13 @@ app.post( '/:id/dupl_submit', (req, res) => {
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id' }}};
-      var form = Person.get_edit_form_html( req.body, true, error );
+      var form = Person.get_edit_form_html( req.body, 'dupl', error );
       return res.send( form );
     }
     var person = new Person( p );
     error = person.validateSync();
     if( error ) {
-      var form = Person.get_edit_form_html( doc, true, error );
+      var form = Person.get_edit_form_html( doc, 'dupl', error );
       return res.send( form );      
     }
     Person.create( req.body, (err2,res2) => {

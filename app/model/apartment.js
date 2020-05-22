@@ -118,9 +118,10 @@ function unwrap_map_into_d( d, mapname, keyname, valname)
   delete d[mapname];
 }
 
-Apartment.get_edit_form_html = ( d, create_duplicate, error ) => {
+Apartment.get_edit_form_html = ( d, action, error ) => {
   var id = d['_id'];
-  var url_action = create_duplicate ? 'dupl' : 'edit';
+  //var url_action = create_duplicate ? 'dupl' : 'edit';
+  var url_action = 'view' === action ? '' : action;
   url_action = `/${Apartment.route}/${id}/${url_action}_submit`;
   
   var verb = create_duplicate
