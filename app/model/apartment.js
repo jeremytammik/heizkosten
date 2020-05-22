@@ -37,7 +37,23 @@ id_wohnung
   whg 01 & 02: 76 qm
   whg 03: 87 qm
   whg 04: 107 qm
-  whg 05 & 06: 89 qm  
+  whg 05 & 06: 89 qm
+  
+  the rooms are coded as:
+  
+  KU kueche
+  BA bad
+  FL flur
+  SK schlaf klein
+  SM schlaf mittel
+  SG schlaf gross
+
+  the heat cost allocation and water meters are coded as:
+  
+  RA rauch
+  HE heizung
+  KW kaltwasser
+  WW warmwasser
 */
 
 var apartmentSchema = new Schema({
