@@ -131,4 +131,26 @@ Unit.route = Unit.modelName.toLowerCase();
 Unit.thing_en = Unit.modelName.toLowerCase();
 Unit.thing_de = 'Gebaeude';
 
+const { jtformgen_edit_document } = require('../form/jtformgen.js');
+
+Unit.get_edit_form_html = ( d, action, error ) => {
+  var id = d['_id'];
+  var url_action = 'view' === action ? '' : action + '_submit';
+  url_action = `/${Unit.route}/${id}/${url_action}`;
+  
+  var verb = (action === 'dupl')
+    ? `duplizieren, also neue ${Unit.thing_de} anlegen mit aehnlichen Daten`
+    : (action === 'edit' ? 'edititieren' : 'anschauen');
+    
+  verb = Unit.thing_de + ' ' + verb;
+
+  delete d['__v'];
+  
+  if( !(action === 'dupl') ) {
+    delete d['_id'];
+  }
+  
+  return jtformgen_edit_document( d, url_action, verb, true, error );
+}
+
 module.exports = Unit;
