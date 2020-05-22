@@ -144,28 +144,3 @@ app.get( '/load_data', (req, res) => {
 app.get( '/save_data', (req, res) => {
   return save_data_for_model( Person, res, req );
 });
-
-app.get( '/create_sendfile', (req, res) => {
-  const path = require('path');
-  const pub = path.join( __dirname, '../../public' );
-  console.log( '__dir', __dirname, 'pub', pub );
-  return res.sendFile( path.join( pub, 'person.html'));
-});
-
-app.post( '/create_new_submit', (req, res) => {
-    var p = req.body;
-    var person = new Person( p );
-    error = person.validateSync();
-    if( error ) {
-      var form = Person.get_edit_form_html(
-        doc, Person.thing_de, false, error );
-      return res.send( form );      
-    }
-    Person
-      .create( p )
-      .then( person =>
-        Person.countDocuments( {}, (err, count) => {
-          if (err) { return console.error(err); }
-          return res.send( success_with_document_count( count.toString(), Person.thing_en ) );
-        }));
-});
