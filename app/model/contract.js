@@ -18,6 +18,7 @@ const enum_contract_accounts = [
 
 var contractSchema = new Schema({
   _id: String, // suppress automatic generation
+  unit_id: String, // unit, not really needed
   apartment_id: String,
   occupant_ids: [String],
   //address_alt: String, // alternative address, e.g., after giving notice
@@ -38,8 +39,6 @@ var contractSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
-
-
 contractSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
 };
@@ -49,3 +48,5 @@ var Contract = mongoose.model( 'contract', contractSchema );
 Contract.route = 'contract';
 Contract.thing_en = Contract.modelName.toLowerCase();
 Contract.thing_de = 'Vertrag';
+
+module.exports = Contract;

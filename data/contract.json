@@ -1,6 +1,7 @@
 {
   "001-09-02-2018": {
     "_id": "001-09-02-2018",
+    "unit_id": "001",
     "apartment_id": "001-09-02",
     "occupant_ids": ["erich_klimaczewski"],
     "begin": "2002-07-01",
@@ -28,6 +29,7 @@
   },
   "001-09-02-01": {
     "_id": "001-09-02-01",
+    "unit_id": "001",
     "apartment_id": "001-09-02",
     "occupant_ids": ["sabine_diesslin"],
     "begin": "2019-04-01",
@@ -46,6 +48,7 @@
   },
   "001-05-03-01": {
     "_id": "001-05-03-01",
+    "unit_id": "001",
     "apartment_id": "001-05-03",
     "occupant_ids": ["esref_esbah"],
     "begin": "2013-05-01",
@@ -76,6 +79,7 @@
   },
   "001-14-05-2018": {
     "_id": "001-14-05-2018",
+    "unit_id": "001",
     "apartment_id": "001-14-05",
     "occupant_ids": ["fabio_krueger"],
     "begin": "2014-12-01",
@@ -106,6 +110,7 @@
   },
   "001-12-06-2017": {
     "_id": "001-12-06-2017",
+    "unit_id": "001",
     "apartment_id": "001-12-06",
     "occupant_ids": ["mandy_schmidt"],
     "address_alt": "mandy_schmidt_2",
@@ -137,6 +142,7 @@
   },
   "001-12-06-2018": {
     "_id": "001-12-06-2018",
+    "unit_id": "001",
     "apartment_id": "001-12-06",
     "occupant_ids": ["herbert_braeuning"],
     "begin": "2018-02-01",
@@ -167,6 +173,7 @@
   },
   "001-01-04-2018": {
     "_id": "001-01-04-2018",
+    "unit_id": "001",
     "apartment_id": "001-01-04",
     "occupant_ids": ["alexander_kem"],
     "begin": "2015-12-16",
