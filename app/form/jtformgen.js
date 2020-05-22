@@ -79,7 +79,7 @@ function jtformgen_unit_selected( uid )
 
 function create_editor_for_obj( k, o )
 {
-  a = [`<tr><td><label for="${k}">${k}:</label></td>`];
+  a = [`<tr><td class="right"><label for="${k}">${k}:</label></td>`];
   var i = 0;
   for( var key in o ) {
     if( o.hasOwnProperty( key ) ) {
@@ -129,7 +129,7 @@ Object.keys(p).forEach( (key,index) => {
   var editor = ('Object' === v.constructor.name) // MongooseMap
     ? create_editor_for_obj( k, v )
     : `\ 
-<td><label for="${k}">${k}:</label></td>\
+<td class="right"><label for="${k}">${k}:</label></td>\
 <td><input ${input_attributes} placeholder="${k}" id="${k}" name="${k}" value="${v}"></td>\
 `;
 
