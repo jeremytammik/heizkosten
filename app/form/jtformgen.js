@@ -26,7 +26,7 @@ function success_with_document_count( n, thing_en )
   var s = (1==n) ? '' : 's';
   return wrap_html( '<p>Hat geklappt, vielen Dank. '
     + `Database now contains ${n} ${thing_en}${s}.</p>`
-    + '<p><a href="/hauskosten.html">Weiter Hauskosten erfassen...</a></p>' );
+    + '<p><a href="/index.html">Weiter Hauskosten erfassen...</a></p>' );
 }
 
 function jtformgen_confirm_delete( model, description, id )
@@ -37,7 +37,7 @@ function jtformgen_confirm_delete( model, description, id )
     + `<p>Sollen die Daten der folgenden ${thing_de} wirklich geloescht werden?</p>`
     + `<ul><li>${description}</li></ul>`
     + `<button><a href="/${route}/${id}/del_confirmed">Ja</a></button> &ndash; `
-    + '<button><a href="/hauskosten.html">Nein</a></button>' );
+    + '<button><a href="/index.html">Nein</a></button>' );
 }
 
 function jtformgen_list_documents( model, where, docs, enable_select )
@@ -58,7 +58,7 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   var s = (1==n) ? '' : 's';
   var s1 = `<p>${n} ${thing}${s}${where}:</p><ul class="actions">`;
   var s2 =  a.join('\n');
-  var s3 = '</ul><p><a href="/hauskosten.html">return to hauskosten</a></p>';
+  var s3 = '</ul><p><a href="/index.html">return to hauskosten</a></p>';
 
   return wrap_html( s1 + s2 + s3 );
 }
