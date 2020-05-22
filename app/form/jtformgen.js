@@ -99,6 +99,8 @@ function create_editor_for_obj( k, o )
 
 function jtformgen_edit_document( p, url_action, verb, for_string, error )
 {
+  var is_view = !(url_action.includes('_submit'));
+  
   var errlist = [];
   if( error ) {
     var n = Object.keys( error.errors ).length;
@@ -111,7 +113,9 @@ function jtformgen_edit_document( p, url_action, verb, for_string, error )
   }
   var serr = errlist.join('\n');
 
-  var method = url_action.includes('_submit') ? 'POST' : 'GET';
+  var method = is_view ? 'GET' : 'POST';
+  var url_action = is_view ? '/' : url_action;
+  var send = is_view ? 'Home' : 'Speichern';
   
   var s1 = `
   <p>${verb}:</p>${serr}\
@@ -141,14 +145,14 @@ Object.keys(p).forEach( (key,index) => {
 
 var s2 = a.join('\n');
 
-var s3 = '\
+var s3 = `\
         <tr>\
           <td colspan="2" style="text-align: center">\
-            <button type="submit">Speichern</button>\
+            <button type="submit">${send}</button>\
           </td>\
         </tr>\
       </table>\
-    </form>';
+    </form>`;
 
 return wrap_html( s1 + s2 + s3 );
 }
