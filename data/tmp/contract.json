@@ -6,6 +6,7 @@
     "_id": "001-09-02-2018",
     "unit_id": "001",
     "apartment_id": "001-09-02",
+    "alt_contact_id": "",
     "begin": "2002-07-01T00:00:00.000Z",
     "end": "2019-03-31T00:00:00.000Z",
     "rent_apartment_eur": {
@@ -63,6 +64,7 @@
     "_id": "001-09-02-01",
     "unit_id": "001",
     "apartment_id": "001-09-02",
+    "alt_contact_id": "",
     "begin": "2019-04-01T00:00:00.000Z",
     "end": null,
     "rent_apartment_eur": {
@@ -96,6 +98,7 @@
     "_id": "001-05-03-01",
     "unit_id": "001",
     "apartment_id": "001-05-03",
+    "alt_contact_id": "",
     "begin": "2013-05-01T00:00:00.000Z",
     "end": null,
     "rent_apartment_eur": {
@@ -156,73 +159,6 @@
     },
     "smokedetector_maintenance_cost_eur": 5
   },
-  "001-12-06-2017": {
-    "occupant_ids": [
-      "mandy_schmidt"
-    ],
-    "_id": "001-12-06-2017",
-    "unit_id": "001",
-    "apartment_id": "001-12-06",
-    "begin": "2013-09-01T00:00:00.000Z",
-    "end": "2018-01-31T00:00:00.000Z",
-    "rent_apartment_eur": {
-      "2017-01-01": 637.3
-    },
-    "rent_other_eur": {
-      "2017-01-01": 0
-    },
-    "nebenkosten_eur": {
-      "2017-01-01": 212.7
-    },
-    "deposit_eur": 1300,
-    "payments_rent_apartment": {
-      "2018": 637.3
-    },
-    "payments_rent_other": {
-      "2018": 0
-    },
-    "payments_nk": {
-      "2018": 212.7
-    },
-    "heatcostallocatorreadings": {
-      "HE-WO-44322311": {
-        "2018-01-31": 209
-      },
-      "HE-BA-551540802": {
-        "2018-01-31": 0
-      },
-      "HE-SM-44318239": {
-        "2018-01-31": 214
-      },
-      "HE-SK-44318222": {
-        "2018-01-31": 177
-      },
-      "HE-KU-44318215": {
-        "2018-01-31": 5
-      }
-    },
-    "coldwatermeters": {
-      "KW-BA-4168990": {
-        "2017-12-31": 86.81,
-        "2018-01-31": 88.6
-      },
-      "KW-KU-604465465": {
-        "2017-12-31": 27.64,
-        "2018-01-31": 28.43
-      }
-    },
-    "hotwatermeters": {
-      "WW-BA-4133078": {
-        "2017-12-31": 54.53,
-        "2018-01-31": 55.49
-      },
-      "WW-KU-424236221": {
-        "2017-12-31": 3.92,
-        "2018-01-31": 4.02
-      }
-    },
-    "smokedetector_maintenance_cost_eur": 5
-  },
   "001-14-05-2018": {
     "occupant_ids": [
       "fabio_krueger"
@@ -230,6 +166,7 @@
     "_id": "001-14-05-2018",
     "unit_id": "001",
     "apartment_id": "001-14-05",
+    "alt_contact_id": "",
     "begin": "2014-12-01T00:00:00.000Z",
     "end": "2020-04-30T00:00:00.000Z",
     "rent_apartment_eur": {
@@ -290,6 +227,74 @@
     },
     "smokedetector_maintenance_cost_eur": 5
   },
+  "001-12-06-2017": {
+    "occupant_ids": [
+      "mandy_schmidt"
+    ],
+    "_id": "001-12-06-2017",
+    "unit_id": "001",
+    "apartment_id": "001-12-06",
+    "alt_contact_id": "mandy_schmidt_2",
+    "begin": "2013-09-01T00:00:00.000Z",
+    "end": "2018-01-31T00:00:00.000Z",
+    "rent_apartment_eur": {
+      "2017-01-01": 637.3
+    },
+    "rent_other_eur": {
+      "2017-01-01": 0
+    },
+    "nebenkosten_eur": {
+      "2017-01-01": 212.7
+    },
+    "deposit_eur": 1300,
+    "payments_rent_apartment": {
+      "2018": 637.3
+    },
+    "payments_rent_other": {
+      "2018": 0
+    },
+    "payments_nk": {
+      "2018": 212.7
+    },
+    "heatcostallocatorreadings": {
+      "HE-WO-44322311": {
+        "2018-01-31": 209
+      },
+      "HE-BA-551540802": {
+        "2018-01-31": 0
+      },
+      "HE-SM-44318239": {
+        "2018-01-31": 214
+      },
+      "HE-SK-44318222": {
+        "2018-01-31": 177
+      },
+      "HE-KU-44318215": {
+        "2018-01-31": 5
+      }
+    },
+    "coldwatermeters": {
+      "KW-BA-4168990": {
+        "2017-12-31": 86.81,
+        "2018-01-31": 88.6
+      },
+      "KW-KU-604465465": {
+        "2017-12-31": 27.64,
+        "2018-01-31": 28.43
+      }
+    },
+    "hotwatermeters": {
+      "WW-BA-4133078": {
+        "2017-12-31": 54.53,
+        "2018-01-31": 55.49
+      },
+      "WW-KU-424236221": {
+        "2017-12-31": 3.92,
+        "2018-01-31": 4.02
+      }
+    },
+    "smokedetector_maintenance_cost_eur": 5
+  },
   "001-12-06-2018": {
     "occupant_ids": [
       "herbert_braeuning"
@@ -297,6 +302,7 @@
     "_id": "001-12-06-2018",
     "unit_id": "001",
     "apartment_id": "001-12-06",
+    "alt_contact_id": "",
     "begin": "2018-02-01T00:00:00.000Z",
     "end": "2019-12-31T00:00:00.000Z",
     "rent_apartment_eur": {
@@ -360,6 +366,7 @@
     "_id": "001-01-04-2018",
     "unit_id": "001",
     "apartment_id": "001-01-04",
+    "alt_contact_id": "",
     "begin": "2015-12-16T00:00:00.000Z",
     "end": "2020-03-31T00:00:00.000Z",
     "rent_apartment_eur": {
