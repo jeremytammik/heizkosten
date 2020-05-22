@@ -10,7 +10,7 @@
     "nebenkosten_eur": { "2018-01-01": 173 },
     "deposit_eur": 1050,
     "payments": {
-      "2018-01-03": "apartment_rental",
+      "2018-01-03": "apartment_rental + other_rental + nebenkosten",
       "2018-02-03": "apartment_rental",
       "2018-03-03": "apartment_rental",
       "2018-04-03": "apartment_rental",
