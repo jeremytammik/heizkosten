@@ -4,7 +4,7 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-const input_attributes_string = 'type="string" maxlength="40" size="30"';
+const input_attributes_string = 'type="string" maxlength="40" size="33"';
 const input_attributes_number = 'type="number" min="0" max="999999.99" maxlength="9" size="12" step="any"';
 const input_attributes_meter = 'type="string" maxlength="20" size="15"';
 
@@ -36,8 +36,8 @@ function jtformgen_confirm_delete( model, description, id )
   return wrap_html( '<body>'
     + `<p>Sollen die Daten der folgenden ${thing_de} wirklich geloescht werden?</p>`
     + `<ul><li>${description}</li></ul>`
-    + `<button><a href="/${route}/${id}/del_confirmed">Ja</a></button> &ndash; `
-    + '<button><a href="/index.html">Nein</a></button>' );
+    + `<button><a href="/${route}/${id}/del_confirmed">Ja</a></button> &nbsp; `
+    + '<button><a href="/index.html">Nein</a></button></body>' );
 }
 
 function jtformgen_list_documents( model, where, docs, enable_select )
@@ -86,7 +86,7 @@ function create_editor_for_obj( k, o )
       var trtd = (0 < i) ? '<tr><td></td>' : ''; // skip initial tr td tags on first
       a.push( `${trtd}\
 <td><input ${input_attributes_meter} id="${k}_${i}_key" name="${k}_${i}_key" value="${key}">\
-<input ${input_attributes_meter} id="${k}_${i}_val" name="${k}_${i}_val" value="${o[key]}"></td>\
+&nbsp;<input ${input_attributes_meter} id="${k}_${i}_val" name="${k}_${i}_val" value="${o[key]}"></td>\
 </tr>` );
       ++i;
     }
@@ -117,8 +117,8 @@ function jtformgen_edit_document( p, url_action, verb, for_string, error )
 `;
 
 var input_attributes = for_string
-  ? 'type="string" maxlength="40" size="30"'
-  : 'type="number" min="0" max="999999.99" maxlength="9" size="12" step="any"';
+  ? input_attributes_string
+  : input_attributes_number;
 
 var a = [];
 Object.keys(p).forEach( (key,index) => {

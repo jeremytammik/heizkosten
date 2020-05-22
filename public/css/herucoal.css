@@ -1,4 +1,4 @@
-body, td, label { font-family: sans-serif; font-size: small }
+body, td, label, input { font-family: sans-serif; font-size: small }
 td { text-align: right }
 td.center { text-align: center }
 ul.actions { list-style-type: none; margin: 0; padding: 0 }
