@@ -90,7 +90,7 @@ Cost.get_edit_form_html = ( a, action, error ) => {
   var id = a['_id'];
   //var url_action = create_duplicate ? 'dupl' : 'edit';
   var url_action = 'view' === action ? '' : action + '_submit';
-  url_action = `/${Apartment.route}/${id}/${url_action}`;
+  url_action = `/${Cost.route}/${id}/${url_action}`;
 
   var verb = (action === 'dupl')
     ? `duplizieren, also neue ${Cost.thing_de} anlegen mit aehnlichen Daten`
