@@ -12,7 +12,7 @@ const shead = '\
 <head>\
 	<meta charset="utf-8" />\
 	<title>Herucoal</title>\
-  <link rel="stylesheet" type="text/css" href="css/herucoal.css">\
+  <link rel="stylesheet" type="text/css" href="/css/herucoal.css">\
 </head>\
 ';
 
