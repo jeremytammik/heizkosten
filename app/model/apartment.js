@@ -88,6 +88,20 @@ var Apartment = mongoose.model( 'apartment', apartmentSchema );
 Apartment.route = 'apt';
 Apartment.thing_en = Apartment.modelName.toLowerCase();
 Apartment.thing_de = Apartment.modelName;
+Apartment.meter_types = {
+  "RA": "rauch",
+  "HE": "heizung",
+  "KW": "kaltwasser",
+  "WW": "warmwasser",
+};
+Apartment.room_codes = {
+  "KU": "kueche",
+  "BA": "bad",
+  "FL": "flur",
+  "SK": "schlaf_klein",
+  "SM": "schlaf_mittel",
+  "SG": "schlaf_gross",
+};
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 

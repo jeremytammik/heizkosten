@@ -110,6 +110,36 @@ test('apartment has valid owner', () => {
   }  
 });
 
+const apartment_meter_types = {
+  "RA": "rauch",
+  "HE": "heizung",
+  "KW": "kaltwasser",
+  "WW": "warmwasser",
+};
+
+const apartment_room_codes = {
+  "KU": "kueche",
+  "BA": "bad",
+  "FL": "flur",
+  "SK": "schlaf_klein",
+  "SM": "schlaf_mittel",
+  "SG": "schlaf_gross",
+};
+
+test('all apartment meter ids have valid meter type and room prefixes', () => {
+  var meter_types = Object.keys( apartment_meter_types );
+  var room_codes = Object.keys( apartment_room_codes );
+  for (const [key, value] of Object.entries(loaddata.apartments)) {
+    for (const [key2, value2] of Object.entries(value.smokedetectors)) {
+      //console.log( key2 );
+      expect(meter_types).toContain( key2.slice(0,2) );
+      expect(key2[2]).toBe( '-' );
+      expect(room_codes).toContain( key2.slice(3,5) );
+      expect(key2[5]).toBe( '-' );
+    }
+  }
+});
+
 test('apartment has valid active contract', () => {
   var map_apt_to_contract = {};
   for (const [key, value] of Object.entries(loaddata.contracts)) {
