@@ -171,16 +171,16 @@ function strip_meter_numbers( doc, propname )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[key.substr(-3)] = value;
+    a[key.slice(0,6)] = value;
   }
   doc[propname] = a;
 }
 
-function prefix_meter_numbers( doc, propname, s )
+function suffix_meter_numbers( doc, propname, s )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[s + key] = value;
+    a[key + s] = value;
   }
   doc[propname] = a;
 }
@@ -221,7 +221,7 @@ app.get( '/generate_missing', (req, res) => {
           docs.push( JSON.parse( JSON.stringify( doc ) ) );
           var j = docs.length - 1;
           docs[j]._id = id2;
-          prefix_meter_numbers( docs[j], 'smokedetectors', id2 );
+          suffix_meter_numbers( docs[j], 'smokedetectors', id2 );
           //console.log( docs[docs.length-1] );
         }
         //console.log('-->\n', docs);
