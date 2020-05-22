@@ -88,7 +88,7 @@ var server = app.listen(
         console.log(
           `Heizkosten server version ${v}`
           + ` listening at port ${p} with ${lr}`
-          + ` mongodb:\nhttp://${addr}:${p}/hauskosten.html` );
+          + ` mongodb:\nhttp://${addr}:${p}/index.html` );
       }
     )
   }
