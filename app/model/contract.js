@@ -34,8 +34,7 @@ var contractSchema = new Schema({
   heatcostallocatorreadings: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   coldwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   hotwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
-  smokedetector_maintenance_cost_eur: Number, // constant defined by owner per detector replaced
-
+  smokedetector_maintenance_cost_eur: Number },// constant defined by owner per detector replaced
   { _id: false } // suppress automatic generation
 );
 

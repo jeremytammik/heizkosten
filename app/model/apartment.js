@@ -75,7 +75,6 @@ var apartmentSchema = new Schema({
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
   nebenkosten_anteil_schluessel: Number },
-  
   { _id: false } // suppress automatic generation
 );
 
