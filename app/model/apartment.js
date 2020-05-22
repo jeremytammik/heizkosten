@@ -124,14 +124,15 @@ Apartment.get_edit_form_html = ( d, action, error ) => {
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Apartment.route}/${id}/${url_action}`;
   
-  var verb = create_duplicate
+  var verb = (action === 'dupl')
     ? `duplizieren, also neue ${Apartment.thing_de} anlegen mit aehnlichen Daten`
-    : 'edititieren';
+    : (action === 'edit' ? 'edititieren' : 'anschauen');
+    
   verb = Apartment.thing_de + ' ' + verb;
 
   delete d['__v'];
   
-  if( !create_duplicate ) {
+  if( !(action === 'dupl') ) {
     delete d['_id'];
     delete d['unit_id'];
   }

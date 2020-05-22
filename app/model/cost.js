@@ -92,15 +92,18 @@ Cost.get_edit_form_html = ( a, action, error ) => {
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Apartment.route}/${id}/${url_action}`;
 
-  var verb = create_duplicate
+  var verb = (action === 'dupl')
     ? `duplizieren, also neue ${Cost.thing_de} anlegen mit aehnlichen Daten`
-    : `in ${a.year} fuer ${a.unit_id} edititieren`;
+    : (action === 'edit'
+       ? `in ${a.year} fuer ${a.unit_id} edititieren`
+       : 'anschauen');
+
   verb = Cost.thing_de + ' ' + verb;
 
   delete a['__v'];
   delete a['_id'];
   
-  if( !create_duplicate ) {
+  if( !(action === 'dupl') ) {
     delete a['unit_id'];
     delete a['year'];
   }

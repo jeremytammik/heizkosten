@@ -106,14 +106,15 @@ Person.get_edit_form_html = ( p, action, error ) => {
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Apartment.route}/${id}/${url_action}`;
   
-  var verb = create_duplicate
+  var verb = (action === 'dupl')
     ? `duplizieren, also neue ${Person.thing_de} anlegen mit aehnlichen Daten`
-    : 'edititieren';
+    : (action === 'edit' ? 'edititieren' : 'anschauen');
+    
   verb = Person.thing_de + ' ' + verb;
 
   delete p['__v'];
   
-  if( !create_duplicate ) {
+  if( !(action === 'dupl') ) {
     delete p['_id'];
     delete p['units'];
   }
