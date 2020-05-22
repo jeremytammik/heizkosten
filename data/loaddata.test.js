@@ -181,4 +181,26 @@ test('all payments in each contract match expected account enum values', () => {
     value.payments.forEach( (p) => expect(enum_contract_accounts).toContain(p.account));
   }
 });
+
+function get_rent_dict_val(d)
+{
+  for (const [key, value] of Object.entries(d)) {
+    return value;
+  }
+}
+  
+test('calculate payment total in 2018 for each contract and account', () => {
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    var rentpm = get_rent_dict_val(value.rent_apartment_eur);
+    var renta = get_rent_dict_val(value.rent_apartment_eur) * value.payment_rent_apartment_count;
+    var rento = get_rent_dict_val(value.rent_other_eur) * value.payment_rent_other_count;
+    var nk = get_rent_dict_val(value.nebenkosten_eur) * value.payment_nk_count;
+    console.log( `\
+    ${rentpm}\n\
+    "payments_rent_apartment": { 2018: ${renta} },\n\
+    "payments_rent_other": { 2018: ${rento} },\n\
+    "payments_nk": { 2018: ${nk} },\n\
+` );
+  }
+});
 */

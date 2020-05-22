@@ -77,7 +77,7 @@ function Nkabrechnung(
   energy_cost_eur )
 {
   var contract = loaddata.contracts[contract_id];
-  var apartment = loaddata.apartments[contract.apartment];
+  var apartment = loaddata.apartments[contract.apartment_id];
   var unit = loaddata.units[apartment.unit_id];
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
   
@@ -109,7 +109,7 @@ function Nkabrechnung(
   
   var contract_duration = days_in_year / days;
   
-  this.nkvorauszahlung = get_contract_payments_total( contract, 'nebenkosten', year );
+  this.nkvorauszahlung = contract.payments_nk[year.toString()];
   this.rueckbehalt = 0; // this information is entered manually
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
