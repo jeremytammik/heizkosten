@@ -92,7 +92,7 @@ function create_editor_for_obj( k, o )
     }
   }
   // add count of entries:
-  a[0] = `<tr><td><label for="${k}">${i} ${k}:</label></td>`;
+  a[0] = `<tr><td class="right"><label for="${k}">${i} ${k}:</label></td>`;
   return a.join('\n');
 }
 
