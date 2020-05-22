@@ -167,30 +167,73 @@ app.get( '/save_data', (req, res) => {
   return save_data_for_model( Apartment, res, req );
 });
 
+function strip_meter_numbers( doc, propname )
+{
+  var a = {};
+  for (const [key, value] of Object.entries(doc[propname])) {
+    a[key.substr(-3)] = value;
+  }
+  doc[propname] = a;
+}
+
+function prefix_meter_numbers( doc, propname, s )
+{
+  var a = {};
+  for (const [key, value] of Object.entries(doc[propname])) {
+    a[s + key] = value;
+  }
+  doc[propname] = a;
+}
+
 app.get( '/generate_missing', (req, res) => {
-  
+
+  // 001-09-01 – 2 rooms with 66.8 m2
   // 001-09-02 – 2 rooms with 66.8 m2
   // 001-05-03 – 3 rooms with 86.49 m2
   // 001-01-04 – 4 rooms with 107.32 m2
-  // 001-14-05 – 3 rooms with 88.95 m2
+  // 001-14-05 – 3 rooms with 88.95 m2  
   // 001-12-06 – 3 rooms with 88.95 m2
   
-  var model_ids = [ "001-01-04", "001-05-03", "001-09-02", "001-12-06" ];
-
+  var model_ids = [ "001-09-01", "001-09-02", "001-05-03", "001-01-04", "001-14-05", "001-12-06" ];
+  
   var nlevels = 16;
   
   model_ids.forEach( (id) => {
     Apartment.find( {'_id': id }, (err, results) => {
       if (err) { return console.log(err); }
       else {
-        [sunit,slevel,sapttyp] = id.split(',');
+        var doc = JSON.parse( JSON.stringify( results[0]._doc ) );
+        doc.owner_id = '';
+        doc.grundbuchnr = '';
+        strip_meter_numbers( doc, 'smokedetectors' );
+        strip_meter_numbers( doc, 'coldwatermeters' );
+        strip_meter_numbers( doc, 'hotwatermeters' );
+        strip_meter_numbers( doc, 'heatcostallocators' );
+        delete doc['__v'];
+        console.log(doc);
+        [sunit,slevel,sapttyp] = id.split('-');
+        docs = [];
         for (var i = 0; i < nlevels; ++i) {
           var s = i.toString();
           if( 10 > i ) { s = '0' + s; }
           if( s === slevel ) { continue; }
-          console.log(s);
-         }
-        var apt = new Apartment
+          var id2 = `${sunit}-${s}-${sapttyp}`;
+          docs.push( JSON.parse( JSON.stringify( doc ) ) );
+          var j = docs.length - 1;
+          docs[j]._id = id2;
+          prefix_meter_numbers( docs[j], 'smokedetectors', id2 );
+          //console.log( docs[docs.length-1] );
+        }
+        //console.log('-->\n', docs);
+        Apartment.create( docs, (err,res2) => {
+          if (err) { return console.error(err); }
+          Apartment.countDocuments( {}, (err, count) => {
+            if (err) { return console.error(err); }
+            console.log( count, 'apartments.' );
+            //return res.send( success_with_document_count(
+            //  count.toString(), Apartment.thing_en ) );
+          });
+        });
       }
     });
   });
