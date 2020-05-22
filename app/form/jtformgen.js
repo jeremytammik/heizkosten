@@ -111,7 +111,7 @@ function jtformgen_edit_document( p, url_action, verb, for_string, error )
   }
   var serr = errlist.join('\n');
 
-  var method = url_action.contains('submit') ? 'POST' : 'GET';
+  var method = url_action.includes('_submit') ? 'POST' : 'GET';
   
   var s1 = `
   <p>${verb}:</p>${serr}\
