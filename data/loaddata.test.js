@@ -118,7 +118,7 @@ test('apartment has valid active contract', () => {
     if(value.begin.getTime() <= test_date_time
        && ((null == value.end)
            || (test_date_time <= value.end.getTime()))) {
-      var apt = value.apartment;
+      var apt = value.apartment_id;
       if(!(apt in map_apt_to_contract)) {
         map_apt_to_contract[apt] = [];
       }
@@ -143,8 +143,8 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   var apartment_ids = Object.keys(loaddata.apartments);
   var person_ids = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    expect(apartment_ids).toContain( value.apartment );
-    value.occupants.forEach( (p) => { expect(person_ids).toContain( p ); } );
+    expect(apartment_ids).toContain( value.apartment_id );
+    value.occupant_ids.forEach( (p) => { expect(person_ids).toContain( p ); } );
     expect(value.begin).toBeInstanceOf(Date);
     var end_is_null_or_later_than_begin = (null === value.end)
       ? true
@@ -155,7 +155,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
 
 test('all contract meter numbers match its apartment ones', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    var apt = loaddata.apartments[value.apartment];
+    var apt = loaddata.apartments[value.apartment_id];
     var a = Object.keys(apt.coldwatermeters);
     var b = Object.keys(value.coldwatermeters);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
@@ -168,7 +168,8 @@ test('all contract meter numbers match its apartment ones', () => {
   }
 });
 
-test('all payment in each contract match expected account enum values', () => {
+/*
+test('all payments in each contract match expected account enum values', () => {
   const enum_contract_accounts = [
     'apartment_rental',
     'other_rental',
@@ -180,3 +181,4 @@ test('all payment in each contract match expected account enum values', () => {
     value.payments.forEach( (p) => expect(enum_contract_accounts).toContain(p.account));
   }
 });
+*/
