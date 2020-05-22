@@ -12,13 +12,7 @@ const shead = '\
 <head>\
 	<meta charset="utf-8" />\
 	<title>Herucoal</title>\
-  <style>\
-    body, td, label { font-family: sans-serif; font-size: small }\
-    td { text-align: right }\
-    ul.actions { list-style-type: none; margin: 0; padding: 0 } \
-    table { border: 1px solid black }\
-    img { height: 1.2em } \
-  </style>\
+  <link rel="stylesheet" type="text/css" href="css/herucoal.css">\
 </head>\
 ';
 
