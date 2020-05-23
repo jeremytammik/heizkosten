@@ -73,7 +73,7 @@ app.get( '/generate_missing', (req, res) => {
         strip_meter_numbers( doc, 'heatcostallocators' );
         delete doc['__v'];
         //console.log(doc);
-        [sunit,slevel,sapttyp] = id.split('-');
+        [sunit,slevel,sapttyp] = doc.__id.split('-');
         docs = [];
         for (var i = 0; i < nlevels; ++i) {
           var s = i.toString();
