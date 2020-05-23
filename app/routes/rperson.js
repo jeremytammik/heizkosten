@@ -50,9 +50,9 @@ app.get( '/unit/:uid/list', (req, res) => {
 });
 
 app.post( '/unit/:uid/list', (req, res) => {
-  console.log('body', req.body);
   var uid = req.params.uid;
-  Person.find( {'units': {$in : [uid]}}, (err, results) => {
+  var sfilter = req.body.filter;
+  Person.find( { 'units': {$in : [uid]}, $text: sfilter }, (err, results) => {
     if (err) { return console.log(err); }
     else {
       var url_filter = `/person/unit/${uid}/list`;
