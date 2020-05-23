@@ -16,7 +16,8 @@
     "body-parser": ">= 1.14.2",
     "express": ">= 4.13.4",
     "express-validator": "^6.4.1",
-    "mongoose": ">= 4.6.2"
+    "mongoose": ">= 4.6.2",
+    "mongoose-partial-full-search": "0.0.4"
   },
   "engines": {
     "node": "0.10.x"
