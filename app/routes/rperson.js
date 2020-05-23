@@ -38,11 +38,12 @@ app.get( '/save_data', (req, res) => {
 });
 
 app.get( '/unit/:uid/list', (req, res) => {
+  console.log('body', req.body);
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      var url_filter = `/unit/${uid}/list`;
+      var url_filter = `/person/unit/${uid}/list`;
       return res.send( jtformgen_list_documents(
         Person, ` in ${uid}`, results, false, url_filter ) );
     }
