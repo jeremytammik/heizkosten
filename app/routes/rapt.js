@@ -90,14 +90,14 @@ app.get( '/generate_missing', (req, res) => {
         Apartment.create( docs, (err,res2) => {
           if (err) { return console.error(err); }
         });
-      }
+      });
       Apartment.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         //console.log( count, 'apartments.' );
         return res.send( success_with_document_count(
           count.toString(), Apartment.thing_en ) );
       });
-    });
+    }
   });
 });
 
