@@ -58,8 +58,12 @@ app.post( '/unit/:uid/list', (req, res) => {
       if (err) { return console.log(err); }
       else {
         var url_filter = `/person/unit/${uid}/list`;
+        var matching = sfilter
+          ? ` matching "${sfilter}"`
+          : '';
         return res.send( jtformgen_list_documents(
-          Person, ` in ${uid}`, results, false, url_filter ) );
+          Person, `${matching} in ${uid}`, results,
+          false, url_filter ) );
       }
     }
   );

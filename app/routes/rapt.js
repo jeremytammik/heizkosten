@@ -72,7 +72,7 @@ app.get( '/generate_missing', (req, res) => {
         strip_meter_numbers( doc, 'hotwatermeters' );
         strip_meter_numbers( doc, 'heatcostallocators' );
         delete doc['__v'];
-        console.log(doc);
+        //console.log(doc);
         [sunit,slevel,sapttyp] = id.split('-');
         docs = [];
         for (var i = 0; i < nlevels; ++i) {
@@ -91,9 +91,9 @@ app.get( '/generate_missing', (req, res) => {
           if (err) { return console.error(err); }
           Apartment.countDocuments( {}, (err, count) => {
             if (err) { return console.error(err); }
-            console.log( count, 'apartments.' );
-            //return res.send( success_with_document_count(
-            //  count.toString(), Apartment.thing_en ) );
+            //console.log( count, 'apartments.' );
+            return res.send( success_with_document_count(
+              count.toString(), Apartment.thing_en ) );
           });
         });
       }
