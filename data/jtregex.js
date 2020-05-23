@@ -3,7 +3,7 @@
 const date_format = /^\d{4}-\d{2}-\d{2}$/;
 
 const non_empty_alpha_mumeric = /^[0-9a-zA-Z\_]+$/;
-const empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/;
+const empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \:\;\.\,\-\+\_\@]*$/;
 
 // used in model/person
 
