@@ -144,7 +144,7 @@ test('apartment has valid active contract', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     // check that contract is currently active:
     var test_date_time = new Date("2018-07-14").getTime();
-    console.log(value.begin, typeof value.begin);
+    //console.log(value.begin, typeof value.begin);
     if(value.begin.getTime() <= test_date_time
        && ((null == value.end)
            || (test_date_time <= value.end.getTime()))) {
