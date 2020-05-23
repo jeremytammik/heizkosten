@@ -5,7 +5,7 @@
 // Copyright 2020 by Jeremy Tammik.
 
 const input_attributes_string = 'type="string" maxlength="40" size="33"';
-const input_attributes_number = 'type="number" min="0" max="999999.99" maxlength="9" size="12" step="any"';
+const input_attributes_number = 'type="number" min="0" max="1200000" maxlength="9" size="12" step="any"';
 const input_attributes_meter = 'type="string" maxlength="20" size="15"';
 
 const shead = '\
