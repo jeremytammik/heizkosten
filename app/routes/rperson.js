@@ -42,8 +42,9 @@ app.get( '/unit/:uid/list', (req, res) => {
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { return console.log(err); }
     else {
+      var url_filter = `/unit/${uid}/list`;
       return res.send( jtformgen_list_documents(
-        Person, ` in ${uid}`, results, false ) );
+        Person, ` in ${uid}`, results, false, url_filter ) );
     }
   });
 });

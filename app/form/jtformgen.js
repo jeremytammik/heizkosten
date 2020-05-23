@@ -40,8 +40,15 @@ function jtformgen_confirm_delete( model, description, id )
     + '<button><a href="/index.html">Nein</a></button></body>' );
 }
 
-function jtformgen_list_documents( model, where, docs, enable_select )
+function jtformgen_list_documents( model, where, docs, enable_select, url_filter )
 {
+var ssearch = url_filter ? `\
+<form action="${url_filter}" method="POST">\
+<input type="string" maxlength="40" size="33" id="filter" name="filter" value="weidenmueller">\
+</input>\
+</form>\
+` : ''; 
+  
   var route = model.route;
   var thing = model.thing_en;
   var a = [];
@@ -61,7 +68,7 @@ function jtformgen_list_documents( model, where, docs, enable_select )
   var s2 =  a.join('\n');
   var s3 = '</ul><p><a href="/index.html">return to hauskosten</a></p>';
 
-  return wrap_html( s1 + s2 + s3 );
+  return wrap_html( ssearch + s1 + s2 + s3 );
 }
 
 function jtformgen_unit_selected( uid )
