@@ -52,14 +52,17 @@ app.get( '/unit/:uid/list', (req, res) => {
 app.post( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   var sfilter = req.body.filter;
-  Person.find( { 'units': {$in : [uid]}, $text: sfilter }, (err, results) => {
-    if (err) { return console.log(err); }
-    else {
-      var url_filter = `/person/unit/${uid}/list`;
-      return res.send( jtformgen_list_documents(
-        Person, ` in ${uid}`, results, false, url_filter ) );
+  Person.find(
+    { 'units': {$in : [uid]}, $text: { $search : sfilter } },
+    (err, results) => {
+      if (err) { return console.log(err); }
+      else {
+        var url_filter = `/person/unit/${uid}/list`;
+        return res.send( jtformgen_list_documents(
+          Person, ` in ${uid}`, results, false, url_filter ) );
+      }
     }
-  });
+  );
 });
 
 app.get( '/:id', (req, res) => {
