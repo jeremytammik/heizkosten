@@ -63,6 +63,7 @@ app.get( '/generate_missing', (req, res) => {
   Apartment.find( {'_id': {$in : model_ids } }, (err, results) => {
     if (err) { return console.log(err); }
     else {
+      docs = [];
       results.forEach( (x) => {
         var doc = JSON.parse( JSON.stringify( x._doc ) );
         doc.owner_id = '';
@@ -73,8 +74,7 @@ app.get( '/generate_missing', (req, res) => {
         strip_meter_numbers( doc, 'heatcostallocators' );
         delete doc['__v'];
         //console.log(doc);
-        [sunit,slevel,sapttyp] = doc.__id.split('-');
-        docs = [];
+        [sunit,slevel,sapttyp] = doc._id.split('-');
         for (var i = 0; i < nlevels; ++i) {
           var s = i.toString();
           if( 10 > i ) { s = '0' + s; }
@@ -86,16 +86,16 @@ app.get( '/generate_missing', (req, res) => {
           suffix_meter_numbers( docs[j], 'smokedetectors', id2 );
           //console.log( docs[docs.length-1] );
         }
-        //console.log('-->\n', docs);
-        Apartment.create( docs, (err,res2) => {
-          if (err) { return console.error(err); }
-        });
       });
-      Apartment.countDocuments( {}, (err, count) => {
+      //console.log('-->\n', docs);
+      Apartment.create( docs, (err,res2) => {
         if (err) { return console.error(err); }
-        //console.log( count, 'apartments.' );
-        return res.send( success_with_document_count(
-          count.toString(), Apartment.thing_en ) );
+        Apartment.countDocuments( {}, (err, count) => {
+          if (err) { return console.error(err); }
+          //console.log( count, 'apartments.' );
+          return res.send( success_with_document_count(
+            count.toString(), Apartment.thing_en ) );
+        });
       });
     }
   });
