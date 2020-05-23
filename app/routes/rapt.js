@@ -59,12 +59,12 @@ app.get( '/generate_missing', (req, res) => {
   var model_ids = [ "001-09-01", "001-09-02", "001-05-03", "001-01-04", "001-14-05", "001-12-06" ];
   
   var nlevels = 16;
-  
-  model_ids.forEach( (id) => {
-    Apartment.find( {'_id': id }, (err, results) => {
-      if (err) { return console.log(err); }
-      else {
-        var doc = JSON.parse( JSON.stringify( results[0]._doc ) );
+
+  Apartment.find( {'_id': {$in : model_ids } }, (err, results) => {
+    if (err) { return console.log(err); }
+    else {
+      results.forEach( (x) => {
+        var doc = JSON.parse( JSON.stringify( x._doc ) );
         doc.owner_id = '';
         doc.grundbuchnr = '';
         strip_meter_numbers( doc, 'smokedetectors' );
@@ -89,14 +89,14 @@ app.get( '/generate_missing', (req, res) => {
         //console.log('-->\n', docs);
         Apartment.create( docs, (err,res2) => {
           if (err) { return console.error(err); }
-          Apartment.countDocuments( {}, (err, count) => {
-            if (err) { return console.error(err); }
-            //console.log( count, 'apartments.' );
-            return res.send( success_with_document_count(
-              count.toString(), Apartment.thing_en ) );
-          });
         });
       }
+      Apartment.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        //console.log( count, 'apartments.' );
+        return res.send( success_with_document_count(
+          count.toString(), Apartment.thing_en ) );
+      });
     });
   });
 });
