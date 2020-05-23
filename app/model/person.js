@@ -88,7 +88,12 @@ personSchema.plugin( textSearch );
 personSchema.index({
   firstname: "text",
   lastname: "text",
-  email: "text"
+  email: "text",
+  street: "text",
+  streetnr: "text",
+  zip: "text",
+  city: "text",
+  country: "text"
 });
 
 function display_string_for_person_doc( p )
