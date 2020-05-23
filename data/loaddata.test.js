@@ -144,6 +144,7 @@ test('apartment has valid active contract', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     // check that contract is currently active:
     var test_date_time = new Date("2018-07-14").getTime();
+    console.log(value.begin, typeof value.begin);
     if(value.begin.getTime() <= test_date_time
        && ((null == value.end)
            || (test_date_time <= value.end.getTime()))) {
@@ -165,6 +166,13 @@ test('apartment has valid active contract', () => {
 test('contract id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     expect(value._id).toBe( key );
+  }
+});
+
+test('contract begin and end are dates', () => {
+  for (const [key, value] of Object.entries(loaddata.contracts)) {
+    expect( value.begin.constructor.name ).toBe( 'Date' );
+    if( value.end ) { expect( value.end.constructor.name ).toBe( 'Date' ); }
   }
 });
 
