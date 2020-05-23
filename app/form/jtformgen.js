@@ -49,8 +49,8 @@ function jtformgen_list_documents( model, where, docs, enable_select )
     var view = `<a href="/${route}/${d._id}"><img src="/img/view.png"/></a>`
     var actions = enable_select
       ? `<a href="/${route}/${d._id}/select"><img src="/img/select.png"/></a>`
-      : `<a href="/${route}/${d._id}/edit"><img src="/img/edit.png"/></a>`
-      + `<a href="/${route}/${d._id}/dupl"><img src="/img/dupl.png"/></a>`
+      : `<a href="/${route}/${d._id}/edit"><img src="/img/edit.png"/></a>&nbsp;`
+      + `<a href="/${route}/${d._id}/dupl"><img src="/img/dupl.png"/></a>&nbsp;`
       + `<a href="/${route}/${d._id}/del"><img src="/img/del.png"/></a>`;
     a.push( `<li>${view} ${actions} ${d.get_display_string()}</li>` );
   });
