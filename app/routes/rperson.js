@@ -52,8 +52,7 @@ app.get( '/unit/:uid/list', (req, res) => {
 app.post( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   var sfilter = req.body.filter;
-  Person.find(
-    { 'units': {$in : [uid]}, $text: { $search : sfilter } },
+  Person.find( { 'units': {$in : [uid]}, $text: { $search : sfilter } },
     (err, results) => {
       if (err) { return console.log(err); }
       else {

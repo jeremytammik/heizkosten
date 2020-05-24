@@ -5,7 +5,7 @@
 // Copyright 2020 by Jeremy Tammik.
 
 var mongoose = require( 'mongoose' );
-var textSearch = require('mongoose-partial-full-search');
+//var textSearch = require('mongoose-partial-full-search');
 
 var Schema = mongoose.Schema;
 
@@ -83,7 +83,7 @@ var personSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
-personSchema.plugin( textSearch );
+//personSchema.plugin( textSearch );
 
 personSchema.index({
   firstname: "text",
