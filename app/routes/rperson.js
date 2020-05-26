@@ -49,7 +49,7 @@ app.get( '/unit/:uid/list', (req, res) => {
   });
 });
 
-app.post( '/unit/:uid/list', (req, res) => { // _filtering_using_mongodb_text_search
+app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => { // _filtering_using_mongodb_text_search
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   Person.find( { 'units': {$in : [uid]}, $text: { $search : sfilter } },
@@ -68,7 +68,7 @@ app.post( '/unit/:uid/list', (req, res) => { // _filtering_using_mongodb_text_se
   );
 });
 
-app.post( '/unit/:uid/list_using_match', (req, res) => {
+app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   var o = {};
@@ -84,17 +84,21 @@ app.post( '/unit/:uid/list_using_match', (req, res) => {
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
-      console.log(results);
-      var ids = results.results;
-      console.log(ids);
-      //ids = 
-      var url_filter = `/person/unit/${uid}/list`;
-      var matching = sfilter
-        ? ` matching "${sfilter}"`
-        : '';
-      return res.send( jtformgen_list_documents(
-        Person, `${matching} in ${uid}`, results,
-        false, url_filter ) );
+      //console.log(results);
+      var ids = [];
+      results.results.forEach( (r) => {
+        if( r.value ) { ids.push( r._id ); }
+      });
+      //console.log(ids);
+      Person.find( { '_id': {$in : ids} }, (err, results) => {
+        var url_filter = `/person/unit/${uid}/list`;
+        var matching = sfilter
+          ? ` matching "${sfilter}"`
+          : '';
+        return res.send( jtformgen_list_documents(
+          Person, `${matching} in ${uid}`, results,
+          false, url_filter ) );
+      });
     }
   });
 });
