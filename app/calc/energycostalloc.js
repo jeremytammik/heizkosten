@@ -10,8 +10,8 @@
  output: einzelabrechnung
 */
 
-const loaddata = require('./loaddata');
-const util = require('./util');
+const loaddata = require('../../data/loaddata');
+//const util = require('./util');
 
 // Determine contract duration in given year span
 function get_contract_duration_in_given_year( contract, begin, end )
