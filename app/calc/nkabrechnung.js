@@ -109,10 +109,8 @@ function Nkabrechnung(
 
   // Determine contract duration in given year span
   
-  var begin = new Date( year-1, 11, 31 );
-  var end =  new Date( year, 11, 31 );
-  var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
-  var begin, end = get_contract_duration_in_given_year( contract, begin, end );
+  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  var begin, end = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
   var contract_duration = days_in_year / contract_days;
   

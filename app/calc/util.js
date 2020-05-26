@@ -44,10 +44,48 @@ function date_diff_days_2(a, b) {
   return Math.floor(diff / oneDay);
 }
 
+function days_in_year(y) {
+  var begin = new Date( y-1, 11, 31 );
+  var end =  new Date( y, 11, 31 );
+  return date_diff_days( begin, end ); // 365 or 366!
+}
+
+// Determine duration == overlap of given timespan in given year
+function get_duration_in_given_year( ts_begin, ts_end, year )
+{
+  console.log(ts_begin, ts_end);
+  
+  // adjust begin and end to contract begin and end in given year
+
+  var begin = new Date( year-1, 11, 31 );
+  var end =  new Date( year, 11, 31 );
+  
+  if(ts_end < begin)
+  {
+    return begin, begin;
+  }
+  else if (ts_begin > end)
+  {
+    return end, end;
+  }
+  else {
+    if(ts_begin > begin) {
+      begin = ts_begin;
+    }
+    if(ts_end < end) {
+      end = ts_end;
+    }
+  }
+  console.log('-->', begin, end);
+  return begin, end;
+}
+
 function round_to_two_digits( a ) {
   return Math.round( (a+0.000000001) * 100) / 100;
 }
 
 exports.trimAllFieldsInObjectAndChildren = trimAllFieldsInObjectAndChildren;
 exports.date_diff_days = date_diff_days;
+exports.days_in_year = days_in_year;
+exports.get_duration_in_given_year = get_duration_in_given_year;
 exports.round_to_two_digits = round_to_two_digits;
