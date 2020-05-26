@@ -11,7 +11,7 @@
 */
 
 const loaddata = require('../../data/loaddata');
-//const util = require('./util');
+const util = require('./util');
 
 function Energycostalloc(
   contract_id,
@@ -22,7 +22,7 @@ function Energycostalloc(
   var unit = loaddata.units[apartment.unit_id];
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
 
-  var begin, end = util.get_duration_in_given_year( contract.begin, contract.end, year );
+  var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   
   var cw_numbers = Object.keys(apartment.coldwatermeters);
   var cw_readings = contract.coldwatermeters;

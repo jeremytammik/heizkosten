@@ -110,9 +110,12 @@ function Nkabrechnung(
   // Determine contract duration in given year span
   
   var days_in_year = util.days_in_year( year ); // 365 or 366!
-  var begin, end = util.get_duration_in_given_year( contract.begin, contract.end, year );
+  var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
   var contract_duration = days_in_year / contract_days;
+
+  //console.log('contract beg/end, days in year, contract days and duration',
+  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
   
   this.nkvorauszahlung = contract.payments_nk[year.toString()];
   this.rueckbehalt = 0; // this information is entered manually

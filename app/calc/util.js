@@ -3,6 +3,10 @@ function trimAllFieldsInObjectAndChildren( o ) {
   return JSON.parse(JSON.stringify(o).replace(/"\s+|\s+"/g, '"'));
 }
 
+function jtisodate( d ) {
+  return d.toISOString().substr( 0, 10 );
+}
+
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
 function date_units_diff(a, b, unit_amounts) {
   var split_to_whole_units = function (milliseconds, unit_amounts) {
@@ -53,12 +57,14 @@ function days_in_year(y) {
 // Determine duration == overlap of given timespan in given year
 function get_duration_in_given_year( ts_begin, ts_end, year )
 {
-  console.log(ts_begin, ts_end);
+  //console.log(ts_begin, ts_end);
   
   // adjust begin and end to contract begin and end in given year
 
-  var begin = new Date( year-1, 11, 31 );
-  var end =  new Date( year, 11, 31 );
+  var begin = new Date( year - 1, 11, 31, 1 ); // 12, 0 // 11, 31
+  var end =  new Date( year, 11, 31, 23 ); // `${year}-12-31T22:59:59` // year, 12, 0 // 11, 31
+
+  //console.log('year', begin, end);
   
   if(ts_end < begin)
   {
@@ -76,8 +82,9 @@ function get_duration_in_given_year( ts_begin, ts_end, year )
       end = ts_end;
     }
   }
-  console.log('-->', begin, end);
-  return begin, end;
+  //console.log('-->', begin, end);
+  
+  return [begin, end];
 }
 
 function round_to_two_digits( a ) {
@@ -85,6 +92,7 @@ function round_to_two_digits( a ) {
 }
 
 exports.trimAllFieldsInObjectAndChildren = trimAllFieldsInObjectAndChildren;
+exports.jtisodate = jtisodate;
 exports.date_diff_days = date_diff_days;
 exports.days_in_year = days_in_year;
 exports.get_duration_in_given_year = get_duration_in_given_year;
