@@ -72,18 +72,18 @@ app.post( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   var o = {};
-  o.map = function () {
-    var s = this.firstname + ' ' + this.lastname + ' ' + this.email
-      + ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr
-      + ' ' + this.zip + ' ' + this.city + ' ' + this.country;
-    emit( this._id, `/${sfilter}/`.test(s) );
-  };
-  o.reduce = function (k, vals) { return Array.sum(vals); };
+  o.map = `function () {\
+    var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
+      + ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
+      + ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
+    emit( this._id, /${sfilter}/.test(s) );\
+  };`
+  o.reduce = 'function (k, vals) { return Array.sum(vals); };'
   o.query = { units : "001"};
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
-      var url_filter = `/person/unit/${uid}/list`;
+      var url_filter = '/person/unit/${uid}/list`;
       var matching = sfilter
         ? ` matching "${sfilter}"`
         : '';
