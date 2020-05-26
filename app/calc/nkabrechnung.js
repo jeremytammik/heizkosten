@@ -36,8 +36,9 @@ function get_contract_duration_in_given_year( contract, year )
     if(contract.end < end) {
       end = contract.end;
     }
-    return [begin, end];
   }
+  return [begin, end];
+}
 
 function get_contract_payments_total( contract, konto, year )
 {
@@ -112,7 +113,7 @@ function Nkabrechnung(
   var a = get_contract_duration_in_given_year( contract, year );
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
   var contract_days = (null===a) ? 0 : util.date_diff_days( a[0], a[1] );
-  var contract_duration = days_in_year / days;
+  var contract_duration = days_in_year / contract_days;
   
   this.nkvorauszahlung = contract.payments_nk[year.toString()];
   this.rueckbehalt = 0; // this information is entered manually
