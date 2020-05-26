@@ -16,18 +16,17 @@ const loaddata = require('../../data/loaddata');
 const util = require('./util');
 
 // Determine contract duration in given year span
-function get_contract_duration_in_given_year( contract, year )
+function get_contract_duration_in_given_year( contract, begin, end )
 {
-  var begin = new Date( year-1, 11, 31 );
-  var end =  new Date( year, 11, 31 );
-  
-  //console.log('here: ' + begin.toString() + ', ' + end.toString() );
-  
   // adjust begin and end to contract begin and end in given year
   
-  if((contract.end < begin) || (contract.begin > end))
+  if(contract.end < begin)
   {
-    return null;
+    return begin, begin;
+  }
+  else if (contract.begin > end)
+  {
+    return end, end;
   }
   else {
     if(begin < contract.begin) {
@@ -37,7 +36,7 @@ function get_contract_duration_in_given_year( contract, year )
       end = contract.end;
     }
   }
-  return [begin, end];
+  return begin, end;
 }
 
 function get_contract_payments_total( contract, konto, year )
@@ -110,9 +109,11 @@ function Nkabrechnung(
 
   // Determine contract duration in given year span
   
-  var a = get_contract_duration_in_given_year( contract, year );
+  var begin = new Date( year-1, 11, 31 );
+  var end =  new Date( year, 11, 31 );
   var days_in_year = util.date_diff_days( begin, end ); // 365 or 366!
-  var contract_days = (null===a) ? 0 : util.date_diff_days( a[0], a[1] );
+  var begin, end = get_contract_duration_in_given_year( contract, begin, end );
+  var contract_days = (null===a) ? 0 : util.date_diff_days( begin, end );
   var contract_duration = days_in_year / contract_days;
   
   this.nkvorauszahlung = contract.payments_nk[year.toString()];
