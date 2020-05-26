@@ -49,7 +49,7 @@ app.get( '/unit/:uid/list', (req, res) => {
   });
 });
 
-app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
+app.post( '/unit/:uid/list', (req, res) => { // _filtering_using_mongodb_text_search
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   Person.find( { 'units': {$in : [uid]}, $text: { $search : sfilter } },
@@ -68,7 +68,7 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
   );
 });
 
-app.post( '/unit/:uid/list', (req, res) => {
+app.post( '/unit/:uid/list_using_match', (req, res) => {
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   var o = {};
@@ -87,6 +87,7 @@ app.post( '/unit/:uid/list', (req, res) => {
       console.log(results);
       var ids = results.results;
       console.log(ids);
+      //ids = 
       var url_filter = `/person/unit/${uid}/list`;
       var matching = sfilter
         ? ` matching "${sfilter}"`
@@ -127,7 +128,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   var person = new Person( p );
   error = person.validateSync();
   if( error ) {
-    var form = Person.get_edit_form_html( doc, 'edit', error );
+    var form = Person.get_edit_form_html( p, 'edit', error );
     return res.send( form );      
   }
   var id = req.params.id;
