@@ -83,7 +83,7 @@ app.post( '/unit/:uid/list', (req, res) => {
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
-      var url_filter = '/person/unit/${uid}/list`;
+      var url_filter = `/person/unit/${uid}/list`;
       var matching = sfilter
         ? ` matching "${sfilter}"`
         : '';
