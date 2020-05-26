@@ -156,3 +156,25 @@ db.people.mapReduce(
 { "_id" : "scheuermann_hv", "value" : false }
 { "_id" : "weidenmueller_gmbh", "value" : true }
 { "_id" : "zebra_gbr", "value" : true }
+
+
+db.people.mapReduce(
+...   function() {
+...     var s = this.firstname + this.lastname + this.email + this.telephone
+...     + this.street + this.streetnr + this.zip + this.city + this.country;
+...     emit(this._id,/odtmoo/.test(s)); },
+...   function(key, values)
+...     {return Array.sum(values)},
+...   {query:{units : "001",}, out:"strlentotal" } ).find( {value: {$eq:true}} )
+
+
+db.people.mapReduce(
+...   function() {
+...     var s = this.firstname + this.lastname + this.email + this.telephone
+...     + this.street + this.streetnr + this.zip + this.city + this.country;
+...     emit(this._id,/odtmoo/.test(s)); },
+...   function(key, values)
+...     {return Array.sum(values)},
+...   {query:{units : "001"}, out:"match" } ).find( {value: {$eq:true}} )
+
+

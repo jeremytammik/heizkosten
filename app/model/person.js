@@ -97,10 +97,11 @@ personSchema.index({
   country: "text"
 });
 
-function display_string_for_person_doc( p )
+function filter_string_for_person_doc( p )
 {
-  return p.firstname + ' ' + p.lastname + ' ' + p.salutation + ' '
-    + p.street + ' ' + p.streetnr + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
+  return p.firstname + ' ' + p.lastname + ' ' + p.email + ' '
+    + p.telephone + ' ' + p.street + ' ' + p.streetnr + ' '
+    + p.zip + ' ' + p.city + ' ' + p.country;
 }
 
 personSchema.methods.get_display_string = function() {
