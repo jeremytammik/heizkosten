@@ -80,10 +80,12 @@ app.post( '/unit/:uid/list', (req, res) => {
   };`
   o.reduce = 'function (k, vals) { return Array.sum(vals); };'
   o.query = { units : "001"};
+  o.out = { replace: 'match_results' };
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
-      console.log(results);
+      var ids = results.results;
+      console.log(ids);
       var url_filter = `/person/unit/${uid}/list`;
       var matching = sfilter
         ? ` matching "${sfilter}"`
