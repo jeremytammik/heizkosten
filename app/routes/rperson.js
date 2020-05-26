@@ -84,12 +84,10 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
-      //console.log(results);
       var ids = [];
       results.results.forEach( (r) => {
         if( r.value ) { ids.push( r._id ); }
       });
-      //console.log(ids);
       Person.find( { '_id': {$in : ids} }, (err, results) => {
         var url_filter = `/person/unit/${uid}/list`;
         var matching = sfilter
