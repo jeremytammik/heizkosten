@@ -42,9 +42,9 @@ function jtformgen_confirm_delete( model, description, id )
 
 function jtformgen_list_documents( model, where, docs, enable_select, url_filter, sfilter )
 {
-var ssearch = url_filter ? `\
-<form align="right" action="${url_filter}" method="POST">\
-<a href="/${url_filter}"><img src="/img/filter.png"/></a>\
+  var ssearch = url_filter ? `\
+<form action="${url_filter}" method="POST">\
+<input type="image" src="/img/filter.png" alt="Filter"/>\
 <input type="string" maxlength="40" size="20" id="filter" name="filter"\
 placeholder="Filtersuchbegriff" value="${sfilter?sfilter:''}">\
 </input>\
