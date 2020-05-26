@@ -40,11 +40,11 @@ function jtformgen_confirm_delete( model, description, id )
     + '<button><a href="/index.html">Nein</a></button></body>' );
 }
 
-function jtformgen_list_documents( model, where, docs, enable_select, url_filter )
+function jtformgen_list_documents( model, where, docs, enable_select, url_filter, sfilter )
 {
 var ssearch = url_filter ? `\
 <form action="${url_filter}" method="POST">\
-<input type="string" maxlength="40" size="33" id="filter" name="filter" value="weidenmueller">\
+<input type="string" maxlength="40" size="33" id="filter" name="filter" value="${sfilter}">\
 </input>\
 </form>\
 ` : ''; 

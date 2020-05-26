@@ -62,7 +62,7 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
           : '';
         return res.send( jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
-          false, url_filter ) );
+          false, url_filter, sfilter ) );
       }
     }
   );
@@ -95,7 +95,7 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
           : '';
         return res.send( jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
-          false, url_filter ) );
+          false, url_filter, sfilter ) );
       });
     }
   });
