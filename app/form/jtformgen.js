@@ -44,7 +44,8 @@ function jtformgen_list_documents( model, where, docs, enable_select, url_filter
 {
 var ssearch = url_filter ? `\
 <form action="${url_filter}" method="POST">\
-<input type="string" maxlength="40" size="33" id="filter" name="filter" value="${sfilter}">\
+<input type="string" maxlength="40" size="33" id="filter" name="filter"\
+placeholder="Filtersuchbegriff" value="${sfilter?sfilter:''}">\
 </input>\
 </form>\
 ` : ''; 
