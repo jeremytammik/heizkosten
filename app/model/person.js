@@ -114,6 +114,16 @@ Person.route = Person.modelName.toLowerCase();
 Person.thing_en = Person.modelName.toLowerCase();
 Person.thing_de = Person.modelName;
 
+Person.filter_function_map_string = `function () {\
+  var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
+    + ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
+    + ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
+  emit( this._id, /${sfilter2}/.test(s) );\
+};`;
+
+Person.filter_function_reduce_string =
+  'function (k, vals) { return Array.sum(vals); };';
+
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Person.get_edit_form_html = ( p, action, error ) => {
