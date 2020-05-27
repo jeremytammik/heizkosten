@@ -126,7 +126,8 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
 var s = this._id + ' ' + this.owner_id + ' ' + this.grundbuchnr\
 + Object.keys(this.coldwatermeters).join(' ')\
 + Object.keys(this.hotwatermeters).join(' ')\
-+ Object.keys(this.heatcostallocators).join(' ');\
++ Object.keys(this.heatcostallocators).join(' ')\
++ this.get_display_string();\
 emit( this._id, /${sfilter2}/.test(s) );\
 };`;
 
