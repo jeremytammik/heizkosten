@@ -15,7 +15,7 @@ const regex_valid_iban = /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/;
 const regex_valid_telephone_number = /^[0-9\+][0-9\/\- ]{4,20}$/;
 const regex_valid_apartment_id = /[0-9]{3}-[0-9]{2}-[0-9]{2}/;
 const regex_valid_unit_id = /[0-9]{3}/;
-const regex_valid_meter_id = /(?:RA|HE|KW|WW)-(?:KU|BA|FL|SK|SM|SG)-[0-9\-]{1,12}/;
+const regex_valid_meter_id = /(?:RA|HE|KW|WW)-(?:KU|BA|FL|SK|SM|SG|WO)-[0-9\-]{1,12}/;
 const regex_valid_date = /(?:19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}/;
 const regex_valid_meter_expiry_with_factor = /(?:19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}\ *\,\ *[0-9\.]{1,7}/;
 

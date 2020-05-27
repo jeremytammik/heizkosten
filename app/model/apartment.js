@@ -41,12 +41,13 @@ id_wohnung
   
   the rooms are coded as:
   
-  KU kueche
   BA bad
   FL flur
+  KU kueche
   SK schlaf klein
   SM schlaf mittel
   SG schlaf gross
+  WO wohnen
 
   the heat cost allocation and water meters are coded as:
   
