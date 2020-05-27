@@ -5,8 +5,6 @@ const date_with_optional_time_format = /^\d{4}-\d{2}-\d{2}[T\d\:\.Z]*$/;
 const non_empty_alpha_mumeric = /^[0-9a-zA-Z\_]+$/;
 const empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \:\;\.\,\-\+\_\@]*$/;
 
-// used in model/person
-
 const regex_valid_person_id = /^[0-9a-z_]{1,20}$/; // non-empty lowercase alphanumeric with underscore max 20 length
 const regex_valid_unit_list = /^[0-9,]{3,40}$/; // comma-separated digits only, min 3 max 40 length
 const regex_valid_name_chars = /^[äöü\w][äöü\w\ ]*$/;

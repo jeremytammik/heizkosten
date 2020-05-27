@@ -189,12 +189,13 @@ Apartment.meter_types = {
   "WW": "warmwasser",
 };
 Apartment.room_codes = {
-  "KU": "kueche",
   "BA": "bad",
   "FL": "flur",
+  "KU": "kueche",
   "SK": "schlaf_klein",
   "SM": "schlaf_mittel",
   "SG": "schlaf_gross",
+  "WO", "wohnen"
 };
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
