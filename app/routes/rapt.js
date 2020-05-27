@@ -151,16 +151,16 @@ function convert_to_dict( c, keyprefix )
 
 app.post( '/:id/edit_submit', (req, res) => {
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  //console.log(c);
+  console.log('req.body', c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
-  //console.log('c:', c);
+  console.log('c:', c);
 
   var a = new Apartment( c );
   error = a.validateSync();
-  //console.log('a:', a);
+  console.log('a:', a, '\nerror:', error);
 
   if( error ) {
     var form = Apartment.get_edit_form_html( a._doc, 'edit', error );

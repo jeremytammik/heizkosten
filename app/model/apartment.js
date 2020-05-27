@@ -57,14 +57,9 @@ id_wohnung
 */
 
 const {
+  regex_valid_person_id,
   regex_valid_apartment_id,
-  regex_valid_unit_id,
-  
-  regex_valid_unit_list,
-  regex_valid_name_chars,
-  regex_valid_email_address,
-  regex_valid_iban,
-  regex_valid_telephone_number
+  regex_valid_unit_id
 } = require( '../../data/jtregex' );
 
 var apartmentSchema = new Schema({
