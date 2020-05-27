@@ -143,7 +143,7 @@ Object.keys(p).forEach( (key,index) => {
   var v = p[key];
   //console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
   
-  var editor = ('Object' === v.constructor.name) // MongooseMap
+  var editor = (v.constructor && ('Object' === v.constructor.name)) // MongooseMap
     ? create_editor_for_obj( k, v )
     : `\ 
 <td class="right"><label for="${k}">${k}:</label></td>\
