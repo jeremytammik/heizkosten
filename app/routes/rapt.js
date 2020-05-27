@@ -114,6 +114,41 @@ app.get( '/unit/:uid/list', (req, res) => {
   });
 });
 
+app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
+  var uid = req.params.uid;
+  var sfilter = req.body.filter;
+  var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
+  var o = {};
+
+  o.map = `function () {\
+var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
++ ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
++ ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
+emit( this._id, /${sfilter2}/.test(s) );\
+};`;
+
+  o.reduce = 'function (k, vals) { return Array.sum(vals); };';
+  o.query = { units : "001"};
+  Person.mapReduce( o, function (err, results) {
+    if (err) { return console.log(err); }
+    else {
+      var ids = [];
+      results.results.forEach( (r) => {
+        if( r.value ) { ids.push( r._id ); }
+      });
+      Person.find( { '_id': {$in : ids} }, (err, results) => {
+        var url_filter = `/person/unit/${uid}/list`;
+        var matching = sfilter
+          ? ` matching "${sfilter}"`
+          : '';
+        return res.send( jtformgen_list_documents(
+          Person, `${matching} in ${uid}`, results,
+          false, url_filter, sfilter ) );
+      });
+    }
+  });
+});
+
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
