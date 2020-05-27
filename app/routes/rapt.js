@@ -33,7 +33,7 @@ function strip_meter_numbers( doc, propname )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[key.slice(0,6)] = value;
+    a[key.slice(0,6)] = value + '-0000';
   }
   doc[propname] = a;
 }
@@ -67,7 +67,7 @@ app.get( '/generate_missing', (req, res) => {
       docs = [];
       results.forEach( (x) => {
         var doc = JSON.parse( JSON.stringify( x._doc ) );
-        doc.owner_id = '';
+        doc.owner_id = 'unknown_owner_id';
         doc.grundbuchnr = '';
         strip_meter_numbers( doc, 'smokedetectors' );
         strip_meter_numbers( doc, 'coldwatermeters' );
