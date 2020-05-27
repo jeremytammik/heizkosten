@@ -74,7 +74,8 @@ var apartmentSchema = new Schema({
         return regex_valid_apartment_id.test(s);
       },
       message: props => `'${props.value}' is not a valid apartment_id`
-    }},
+    }
+  },
   unit_id: {
     type: String,
     min: 3,
@@ -84,7 +85,8 @@ var apartmentSchema = new Schema({
         return regex_valid_unit_id.test(s);
       },
       message: props => `'${props.value}' is not a valid unit_id`
-    }},
+    }
+  },
   owner_id: { // person
     type: String,
     min: 1,
@@ -95,7 +97,8 @@ var apartmentSchema = new Schema({
         return regex_valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
-    }},
+    }
+  },
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
@@ -114,6 +117,7 @@ var apartmentSchema = new Schema({
         return true;
       },
       message: props => `'${props.value}' contains an invalid smoke detector id or expiry date`
+    }
   },
   coldwatermeters: { type: Object }, // map meter_id to expires Date
   hotwatermeters: { type: Object }, // map meter_id to expires Date
