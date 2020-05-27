@@ -94,6 +94,7 @@ var apartmentSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
+        console.log(s, '-->', regex_valid_person_id.test(s));
         return regex_valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
