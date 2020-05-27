@@ -73,8 +73,15 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var sfilter = req.body.filter;
   var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
   var o = {};
-  o.map = Person.filter_function_map_string;
-  o.reduce = Person.filter_function_reduce_string;
+
+  o.map = `function () {\
+var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
++ ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
++ ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
+emit( this._id, /${sfilter2}/.test(s) );\
+};`;
+
+  o.reduce = 'function (k, vals) { return Array.sum(vals); };';
   o.query = { units : "001"};
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }

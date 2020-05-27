@@ -108,21 +108,22 @@ personSchema.methods.get_display_string = function() {
   return display_string_for_person_doc( this );
 };
 
+//function search_string_for_filter_map_reduce( p )
+//{
+//  return p.firstname + ' ' + p.lastname + ' ' + p.email
+//    + ' ' + p.telephone + ' ' + p.street + ' ' + p.streetnr
+//    + ' ' + p.zip + ' ' + p.city + ' ' + p.country;
+//}
+//
+//personSchema.methods.get_string_for_filter_map_reduce = function() {
+//  return search_string_for_filter_map_reduce( this );
+//};
+
 var Person = mongoose.model( 'Person', personSchema );
 
 Person.route = Person.modelName.toLowerCase();
 Person.thing_en = Person.modelName.toLowerCase();
 Person.thing_de = Person.modelName;
-
-Person.filter_function_map_string = `function () {\
-  var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
-    + ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
-    + ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
-  emit( this._id, /${sfilter2}/.test(s) );\
-};`;
-
-Person.filter_function_reduce_string =
-  'function (k, vals) { return Array.sum(vals); };';
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
