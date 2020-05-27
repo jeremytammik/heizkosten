@@ -57,7 +57,16 @@ id_wohnung
 */
 
 var apartmentSchema = new Schema({
-  _id: String, // suppress automatic generation
+  _id: {  // suppress automatic generation  
+    type: String,
+    min: 9,
+    max: 9,
+    validate: {
+      validator: function(s) {
+        return regex_valid_person_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid person_id`
+    }},
   unit_id: String, // unit
   owner_id: String, // person
   grundbuchnr: String,
