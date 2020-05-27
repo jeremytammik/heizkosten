@@ -56,7 +56,8 @@ app.get( '/generate_missing', (req, res) => {
   // 001-14-05 – 3 rooms with 88.95 m2  
   // 001-12-06 – 3 rooms with 88.95 m2
   
-  var model_ids = [ "001-09-01", "001-09-02", "001-05-03", "001-01-04", "001-14-05", "001-12-06" ];
+  var model_ids = [ "001-09-01", "001-09-02", "001-05-03",
+                   "001-01-04", "001-14-05", "001-12-06" ];
   
   var nlevels = 16;
 
@@ -106,8 +107,9 @@ app.get( '/unit/:uid/list', (req, res) => {
   Apartment.find( { 'unit_id': uid }, (err, results) => {
     if (err) { return console.log(err); }
     else {
+      var url_filter = `/apt/unit/${uid}/list`;
       return res.send( jtformgen_list_documents(
-        Apartment, ` in ${uid}`, results, false ) );
+        Apartment, ` in ${uid}`, results, false, url_filter ) );
     }
   });
 });
