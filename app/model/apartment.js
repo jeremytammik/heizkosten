@@ -56,19 +56,48 @@ id_wohnung
   WW warmwasser
 */
 
+const {
+  regex_valid_apartment_id,
+  regex_valid_unit_id,
+  
+  regex_valid_unit_list,
+  regex_valid_name_chars,
+  regex_valid_email_address,
+  regex_valid_iban,
+  regex_valid_telephone_number
+} = require( '../../data/jtregex' );
+
 var apartmentSchema = new Schema({
-  _id: {  // suppress automatic generation  
+  _id: { // suppress automatic generation  
     type: String,
     min: 9,
     max: 9,
+    validate: {
+      validator: function(s) {
+        return regex_valid_apartment_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid apartment_id`
+    }},
+  unit_id: {
+    type: String,
+    min: 3,
+    max: 3,
+    validate: {
+      validator: function(s) {
+        return regex_valid_unit_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid unit_id`
+    }},
+  owner_id: { // person
+    type: String,
+    min: 1,
+    max: 20,
     validate: {
       validator: function(s) {
         return regex_valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
     }},
-  unit_id: String, // unit
-  owner_id: String, // person
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
