@@ -53,12 +53,12 @@ app.get( '/generate_missing', (req, res) => {
   // 001-09-02 – 2 rooms with 66.8 m2
   // 001-05-03 – 3 rooms with 86.49 m2
   // 001-01-04 – 4 rooms with 107.32 m2
-  // 001-14-05 – 3 rooms with 88.95 m2  
+  // 001-14-05 – 3 rooms with 88.95 m2
   // 001-12-06 – 3 rooms with 88.95 m2
-  
+
   var model_ids = [ "001-09-01", "001-09-02", "001-05-03",
                    "001-01-04", "001-14-05", "001-12-06" ];
-  
+
   var nlevels = 16;
 
   Apartment.find( {'_id': {$in : model_ids } }, (err, results) => {
@@ -121,7 +121,7 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var o = {};
 
   // skip smoke detectors; they have no unique numbers
-  
+
   o.map = `function () {\
 var s = this._id + ' ' + this.owner_id + ' ' + this.grundbuchnr\
 + Object.keys(this.coldwatermeters).join(' ')\
@@ -236,7 +236,7 @@ app.get( '/:id/dupl', (req, res) => {
 
 app.post( '/:id/dupl_submit', (req, res) => {
   var id_original = req.params.id;
-  
+
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
   //console.log(c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
@@ -244,7 +244,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
   console.log(c);
-  
+
   var id = c._id;
   Apartment.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
@@ -260,7 +260,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
     error = p2.validateSync();
     if( error ) {
       var form = Apartment.get_edit_form_html( doc, 'dupl', error );
-      return res.send( form );      
+      return res.send( form );
     }
     //var p3 = req.body;
     c['_id'] = id;
