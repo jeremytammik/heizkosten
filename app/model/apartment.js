@@ -195,7 +195,7 @@ Apartment.room_codes = {
   "SK": "schlaf_klein",
   "SM": "schlaf_mittel",
   "SG": "schlaf_gross",
-  "WO", "wohnen"
+  "WO": "wohnen"
 };
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
