@@ -33,7 +33,7 @@ function strip_meter_numbers( doc, propname )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[key.slice(0,6)] = value + '-0000';
+    a[key.slice(0,6) + '-0000'] = value;
   }
   doc[propname] = a;
 }
