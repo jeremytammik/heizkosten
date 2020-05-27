@@ -120,29 +120,32 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
   var o = {};
 
+  // skip smoke detectors; they have no unique numbers
+  
   o.map = `function () {\
-var s = this.firstname + ' ' + this.lastname + ' ' + this.email\
-+ ' ' + this.telephone + ' ' + this.street + ' ' + this.streetnr\
-+ ' ' + this.zip + ' ' + this.city + ' ' + this.country;\
+var s = this._id + ' ' + this.owner_id + ' ' + this.grundbuchnr\
++ Object.keys(this.coldwatermeters).join(' ')\
++ Object.keys(this.hotwatermeters).join(' ')\
++ Object.keys(this.heatcostallocators).join(' ');\
 emit( this._id, /${sfilter2}/.test(s) );\
 };`;
 
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
-  o.query = { units : "001"};
-  Person.mapReduce( o, function (err, results) {
+  o.query = { unit_id : uid};
+  Apartment.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
       var ids = [];
       results.results.forEach( (r) => {
         if( r.value ) { ids.push( r._id ); }
       });
-      Person.find( { '_id': {$in : ids} }, (err, results) => {
-        var url_filter = `/person/unit/${uid}/list`;
+      Apartment.find( { '_id': {$in : ids} }, (err, results) => {
+        var url_filter = `/apt/unit/${uid}/list`;
         var matching = sfilter
           ? ` matching "${sfilter}"`
           : '';
         return res.send( jtformgen_list_documents(
-          Person, `${matching} in ${uid}`, results,
+          Apartment, `${matching} in ${uid}`, results,
           false, url_filter, sfilter ) );
       });
     }

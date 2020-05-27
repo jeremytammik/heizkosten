@@ -82,7 +82,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
 };`;
 
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
-  o.query = { units : "001"};
+  o.query = { units : {$in : [uid]}};
   Person.mapReduce( o, function (err, results) {
     if (err) { return console.log(err); }
     else {
