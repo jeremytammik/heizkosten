@@ -117,12 +117,48 @@ var apartmentSchema = new Schema({
         }
         return true;
       },
-      message: props => 'invalid smoke detector id or expiry date'
+      message: 'invalid smoke detector id or expiry date'
     }
   },
-  coldwatermeters: { type: Object }, // map meter_id to expires Date
-  hotwatermeters: { type: Object }, // map meter_id to expires Date
-  heatcostallocators: { type: Object }, // map meter_id to [expires: Date, factor: Number]
+  coldwatermeters: { // map meter_id to expires Date
+    type: Object,
+    validate: {
+      validator: function(d) {
+        for (const [k,v] of Object.entries(d)) {
+          if(!regex_valid_meter_id.test(k)) { return false; }
+          if(!regex_valid_date.test(v)) { return false; }
+        }
+        return true;
+      },
+      message: 'invalid cold water meter id or expiry date'
+    }
+  },
+  hotwatermeters: { // map meter_id to expires Date
+    type: Object,
+    validate: {
+      validator: function(d) {
+        for (const [k,v] of Object.entries(d)) {
+          if(!regex_valid_meter_id.test(k)) { return false; }
+          if(!regex_valid_date.test(v)) { return false; }
+        }
+        return true;
+      },
+      message: 'invalid hot water meter id or expiry date'
+    }
+  },
+  heatcostallocators: { // map meter_id to "expiry_date, factor"
+    type: Object,
+    validate: {
+      validator: function(d) {
+        for (const [k,v] of Object.entries(d)) {
+          if(!regex_valid_meter_id.test(k)) { return false; }
+          if(!regex_valid_meter_expiry_with_factor.test(v)) { return false; }
+        }
+        return true;
+      },
+      message: 'invalid heating cost meter id or expiry date, factor'
+    }
+  },
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
