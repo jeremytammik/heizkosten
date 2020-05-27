@@ -150,6 +150,7 @@ function convert_to_dict( c, keyprefix )
 }
 
 app.post( '/:id/edit_submit', (req, res) => {
+  var id = req.params.id;
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
   //console.log('req.body', c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
@@ -163,10 +164,13 @@ app.post( '/:id/edit_submit', (req, res) => {
   if(error) { console.log('a:', a, '\nerror:', error); }
 
   if( error ) {
-    var form = Apartment.get_edit_form_html( a._doc, 'edit', error );
-    return res.send( form );      
+    var d = a._doc;
+    d._id = id;
+    var form = Apartment.get_edit_form_html( d, 'edit', error );
+    return res.send( form );
+    //res.redirect( `/apt/${id}/edit` ); // how to pass along error as well?
   }
-  var id = req.params.id;
+  console.log(`updating ${id}:`, c);
   Apartment.updateOne( { "_id": id }, c, (err,res2) => {
     if (err) { return console.error(err); }
     Apartment.countDocuments( {}, (err, count) => {
