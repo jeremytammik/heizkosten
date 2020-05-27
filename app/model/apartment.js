@@ -61,7 +61,8 @@ const {
   regex_valid_apartment_id,
   regex_valid_unit_id,
   regex_valid_meter_id,
-  regex_valid_date
+  regex_valid_date,
+  regex_valid_meter_expiry_with_factor
 } = require( '../../data/jtregex' );
 
 var apartmentSchema = new Schema({
@@ -116,7 +117,7 @@ var apartmentSchema = new Schema({
         }
         return true;
       },
-      message: props => `'${props.value}' contains an invalid smoke detector id or expiry date`
+      message: props => 'invalid smoke detector id or expiry date'
     }
   },
   coldwatermeters: { type: Object }, // map meter_id to expires Date
