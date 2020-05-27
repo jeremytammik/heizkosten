@@ -33,7 +33,7 @@ function strip_meter_numbers( doc, propname )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[key.slice(0,6) + '-0000'] = value;
+    a[key.slice(0,6) + '0000'] = value;
   }
   doc[propname] = a;
 }
@@ -42,7 +42,7 @@ function suffix_meter_numbers( doc, propname, s )
 {
   var a = {};
   for (const [key, value] of Object.entries(doc[propname])) {
-    a[key + s] = value;
+    a[key.replace('0000', s)] = value;
   }
   doc[propname] = a;
 }
@@ -88,7 +88,7 @@ app.get( '/generate_missing', (req, res) => {
           //console.log( docs[docs.length-1] );
         }
       });
-      //console.log('-->\n', docs);
+      console.log('-->\n', docs);
       Apartment.create( docs, (err,res2) => {
         if (err) { return console.error(err); }
         Apartment.countDocuments( {}, (err, count) => {
