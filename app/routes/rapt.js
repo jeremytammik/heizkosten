@@ -156,12 +156,14 @@ app.post( '/:id/edit_submit', (req, res) => {
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
-  //console.log(c);
+  //console.log('c:', c);
 
   var a = new Apartment( req.body );
   error = a.validateSync();
+  //console.log('a:', a);
+
   if( error ) {
-    var form = Apartment.get_edit_form_html( c, 'edit', error );
+    var form = Apartment.get_edit_form_html( a, 'edit', error );
     return res.send( form );      
   }
   var id = req.params.id;
