@@ -158,7 +158,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
   //console.log('c:', c);
 
-  var a = new Apartment( req.body );
+  var a = new Apartment( c );
   error = a.validateSync();
   //console.log('a:', a);
 
