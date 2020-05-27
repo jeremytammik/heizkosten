@@ -59,7 +59,9 @@ id_wohnung
 const {
   regex_valid_person_id,
   regex_valid_apartment_id,
-  regex_valid_unit_id
+  regex_valid_unit_id,
+  regex_valid_meter_id,
+  regex_valid_date
 } = require( '../../data/jtregex' );
 
 var apartmentSchema = new Schema({
@@ -89,7 +91,7 @@ var apartmentSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
-        console.log(s, '-->', regex_valid_person_id.test(s));
+        //console.log(s, '-->', regex_valid_person_id.test(s));
         return regex_valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
@@ -101,7 +103,18 @@ var apartmentSchema = new Schema({
   //coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
   //hotwatermeters: { type: Map, of: String }, // map meter_id to expires Date
   //heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
-  smokedetectors: { type: Object }, // dictionary mapping meter_id to expires Date
+  smokedetectors: { // dictionary mapping meter_id to expires Date
+    type: Object,
+    validate: {
+      validator: function(d) {
+        for (const [k,v] of Object.entries(d)) {
+          if(!regex_valid_meter_id.test(k)) { return false; }
+          if(!regex_valid_date.test(v)) { return false; }
+        }
+        return true;
+      },
+      message: props => `'${props.value}' contains an invalid smoke detector id or expiry date`
+  },
   coldwatermeters: { type: Object }, // map meter_id to expires Date
   hotwatermeters: { type: Object }, // map meter_id to expires Date
   heatcostallocators: { type: Object }, // map meter_id to [expires: Date, factor: Number]
