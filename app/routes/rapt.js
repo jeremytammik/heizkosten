@@ -163,7 +163,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   //console.log('a:', a);
 
   if( error ) {
-    var form = Apartment.get_edit_form_html( a, 'edit', error );
+    var form = Apartment.get_edit_form_html( a._doc, 'edit', error );
     return res.send( form );      
   }
   var id = req.params.id;
