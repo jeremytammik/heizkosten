@@ -99,7 +99,7 @@ personSchema.index({
 
 function display_string_for_person_doc( p )
 {
-  return + p.lastname + ' ' + p.firstname + ' ' p.salutation
+  return p.lastname + ' ' + p.firstname + ' ' + p.salutation
     + ' ' + p.street + ' ' + p.streetnr + ' ' + p.zip
     + ' ' + p.city + ' ' + p.country;
 }
