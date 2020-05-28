@@ -19,6 +19,8 @@ UIs required:
   which in turn requires [brew](https://brew.sh/#install).
 - Download and install [Herucoal](https://github.com/jeremytammik/herucoal) &ndash; use the green button above saying 'Clone or Download' and download and unpack the zip file.
 - Enter the herucoal directory, run terminal and enter `npm install`
+- In the terminal in the herucoal directory, run `npm start`
+0 Open the URL list in the browser
 
 
 ## Author
