@@ -53,7 +53,7 @@ function save_data_for_model( model, res, req )
     }
 
     var fs = require('fs');
-    var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:]/g, '_' );
+    var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
     var fn = `data/tmp/${model.route}_${ts}.json`;
     fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
       function (err) {
