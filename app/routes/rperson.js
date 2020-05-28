@@ -177,7 +177,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
     if( error ) {
       var d = a._doc;
       d._id = id_original;
-      var form = Apartment.get_edit_form_html( d, 'dupl', error );
+      var form = Person.get_edit_form_html( d, 'dupl', error );
       return res.send( form );
     }
     p['_id'] = id;
