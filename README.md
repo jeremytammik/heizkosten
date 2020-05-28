@@ -22,6 +22,15 @@ UIs required:
 - In the terminal in the herucoal directory, run `npm start`
 - Open the URL listed in the browser
 
+## Startup
+
+```
+mongod &
+cd ~/Documents/herucoal
+git pull
+npm start
+```
+
 ## Usage
 
 - Load the existing data: Admin
