@@ -15,6 +15,8 @@ UIs required:
 
 - Install [node.js](https://nodejs.org)
 - Install [mongodb](https://www.mongodb.com)
+  &ndash; not the cloud-hosted 'Atlas' version, but the [MongoDB Community Edition, e.g., on macOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x),
+  whichy in turn requires [brew](https://brew.sh/#install).
 - Download and install [Herucoal](https://github.com/jeremytammik/herucoal) &ndash; use the button above saying 'Clone or Download' and download and unpack the zip file.
 
 ## Author
