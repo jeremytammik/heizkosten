@@ -7,7 +7,7 @@ const empty_or_ascii_or_umlaut = /^[0-9a-zA-Zäöü\ \:\;\.\,\-\+\_\@]*$/;
 
 const regex_valid_person_id = /^[0-9a-z_]{1,20}$/; // non-empty lowercase alphanumeric with underscore max 20 length
 const regex_valid_unit_list = /^[0-9,]{3,40}$/; // comma-separated digits only, min 3 max 40 length
-const regex_valid_name_chars = /^[äöü\w][äöü\w\ ]*$/;
+const regex_valid_name_chars = /^[äöü\w][äöü\w\ ]*\*?$/;
 const regex_valid_email_address = /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/;
 const regex_valid_iban = /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/;
 const regex_valid_telephone_number = /^[0-9\+][0-9\/\- ]{4,20}$/;
