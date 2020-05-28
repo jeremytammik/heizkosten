@@ -15,7 +15,7 @@ UIs required:
 
 - Install [node.js](https://nodejs.org)
 - Install [mongodb](https://www.mongodb.com)
-- Download [Herucoal]()
+- Download and install [Herucoal](https://github.com/jeremytammik/herucoal) &ndash; use the button above saying 'Clone or Download' and download and unpack the zip file.
 
 ## Author
 
