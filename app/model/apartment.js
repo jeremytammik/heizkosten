@@ -113,7 +113,7 @@ var apartmentSchema = new Schema({
     validate: {
       validator: function(d) {
         for (const [k,v] of Object.entries(d)) {
-          console.log( k, regex_valid_meter_id.test(k), v, regex_valid_date.test(v) );
+          //console.log( k, regex_valid_meter_id.test(k), v, regex_valid_date.test(v) );
           if(!(k.substr(0,2) === 'RA')) { return false; }
           if(!regex_valid_meter_id.test(k)) { return false; }
           if(!regex_valid_date.test(v)) { return false; }
