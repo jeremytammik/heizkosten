@@ -2,7 +2,7 @@
   "001-09-01": {
     "_id": "001-09-01",
     "unit_id": "001",
-    "owner_id": "test",
+    "owner_id": "",
     "grundbuchnr": "grundbuchnr_001-09-01",
     "area_m2": 66.80,
     "room_count": 2,

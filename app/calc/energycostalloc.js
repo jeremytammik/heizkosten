@@ -27,7 +27,7 @@ function Energycostalloc(
   var cw_numbers = Object.keys(apartment.coldwatermeters);
   var cw_readings = contract.coldwatermeters;
   
-  console.log(`contract begin and end in ${year}: ` + util.jtisodate(begin) + ', ' + util.jtisodate(end) );
+  //console.log(`contract begin and end in ${year}: ` + util.jtisodate(begin) + ', ' + util.jtisodate(end) );
   
 //    "coldwatermeters": { "KW-BA-4007049": "2020-12-31", "KW-KU-52440355": "2020-12-31"},
 //    "hotwatermeters": { "WW-BA-4133058": "2020-12-31", "WW-KU-604465496": "2020-12-31"},
