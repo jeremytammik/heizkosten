@@ -56,8 +56,8 @@ app.get( '/generate_missing', (req, res) => {
   // 001-14-05 – 3 rooms with 88.95 m2
   // 001-12-06 – 3 rooms with 88.95 m2
 
-  var model_ids = [ "001-09-01", "001-09-02", "001-05-03",
-                   "001-01-04", "001-14-05", "001-12-06" ];
+  var model_ids = [ "001-09-01", "001-09-02",
+    "001-05-03", "001-01-04", "001-14-05", "001-12-06" ];
 
   var nlevels = 16;
 
@@ -88,7 +88,7 @@ app.get( '/generate_missing', (req, res) => {
           //console.log( docs[docs.length-1] );
         }
       });
-      console.log('-->\n', docs);
+      //console.log('-->\n', docs);
       Apartment.create( docs, (err,res2) => {
         if (err) { return console.error(err); }
         Apartment.countDocuments( {}, (err, count) => {
