@@ -26,7 +26,7 @@ function success_with_document_count( n, thing_en )
   var s = (1==n) ? '' : 's';
   return wrap_html( '<p>Hat geklappt, vielen Dank. '
     + `Database now contains ${n} ${thing_en}${s}.</p>`
-    + '<p><a href="/index.html">Weiter Hauskosten erfassen...</a></p>' );
+    + '<p><a href="/index.html">Weitere Daten erfassen...</a></p>' );
 }
 
 function jtformgen_confirm_delete( model, description, id )
