@@ -173,7 +173,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       return res.send( form );
     }
     var a = new Person( p );
-    error = person.validateSync();
+    error = a.validateSync();
     if( error ) {
       var d = a._doc;
       d._id = id_original;
