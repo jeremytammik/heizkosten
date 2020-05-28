@@ -172,13 +172,16 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Person.get_edit_form_html( req.body, 'dupl', error );
       return res.send( form );
     }
-    var person = new Person( p );
+    var a = new Person( p );
     error = person.validateSync();
     if( error ) {
-      var form = Person.get_edit_form_html( doc, 'dupl', error );
-      return res.send( form );      
+      var d = a._doc;
+      d._id = id_original;
+      var form = Apartment.get_edit_form_html( d, 'dupl', error );
+      return res.send( form );
     }
-    Person.create( req.body, (err2,res2) => {
+    p['_id'] = id;
+    Person.create( p, (err2,res2) => {
       if (err2) {
         return console.error(err2);
       }
