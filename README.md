@@ -18,6 +18,8 @@ UIs required:
   &ndash; not the cloud-hosted 'Atlas' version, but the [MongoDB Community Edition, e.g., on macOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x),
   which in turn requires [brew](https://brew.sh/#install).
 - Download and install [Herucoal](https://github.com/jeremytammik/herucoal) &ndash; use the green button above saying 'Clone or Download' and download and unpack the zip file.
+- Enter the herucoal directory, run terminal and enter `npm install`
+
 
 ## Author
 
