@@ -1,5 +1,6 @@
 var fs = require( 'fs' );
-var vCard = require( 'vcf' );
+//var vCard = require( 'vcf' );
+//var util = require( 'util' )
 
 const { date_with_optional_time_format } = require( './jtregex' );
 
@@ -8,6 +9,13 @@ function json_parse_date_reviver(key, value) {
     return new Date(value);
   }
   return value;
+}
+
+function inspect( value ) {
+  return util.inspect( value, {
+    colors: process.stdout.isTTY,
+    depth: null,
+  })
 }
 
 function read_vcf_value( v, s )
@@ -31,7 +39,9 @@ function read_vcf()
   var cards = vCard.parse( fs.readFileSync( 'data/m03iconv.vcf' ) );
   //console.log( vCard.normalize( cards ) );
   cards.forEach( (v) => {
-    console.log( v.toJSON() );
+    console.log( inspect( v ) )
+  
+    //console.log( v.toJSON() );
     var d = v.data;
     var n = read_vcf_property_text( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();
     var fn = read_vcf_property_text( v, 'fn' );
@@ -50,8 +60,8 @@ var costs = JSON.parse(fs.readFileSync('data/cost.json', 'utf8'));
 var persons = JSON.parse(fs.readFileSync('data/person.json', 'utf8'));
 var apartments = JSON.parse(fs.readFileSync('data/apt.json', 'utf8'));
 var contracts = JSON.parse(fs.readFileSync('data/contract.json', 'utf8'), json_parse_date_reviver);
-var visiting_cards = vCard.parse( fs.readFileSync('data/m03.vcf', 'utf8') );
 
+//var visiting_cards = vCard.parse( fs.readFileSync('data/m03.vcf', 'utf8') );
 //console.log(visiting_cards);
 
 exports.json_parse_date_reviver = json_parse_date_reviver;
@@ -60,6 +70,6 @@ exports.costs = costs;
 exports.persons = persons;
 exports.apartments = apartments;
 exports.contracts = contracts;
-exports.visiting_cards = visiting_cards;
 
-read_vcf();
+//exports.visiting_cards = visiting_cards;
+//read_vcf();
