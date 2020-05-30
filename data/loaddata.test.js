@@ -241,3 +241,11 @@ test('calculate payment total in 2018 for each contract and account', () => {
   }
 });
 */
+
+test('VCF import', () => {
+  loaddata.visiting_cards.forEach( (v) => {
+    var d = v.data;
+    var n = d.n.valueOf().replace(';', ' ').trim();
+    expect( n ).toMatch( regex_valid_name_chars );
+  });
+});
