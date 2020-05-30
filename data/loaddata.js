@@ -10,18 +10,27 @@ function json_parse_date_reviver(key, value) {
   return value;
 }
 
+function read_vcf_value( v, s )
+{
+  var p = v.get(s);
+  return p
+  ? s + ' \'' + p.valueOf().replace( /;+/g, ' ' ).trim() + '\''
+  : '';
+}
+
 function read_vcf()
 {
-  var cards = vCard.parse( fs.readFileSync( 'data/m03.vcf' ) );
-  console.log( vCard.normalize( cards ) );
+  var cards = vCard.parse( fs.readFileSync( 'data/m03iconv.vcf' ) );
+  //console.log( vCard.normalize( cards ) );
   cards.forEach( (v) => {
     //console.log( v.toJSON() );
     var d = v.data;
-    var n = d.n.valueOf().replace( /;+/g, ' ' ).trim();
-    var fn = d.fn.valueOf().replace( /;+/g, ' ' ).trim();
+    var n = read_vcf_value( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();
+    var fn = read_vcf_value( v, 'fn' );
+    //var tel = d.tel ? d.tel.valueOf().replace( /;+/g, ' ' ).trim();
     //var notiz = d.notiz.valueOf().replace( /;+/g,  ' ').trim();
     //expect( n ).toMatch( regex_valid_name_chars );
-    console.log( `n ${n} fn ${fn}` );
+    console.log( n, fn );
   });
 }
 
