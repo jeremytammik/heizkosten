@@ -27,10 +27,10 @@ function read_vcf()
     var d = v.data;
     var n = read_vcf_value( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();
     var fn = read_vcf_value( v, 'fn' );
-    //var tel = d.tel ? d.tel.valueOf().replace( /;+/g, ' ' ).trim();
+    var tel = read_vcf_value( v, 'tel' );
     //var notiz = d.notiz.valueOf().replace( /;+/g,  ' ').trim();
     //expect( n ).toMatch( regex_valid_name_chars );
-    console.log( n, fn );
+    console.log( n, fn, tel );
   });
 }
 
