@@ -10,6 +10,21 @@ function json_parse_date_reviver(key, value) {
   return value;
 }
 
+function read_vcf()
+{
+  var cards = vCard.parse( fs.readFileSync( 'data/m03.vcf' ) );
+  console.log( vCard.normalize( cards ) );
+  cards.forEach( (v) => {
+    //console.log( v.toJSON() );
+    var d = v.data;
+    var n = d.n.valueOf().replace( /;+/g, ' ' ).trim();
+    var fn = d.fn.valueOf().replace( /;+/g, ' ' ).trim();
+    //var notiz = d.notiz.valueOf().replace( /;+/g,  ' ').trim();
+    //expect( n ).toMatch( regex_valid_name_chars );
+    console.log( `n ${n} fn ${fn}` );
+  });
+}
+
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
 
@@ -29,3 +44,5 @@ exports.persons = persons;
 exports.apartments = apartments;
 exports.contracts = contracts;
 exports.visiting_cards = visiting_cards;
+
+read_vcf();
