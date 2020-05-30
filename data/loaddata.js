@@ -18,19 +18,27 @@ function read_vcf_value( v, s )
   : '';
 }
 
+function read_vcf_property_text( v, s )
+{
+  var p = v.get(s);
+  return p
+  ? s + ' \'' + p.text + '\''
+  : '';
+}
+
 function read_vcf()
 {
   var cards = vCard.parse( fs.readFileSync( 'data/m03iconv.vcf' ) );
   //console.log( vCard.normalize( cards ) );
   cards.forEach( (v) => {
-    //console.log( v.toJSON() );
+    console.log( v.toJSON() );
     var d = v.data;
-    var n = read_vcf_value( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();
-    var fn = read_vcf_value( v, 'fn' );
-    var tel = read_vcf_value( v, 'tel' );
+    var n = read_vcf_property_text( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();
+    var fn = read_vcf_property_text( v, 'fn' );
+    //var tel = read_vcf_value( v, 'tel' );
     //var notiz = d.notiz.valueOf().replace( /;+/g,  ' ').trim();
     //expect( n ).toMatch( regex_valid_name_chars );
-    console.log( n, fn, tel );
+    console.log( n, fn );
   });
 }
 
