@@ -12,7 +12,8 @@ app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 const {
   load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
+  save_data_for_model,
+  vcf_import } = require('../model/datautil');
 
 const {
   success_with_document_count,
@@ -31,6 +32,10 @@ app.get( '/', (req, res) => {
 
 app.get( '/load_data', (req, res) => {
   return load_data_for_model( Person, res, req );
+});
+
+app.get( '/vcf_import', (req, res) => {
+  return vcf_import( Person );
 });
 
 app.get( '/save_data', (req, res) => {
