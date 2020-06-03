@@ -11,6 +11,8 @@ function json_parse_date_reviver(key, value) {
   return value;
 }
 
+/* --- VCF reader ---
+
 function inspect( value ) {
   return util.inspect( value, {
     colors: process.stdout.isTTY,
@@ -51,6 +53,10 @@ function read_vcf()
     console.log( n, fn );
   });
 }
+
+--- end of VCF reader --- */
+
+
 
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
