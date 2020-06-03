@@ -84,6 +84,25 @@ test('person id matches dictionary key', () => {
   }
 });
 
+test('tenant data fulfils person regex requirements', () => {
+  for (const [key, value] of Object.entries(loaddata.tenants)) {
+    expect(value._id).toBe( key );
+    expect(value._id).toMatch( regex_valid_person_id );
+    //expect(value.units).toMatch( regex_valid_unit_list );
+    if(value.firstname) { expect(value.firstname).toMatch( regex_valid_name_chars ); }
+    expect(value.lastname).toMatch( regex_valid_name_chars );
+    expect(value.email).toMatch( regex_valid_email_address );
+    expect(value.iban).toMatch( regex_valid_iban );
+    expect(value.telephone).toMatch( regex_valid_telephone_number );
+    //expect(value.salutation).toMatch( );
+    //expect(value.street).toMatch( );
+    //expect(value.streetnr).toMatch( );
+    //expect(value.zip).toMatch( );
+    //expect(value.city).toMatch( );
+    expect(value.country).toMatch( regex_valid_name_chars );
+  }
+});
+
 test('person is linked to valid units', () => {
   var unit_ids = Object.keys(loaddata.units);
   for (const [key, value] of Object.entries(loaddata.persons)) {
