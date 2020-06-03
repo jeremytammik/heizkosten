@@ -1,0 +1,506 @@
+{
+  "graf_katerina_maxim": {
+    "firstname": "katerina & maxim",
+    "surname": "*graf",
+    "_id": "graf_katerina_maxim",
+    "telephone": "+49 7623 3079231",
+    "email": "",
+    "iban": "DE95 6835 0048 0101 2505 61"
+  },
+  "kem_alexander": {
+    "firstname": "alexander",
+    "surname": "*kem",
+    "_id": "kem_alexander",
+    "telephone": "+49 151 14009510",
+    "email": "valyxa82@mail.ru",
+    "iban": "DE41 3701 0050 0754 2455 03"
+  },
+  "krueger_di_feo_fabio_carmen": {
+    "firstname": "fabio & carmen",
+    "surname": "*krueger & di feo",
+    "_id": "krueger_di_feo_fabio_carmen",
+    "telephone": "+49 7761 929463",
+    "email": "",
+    "iban": "DE30 6835 0048 0101 3240 93"
+  },
+  "mattern_constatin_tatiana": {
+    "firstname": "constatin & tatiana",
+    "surname": "*mattern",
+    "_id": "mattern_constatin_tatiana",
+    "telephone": "+49 176 82581499",
+    "email": "",
+    "iban": "DE73 6835 0048 0102 1227 93"
+  },
+  "rexhepi_njomza_xhemail": {
+    "firstname": "njomza & xhemail",
+    "surname": "*rexhepi",
+    "_id": "rexhepi_njomza_xhemail",
+    "telephone": "+49 15908126926",
+    "email": "",
+    "iban": ""
+  },
+  "argoubi_mahrez": {
+    "firstname": "mahrez",
+    "surname": "argoubi",
+    "_id": "argoubi_mahrez",
+    "telephone": "",
+    "email": "",
+    "iban": "DE30 6837 0024 0095 1483 00"
+  },
+  "avsar_burcu": {
+    "firstname": "burcu",
+    "surname": "avsar",
+    "_id": "avsar_burcu",
+    "telephone": "+49 173 3517773",
+    "email": "burcu.avsar@geradeno.ch",
+    "iban": "DE27 6849 0000 0043 6417 00"
+  },
+  "bakimci_zerin": {
+    "firstname": "zerin",
+    "surname": "bakimci",
+    "_id": "bakimci_zerin",
+    "telephone": "",
+    "email": "",
+    "iban": "DE36 6835 0048 0102 0117 15"
+  },
+  "bayir_atay": {
+    "firstname": "atay",
+    "surname": "bayir",
+    "_id": "bayir_atay",
+    "telephone": "+49 173 4655134",
+    "email": "",
+    "iban": "DE53 6808 0030 0685 0297 00"
+  },
+  "baer_klaus": {
+    "firstname": "klaus",
+    "surname": "baer",
+    "_id": "baer_klaus",
+    "telephone": "",
+    "email": "",
+    "iban": "DE49 6835 0048 0002 0661 73"
+  },
+  "ben_amor_ines": {
+    "firstname": "ines",
+    "surname": "ben amor",
+    "_id": "ben_amor_ines",
+    "telephone": "+49 162 4860456",
+    "email": "nasir2547@live.de",
+    "iban": "DE27 3701 0050 0282 5195 05"
+  },
+  "bihler_erika": {
+    "firstname": "erika",
+    "surname": "bihler",
+    "_id": "bihler_erika",
+    "telephone": "",
+    "email": "",
+    "iban": "DE93 6837 0024 0142 9315 00"
+  },
+  "braeuning_herbert_chris": {
+    "firstname": "herbert & chris",
+    "surname": "braeuning",
+    "_id": "braeuning_herbert_chris",
+    "telephone": "+49 176 81794825",
+    "email": "",
+    "iban": "DE75 3002 0900 5380 0369 89"
+  },
+  "butzke_athur": {
+    "firstname": "athur",
+    "surname": "butzke",
+    "_id": "butzke_athur",
+    "telephone": "",
+    "email": "",
+    "iban": "DE68 6849 0000 0043 7593 02"
+  },
+  "danner_imbi": {
+    "firstname": "imbi",
+    "surname": "danner",
+    "_id": "danner_imbi",
+    "telephone": "",
+    "email": "",
+    "iban": "DE70 6835 0048 0102 1143 11"
+  },
+  "danner_vanessa": {
+    "firstname": "vanessa",
+    "surname": "danner",
+    "_id": "danner_vanessa",
+    "telephone": "+49 152 01795602",
+    "email": "vanessadanner7@gmail.com",
+    "iban": "DE43 6835 0048 0102 1227 51"
+  },
+  "dauti_lalezar": {
+    "firstname": "lalezar",
+    "surname": "dauti",
+    "_id": "dauti_lalezar",
+    "telephone": "+49 176 36710534",
+    "email": "",
+    "iban": "DE02 7604 0061 0683 1572 00"
+  },
+  "diesslin_sabine": {
+    "firstname": "sabine",
+    "surname": "diesslin",
+    "_id": "diesslin_sabine",
+    "telephone": "+49 152 25905891",
+    "email": "",
+    "iban": "DE77 7001 7000 9400 6889 45"
+  },
+  "esbah_esref": {
+    "firstname": "esref",
+    "surname": "esbah",
+    "_id": "esbah_esref",
+    "telephone": "+49 176 84781501",
+    "email": "",
+    "iban": "DE18 6834 0058 0301 3596 00"
+  },
+  "fezjuli_sherife_bekim": {
+    "firstname": "sherife & bekim",
+    "surname": "fezjuli",
+    "_id": "fezjuli_sherife_bekim",
+    "telephone": "+49 173 3741151",
+    "email": "",
+    "iban": "DE79 5001 0060 0196 3416 00"
+  },
+  "jehle_bjoern": {
+    "firstname": "bjoern",
+    "surname": "jehle",
+    "_id": "jehle_bjoern",
+    "telephone": "+49 172 86903",
+    "email": "Jehle.Bjoern@web.de",
+    "iban": "DE97 6849 0000 0034 4590 02"
+  },
+  "kaiser_lukas": {
+    "firstname": "lukas",
+    "surname": "kaiser",
+    "_id": "kaiser_lukas",
+    "telephone": "+49 163 8353305",
+    "email": "",
+    "iban": "DE44 1001 1001 2627 6333 80"
+  },
+  "kaka_bra_mohammed_goran_astera": {
+    "firstname": "goran & astera",
+    "surname": "kaka bra & mohammed",
+    "_id": "kaka_bra_mohammed_goran_astera",
+    "telephone": "+49 152 18673346",
+    "email": "",
+    "iban": "DE95 6835 0048 0101 4202 14"
+  },
+  "kern_christian": {
+    "firstname": "christian",
+    "surname": "kern",
+    "_id": "kern_christian",
+    "telephone": "",
+    "email": "",
+    "iban": "DE76 6839 0000 0000 5276 61"
+  },
+  "kiselev_julia": {
+    "firstname": "julia",
+    "surname": "kiselev",
+    "_id": "kiselev_julia",
+    "telephone": "+49 171 2634934",
+    "email": "",
+    "iban": "DE50 6835 0048 0001 0824 78"
+  },
+  "kiselev_michael_sen.": {
+    "firstname": "michael sen.",
+    "surname": "kiselev",
+    "_id": "kiselev_michael_sen.",
+    "telephone": "",
+    "email": "",
+    "iban": "DE75 6837 0024 0141 4291 00"
+  },
+  "kiselev_mikhail_und_julia": {
+    "firstname": "mikhail und julia",
+    "surname": "kiselev",
+    "_id": "kiselev_mikhail_und_julia",
+    "telephone": "",
+    "email": "",
+    "iban": ""
+  },
+  "klatt_harald": {
+    "firstname": "harald",
+    "surname": "klatt",
+    "_id": "klatt_harald",
+    "telephone": "+49 172 1015977",
+    "email": "",
+    "iban": "DE67 6835 0048 0102 1189 24"
+  },
+  "klotz_bianca": {
+    "firstname": "bianca",
+    "surname": "klotz",
+    "_id": "klotz_bianca",
+    "telephone": "",
+    "email": "",
+    "iban": "DE56 6849 0000 0043 9053 09"
+  },
+  "kneifel_theresa": {
+    "firstname": "theresa",
+    "surname": "kneifel",
+    "_id": "kneifel_theresa",
+    "telephone": "+49 170 0000000",
+    "email": "",
+    "iban": "DE70 6808 0030 0681 1589 00"
+  },
+  "koch_stoecklin_kim_pascal": {
+    "firstname": "kim & pascal",
+    "surname": "koch & stoecklin",
+    "_id": "koch_stoecklin_kim_pascal",
+    "telephone": "+49 157 58477567",
+    "email": "",
+    "iban": "DE79 6835 1865 0108 2483 45"
+  },
+  "kurjata_juergen_ludmilla": {
+    "firstname": "juergen & ludmilla",
+    "surname": "kurjata",
+    "_id": "kurjata_juergen_ludmilla",
+    "telephone": "",
+    "email": "",
+    "iban": "DE08 3002 0900 5310 1960 61"
+  },
+  "latiffi_alina_herolind": {
+    "firstname": "alina & herolind",
+    "surname": "latiffi",
+    "_id": "latiffi_alina_herolind",
+    "telephone": "+49 152 38718129",
+    "email": "",
+    "iban": ""
+  },
+  "leisinger_erwin": {
+    "firstname": "erwin",
+    "surname": "leisinger",
+    "_id": "leisinger_erwin",
+    "telephone": "+49 7623.62573",
+    "email": "",
+    "iban": "DE11 6834 0058 0303 8858 00"
+  },
+  "littke_ingrid_joachim": {
+    "firstname": "ingrid & joachim",
+    "surname": "littke",
+    "_id": "littke_ingrid_joachim",
+    "telephone": "+41 79 179 83 54",
+    "email": "",
+    "iban": "DE57 2004 1133 0754 3457 00"
+  },
+  "loeffler_rosemarie": {
+    "firstname": "rosemarie",
+    "surname": "loeffler",
+    "_id": "loeffler_rosemarie",
+    "telephone": "+49 174 2346692",
+    "email": "",
+    "iban": "CH62 0077 0252 7456 4200 1"
+  },
+  "madert_zeiher_brunhilde": {
+    "firstname": "brunhilde",
+    "surname": "madert & zeiher",
+    "_id": "madert_zeiher_brunhilde",
+    "telephone": "",
+    "email": "",
+    "iban": "DE62 6835 0048 0102 1033 97"
+  },
+  "mengjiqi_hazbije_arif": {
+    "firstname": "hazbije & arif",
+    "surname": "mengjiqi",
+    "_id": "mengjiqi_hazbije_arif",
+    "telephone": "",
+    "email": "",
+    "iban": "DE65 6849 0000 0044 1457 07"
+  },
+  "morozova_svetlana": {
+    "firstname": "svetlana",
+    "surname": "morozova",
+    "_id": "morozova_svetlana",
+    "telephone": "+49 176 24438010",
+    "email": "",
+    "iban": "DE17 2004 1144 0183 9497 00"
+  },
+  "muhaxhiri_fatmir": {
+    "firstname": "fatmir",
+    "surname": "muhaxhiri",
+    "_id": "muhaxhiri_fatmir",
+    "telephone": "",
+    "email": "",
+    "iban": "DE65 6835 0048 0102 2638 78"
+  },
+  "mulaj_musa": {
+    "firstname": "musa",
+    "surname": "mulaj",
+    "_id": "mulaj_musa",
+    "telephone": "+49 162 2667099",
+    "email": "",
+    "iban": "DE08 6835 0048 0101 2967 47"
+  },
+  "mueller_marc": {
+    "firstname": "Marc",
+    "surname": "Mueller",
+    "_id": "mueller_marc",
+    "telephone": "+49 151 66801956",
+    "email": "",
+    "iban": "DE07 5001 0517 5408 5212 19"
+  },
+  "rapp_vanessa": {
+    "firstname": "vanessa",
+    "surname": "rapp",
+    "_id": "rapp_vanessa",
+    "telephone": "+49 176 60424399",
+    "email": "",
+    "iban": "DE93 6835 0048 0101 3934 78"
+  },
+  "reck_lothar_claudia": {
+    "firstname": "lothar & claudia",
+    "surname": "reck",
+    "_id": "reck_lothar_claudia",
+    "telephone": "",
+    "email": "",
+    "iban": "DE70 6001 0070 8782 3387 01"
+  },
+  "reinhardt_anne": {
+    "firstname": "anne",
+    "surname": "reinhardt",
+    "_id": "reinhardt_anne",
+    "telephone": "+49 176 45771234",
+    "email": "",
+    "iban": "DE63 6835 0048 0101 3474 58"
+  },
+  "reitinger_laupichler_claudia": {
+    "firstname": "claudia",
+    "surname": "reitinger & laupichler",
+    "_id": "reitinger_laupichler_claudia",
+    "telephone": "+49 176 55165780",
+    "email": "",
+    "iban": "DE66 5001 0700 0000 5193 69"
+  },
+  "renner_dagmar": {
+    "firstname": "dagmar",
+    "surname": "renner",
+    "_id": "renner_dagmar",
+    "telephone": "+49 157 53696034",
+    "email": "",
+    "iban": "DE31 5001 0700 0000 2318 12"
+  },
+  "roihl_rebolledo_marco_mayra": {
+    "firstname": "Marco & Mayra",
+    "surname": "Roihl & Rebolledo",
+    "_id": "roihl_rebolledo_marco_mayra",
+    "telephone": "+41 79 3950958",
+    "email": "",
+    "iban": "DE80 2146 4671 0000 1200 57"
+  },
+  "schuravlov_svetlana": {
+    "firstname": "svetlana",
+    "surname": "schuravlov",
+    "_id": "schuravlov_svetlana",
+    "telephone": "+49 162 7726820",
+    "email": "",
+    "iban": "DE61 6835 0048 0101 3720 35"
+  },
+  "schwabe_timo": {
+    "firstname": "timo",
+    "surname": "schwabe",
+    "_id": "schwabe_timo",
+    "telephone": "+49 152 09922029",
+    "email": "",
+    "iban": "DE66 6835 0048 0101 4340 25"
+  },
+  "spoerri-schiesser_katharina": {
+    "firstname": "katharina",
+    "surname": "spoerri-schiesser",
+    "_id": "spoerri-schiesser_katharina",
+    "telephone": "+49 151 20000000",
+    "email": "",
+    "iban": "DE24 7015 0000 0020 1243 27"
+  },
+  "staedter_dieter": {
+    "firstname": "dieter",
+    "surname": "staedter",
+    "_id": "staedter_dieter",
+    "telephone": "",
+    "email": "",
+    "iban": "DE73 6835 0048 0002 0403 27"
+  },
+  "steinberger_sladjana": {
+    "firstname": "sladjana",
+    "surname": "steinberger",
+    "_id": "steinberger_sladjana",
+    "telephone": "",
+    "email": "",
+    "iban": "DE63 6835 0048 0101 4683 20"
+  },
+  "tahiri_abdula": {
+    "firstname": "Abdula",
+    "surname": "Tahiri",
+    "_id": "tahiri_abdula",
+    "telephone": "+49 152 03908540",
+    "email": "",
+    "iban": "DE60 3407 0024 0621 1908 00"
+  },
+  "tsaknaki_yaprak_kalliopi_ilhan": {
+    "firstname": "kalliopi & ilhan",
+    "surname": "tsaknaki & yaprak",
+    "_id": "tsaknaki_yaprak_kalliopi_ilhan",
+    "telephone": "+49 157 70427775",
+    "email": "",
+    "iban": "DE30 6725 0020 1000 9859 25"
+  },
+  "tsaknakis_fotios": {
+    "firstname": "fotios",
+    "surname": "tsaknakis",
+    "_id": "tsaknakis_fotios",
+    "telephone": "+41 76 225 39 38",
+    "email": "",
+    "iban": "DE56 5455 0010 0000 3600 32"
+  },
+  "uygar_hancer_oezlem_yasemin": {
+    "firstname": "oezlem & yasemin",
+    "surname": "uygar (Geb. Hancer)",
+    "_id": "uygar_hancer_oezlem_yasemin",
+    "telephone": "+49 7623 909309, +49 176 95942646",
+    "email": "",
+    "iban": "DE38 6835 0048 0102 2999 63"
+  },
+  "wambold_sergej_valentina": {
+    "firstname": "sergej & valentina",
+    "surname": "wambold",
+    "_id": "wambold_sergej_valentina",
+    "telephone": "",
+    "email": "swambold77@gmail.com",
+    "iban": "DE54 3002 0900 5340 3283 80"
+  },
+  "weber_andrej": {
+    "firstname": "andrej",
+    "surname": "weber",
+    "_id": "weber_andrej",
+    "telephone": "+49 157 39459326",
+    "email": "andreasweber.1@gmx.net",
+    "iban": "DE19 6005 0101 7824 0234 00"
+  },
+  "weidner_thomas": {
+    "firstname": "thomas",
+    "surname": "weidner",
+    "_id": "weidner_thomas",
+    "telephone": "",
+    "email": "",
+    "iban": "DE93 6835 1557 0003 2435 16"
+  },
+  "weis_vogel_dominic_elvira": {
+    "firstname": "dominic & elvira",
+    "surname": "weis & vogel",
+    "_id": "weis_vogel_dominic_elvira",
+    "telephone": "+49 15258796562",
+    "email": "",
+    "iban": "DE13 6849 0000 0045 4444 06"
+  },
+  "yigit_mustafa": {
+    "firstname": "mustafa",
+    "surname": "yigit",
+    "_id": "yigit_mustafa",
+    "telephone": "+49 174 6340074",
+    "email": "",
+    "iban": "DE20 6849 0000 0042 3168 06"
+  },
+  "ziegler_heike": {
+    "firstname": "heike",
+    "surname": "ziegler",
+    "_id": "ziegler_heike",
+    "telephone": "+49 176 53263604",
+    "email": "",
+    "iban": "DE50 7315 0000 0000 7635 40"
+  }
+}

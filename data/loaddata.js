@@ -56,7 +56,39 @@ function read_vcf()
 
 --- end of VCF reader --- */
 
-
+function convert_tsv_to_json()
+{
+  var fn = '/j/doc/people/otto/heizkosten/mieter/mieter01cleanup.tsv';
+  var tsv = fs.readFileSync( fn );
+  var lines = tsv.toString().split( '\n' );
+  var n = lines.length;
+  console.log( `read ${n} lines from ${fn}` );
+  lines = lines.slice( 1 );
+  d = {};
+  lines.forEach( (lin) => {
+    var a = lin.split( '\t' )
+      .map( (s) => {return s.trim();} );
+    var o = {};
+    o.firstname = a[0];
+    o.surname = a[1];
+    var id = o.surname + '_' + o.firstname;
+    id = id.replace( '*', '' );
+    id = id.replace( /\(Geb\./, '_' );
+    id = id.replace( /[\(\)\&\ ]/g, '_' );
+    id = id.replace( /__+/g, '_' );
+    id = id.trim( '_' );
+    id = id.toLowerCase();
+    o._id = id
+    o.telephone = a.slice( 2, 5 ).filter( (s) => { return Boolean( s ); } ).join( ', ' );
+    o.email = a[5];
+    o.iban = a[6];
+    d[id] = o;
+    if(a[0].slice(0,3)==='oez'){
+      console.log(a, o);
+    }
+  });
+  fs.writeFileSync( 'data/mieter.json', JSON.stringify( d, null, 2 ) );
+}
 
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
@@ -79,3 +111,5 @@ exports.contracts = contracts;
 
 //exports.visiting_cards = visiting_cards;
 //read_vcf();
+
+convert_tsv_to_json();
