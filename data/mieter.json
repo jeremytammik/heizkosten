@@ -1,7 +1,7 @@
 {
   "katerina_maxim_graf": {
     "firstname": "katerina & maxim",
-    "surname": "*graf",
+    "lastname": "*graf",
     "_id": "katerina_maxim_graf",
     "telephone": "+49 7623 3079231",
     "email": "",
@@ -9,7 +9,7 @@
   },
   "alexander_kem": {
     "firstname": "alexander",
-    "surname": "*kem",
+    "lastname": "*kem",
     "_id": "alexander_kem",
     "telephone": "+49 151 14009510",
     "email": "valyxa82@mail.ru",
@@ -17,7 +17,7 @@
   },
   "fabio_carmen_krueger_di_feo": {
     "firstname": "fabio & carmen",
-    "surname": "*krueger & di feo",
+    "lastname": "*krueger & di feo",
     "_id": "fabio_carmen_krueger_di_feo",
     "telephone": "+49 7761 929463",
     "email": "",
@@ -25,7 +25,7 @@
   },
   "constatin_tatiana_mattern": {
     "firstname": "constatin & tatiana",
-    "surname": "*mattern",
+    "lastname": "*mattern",
     "_id": "constatin_tatiana_mattern",
     "telephone": "+49 176 82581499",
     "email": "",
@@ -33,7 +33,7 @@
   },
   "njomza_xhemail_rexhepi": {
     "firstname": "njomza & xhemail",
-    "surname": "*rexhepi",
+    "lastname": "*rexhepi",
     "_id": "njomza_xhemail_rexhepi",
     "telephone": "+49 15908126926",
     "email": "",
@@ -41,7 +41,7 @@
   },
   "mahrez_argoubi": {
     "firstname": "mahrez",
-    "surname": "argoubi",
+    "lastname": "argoubi",
     "_id": "mahrez_argoubi",
     "telephone": "",
     "email": "",
@@ -49,7 +49,7 @@
   },
   "burcu_avsar": {
     "firstname": "burcu",
-    "surname": "avsar",
+    "lastname": "avsar",
     "_id": "burcu_avsar",
     "telephone": "+49 173 3517773",
     "email": "burcu.avsar@geradeno.ch",
@@ -57,7 +57,7 @@
   },
   "zerin_bakimci": {
     "firstname": "zerin",
-    "surname": "bakimci",
+    "lastname": "bakimci",
     "_id": "zerin_bakimci",
     "telephone": "",
     "email": "",
@@ -65,7 +65,7 @@
   },
   "atay_bayir": {
     "firstname": "atay",
-    "surname": "bayir",
+    "lastname": "bayir",
     "_id": "atay_bayir",
     "telephone": "+49 173 4655134",
     "email": "",
@@ -73,7 +73,7 @@
   },
   "klaus_baer": {
     "firstname": "klaus",
-    "surname": "baer",
+    "lastname": "baer",
     "_id": "klaus_baer",
     "telephone": "",
     "email": "",
@@ -81,7 +81,7 @@
   },
   "ines_ben_amor": {
     "firstname": "ines",
-    "surname": "ben amor",
+    "lastname": "ben amor",
     "_id": "ines_ben_amor",
     "telephone": "+49 162 4860456",
     "email": "nasir2547@live.de",
@@ -89,7 +89,7 @@
   },
   "erika_bihler": {
     "firstname": "erika",
-    "surname": "bihler",
+    "lastname": "bihler",
     "_id": "erika_bihler",
     "telephone": "",
     "email": "",
@@ -97,7 +97,7 @@
   },
   "herbert_chris_braeuning": {
     "firstname": "herbert & chris",
-    "surname": "braeuning",
+    "lastname": "braeuning",
     "_id": "herbert_chris_braeuning",
     "telephone": "+49 176 81794825",
     "email": "",
@@ -105,7 +105,7 @@
   },
   "athur_butzke": {
     "firstname": "athur",
-    "surname": "butzke",
+    "lastname": "butzke",
     "_id": "athur_butzke",
     "telephone": "",
     "email": "",
@@ -113,7 +113,7 @@
   },
   "imbi_danner": {
     "firstname": "imbi",
-    "surname": "danner",
+    "lastname": "danner",
     "_id": "imbi_danner",
     "telephone": "",
     "email": "",
@@ -121,7 +121,7 @@
   },
   "vanessa_danner": {
     "firstname": "vanessa",
-    "surname": "danner",
+    "lastname": "danner",
     "_id": "vanessa_danner",
     "telephone": "+49 152 01795602",
     "email": "vanessadanner7@gmail.com",
@@ -129,7 +129,7 @@
   },
   "lalezar_dauti": {
     "firstname": "lalezar",
-    "surname": "dauti",
+    "lastname": "dauti",
     "_id": "lalezar_dauti",
     "telephone": "+49 176 36710534",
     "email": "",
@@ -137,7 +137,7 @@
   },
   "sabine_diesslin": {
     "firstname": "sabine",
-    "surname": "diesslin",
+    "lastname": "diesslin",
     "_id": "sabine_diesslin",
     "telephone": "+49 152 25905891",
     "email": "",
@@ -145,7 +145,7 @@
   },
   "esref_esbah": {
     "firstname": "esref",
-    "surname": "esbah",
+    "lastname": "esbah",
     "_id": "esref_esbah",
     "telephone": "+49 176 84781501",
     "email": "",
@@ -153,7 +153,7 @@
   },
   "sherife_bekim_fezjuli": {
     "firstname": "sherife & bekim",
-    "surname": "fezjuli",
+    "lastname": "fezjuli",
     "_id": "sherife_bekim_fezjuli",
     "telephone": "+49 173 3741151",
     "email": "",
@@ -161,7 +161,7 @@
   },
   "bjoern_jehle": {
     "firstname": "bjoern",
-    "surname": "jehle",
+    "lastname": "jehle",
     "_id": "bjoern_jehle",
     "telephone": "+49 172 86903",
     "email": "Jehle.Bjoern@web.de",
@@ -169,7 +169,7 @@
   },
   "lukas_kaiser": {
     "firstname": "lukas",
-    "surname": "kaiser",
+    "lastname": "kaiser",
     "_id": "lukas_kaiser",
     "telephone": "+49 163 8353305",
     "email": "",
@@ -177,7 +177,7 @@
   },
   "goran_astera_kaka_bra_mohammed": {
     "firstname": "goran & astera",
-    "surname": "kaka bra & mohammed",
+    "lastname": "kaka bra & mohammed",
     "_id": "goran_astera_kaka_bra_mohammed",
     "telephone": "+49 152 18673346",
     "email": "",
@@ -185,7 +185,7 @@
   },
   "christian_kern": {
     "firstname": "christian",
-    "surname": "kern",
+    "lastname": "kern",
     "_id": "christian_kern",
     "telephone": "",
     "email": "",
@@ -193,7 +193,7 @@
   },
   "julia_kiselev": {
     "firstname": "julia",
-    "surname": "kiselev",
+    "lastname": "kiselev",
     "_id": "julia_kiselev",
     "telephone": "+49 171 2634934",
     "email": "",
@@ -201,7 +201,7 @@
   },
   "michael_sen._kiselev": {
     "firstname": "michael sen.",
-    "surname": "kiselev",
+    "lastname": "kiselev",
     "_id": "michael_sen._kiselev",
     "telephone": "",
     "email": "",
@@ -209,7 +209,7 @@
   },
   "mikhail_und_julia_kiselev": {
     "firstname": "mikhail und julia",
-    "surname": "kiselev",
+    "lastname": "kiselev",
     "_id": "mikhail_und_julia_kiselev",
     "telephone": "",
     "email": "",
@@ -217,7 +217,7 @@
   },
   "harald_klatt": {
     "firstname": "harald",
-    "surname": "klatt",
+    "lastname": "klatt",
     "_id": "harald_klatt",
     "telephone": "+49 172 1015977",
     "email": "",
@@ -225,7 +225,7 @@
   },
   "bianca_klotz": {
     "firstname": "bianca",
-    "surname": "klotz",
+    "lastname": "klotz",
     "_id": "bianca_klotz",
     "telephone": "",
     "email": "",
@@ -233,7 +233,7 @@
   },
   "theresa_kneifel": {
     "firstname": "theresa",
-    "surname": "kneifel",
+    "lastname": "kneifel",
     "_id": "theresa_kneifel",
     "telephone": "+49 170 0000000",
     "email": "",
@@ -241,7 +241,7 @@
   },
   "kim_pascal_koch_stoecklin": {
     "firstname": "kim & pascal",
-    "surname": "koch & stoecklin",
+    "lastname": "koch & stoecklin",
     "_id": "kim_pascal_koch_stoecklin",
     "telephone": "+49 157 58477567",
     "email": "",
@@ -249,7 +249,7 @@
   },
   "juergen_ludmilla_kurjata": {
     "firstname": "juergen & ludmilla",
-    "surname": "kurjata",
+    "lastname": "kurjata",
     "_id": "juergen_ludmilla_kurjata",
     "telephone": "",
     "email": "",
@@ -257,7 +257,7 @@
   },
   "alina_herolind_latiffi": {
     "firstname": "alina & herolind",
-    "surname": "latiffi",
+    "lastname": "latiffi",
     "_id": "alina_herolind_latiffi",
     "telephone": "+49 152 38718129",
     "email": "",
@@ -265,7 +265,7 @@
   },
   "erwin_leisinger": {
     "firstname": "erwin",
-    "surname": "leisinger",
+    "lastname": "leisinger",
     "_id": "erwin_leisinger",
     "telephone": "+49 7623.62573",
     "email": "",
@@ -273,7 +273,7 @@
   },
   "ingrid_joachim_littke": {
     "firstname": "ingrid & joachim",
-    "surname": "littke",
+    "lastname": "littke",
     "_id": "ingrid_joachim_littke",
     "telephone": "+41 79 179 83 54",
     "email": "",
@@ -281,7 +281,7 @@
   },
   "rosemarie_loeffler": {
     "firstname": "rosemarie",
-    "surname": "loeffler",
+    "lastname": "loeffler",
     "_id": "rosemarie_loeffler",
     "telephone": "+49 174 2346692",
     "email": "",
@@ -289,7 +289,7 @@
   },
   "brunhilde_madert_zeiher": {
     "firstname": "brunhilde",
-    "surname": "madert & zeiher",
+    "lastname": "madert & zeiher",
     "_id": "brunhilde_madert_zeiher",
     "telephone": "",
     "email": "",
@@ -297,7 +297,7 @@
   },
   "hazbije_arif_mengjiqi": {
     "firstname": "hazbije & arif",
-    "surname": "mengjiqi",
+    "lastname": "mengjiqi",
     "_id": "hazbije_arif_mengjiqi",
     "telephone": "",
     "email": "",
@@ -305,7 +305,7 @@
   },
   "svetlana_morozova": {
     "firstname": "svetlana",
-    "surname": "morozova",
+    "lastname": "morozova",
     "_id": "svetlana_morozova",
     "telephone": "+49 176 24438010",
     "email": "",
@@ -313,7 +313,7 @@
   },
   "fatmir_muhaxhiri": {
     "firstname": "fatmir",
-    "surname": "muhaxhiri",
+    "lastname": "muhaxhiri",
     "_id": "fatmir_muhaxhiri",
     "telephone": "",
     "email": "",
@@ -321,7 +321,7 @@
   },
   "musa_mulaj": {
     "firstname": "musa",
-    "surname": "mulaj",
+    "lastname": "mulaj",
     "_id": "musa_mulaj",
     "telephone": "+49 162 2667099",
     "email": "",
@@ -329,7 +329,7 @@
   },
   "marc_mueller": {
     "firstname": "Marc",
-    "surname": "Mueller",
+    "lastname": "Mueller",
     "_id": "marc_mueller",
     "telephone": "+49 151 66801956",
     "email": "",
@@ -337,7 +337,7 @@
   },
   "vanessa_rapp": {
     "firstname": "vanessa",
-    "surname": "rapp",
+    "lastname": "rapp",
     "_id": "vanessa_rapp",
     "telephone": "+49 176 60424399",
     "email": "",
@@ -345,7 +345,7 @@
   },
   "lothar_claudia_reck": {
     "firstname": "lothar & claudia",
-    "surname": "reck",
+    "lastname": "reck",
     "_id": "lothar_claudia_reck",
     "telephone": "",
     "email": "",
@@ -353,7 +353,7 @@
   },
   "anne_reinhardt": {
     "firstname": "anne",
-    "surname": "reinhardt",
+    "lastname": "reinhardt",
     "_id": "anne_reinhardt",
     "telephone": "+49 176 45771234",
     "email": "",
@@ -361,7 +361,7 @@
   },
   "claudia_reitinger_laupichler": {
     "firstname": "claudia",
-    "surname": "reitinger & laupichler",
+    "lastname": "reitinger & laupichler",
     "_id": "claudia_reitinger_laupichler",
     "telephone": "+49 176 55165780",
     "email": "",
@@ -369,7 +369,7 @@
   },
   "dagmar_renner": {
     "firstname": "dagmar",
-    "surname": "renner",
+    "lastname": "renner",
     "_id": "dagmar_renner",
     "telephone": "+49 157 53696034",
     "email": "",
@@ -377,7 +377,7 @@
   },
   "marco_mayra_roihl_rebolledo": {
     "firstname": "Marco & Mayra",
-    "surname": "Roihl & Rebolledo",
+    "lastname": "Roihl & Rebolledo",
     "_id": "marco_mayra_roihl_rebolledo",
     "telephone": "+41 79 3950958",
     "email": "",
@@ -385,7 +385,7 @@
   },
   "svetlana_schuravlov": {
     "firstname": "svetlana",
-    "surname": "schuravlov",
+    "lastname": "schuravlov",
     "_id": "svetlana_schuravlov",
     "telephone": "+49 162 7726820",
     "email": "",
@@ -393,7 +393,7 @@
   },
   "timo_schwabe": {
     "firstname": "timo",
-    "surname": "schwabe",
+    "lastname": "schwabe",
     "_id": "timo_schwabe",
     "telephone": "+49 152 09922029",
     "email": "",
@@ -401,7 +401,7 @@
   },
   "katharina_spoerri-schiesser": {
     "firstname": "katharina",
-    "surname": "spoerri-schiesser",
+    "lastname": "spoerri-schiesser",
     "_id": "katharina_spoerri-schiesser",
     "telephone": "+49 151 20000000",
     "email": "",
@@ -409,7 +409,7 @@
   },
   "dieter_staedter": {
     "firstname": "dieter",
-    "surname": "staedter",
+    "lastname": "staedter",
     "_id": "dieter_staedter",
     "telephone": "",
     "email": "",
@@ -417,7 +417,7 @@
   },
   "sladjana_steinberger": {
     "firstname": "sladjana",
-    "surname": "steinberger",
+    "lastname": "steinberger",
     "_id": "sladjana_steinberger",
     "telephone": "",
     "email": "",
@@ -425,7 +425,7 @@
   },
   "abdula_tahiri": {
     "firstname": "Abdula",
-    "surname": "Tahiri",
+    "lastname": "Tahiri",
     "_id": "abdula_tahiri",
     "telephone": "+49 152 03908540",
     "email": "",
@@ -433,7 +433,7 @@
   },
   "kalliopi_ilhan_tsaknaki_yaprak": {
     "firstname": "kalliopi & ilhan",
-    "surname": "tsaknaki & yaprak",
+    "lastname": "tsaknaki & yaprak",
     "_id": "kalliopi_ilhan_tsaknaki_yaprak",
     "telephone": "+49 157 70427775",
     "email": "",
@@ -441,7 +441,7 @@
   },
   "fotios_tsaknakis": {
     "firstname": "fotios",
-    "surname": "tsaknakis",
+    "lastname": "tsaknakis",
     "_id": "fotios_tsaknakis",
     "telephone": "+41 76 225 39 38",
     "email": "",
@@ -449,7 +449,7 @@
   },
   "oezlem_yasemin_uygar_hancer_": {
     "firstname": "oezlem & yasemin",
-    "surname": "uygar (Geb. Hancer)",
+    "lastname": "uygar (Geb. Hancer)",
     "_id": "oezlem_yasemin_uygar_hancer_",
     "telephone": "+49 7623 909309, +49 176 95942646",
     "email": "",
@@ -457,7 +457,7 @@
   },
   "sergej_valentina_wambold": {
     "firstname": "sergej & valentina",
-    "surname": "wambold",
+    "lastname": "wambold",
     "_id": "sergej_valentina_wambold",
     "telephone": "",
     "email": "swambold77@gmail.com",
@@ -465,7 +465,7 @@
   },
   "andrej_weber": {
     "firstname": "andrej",
-    "surname": "weber",
+    "lastname": "weber",
     "_id": "andrej_weber",
     "telephone": "+49 157 39459326",
     "email": "andreasweber.1@gmx.net",
@@ -473,7 +473,7 @@
   },
   "thomas_weidner": {
     "firstname": "thomas",
-    "surname": "weidner",
+    "lastname": "weidner",
     "_id": "thomas_weidner",
     "telephone": "",
     "email": "",
@@ -481,7 +481,7 @@
   },
   "dominic_elvira_weis_vogel": {
     "firstname": "dominic & elvira",
-    "surname": "weis & vogel",
+    "lastname": "weis & vogel",
     "_id": "dominic_elvira_weis_vogel",
     "telephone": "+49 15258796562",
     "email": "",
@@ -489,7 +489,7 @@
   },
   "mustafa_yigit": {
     "firstname": "mustafa",
-    "surname": "yigit",
+    "lastname": "yigit",
     "_id": "mustafa_yigit",
     "telephone": "+49 174 6340074",
     "email": "",
@@ -497,7 +497,7 @@
   },
   "heike_ziegler": {
     "firstname": "heike",
-    "surname": "ziegler",
+    "lastname": "ziegler",
     "_id": "heike_ziegler",
     "telephone": "+49 176 53263604",
     "email": "",
