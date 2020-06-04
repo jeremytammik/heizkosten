@@ -83,8 +83,9 @@ function load_tenant_data_for_model( model, res, req )
     console.log( Object.keys( d ).length, 'remain' );
     model.create( Object.values(d), (err,res2) => {
       if (err) { return console.error(err); }
+      var sids = ids_exist.join( ', ' );
       var s = `Following ${n} ids already exist, have been skipped `
-        + `and are ignored: ${ids_exist}; please check them!`;
+        + `and are ignored: ${sids}; please check them!`;
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         return res.send( success_with_document_count(
