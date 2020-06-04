@@ -225,7 +225,7 @@ Apartment.get_edit_form_html = ( d, action, error ) => {
     ? `duplizieren, also neue ${Apartment.thing_de} anlegen mit aehnlichen Daten`
     : (action === 'edit' ? 'edititieren' : 'anschauen');
     
-  verb = Apartment.thing_de + ' ' + verb;
+  verb = Apartment.thing_de + ' ' + id + ' ' + verb;
 
   delete d['__v'];
   
