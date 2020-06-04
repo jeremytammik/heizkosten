@@ -64,8 +64,23 @@ function save_data_for_model( model, res, req )
   });
 }
 
-function vcf_import( model )
+function load_tenant_data_for_model( model, res, req )
 {
+  var fs = require('fs');
+  var d = JSON.parse( fs.readFileSync(
+    `data/${model.route}.json`, 'utf8' ));
+  
+  model.deleteMany( {}, (err) => {
+    if (err) { return console.error(err); }
+    model.create( Object.values(d), (err,res2) => {
+      if (err) { return console.error(err); }
+      model.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        return res.send( success_with_document_count(
+          count.toString(), model.thing_en ) );
+      });
+    });
+  });
 }
 
 module.exports = {

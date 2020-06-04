@@ -37,6 +37,10 @@ app.get( '/save_data', (req, res) => {
   return save_data_for_model( Person, res, req );
 });
 
+app.get( '/load_tenant', (req, res) => {
+  return load_data_for_model( Person, res, req );
+});
+
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
