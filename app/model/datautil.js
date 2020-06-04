@@ -13,7 +13,7 @@ function load_data_for_model( model, res, req )
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         return res.send( success_with_document_count(
-          count.toString(), model.thing_en ) );
+          '', count.toString(), model.thing_en ) );
       });
     });
   });
@@ -68,16 +68,27 @@ function load_tenant_data_for_model( model, res, req )
 {
   var fs = require('fs');
   var d = JSON.parse( fs.readFileSync(
-    `data/${model.route}.json`, 'utf8' ));
+    `data/mieter.json`, 'utf8' ));
   
-  model.deleteMany( {}, (err) => {
+  var ids = Object.keys( d );
+  console.log( ids.length );
+  
+  Person.find( { '_id': {$in : ids} }, (err, results) => {
     if (err) { return console.error(err); }
+    console.log( results );
+    var ids_exist = results.map( (r) => { return r._id; } )
+    var n = ids_exist.length;
+    console.log( n, ids_exist );
+    ids_exist.forEach( (i) => { delete d[i]; }
+    console.log( Object.keys( d ).length, 'remain' );
     model.create( Object.values(d), (err,res2) => {
       if (err) { return console.error(err); }
+      var s = `Following ${n} ids already exist, have been skipped `
+        + `and are ignored: ${ids_exist}; please check them!`;
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         return res.send( success_with_document_count(
-          count.toString(), model.thing_en ) );
+          s, count.toString(), model.thing_en ) );
       });
     });
   });

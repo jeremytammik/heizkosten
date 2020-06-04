@@ -21,11 +21,12 @@ function wrap_html(s)
   return shead + `<body>\n${s}\n</body></html>`;
 }
 
-function success_with_document_count( n, thing_en )
+function success_with_document_count( msg, n, thing_en )
 {
+  var msg = msg ? msg : 'Hat geklappt, vielen Dank.';
   var s = (1==n) ? '' : 's';
-  return wrap_html( '<p>Hat geklappt, vielen Dank. '
-    + `Database now contains ${n} ${thing_en}${s}.</p>`
+  return wrap_html( `<p>${msg}</p>`
+    + `<p>Database now contains ${n} ${thing_en}${s}.</p>`
     + '<p><a href="/index.html">Weitere Daten erfassen...</a></p>' );
 }
 

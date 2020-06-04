@@ -97,7 +97,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     Contract.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
       return res.send( success_with_document_count(
-        count.toString(), Contract.thing_en ) );
+        '', count.toString(), Contract.thing_en ) );
     });
   });
 });
@@ -150,7 +150,8 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Contract.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count( count.toString(), Contract.thing_en ) );
+        return res.send( success_with_document_count(
+          '', count.toString(), Contract.thing_en ) );
       });
     });
   });
@@ -173,7 +174,8 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Contract.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count( count.toString(), Contract.thing_en ) );
+      return res.send( success_with_document_count(
+        '', count.toString(), Contract.thing_en ) );
     });
   });
 });
