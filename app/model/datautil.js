@@ -81,6 +81,15 @@ function load_tenant_data_for_model( model, res, req )
     console.log( n, ids_exist );
     ids_exist.forEach( (i) => { delete d[i]; } );
     console.log( Object.keys( d ).length, 'remain' );
+    // add missing person data 
+    for (const [key, value] of Object.entries(d)) {
+      value.units = '001';
+      value.street = 'fecampring';
+      value.streetnr = '28';
+      value.zip = '79618';
+      value.city = 'rheinfelden';
+      value.country = 'deutschland';
+    }
     model.create( Object.values(d), (err,res2) => {
       if (err) { return console.error(err); }
       var sids = ids_exist.join( ', ' );
