@@ -73,7 +73,7 @@ function load_tenant_data_for_model( model, res, req )
   var ids = Object.keys( d );
   console.log( ids.length );
   
-  Person.find( { '_id': {$in : ids} }, (err, results) => {
+  model.find( { '_id': {$in : ids} }, (err, results) => {
     if (err) { return console.error(err); }
     console.log( results );
     var ids_exist = results.map( (r) => { return r._id; } );
