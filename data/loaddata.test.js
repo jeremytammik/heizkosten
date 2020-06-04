@@ -99,7 +99,7 @@ test('tenant data fulfils person regex requirements', () => {
     //expect(value.streetnr).toMatch( );
     //expect(value.zip).toMatch( );
     //expect(value.city).toMatch( );
-    expect(value.country).toMatch( regex_valid_name_chars );
+    if(value.country) { expect(value.country).toMatch( regex_valid_name_chars ); }
   }
 });
 
