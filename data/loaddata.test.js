@@ -93,7 +93,7 @@ test('tenant data fulfils person regex requirements', () => {
     expect(value.lastname).toMatch( regex_valid_name_chars );
     if(value.email) { expect(value.email).toMatch( regex_valid_email_address ); }
     if(value.iban) { expect(value.iban).toMatch( regex_valid_iban ); }
-    if(value.telephone) { expect(value.telephone).toMatch( regex_valid_telephone_number ); } 
+    if(value.telephone) { expect(value.telephone).toMatch( regex_valid_telephone_number ); }
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );

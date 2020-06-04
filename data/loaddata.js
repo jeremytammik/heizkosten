@@ -74,7 +74,7 @@ function convert_tsv_to_json()
     var id = o.firstname + '_' + o.surname;
     id = id.replace( '*', '' );
     id = id.replace( /\(Geb\./, '_' );
-    id = id.replace( /[\(\)\&\ \.]/g, '_' ); 
+    id = id.replace( /[\(\)\&\ \.\-]/g, '_' );
     id = id.replace( /__+/g, '_' );
     id = id.trim( '_' );
     id = id.toLowerCase();
