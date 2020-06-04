@@ -12,7 +12,8 @@ app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 const {
   load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
+  save_data_for_model,
+  load_tenant_data_for_model } = require('../model/datautil');
 
 const {
   success_with_document_count,

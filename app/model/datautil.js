@@ -96,5 +96,6 @@ function load_tenant_data_for_model( model, res, req )
 
 module.exports = {
   load_data_for_model,
-  save_data_for_model
+  save_data_for_model,
+  load_tenant_data_for_model
 }
