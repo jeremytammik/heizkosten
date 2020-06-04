@@ -19,7 +19,7 @@ const {
   regex_valid_name_chars,
   regex_valid_email_address,
   regex_valid_iban,
-  regex_valid_telephone_number
+  regex_valid_telephone_numbers
 } = require( '../../data/jtregex' );
 
 var personSchema = new Schema({
@@ -71,7 +71,7 @@ var personSchema = new Schema({
   telephone: {
     type: String,
     validate: {
-      validator: function(s) { return (!s) || regex_valid_telephone_number.test(s); },
+      validator: function(s) { return (!s) || regex_valid_telephone_numbers.test(s); },
       message: props => `'${props.value}' is not a valid telephone number`
     }},
   salutation: String,

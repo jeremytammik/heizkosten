@@ -10,7 +10,8 @@ const regex_valid_unit_list = /^[0-9,]{3,40}$/; // comma-separated digits only, 
 const regex_valid_name_chars = /^\*?[äöü\w][äöü\w\ \&\-\.]*\*?$/;
 const regex_valid_email_address = /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/;
 const regex_valid_iban = /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/;
-const regex_valid_telephone_number = /^[0-9\+][0-9\/\- ]{4,20}$/;
+const //regex_valid_telephone_number = /^[0-9\+][0-9\/\- ]{4,20}$/;
+const regex_valid_telephone_numbers = /^[0-9\+][0-9\/\- \,]{4,60}$/;
 const regex_valid_apartment_id = /^[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
 const regex_valid_unit_id = /^[0-9]{3}$/;
 const regex_valid_meter_id = /^(?:RA|HE|KW|WW)-(?:KU|BA|FL|SK|SM|SG|WO)-[0-9\-]{1,12}$/;
@@ -30,7 +31,7 @@ module.exports = {
   regex_valid_name_chars,
   regex_valid_email_address,
   regex_valid_iban,
-  regex_valid_telephone_number,
+  regex_valid_telephone_numbers,
   regex_valid_apartment_id,
   regex_valid_unit_id,
   regex_valid_meter_id,

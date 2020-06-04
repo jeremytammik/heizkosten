@@ -8,7 +8,7 @@ const {
   regex_valid_name_chars,
   regex_valid_email_address,
   regex_valid_iban,
-  regex_valid_telephone_number
+  regex_valid_telephone_numbers
 } = require( './jtregex' );
 
 const loaddata = require('./loaddata');
@@ -74,7 +74,7 @@ test('person id matches dictionary key', () => {
     expect(value.lastname).toMatch( regex_valid_name_chars );
     expect(value.email).toMatch( regex_valid_email_address );
     expect(value.iban).toMatch( regex_valid_iban );
-    expect(value.telephone).toMatch( regex_valid_telephone_number );
+    expect(value.telephone).toMatch( regex_valid_telephone_numbers );
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
@@ -93,7 +93,7 @@ test('tenant data fulfils person regex requirements', () => {
     expect(value.lastname).toMatch( regex_valid_name_chars );
     if(value.email) { expect(value.email).toMatch( regex_valid_email_address ); }
     if(value.iban) { expect(value.iban).toMatch( regex_valid_iban ); }
-    if(value.telephone) { expect(value.telephone).toMatch( regex_valid_telephone_number ); }
+    if(value.telephone) { expect(value.telephone).toMatch( regex_valid_telephone_numbers ); }
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
