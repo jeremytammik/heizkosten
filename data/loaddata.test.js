@@ -91,7 +91,7 @@ test('tenant data fulfils person regex requirements', () => {
     //expect(value.units).toMatch( regex_valid_unit_list );
     if(value.firstname) { expect(value.firstname).toMatch( regex_valid_name_chars ); }
     expect(value.lastname).toMatch( regex_valid_name_chars );
-    expect(value.email).toMatch( regex_valid_email_address );
+    if(value.email) { expect(value.email).toMatch( regex_valid_email_address ); }
     expect(value.iban).toMatch( regex_valid_iban );
     expect(value.telephone).toMatch( regex_valid_telephone_number );
     //expect(value.salutation).toMatch( );
