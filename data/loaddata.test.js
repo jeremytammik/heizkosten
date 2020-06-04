@@ -44,7 +44,7 @@ test('unit has a valid manager', () => {
   var person_ids = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.units)) {
     expect( person_ids ).toContain( value.manager_id );
-  }  
+  }
 });
 
 test('cost id matches dictionary key', () => {
@@ -126,7 +126,7 @@ test('apartment has valid owner', () => {
   var person_ids = Object.keys(loaddata.persons);
   for (const [key, value] of Object.entries(loaddata.apartments)) {
     if( value.owner_id ) { expect(person_ids).toContain( value.owner_id ); }
-  }  
+  }
 });
 
 const apartment_meter_types = {
@@ -179,7 +179,7 @@ test('apartment has valid active contract', () => {
   //apartment_ids.forEach( (a) => { expect(map_keys).toContain( a ); } );
   for (const [key, value] of Object.entries(loaddata.apartments)) {
     if( value.owner_id ) { expect(map_keys).toContain( value._id ); }
-  }  
+  }
 });
 
 test('contract id matches dictionary key', () => {
@@ -206,7 +206,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
       ? true
       : (value.begin.getTime() < value.end.getTime());
     expect(end_is_null_or_later_than_begin).toBeTruthy();
-  }  
+  }
 });
 
 test('all contract meter numbers match its apartment ones', () => {
@@ -244,7 +244,7 @@ function get_rent_dict_val(d)
     return value;
   }
 }
-  
+
 test('calculate payment total in 2018 for each contract and account', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     var rentpm = get_rent_dict_val(value.rent_apartment_eur);

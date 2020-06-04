@@ -25,7 +25,7 @@ module.exports = {
   date_with_optional_time_format,
   non_empty_alpha_mumeric,
   empty_or_ascii_or_umlaut,
-  
+
   regex_valid_person_id,
   regex_valid_unit_list,
   regex_valid_name_chars,

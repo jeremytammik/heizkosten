@@ -42,7 +42,7 @@ function read_vcf()
   //console.log( vCard.normalize( cards ) );
   cards.forEach( (v) => {
     console.log( inspect( v ) )
-  
+
     //console.log( v.toJSON() );
     var d = v.data;
     var n = read_vcf_property_text( v, 'n' ); // = d.n.valueOf().replace( /;+/g, ' ' ).trim();

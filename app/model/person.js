@@ -23,7 +23,7 @@ const {
 } = require( '../../data/jtregex' );
 
 var personSchema = new Schema({
-  _id: {  // suppress automatic generation  
+  _id: {  // suppress automatic generation
     type: String,
     //unique: true, // cf. https://github.com/Automattic/mongoose/issues/8462
     min: 1,
@@ -132,20 +132,20 @@ Person.get_edit_form_html = ( p, action, error ) => {
   //var url_action = create_duplicate ? 'dupl' : 'edit';
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Person.route}/${id}/${url_action}`;
-  
+
   var verb = (action === 'dupl')
     ? `duplizieren, also neue ${Person.thing_de} anlegen mit aehnlichen Daten`
     : (action === 'edit' ? 'edititieren' : 'anschauen');
-    
+
   verb = Person.thing_de + ' ' + verb;
 
   delete p['__v'];
-  
+
   if( !(action === 'dupl') ) {
     delete p['_id'];
     delete p['units'];
   }
-  
+
   return jtformgen_edit_document( p, url_action, verb, true, error );
 }
 
