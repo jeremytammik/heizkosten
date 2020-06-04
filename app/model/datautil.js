@@ -76,10 +76,10 @@ function load_tenant_data_for_model( model, res, req )
   Person.find( { '_id': {$in : ids} }, (err, results) => {
     if (err) { return console.error(err); }
     console.log( results );
-    var ids_exist = results.map( (r) => { return r._id; } )
+    var ids_exist = results.map( (r) => { return r._id; } );
     var n = ids_exist.length;
     console.log( n, ids_exist );
-    ids_exist.forEach( (i) => { delete d[i]; }
+    ids_exist.forEach( (i) => { delete d[i]; } );
     console.log( Object.keys( d ).length, 'remain' );
     model.create( Object.values(d), (err,res2) => {
       if (err) { return console.error(err); }
