@@ -75,12 +75,12 @@ function load_tenant_data_for_model( model, res, req )
   
   model.find( { '_id': {$in : ids} }, (err, results) => {
     if (err) { return console.error(err); }
-    console.log( results );
+    //console.log( results );
     var ids_exist = results.map( (r) => { return r._id; } );
     var n = ids_exist.length;
-    console.log( n, ids_exist );
+    //console.log( n, ids_exist );
     ids_exist.forEach( (i) => { delete d[i]; } );
-    console.log( Object.keys( d ).length, 'remain' );
+    //console.log( Object.keys( d ).length, 'remain' );
     // add missing person data 
     for (const [key, value] of Object.entries(d)) {
       value.units = '001';
