@@ -109,3 +109,4 @@ yarn.lock
 # protect personal data
 data/person.json
 data/mieter.json
+data/tmp/person.json
