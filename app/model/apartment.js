@@ -95,6 +95,8 @@ var apartmentSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
+        // todo: add a test that the non-empty person id
+        // really matches an entry in the person database
         //console.log(s, '-->', regex_valid_person_id.test(s));
         return (!s) || regex_valid_person_id.test(s);
       },

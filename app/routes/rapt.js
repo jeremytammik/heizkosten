@@ -1,5 +1,6 @@
 const app = module.exports = require('express')();
 const util = require( '../calc/util' );
+const Person = require( '../model/person' );
 const Apartment = require( '../model/apartment' );
 
 const {
@@ -203,7 +204,7 @@ app.post( '/:id/edit_submit', (req, res) => {
 
   var a = new Apartment( c );
   error = a.validateSync();
-  if(error) { console.log('a:', a, '\nerror:', error); }
+  if( error ) { console.log('a:', a, '\nerror:', error); }
 
   if( error ) {
     var d = a._doc;
@@ -212,15 +213,26 @@ app.post( '/:id/edit_submit', (req, res) => {
     return res.send( form );
     //res.redirect( `/apt/${id}/edit` ); // how to pass along error as well?
   }
-  console.log(`updating ${id}:`, c);
-  Apartment.updateOne( { "_id": id }, c, (err,res2) => {
-    if (err) { return console.error(err); }
-    Apartment.countDocuments( {}, (err, count) => {
+
+  Person.count( { _id: a.owner_id }, (err, count) => {
+    if (err) { return console.log(err); }
+    if( 0 == count ) {
+      validation_errors = { errors: { owner_id: { path: 'owner_id', message: a.owner_id + ' is not a valid person_id' }}};
+      var d = a._doc;
+      d._id = id;
+      var form = Apartment.get_edit_form_html( d, 'edit', validation_errors );
+      return res.send( form );
+    }
+    console.log(`updating ${id}:`, c);
+    Apartment.updateOne( { "_id": id }, c, (err,res2) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
-        '', count.toString(), Apartment.thing_en ) );
+      Apartment.countDocuments( {}, (err, count) => {
+        if (err) { return console.error(err); }
+        return res.send( success_with_document_count(
+          '', count.toString(), Apartment.thing_en ) );
+      });
     });
-  });
+  }); 
 });
 
 app.get( '/:id/dupl', (req, res) => {
