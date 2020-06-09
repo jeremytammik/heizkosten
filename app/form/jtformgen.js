@@ -57,7 +57,7 @@ function jtformgen_list_documents( model, where, docs, enable_select, url_filter
   
   var a = [];
   docs.forEach( (d) => {
-    a.push( d.get_display_string() + '+++' _ d._id );
+    a.push( d.get_display_string() + '+++' + d._id );
   });
   a.sort();
   
