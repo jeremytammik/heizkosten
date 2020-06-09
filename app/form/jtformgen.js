@@ -63,7 +63,7 @@ function jtformgen_list_documents( model, where, docs, enable_select, url_filter
   
   b = [];
   a.forEach( (s) => {
-    var [ds,id] = s.plit('+++');
+    var [ds,id] = s.split( '+++' );
     var view = `<a href="/${route}/${id}"><img src="/img/view.png"/></a>`
     var actions = enable_select
       ? `<a href="/${route}/${id}/select"><img src="/img/select.png"/></a>`
