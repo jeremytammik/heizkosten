@@ -54,22 +54,29 @@ function jtformgen_list_documents( model, where, docs, enable_select, url_filter
   
   var route = model.route;
   var thing = model.thing_en;
+  
   var a = [];
   docs.forEach( (d) => {
-    var view = `<a href="/${route}/${d._id}"><img src="/img/view.png"/></a>`
-    var actions = enable_select
-      ? `<a href="/${route}/${d._id}/select"><img src="/img/select.png"/></a>`
-      : `<a href="/${route}/${d._id}/edit"><img src="/img/edit.png"/></a>&nbsp;`
-      + `<a href="/${route}/${d._id}/dupl"><img src="/img/dupl.png"/></a>&nbsp;`
-      + `<a href="/${route}/${d._id}/del"><img src="/img/del.png"/></a>`;
-    a.push( `<li>${view} ${actions} ${d.get_display_string()}</li>` );
+    a.push( `${d.get_display_string()+++${d._id}` );
   });
   a.sort();
   
-  var n = a.length.toString();
+  b = [];
+  a.forEach( (s) => {
+    var [ds,id] = s.plit('+++');
+    var view = `<a href="/${route}/${id}"><img src="/img/view.png"/></a>`
+    var actions = enable_select
+      ? `<a href="/${route}/${id}/select"><img src="/img/select.png"/></a>`
+      : `<a href="/${route}/${id}/edit"><img src="/img/edit.png"/></a>&nbsp;`
+      + `<a href="/${route}/${id}/dupl"><img src="/img/dupl.png"/></a>&nbsp;`
+      + `<a href="/${route}/${id}/del"><img src="/img/del.png"/></a>`;
+    b.push( `<li>${view} ${actions} ${ds}</li>` );
+  });
+  
+  var n = b.length.toString();
   var s = (1==n) ? '' : 's';
   var s1 = `<p>${n} ${thing}${s}${where}:</p><ul class="actions">`;
-  var s2 =  a.join('\n');
+  var s2 =  b.join('\n');
   var s3 = '</ul><p><a href="/index.html">return to hauskosten</a></p>';
 
   return wrap_html( ssearch + s1 + s2 + s3 );
