@@ -89,6 +89,7 @@ function load_tenant_data_for_model( model, res, req )
       value.zip = '79618';
       value.city = 'rheinfelden';
       value.country = 'deutschland';
+      value.altaddr = '';
     }
     model.create( Object.values(d), (err,res2) => {
       if (err) { return console.error(err); }
