@@ -79,7 +79,8 @@ var personSchema = new Schema({
   streetnr: String,
   zip: String,
   city: String,
-  country: String },
+  country: String,
+  altaddr: String },
   { _id: false } // suppress automatic generation
 );
 
