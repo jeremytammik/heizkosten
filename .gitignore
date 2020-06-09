@@ -110,3 +110,6 @@ yarn.lock
 data/person.json
 data/mieter.json
 data/tmp/person.json
+
+# ignore exported data
+data/tmp/
