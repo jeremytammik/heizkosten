@@ -243,26 +243,40 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
 test('all contract meter numbers match its apartment ones', () => {
   var meterdata = {};
   for (const [key, value] of Object.entries(loaddata.contracts)) {
+    meterdata[value.apartment_id] = {};
     var apt = loaddata.apartments[value.apartment_id];
     var a = Object.keys(apt.coldwatermeters);
     var b = Object.keys(value.coldwatermeters);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    
+    var d = {};
+    for (const [key2, value2] of Object.entries(apt.coldwatermeters)) {
+      d[key] = value2 + ', ' + value.coldwatermeters[key2];
+    }
+    meterdata[value.apartment_id].coldwatermeters = d;
+
     var a = Object.keys(apt.hotwatermeters);
     var b = Object.keys(value.hotwatermeters);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    
+    d = {};
+    for (const [key2, value2] of Object.entries(apt.hotwatermeters)) {
+      d[key] = value2 + ', ' + value.hotwatermeters[key2];
+    }
+    meterdata[value.apartment_id].hotwatermeters = d;
+
     var a = Object.keys(apt.heatcostallocators);
     var b = Object.keys(value.heatcostallocators);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
+    
+    d = {};
+    for (const [key2, value2] of Object.entries(apt.heatcostallocators)) {
+      d[key] = value2 + ', ' + value.heatcostallocators[key2];
+    }
+    meterdata[value.apartment_id].heatcostallocators = d;
   }
-  //var fs = require('fs');
-  //var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
-  //var fn = `data/tmp/${model.route}_${ts}.json`;
-  //fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
-  //  function (err) {
-  //    if (err) { return console.log(err); }
-  //    return res.send( `${model.thing_en} data saved in '${fn}'` );
-  //  }
-  //);
+  var fs = require('fs');
+  fs.writeFileSync( 'meterdata.json', JSON.stringify( meterdata, null, 2 ) );
 });
 
 /*
