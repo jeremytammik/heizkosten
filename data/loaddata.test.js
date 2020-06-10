@@ -169,7 +169,7 @@ test('all apartment and contract meter ids have valid meter type, room prefix an
     for (const [key2, value2] of Object.entries(value.hotwatermeters)) {
       test_meter_id( 'WW', key2 );
     }
-    for (const [key2, value2] of Object.entries(value.heatcostallocatorreadings)) {
+    for (const [key2, value2] of Object.entries(value.heatcostallocators)) {
       test_meter_id( 'HE', key2 );
     }
   }
@@ -250,7 +250,7 @@ test('all contract meter numbers match its apartment ones', () => {
     var b = Object.keys(value.hotwatermeters);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
     var a = Object.keys(apt.heatcostallocators);
-    var b = Object.keys(value.heatcostallocatorreadings);
+    var b = Object.keys(value.heatcostallocators);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
   }
 });

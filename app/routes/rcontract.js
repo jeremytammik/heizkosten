@@ -47,7 +47,7 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
 var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
 + ' ' + Object.keys(this.coldwatermeters).join(' ')\
 + ' ' + Object.keys(this.hotwatermeters).join(' ')\
-+ ' ' + Object.keys(this.heatcostallocatorreadings).join(' ');\
++ ' ' + Object.keys(this.heatcostallocators).join(' ');\
 emit( this._id, /${sfilter2}/.test(s) );\
 };`;
 

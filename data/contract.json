@@ -13,7 +13,7 @@
     "payments_rent_apartment": { "2018": 5736 },
     "payments_rent_other": { "2018": 600 },
     "payments_nk": { "2018": 2076 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44318710": { "2018-12-31": 3067 },
       "HE-BA-44318734": { "2018-12-31": 742 },
       "HE-SM-44318741": { "2018-12-31": 1238 },
@@ -41,7 +41,7 @@
     "payments_rent_apartment": { "2018": 0 },
     "payments_rent_other": { "2018": 0 },
     "payments_nk": { "2018": 0 },
-    "heatcostallocatorreadings": [],
+    "heatcostallocators": [],
     "coldwatermeters": [],
     "hotwatermeters": [],
     "smokedetector_maintenance_cost_eur": 5
@@ -60,7 +60,7 @@
     "payments_rent_apartment": { "2018": 8556 },
     "payments_rent_other": { "2018": 144 },
     "payments_nk": { "2018": 3816 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44333607": { "2018-12-31": 88 },
       "HE-BA-44333614": { "2018-12-31": 9 },
       "HE-SM-44333621": { "2018-12-31": 516 },
@@ -91,7 +91,7 @@
     "payments_rent_apartment": { "2018": 8376 },
     "payments_rent_other": { "2018": 720 },
     "payments_nk": { "2018": 1704 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44322335": { "2018-12-31": 502 },
       "HE-BA-443323257": { "2018-12-31": 0 },
       "HE-SM-44323240": { "2018-12-31": 910 },
@@ -122,7 +122,7 @@
     "payments_rent_apartment": { "2018": 637.3 },
     "payments_rent_other": { "2018": 0 },
     "payments_nk": { "2018": 212.7 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44322311": { "2018-01-31": 209 },
       "HE-BA-551540802": { "2018-01-31": 0 },
       "HE-SM-44318239": { "2018-01-31": 214 },
@@ -153,7 +153,7 @@
     "payments_rent_apartment": { "2018": 7512 },
     "payments_rent_other": { "2018": 0 },
     "payments_nk": { "2018": 1608 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44322311": { "2018-12-31": 1351 },
       "HE-BA-551540802": { "2018-12-31": 4 },
       "HE-SM-44318239": { "2018-12-31": 1764 },
@@ -184,7 +184,7 @@
     "payments_rent_apartment": { "2018": 9024 },
     "payments_rent_other": { "2018": 600 },
     "payments_nk": { "2018": 2208 },
-    "heatcostallocatorreadings": {
+    "heatcostallocators": {
       "HE-WO-44322748": { "2018-12-31": 471 },
       "HE-BA-44322786": { "2018-12-31": 7 },
       "HE-SM-603023628": { "2018-12-31": 914 },
