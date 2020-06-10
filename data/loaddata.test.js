@@ -1,16 +1,17 @@
 'use strict';
 
-const {
-  non_empty_alpha_mumeric,
-  empty_or_ascii_or_umlaut,
-  regex_valid_person_id,
-  regex_valid_unit_list,
-  regex_valid_name_chars,
-  regex_valid_email_address,
-  regex_valid_iban,
-  regex_valid_telephone_numbers
-} = require( './jtregex' );
+//const {
+//  non_empty_alpha_mumeric,
+//  empty_or_ascii_or_umlaut,
+//  regex_valid_person_id,
+//  regex_valid_unit_list,
+//  regex_valid_name_chars,
+//  regex_valid_email_address,
+//  regex_valid_iban,
+//  regex_valid_telephone_numbers
+//} = require( './jtregex' );
 
+const jtregex = require( './jtregex' );
 const loaddata = require('./loaddata');
 
 test('JSON parse date reviver', () => {
@@ -25,9 +26,9 @@ test('all data characters are ascii or umlaut', () => {
   for (const [key, value] of Object.entries(loaddata)) {
     for (const [key2, value2] of Object.entries(value)) {
       for (const [key3, value3] of Object.entries(value2)) {
-        expect(key3).toMatch( non_empty_alpha_mumeric );
+        expect(key3).toMatch( jtregex.non_empty_alpha_mumeric );
         if (typeof value3 === 'string' || value3 instanceof String) {
-          expect(value3).toMatch( empty_or_ascii_or_umlaut );
+          expect(value3).toMatch( jtregex.empty_or_ascii_or_umlaut );
         }
       }
     }
@@ -68,38 +69,38 @@ test('loaded N persons', () => {
 test('person id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.persons)) {
     expect(value._id).toBe( key );
-    expect(value._id).toMatch( regex_valid_person_id );
-    expect(value.units).toMatch( regex_valid_unit_list );
-    if(value.firstname) { expect(value.firstname).toMatch( regex_valid_name_chars ); }
+    expect(value._id).toMatch( jtregex.regex_valid_person_id );
+    expect(value.units).toMatch( jtregex.regex_valid_unit_list );
+    if(value.firstname) { expect(value.firstname).toMatch( jtregex.regex_valid_name_chars ); }
     expect(value.lastname).toMatch( regex_valid_name_chars );
-    expect(value.email).toMatch( regex_valid_email_address );
-    expect(value.iban).toMatch( regex_valid_iban );
-    expect(value.telephone).toMatch( regex_valid_telephone_numbers );
+    expect(value.email).toMatch( jtregex.regex_valid_email_address );
+    expect(value.iban).toMatch( jtregex.regex_valid_iban );
+    expect(value.telephone).toMatch( jtregex.regex_valid_telephone_numbers );
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
     //expect(value.zip).toMatch( );
     //expect(value.city).toMatch( );
-    expect(value.country).toMatch( regex_valid_name_chars );
+    expect(value.country).toMatch( jtregex.regex_valid_name_chars );
   }
 });
 
 test('tenant data fulfils person regex requirements', () => {
   for (const [key, value] of Object.entries(loaddata.tenants)) {
     expect(value._id).toBe( key );
-    expect(value._id).toMatch( regex_valid_person_id );
+    expect(value._id).toMatch( jtregex.regex_valid_person_id );
     //expect(value.units).toMatch( regex_valid_unit_list );
-    if(value.firstname) { expect(value.firstname).toMatch( regex_valid_name_chars ); }
-    expect(value.lastname).toMatch( regex_valid_name_chars );
-    if(value.email) { expect(value.email).toMatch( regex_valid_email_address ); }
-    if(value.iban) { expect(value.iban).toMatch( regex_valid_iban ); }
-    if(value.telephone) { expect(value.telephone).toMatch( regex_valid_telephone_numbers ); }
+    if(value.firstname) { expect(value.firstname).toMatch( jtregex.regex_valid_name_chars ); }
+    expect(value.lastname).toMatch( jtregex.regex_valid_name_chars );
+    if(value.email) { expect(value.email).toMatch( jtregex.regex_valid_email_address ); }
+    if(value.iban) { expect(value.iban).toMatch( jtregex.regex_valid_iban ); }
+    if(value.telephone) { expect(value.telephone).toMatch( jtregex.regex_valid_telephone_numbers ); }
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
     //expect(value.zip).toMatch( );
     //expect(value.city).toMatch( );
-    if(value.country) { expect(value.country).toMatch( regex_valid_name_chars ); }
+    if(value.country) { expect(value.country).toMatch( jtregex.regex_valid_name_chars ); }
   }
 });
 
