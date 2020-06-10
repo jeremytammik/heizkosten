@@ -8,6 +8,15 @@ var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
 
+const {
+  regex_valid_person_id,
+  regex_valid_apartment_id,
+  regex_valid_unit_id,
+  regex_valid_meter_id,
+  regex_valid_date,
+  regex_valid_meter_expiry_with_factor
+} = require( '../../data/jtregex' );
+
 /*
 id_wohnung
   energieerfassung
@@ -56,15 +65,6 @@ id_wohnung
   KW kaltwasser
   WW warmwasser
 */
-
-const {
-  regex_valid_person_id,
-  regex_valid_apartment_id,
-  regex_valid_unit_id,
-  regex_valid_meter_id,
-  regex_valid_date,
-  regex_valid_meter_expiry_with_factor
-} = require( '../../data/jtregex' );
 
 var apartmentSchema = new Schema({
   _id: { // suppress automatic generation  

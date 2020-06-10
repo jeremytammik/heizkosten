@@ -8,6 +8,16 @@ var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
 
+const {
+  regex_valid_person_id,
+  regex_valid_apartment_id,
+  regex_valid_contract_id,
+  regex_valid_unit_id,
+  regex_valid_meter_id,
+  regex_valid_date,
+  regex_valid_meter_expiry_with_factor
+} = require( '../../data/jtregex' );
+
 const enum_contract_accounts = [
   'apartment_rental',
   'other_rental',
@@ -17,7 +27,17 @@ const enum_contract_accounts = [
 ];
 
 var contractSchema = new Schema({
-  _id: String, // suppress automatic generation
+  _id: { // suppress automatic generation  
+    type: String,
+    min: 12,
+    max: 14,
+    validate: {
+      validator: function(s) {
+        return regex_valid_contract_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid contract_id`
+    }
+  },
   unit_id: String, // unit, not really needed
   apartment_id: String,
   occupant_ids: [String],
