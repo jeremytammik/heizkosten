@@ -25,7 +25,7 @@ var contractSchema = new Schema({
     max: 14,
     validate: {
       validator: function(s) {
-        return regex_valid_contract_id.test(s);
+        return jtregex.valid_contract_id.test(s);
       },
       message: props => `'${props.value}' is not a valid contract_id`
     }

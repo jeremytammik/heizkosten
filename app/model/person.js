@@ -22,7 +22,7 @@ var personSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
-        return regex_valid_person_id.test(s);
+        return jtregex.valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
     }},
@@ -32,38 +32,38 @@ var personSchema = new Schema({
     max: 40,
     validate: {
       validator: function(s) {
-        return regex_valid_unit_list.test(s);
+        return jtregex.valid_unit_list.test(s);
       },
       message: props => `'${props.value}' is not a valid list of unit ids`
     }},
   firstname:  {
     type: String,
     validate: {
-      validator: function(s) { return (!s) || regex_valid_name_chars.test(s); },
+      validator: function(s) { return (!s) || jtregex.valid_name_chars.test(s); },
       message: props => `invalid characters in '${props.value}'`
     }},
   lastname:  {
     type: String,
     validate: {
-      validator: function(s) { return regex_valid_name_chars.test(s); },
+      validator: function(s) { return jtregex.valid_name_chars.test(s); },
       message: props => `invalid characters in '${props.value}'`
     }},
   email: {
     type: String,
     validate: {
-      validator: function(s) { return (!s) || regex_valid_email_address.test(s); },
+      validator: function(s) { return (!s) || jtregex.valid_email_address.test(s); },
       message: props => `'${props.value}' is not a valid email address`
     }},
   iban: {
     type: String,
     validate: {
-      validator: function(s) { return (!s) || regex_valid_iban.test(s); },
+      validator: function(s) { return (!s) || jtregex.valid_iban.test(s); },
       message: props => `'${props.value}' is not a valid IBAN`
     }},
   telephone: {
     type: String,
     validate: {
-      validator: function(s) { return (!s) || regex_valid_telephone_numbers.test(s); },
+      validator: function(s) { return (!s) || jtregex.valid_telephone_numbers.test(s); },
       message: props => `'${props.value}' is not a valid telephone number`
     }},
   salutation: String,

@@ -66,7 +66,7 @@ var apartmentSchema = new Schema({
     max: 9,
     validate: {
       validator: function(s) {
-        return regex_valid_apartment_id.test(s);
+        return jtregex.valid_apartment_id.test(s);
       },
       message: props => `'${props.value}' is not a valid apartment_id`
     }
@@ -77,7 +77,7 @@ var apartmentSchema = new Schema({
     max: 3,
     validate: {
       validator: function(s) {
-        return regex_valid_unit_id.test(s);
+        return jtregex.valid_unit_id.test(s);
       },
       message: props => `'${props.value}' is not a valid unit_id`
     }
@@ -88,7 +88,7 @@ var apartmentSchema = new Schema({
     max: 20,
     validate: {
       validator: function(s) {
-        return (!s) || regex_valid_person_id.test(s);
+        return (!s) || jtregex.valid_person_id.test(s);
       },
       message: props => `'${props.value}' is not a valid person_id`
     }
@@ -105,10 +105,10 @@ var apartmentSchema = new Schema({
     validate: {
       validator: function(d) {
         for (const [k,v] of Object.entries(d)) {
-          //console.log( k, regex_valid_meter_id.test(k), v, regex_valid_date.test(v) );
+          //console.log( k, jtregex.valid_meter_id.test(k), v, jtregex.valid_date.test(v) );
           if(!(k.substr(0,2) === 'RA')) { return false; }
-          if(!regex_valid_meter_id.test(k)) { return false; }
-          if(!regex_valid_date.test(v)) { return false; }
+          if(!jtregex.valid_meter_id.test(k)) { return false; }
+          if(!jtregex.valid_date.test(v)) { return false; }
         }
         return true;
       },
@@ -121,8 +121,8 @@ var apartmentSchema = new Schema({
       validator: function(d) {
         for (const [k,v] of Object.entries(d)) {
           if(!(k.substr(0,2) === 'KW')) { return false; }
-          if(!regex_valid_meter_id.test(k)) { return false; }
-          if(!regex_valid_date.test(v)) { return false; }
+          if(!jtregex.valid_meter_id.test(k)) { return false; }
+          if(!jtregex.valid_date.test(v)) { return false; }
         }
         return true;
       },
@@ -135,8 +135,8 @@ var apartmentSchema = new Schema({
       validator: function(d) {
         for (const [k,v] of Object.entries(d)) {
           if(!(k.substr(0,2) === 'WW')) { return false; }
-          if(!regex_valid_meter_id.test(k)) { return false; }
-          if(!regex_valid_date.test(v)) { return false; }
+          if(!jtregex.valid_meter_id.test(k)) { return false; }
+          if(!jtregex.valid_date.test(v)) { return false; }
         }
         return true;
       },
@@ -149,10 +149,10 @@ var apartmentSchema = new Schema({
       validator: function(d) {
         //console.log('d:', Object.entries(d));
         for (const [k,v] of Object.entries(d)) {
-          //console.log( k, v, regex_valid_meter_expiry_with_factor.test(v) );
+          //console.log( k, v, jtregex.valid_meter_expiry_with_factor.test(v) );
           if( !(k.substr(0,2) === 'HE')) { return false; }
-          if(!regex_valid_meter_id.test(k)) { return false; }
-          if(!regex_valid_meter_expiry_with_factor.test(v)) { return false; }
+          if(!jtregex.valid_meter_id.test(k)) { return false; }
+          if(!jtregex.valid_meter_expiry_with_factor.test(v)) { return false; }
         }
         return true;
       },
