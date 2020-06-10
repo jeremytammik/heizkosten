@@ -92,8 +92,7 @@ function round_to_two_digits( a ) {
 }
 
 // convert comma-separated list of colon-separated pairs to js object mapping key to number
-function string_to_object_with_numbers( s )
-{
+function string_to_object_with_numbers( s ) {
   var d = {};
   var a = s.split( ',' );
   a.forEach( (s) => {

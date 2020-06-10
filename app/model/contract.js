@@ -62,9 +62,9 @@ var contractSchema = new Schema({
   payments_rent_apartment: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
   payments_rent_other: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
   payments_nk: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
-  heatcostallocators: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
-  coldwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
-  hotwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
+  //heatcostallocators: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
+  //coldwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
+  //hotwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   smokedetector_maintenance_cost_eur: Number }, // constant defined by owner per detector replaced
   { _id: false } // suppress automatic generation
 );
