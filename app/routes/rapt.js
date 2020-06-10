@@ -121,14 +121,16 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
   var o = {};
 
+  // create string representation for matching
   // skip smoke detectors; they have no unique numbers
 
   o.map = `function () {\
-var s = this._id + ' ' + this.owner_id + ' ' + this.grundbuchnr\
-+ Object.keys(this.coldwatermeters).join(' ')\
-+ Object.keys(this.hotwatermeters).join(' ')\
-+ Object.keys(this.heatcostallocators).join(' ')\
-+ this.room_count.toString() + ' rooms '\
+var s = this._id + ' ' + this.owner_id
++ ' ' + this.grundbuchnr\
++ ' ' + Object.keys(this.coldwatermeters).join(' ')\
++ ' ' + Object.keys(this.hotwatermeters).join(' ')\
++ ' ' + Object.keys(this.heatcostallocators).join(' ')\
++ ' ' + this.room_count.toString() + ' rooms '\
 + this.area_m2.toString() + ' m2';\
 emit( this._id, /${sfilter2}/.test(s) );\
 };`;
@@ -259,9 +261,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 
   var id = c._id;
   Apartment.countDocuments( {'_id': id }, (err, count) => {
-    if (err) {
-      return console.error(err);
-    }
+    if (err) { return console.error(err); }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id' }}};
@@ -278,9 +278,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
     }
     c['_id'] = id;
     Apartment.create( c, (err2,res2) => {
-      if (err2) {
-        return console.error(err2);
-      }
+      if (err2) { return console.error(err2); }
       Apartment.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
         return res.send( success_with_document_count(

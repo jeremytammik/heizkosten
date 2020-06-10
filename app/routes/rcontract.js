@@ -33,8 +33,48 @@ app.get( '/unit/:uid/list', (req, res) => {
   Contract.find( { 'unit_id': uid }, (err, results) => {
     if (err) { return console.log(err); }
     else {
+      var url_filter = `/contract/unit/${uid}/list`;
       return res.send( jtformgen_list_documents(
-        Contract, ` in ${uid}`, results, false ) );
+        Contract, ` in ${uid}`, results, false, url_filter ) );
+    }
+  });
+});
+
+app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
+  var uid = req.params.uid;
+  var sfilter = req.body.filter;
+  var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
+  var o = {};
+
+  // create string representation for matching
+  // skip smoke detectors; they have no unique numbers
+
+  o.map = `function () {\
+var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
++ ' ' + Object.keys(this.coldwatermeters).join(' ')\
++ ' ' + Object.keys(this.hotwatermeters).join(' ')\
++ ' ' + Object.keys(this.heatcostallocators).join(' ');\
+emit( this._id, /${sfilter2}/.test(s) );\
+};`;
+
+  o.reduce = 'function (k, vals) { return Array.sum(vals); };';
+  o.query = { unit_id : uid};
+  Contract.mapReduce( o, function (err, results) {
+    if (err) { return console.log(err); }
+    else {
+      var ids = [];
+      results.results.forEach( (r) => {
+        if( r.value ) { ids.push( r._id ); }
+      });
+      Contract.find( { '_id': {$in : ids} }, (err, results) => {
+        var url_filter = `/contract/unit/${uid}/list`;
+        var matching = sfilter
+          ? ` matching "${sfilter}"`
+          : '';
+        return res.send( jtformgen_list_documents(
+          Contract, `${matching} in ${uid}`, results,
+          false, url_filter, sfilter ) );
+      });
     }
   });
 });
@@ -77,21 +117,27 @@ function convert_to_dict( c, keyprefix )
 }
 
 app.post( '/:id/edit_submit', (req, res) => {
+  var id = req.params.id;
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
-  //console.log(c);
+  //console.log('req.body', c);
   c.smokedetectors = convert_to_dict(c,'smokedetectors');
   c.coldwatermeters = convert_to_dict(c,'coldwatermeters');
   c.hotwatermeters = convert_to_dict(c,'hotwatermeters');
   c.heatcostallocators = convert_to_dict(c,'heatcostallocators');
-  //console.log(c);
+  //console.log('c:', c);
 
-  var a = new Contract( req.body );
+  var a = new Contract( c );
   error = a.validateSync();
+  if( error ) { console.log('a:', a, '\nerror:', error); }
+
   if( error ) {
-    var form = Contract.get_edit_form_html( c, 'edit', error );
-    return res.send( form );      
+    var d = a._doc;
+    d._id = id;
+    var form = Contract.get_edit_form_html( d, 'edit', error );
+    return res.send( form );
   }
-  var id = req.params.id;
+
+  console.log(`updating ${id}:`, c);
   Contract.updateOne( { "_id": id }, c, (err,res2) => {
     if (err) { return console.error(err); }
     Contract.countDocuments( {}, (err, count) => {
@@ -127,9 +173,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   
   var id = c._id;
   Contract.countDocuments( {'_id': id }, (err, count) => {
-    if (err) {
-      return console.error(err);
-    }
+    if (err) { return console.error(err); }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id' }}};
@@ -142,12 +186,9 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Contract.get_edit_form_html( doc, 'dupl', error );
       return res.send( form );      
     }
-    //var p3 = req.body;
     c['_id'] = id;
     Contract.create( c, (err2,res2) => {
-      if (err2) {
-        return console.error(err2);
-      }
+      if (err2) { return console.error(err2); }
       Contract.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
         return res.send( success_with_document_count(
