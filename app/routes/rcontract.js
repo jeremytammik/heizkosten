@@ -43,8 +43,10 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   // create string representation for matching
   // skip smoke detectors; they have no unique numbers
 
+  //var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
+
   o.map = `function () {\
-var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
+var s = this._id\
 + ' ' + Object.keys(this.coldwatermeters).join(' ')\
 + ' ' + Object.keys(this.hotwatermeters).join(' ')\
 + ' ' + Object.keys(this.heatcostallocators).join(' ');\
