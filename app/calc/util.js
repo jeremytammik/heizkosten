@@ -91,9 +91,24 @@ function round_to_two_digits( a ) {
   return Math.round( (a+0.000000001) * 100) / 100;
 }
 
-exports.trimAllFieldsInObjectAndChildren = trimAllFieldsInObjectAndChildren;
-exports.jtisodate = jtisodate;
-exports.date_diff_days = date_diff_days;
-exports.days_in_year = days_in_year;
-exports.get_duration_in_given_year = get_duration_in_given_year;
-exports.round_to_two_digits = round_to_two_digits;
+// convert comma-separated list of colon-separated pairs to js object mapping key to number
+function string_to_object_with_numbers( s )
+{
+  var d = {};
+  var a = s.split( ',' );
+  a.forEach( (s) => {
+    var b = s.split( ':' );
+    d[b[0]] = Number(b[1]);
+  });
+  return d;
+}
+
+module.exports = {
+  trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
+  jtisodate: jtisodate,
+  date_diff_days: date_diff_days,
+  days_in_year: days_in_year,
+  get_duration_in_given_year: get_duration_in_given_year,
+  round_to_two_digits: round_to_two_digits,
+  string_to_object_with_numbers: string_to_object_with_numbers
+}
