@@ -149,9 +149,14 @@ var a = [];
 Object.keys(p).forEach( (key,index) => {
   var k = key;
   var v = p[key];
-  //console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
   
-  var editor = (v && v.constructor && ('Object' === v.constructor.name)) // MongooseMap
+  console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
+  
+  if( v && v.constructor && ('Date' === v.constructor.name) ) {
+    v = util.jtisodate( v );
+  }
+  
+  var editor = (v && v.constructor && ('Object' === v.constructor.name) ) // MongooseMap
     ? create_editor_for_obj( k, v )
     : `\ 
 <td class="right"><label for="${k}">${k}:</label></td>\
