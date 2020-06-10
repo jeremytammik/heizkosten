@@ -30,8 +30,28 @@ var contractSchema = new Schema({
       message: props => `'${props.value}' is not a valid contract_id`
     }
   },
-  unit_id: String, // unit, not really needed
-  apartment_id: String,
+  unit_id: { // unit, not really needed
+    type: String,
+    min: 3,
+    max: 3,
+    validate: {
+      validator: function(s) {
+        return jtregex.valid_unit_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid unit_id`
+    }
+  },
+  apartment_id: {
+    type: String,
+    min: 9,
+    max: 9,
+    validate: {
+      validator: function(s) {
+        return jtregex.valid_apartment_id.test(s);
+      },
+      message: props => `'${props.value}' is not a valid apartment_id`
+    }
+  },
   occupant_ids: [String],
   alt_contact_id: String, // alternative contact address, e.g., after giving notice
   begin: Date,
