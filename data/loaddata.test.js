@@ -192,6 +192,7 @@ test('apartment has valid active contract', () => {
 
 test('contract id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
+    expect(key).toMatch( jtregex.regex_valid_contract_id );
     expect(value._id).toBe( key );
   }
 });
