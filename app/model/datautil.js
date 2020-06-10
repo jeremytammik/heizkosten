@@ -1,4 +1,4 @@
-const { success_with_document_count } = require('../form/jtformgen.js');
+const jtformgen = require('../form/jtformgen');
 
 function load_data_for_model( model, res, req )
 {
@@ -12,7 +12,7 @@ function load_data_for_model( model, res, req )
       if (err) { return console.error(err); }
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           '', count.toString(), model.thing_en ) );
       });
     });
@@ -98,7 +98,7 @@ function load_tenant_data_for_model( model, res, req )
         + `and are ignored: ${sids}; please check them!`;
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           s, count.toString(), model.thing_en ) );
       });
     });

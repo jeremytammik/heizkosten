@@ -152,7 +152,7 @@ Object.keys(p).forEach( (key,index) => {
   var k = key;
   var v = p[key];
   
-  console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
+  //console.log( 'key', k, 'value type is', typeof v, v.constructor.name, Object.prototype.toString.call(v) );
   
   if( v && v.constructor && ('Date' === v.constructor.name) ) {
     v = util.jtisodate( v );
