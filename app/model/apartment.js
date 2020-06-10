@@ -61,17 +61,17 @@ id_wohnung
 
 // validate meter data: date, [factor,] date: amount [, date: amount]...
 function validate_meter_data( s, with_factor ) {
-  var a = s.split( /\s*,\s*/ );
-  if( !jtregex.valid_date.test( a[0] ) ) { return false; }
+  var a = s.split( ',' );
+  if( !jtregex.valid_date.test( a[0].trim() ) ) { return false; }
   var begin = 1;
   if( with_factor ) {
-    if( !jtregex.valid_real_number.test( a[1] ) ) { return false; }
+    if( !jtregex.valid_real_number.test( a[1].trim() ) ) { return false; }
     begin = 2;
   }
   a.slice( begin ).forEach( (p) => {
-    var b = p.split( /\s*:\s*/ );
-    if( !jtregex.valid_date.test( b[0] ) ) { return false; }
-    if( !jtregex.valid_real_number.test( b[1] ) ) { return false; }
+    var b = p.split( ':' );
+    if( !jtregex.valid_date.test( b[0].trim() ) ) { return false; }
+    if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
   });
   return true;
 }
@@ -163,7 +163,6 @@ var apartmentSchema = new Schema({
       validator: function(d) {
         //console.log('d:', Object.entries(d));
         for (const [k,v] of Object.entries(d)) {
-          //console.log( k, v, jtregex.valid_meter_expiry_with_factor.test(v) );
           if( !(k.substr(0,2) === 'HE')) { return false; }
           if(!jtregex.valid_meter_id.test(k)) { return false; }
           if(!validate_meter_data( v, true )) { return false; }
