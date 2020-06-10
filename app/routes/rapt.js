@@ -1,33 +1,26 @@
 const app = module.exports = require('express')();
 const util = require( '../calc/util' );
+const datautil = require('../model/datautil');
+const jtformgen = require('../form/jtformgen');
 const Person = require( '../model/person' );
 const Apartment = require( '../model/apartment' );
-
-const {
-  load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
-
-const {
-  success_with_document_count,
-  jtformgen_confirm_delete,
-  jtformgen_list_documents } = require('../form/jtformgen');
 
 app.get( '/', (req, res) => {
   Apartment.find( {}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Apartment, '', results, true ) );
     }
   });
 });
 
 app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Apartment, res, req );
+  return datautil.load_data_for_model( Apartment, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Apartment, res, req );
+  return datautil.save_data_for_model( Apartment, res, req );
 });
 
 function strip_meter_numbers( doc, propname )
@@ -95,7 +88,7 @@ app.get( '/generate_missing', (req, res) => {
         Apartment.countDocuments( {}, (err, count) => {
           if (err) { return console.error(err); }
           //console.log( count, 'apartments.' );
-          return res.send( success_with_document_count(
+          return res.send( jtformgen.success_with_document_count(
             '', count.toString(), Apartment.thing_en ) );
         });
       });
@@ -109,7 +102,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var url_filter = `/apt/unit/${uid}/list`;
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Apartment, ` in ${uid}`, results, false, url_filter ) );
     }
   });
@@ -149,7 +142,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
         var matching = sfilter
           ? ` matching "${sfilter}"`
           : '';
-        return res.send( jtformgen_list_documents(
+        return res.send( jtformgen.jtformgen_list_documents(
           Apartment, `${matching} in ${uid}`, results,
           false, url_filter, sfilter ) );
       });
@@ -230,7 +223,7 @@ app.post( '/:id/edit_submit', (req, res) => {
       if (err) { return console.error(err); }
       Apartment.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           '', count.toString(), Apartment.thing_en ) );
       });
     });
@@ -281,7 +274,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       if (err2) { return console.error(err2); }
       Apartment.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           '', count.toString(), Apartment.thing_en ) );
       });
     });
@@ -294,7 +287,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( Apartment, s, id ) );
+      res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
     }
   });
 });
@@ -305,7 +298,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Apartment.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
+      return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Apartment.thing_en ) );
     });
   });

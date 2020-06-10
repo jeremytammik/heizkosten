@@ -1,4 +1,6 @@
 const app = module.exports = require('express')();
+const datautil = require('../model/datautil');
+const jtformgen = require('../form/jtformgen');
 const Cost = require( '../model/cost' );
 var CostService = require( '../controller/cost_v1' );
 
@@ -11,31 +13,22 @@ app.delete('/api/v1/cost/:id', CostService.delete);
 app.get('/api/v1/cost/unit/:uid', CostService.findAllForUnit);
 app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
 
-const {
-  load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
-
-const {
-  success_with_document_count,
-  jtformgen_confirm_delete,
-  jtformgen_list_documents } = require('../form/jtformgen');
-
 app.get( '/', (req, res) => {
   Cost.find( {}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Cost, '', results, true ) );
     }
   });
 });
 
 app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Cost, res, req );
+  return datautil.load_data_for_model( Cost, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Cost, res, req );
+  return datautil.save_data_for_model( Cost, res, req );
 });
 
 app.get( '/unit/:uid/list', (req, res) => {
@@ -43,7 +36,7 @@ app.get( '/unit/:uid/list', (req, res) => {
   Cost.find( { 'unit_id': uid }, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Cost, ` in ${uid}`, results, false ) );
     }
   });
@@ -87,7 +80,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
+      return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Cost.thing_en ) );
     });
   });
@@ -135,7 +128,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Cost.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           '', count.toString(), Cost.thing_en ) );
       });
     });
@@ -148,7 +141,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( Cost, s, id ) );
+      res.send( jtformgen.jtformgen_confirm_delete( Cost, s, id ) );
     }
   });
 });
@@ -159,7 +152,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Cost.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
+      return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Cost.thing_en ) );
     });
   });
