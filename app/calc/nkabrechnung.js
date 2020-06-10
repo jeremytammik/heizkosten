@@ -15,6 +15,18 @@
 const loaddata = require('../../data/loaddata');
 const util = require('./util');
 
+// convert comma-separated list of colon-separated pairs to js object
+function string_to_object_with_numbers( s )
+{
+  var d = {};
+  var a = s.split( ',' );
+  a.forEach( (s) => {
+    var b = s.split( ':' );
+    d[b[0]] = Number(b[1]);
+  });
+  return d;
+}
+
 // Determine contract duration in given year span
 function get_contract_duration_in_given_year( contract, begin, end )
 {
@@ -114,12 +126,11 @@ function Nkabrechnung(
   var contract_days = util.date_diff_days( begin, end );
   var contract_duration = days_in_year / contract_days;
 
-  console.log('contract beg/end, days in year, contract days and duration',
-    util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  //console.log('contract beg/end, days in year, contract days and duration',
+  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
   
-  console.log(contract.payments_nk);
-  
-  this.nkvorauszahlung = contract.payments_nk[year.toString()];
+  var pnk = string_to_object_with_numbers( contract.payments_nk );
+  this.nkvorauszahlung = pnk[ year.toString() ];
   this.rueckbehalt = 0; // this information is entered manually
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
