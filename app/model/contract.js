@@ -70,7 +70,7 @@ var contractSchema = new Schema({
 );
 
 contractSchema.methods.get_display_string = function() {
-  return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
+  return `${this._id} &ndash; ${this.occupant_ids.join()}`;
 };
 
 var Contract = mongoose.model( 'Contract', contractSchema );
