@@ -154,19 +154,19 @@ test('all apartment meter ids have valid meter type and room prefixes', () => {
       expect(key2.substr(0,3)).toBe( 'KW-' );
       expect(room_codes).toContain( key2.slice(3,5) );
       expect(key2[5]).toBe( '-' );
-      expect(key2.substr(6).toMatch( jtregex.valid_meter_nr );
+      expect(key2.substr(6)).toMatch( jtregex.valid_meter_nr );
     }
     for (const [key2, value2] of Object.entries(value.hotwatermeters)) {
       expect(key2.substr(0,3)).toBe( 'WW-' );
       expect(room_codes).toContain( key2.slice(3,5) );
       expect(key2[5]).toBe( '-' );
-      expect(key2.substr(6).toMatch( jtregex.valid_meter_nr );
+      expect(key2.substr(6)).toMatch( jtregex.valid_meter_nr );
     }
     for (const [key2, value2] of Object.entries(value.heatcostallocators)) {
       expect(key2.substr(0,3)).toBe( 'HE-' );
       expect(room_codes).toContain( key2.slice(3,5) );
       expect(key2[5]).toBe( '-' );
-      expect(key2.substr(6).toMatch( jtregex.valid_meter_nr );
+      expect(key2.substr(6)).toMatch( jtregex.valid_meter_nr );
     }
   }
 });
