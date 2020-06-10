@@ -136,19 +136,27 @@ const apartment_room_codes = {
   "SK": "schlaf_klein",
   "SM": "schlaf_mittel",
   "SG": "schlaf_gross",
+  "WO": "wohn"
 };
 
 test('all apartment meter ids have valid meter type and room prefixes', () => {
+  function test_meter_id( id ) {
+    expect(id.substr(0,3)).toBe( 'RA-' );
+    expect(room_codes).toContain( id.slice(3,5) );
+    expect(id[5]).toBe( '-' );
+    expect(id.substr(6)).toMatch( jtregex.valid_meter_nr );
+  }
   var meter_types = Object.keys( apartment_meter_types );
   var room_codes = Object.keys( apartment_room_codes );
   for (const [key, value] of Object.entries(loaddata.apartments)) {
     for (const [key2, value2] of Object.entries(value.smokedetectors)) {
       //expect(meter_types).toContain( key2.slice(0,2) );
       //expect(key2[2]).toBe( '-' );
-      expect(key2.substr(0,3)).toBe( 'RA-' );
-      expect(room_codes).toContain( key2.slice(3,5) );
-      expect(key2[5]).toBe( '-' );
-      expect(key2.substr(6)).toMatch( jtregex.valid_meter_nr );
+      //expect(key2.substr(0,3)).toBe( 'RA-' );
+      //expect(room_codes).toContain( key2.slice(3,5) );
+      //expect(key2[5]).toBe( '-' );
+      //expect(key2.substr(6)).toMatch( jtregex.valid_meter_nr );
+      test_meter_id(key2);
     }
     for (const [key2, value2] of Object.entries(value.coldwatermeters)) {
       expect(key2.substr(0,3)).toBe( 'KW-' );
