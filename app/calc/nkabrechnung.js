@@ -114,8 +114,10 @@ function Nkabrechnung(
   var contract_days = util.date_diff_days( begin, end );
   var contract_duration = days_in_year / contract_days;
 
-  //console.log('contract beg/end, days in year, contract days and duration',
-  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  console.log('contract beg/end, days in year, contract days and duration',
+    util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  
+  console.log(contract.payments_nk);
   
   this.nkvorauszahlung = contract.payments_nk[year.toString()];
   this.rueckbehalt = 0; // this information is entered manually
