@@ -2,13 +2,7 @@ const app = module.exports = require('express')();
 const util = require( '../calc/util' );
 const datautil = require('../model/datautil');
 const jtformgen = require('../form/jtformgen');
-
 const Contract = require( '../model/contract' );
-
-//const {
-//  success_with_document_count,
-//  jtformgen_confirm_delete,
-//  jtformgen_list_documents } = require('../form/jtformgen');
 
 app.get( '/', (req, res) => {
   Contract.find( {}, (err, results) => {
@@ -220,4 +214,3 @@ app.get( '/:id/del_confirmed', (req, res) => {
     });
   });
 });
-

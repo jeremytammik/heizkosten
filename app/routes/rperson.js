@@ -1,5 +1,7 @@
 const app = module.exports = require('express')();
 const util = require( '../calc/util' );
+const datautil = require('../model/datautil');
+const jtformgen = require('../form/jtformgen');
 const Person = require( '../model/person' );
 const PersonService = require( '../controller/person_v1' );
 
@@ -10,36 +12,26 @@ app.put('/api/v1/person/:id', PersonService.update);
 app.delete('/api/v1/person/:id', PersonService.delete);
 app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
-const {
-  load_data_for_model,
-  save_data_for_model,
-  load_tenant_data_for_model } = require('../model/datautil');
-
-const {
-  success_with_document_count,
-  jtformgen_confirm_delete,
-  jtformgen_list_documents } = require('../form/jtformgen');
-
 app.get( '/', (req, res) => {
   Person.find( {}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Person, '', results, false ) );
     }
   });
 });
 
 app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Person, res, req );
+  return datautil.load_data_for_model( Person, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Person, res, req );
+  return datautil.save_data_for_model( Person, res, req );
 });
 
 app.get( '/load_tenant', (req, res) => {
-  return load_tenant_data_for_model( Person, res, req );
+  return datautil.load_tenant_data_for_model( Person, res, req );
 });
 
 app.get( '/unit/:uid/list', (req, res) => {
@@ -48,7 +40,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var url_filter = `/person/unit/${uid}/list`;
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Person, ` in ${uid}`, results, false, url_filter ) );
     }
   });
@@ -65,7 +57,7 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
         var matching = sfilter
           ? ` matching "${sfilter}"`
           : '';
-        return res.send( jtformgen_list_documents(
+        return res.send( jtformgen.jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
           false, url_filter, sfilter ) );
       }
@@ -100,7 +92,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
         var matching = sfilter
           ? ` matching "${sfilter}"`
           : '';
-        return res.send( jtformgen_list_documents(
+        return res.send( jtformgen.jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
           false, url_filter, sfilter ) );
       });
@@ -145,7 +137,7 @@ app.post( '/:id/edit_submit', (req, res) => {
     if (err) { return console.error(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
+      return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Person.thing_en ) );
     });
   });
@@ -192,7 +184,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       }
       Person.countDocuments( {}, (err3, count) => {
         if (err3) { return console.error(err3); }
-        return res.send( success_with_document_count(
+        return res.send( jtformgen.success_with_document_count(
           '', count.toString(), Person.thing_en ) );
       });
     });
@@ -205,7 +197,7 @@ app.get( '/:id/del', (req, res) => {
     if (err) { return console.log(err); }
     else {
       var s = results[0].get_display_string();
-      res.send( jtformgen_confirm_delete( Person, s, id ) );
+      res.send( jtformgen.jtformgen_confirm_delete( Person, s, id ) );
     }
   });
 });
@@ -216,7 +208,7 @@ app.get( '/:id/del_confirmed', (req, res) => {
     if (err) { return console.log(err); }
     Person.countDocuments( {}, (err, count) => {
       if (err) { return console.error(err); }
-      return res.send( success_with_document_count(
+      return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Person.thing_en ) );
     });
   });
