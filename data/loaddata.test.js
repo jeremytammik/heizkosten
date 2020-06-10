@@ -241,6 +241,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
 });
 
 test('all contract meter numbers match its apartment ones', () => {
+  var meterdata = {};
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     var apt = loaddata.apartments[value.apartment_id];
     var a = Object.keys(apt.coldwatermeters);
@@ -253,6 +254,15 @@ test('all contract meter numbers match its apartment ones', () => {
     var b = Object.keys(value.heatcostallocators);
     expect(0===b.length || (a.length === b.length && a.every(function(value, index) { return value === b[index]}))).toBeTruthy();
   }
+  //var fs = require('fs');
+  //var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
+  //var fn = `data/tmp/${model.route}_${ts}.json`;
+  //fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
+  //  function (err) {
+  //    if (err) { return console.log(err); }
+  //    return res.send( `${model.thing_en} data saved in '${fn}'` );
+  //  }
+  //);
 });
 
 /*
