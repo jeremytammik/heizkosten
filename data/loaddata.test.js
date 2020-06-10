@@ -72,7 +72,7 @@ test('person id matches dictionary key', () => {
     expect(value._id).toMatch( jtregex.regex_valid_person_id );
     expect(value.units).toMatch( jtregex.regex_valid_unit_list );
     if(value.firstname) { expect(value.firstname).toMatch( jtregex.regex_valid_name_chars ); }
-    expect(value.lastname).toMatch( regex_valid_name_chars );
+    expect(value.lastname).toMatch( jtregex.regex_valid_name_chars );
     expect(value.email).toMatch( jtregex.regex_valid_email_address );
     expect(value.iban).toMatch( jtregex.regex_valid_iban );
     expect(value.telephone).toMatch( jtregex.regex_valid_telephone_numbers );
