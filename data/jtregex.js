@@ -24,6 +24,7 @@ valid_meter_expiry_with_factor: /^(?:19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}\ *\,\ *[0-
 
 //empty_or_alnum_or_umlaut_with_space: /^[0-9a-zA-Zäöü\-\ ]*$/,
 //empty_or_ascii_or_umlaut: /^[0-9a-zA-Zäöü\ \;\.\,\-\+\_\@]*$/
+
 }
 
 module.exports = jtregex;
