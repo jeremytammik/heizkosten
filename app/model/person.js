@@ -5,22 +5,14 @@
 // Copyright 2020 by Jeremy Tammik.
 
 var mongoose = require( 'mongoose' );
-//var textSearch = require( 'mongoose-partial-full-search' );
 
 var Schema = mongoose.Schema;
+
+const jtregex = require( '../../data/jtregex' );
 
 //const enum_person_role_not_used = [
 //  'occupant',
 //  'owner' ];
-
-const {
-  regex_valid_person_id,
-  regex_valid_unit_list,
-  regex_valid_name_chars,
-  regex_valid_email_address,
-  regex_valid_iban,
-  regex_valid_telephone_numbers
-} = require( '../../data/jtregex' );
 
 var personSchema = new Schema({
   _id: {  // suppress automatic generation
