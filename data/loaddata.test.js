@@ -139,7 +139,7 @@ const apartment_room_codes = {
   "WO": "wohn"
 };
 
-test('all apartment and contract meter ids have valid meter type, room prefix and number', () => {
+test('all apartment meter ids have valid meter type, room prefix and number', () => {
   function test_meter_id( typ, id ) {
     expect(id.substr(0,3)).toBe( typ + '-' );
     expect(room_codes).toContain( id.slice(3,5) );
@@ -160,17 +160,6 @@ test('all apartment and contract meter ids have valid meter type, room prefix an
     }
     for (const [key2, value2] of Object.entries(value.heatcostallocators)) {
       test_meter_id( 'HE', key2);
-    }
-  }
-  for (const [key, value] of Object.entries(loaddata.contracts)) {
-    for (const [key2, value2] of Object.entries(value.coldwatermeters)) {
-      test_meter_id( 'KW', key2 );
-    }
-    for (const [key2, value2] of Object.entries(value.hotwatermeters)) {
-      test_meter_id( 'WW', key2 );
-    }
-    for (const [key2, value2] of Object.entries(value.heatcostallocators)) {
-      test_meter_id( 'HE', key2 );
     }
   }
 });
@@ -240,6 +229,9 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   }
 });
 
+/*
+before moving all meter readings from contract.json to apt.json:
+
 test('all contract meter numbers match its apartment ones', () => {
   var meterdata = {};
   for (const [key, value] of Object.entries(loaddata.contracts)) {
@@ -279,6 +271,7 @@ test('all contract meter numbers match its apartment ones', () => {
   var fs = require('fs');
   fs.writeFileSync( 'meterdata.json', JSON.stringify( meterdata, null, 2 ) );
 });
+*/
 
 /*
 test('all payments in each contract match expected account enum values', () => {
