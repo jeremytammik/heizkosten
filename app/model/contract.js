@@ -53,7 +53,6 @@ var contractSchema = new Schema({
     }
   },
   occupant_ids: [String],
-  alt_contact_id: String, // alternative contact address, e.g., after giving notice
   begin: Date,
   end: Date,
   rent_apartment_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
