@@ -140,8 +140,8 @@ const apartment_room_codes = {
 };
 
 test('all apartment and contract meter ids have valid meter type, room prefix and number', () => {
-  function test_meter_id( id ) {
-    expect(id.substr(0,3)).toBe( 'RA-' );
+  function test_meter_id( typ, id ) {
+    expect(id.substr(0,3)).toBe( typ + '-' );
     expect(room_codes).toContain( id.slice(3,5) );
     expect(id[5]).toBe( '-' );
     expect(id.substr(6)).toMatch( jtregex.valid_meter_nr );
@@ -150,27 +150,27 @@ test('all apartment and contract meter ids have valid meter type, room prefix an
   var room_codes = Object.keys( apartment_room_codes );
   for (const [key, value] of Object.entries(loaddata.apartments)) {
     for (const [key2, value2] of Object.entries(value.smokedetectors)) {
-      test_meter_id(key2);
+      test_meter_id( 'RA', key2 );
     }
     for (const [key2, value2] of Object.entries(value.coldwatermeters)) {
-      test_meter_id(key2);
+      test_meter_id( 'KW', key2 );
     }
     for (const [key2, value2] of Object.entries(value.hotwatermeters)) {
-      test_meter_id(key2);
+      test_meter_id( 'WW', key2 );
     }
     for (const [key2, value2] of Object.entries(value.heatcostallocators)) {
-      test_meter_id(key2);
+      test_meter_id( 'HE', key2);
     }
   }
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     for (const [key2, value2] of Object.entries(value.coldwatermeters)) {
-      test_meter_id(key2);
+      test_meter_id( 'KW', key2 );
     }
     for (const [key2, value2] of Object.entries(value.hotwatermeters)) {
-      test_meter_id(key2);
+      test_meter_id( 'WW', key2 );
     }
     for (const [key2, value2] of Object.entries(value.heatcostallocatorreadings)) {
-      test_meter_id(key2);
+      test_meter_id( 'HE', key2 );
     }
   }
 });
