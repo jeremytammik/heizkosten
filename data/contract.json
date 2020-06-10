@@ -41,9 +41,9 @@
     "payments_rent_apartment": "2018: 0",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 0",
-    "heatcostallocators": [],
-    "coldwatermeters": [],
-    "hotwatermeters": [],
+    "heatcostallocators": {},
+    "coldwatermeters": {},
+    "hotwatermeters": {},
     "smokedetector_maintenance_cost_eur": 5
   },
   "001-05-03-01": {
