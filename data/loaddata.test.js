@@ -1,16 +1,5 @@
 'use strict';
 
-//const {
-//  non_empty_alpha_mumeric,
-//  empty_or_ascii_or_umlaut,
-//  regex_valid_person_id,
-//  regex_valid_unit_list,
-//  regex_valid_name_chars,
-//  regex_valid_email_address,
-//  regex_valid_iban,
-//  regex_valid_telephone_numbers
-//} = require( './jtregex' );
-
 const jtregex = require( './jtregex' );
 const loaddata = require('./loaddata');
 
@@ -69,38 +58,38 @@ test('loaded N persons', () => {
 test('person id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.persons)) {
     expect(value._id).toBe( key );
-    expect(value._id).toMatch( jtregex.regex_valid_person_id );
-    expect(value.units).toMatch( jtregex.regex_valid_unit_list );
-    if(value.firstname) { expect(value.firstname).toMatch( jtregex.regex_valid_name_chars ); }
-    expect(value.lastname).toMatch( jtregex.regex_valid_name_chars );
-    expect(value.email).toMatch( jtregex.regex_valid_email_address );
-    expect(value.iban).toMatch( jtregex.regex_valid_iban );
-    expect(value.telephone).toMatch( jtregex.regex_valid_telephone_numbers );
+    expect(value._id).toMatch( jtregex.valid_person_id );
+    expect(value.units).toMatch( jtregex.valid_unit_list );
+    if(value.firstname) { expect(value.firstname).toMatch( jtregex.valid_name_chars ); }
+    expect(value.lastname).toMatch( jtregex.valid_name_chars );
+    expect(value.email).toMatch( jtregex.valid_email_address );
+    expect(value.iban).toMatch( jtregex.valid_iban );
+    expect(value.telephone).toMatch( jtregex.valid_telephone_numbers );
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
     //expect(value.zip).toMatch( );
     //expect(value.city).toMatch( );
-    expect(value.country).toMatch( jtregex.regex_valid_name_chars );
+    expect(value.country).toMatch( jtregex.valid_name_chars );
   }
 });
 
 test('tenant data fulfils person regex requirements', () => {
   for (const [key, value] of Object.entries(loaddata.tenants)) {
     expect(value._id).toBe( key );
-    expect(value._id).toMatch( jtregex.regex_valid_person_id );
-    //expect(value.units).toMatch( regex_valid_unit_list );
-    if(value.firstname) { expect(value.firstname).toMatch( jtregex.regex_valid_name_chars ); }
-    expect(value.lastname).toMatch( jtregex.regex_valid_name_chars );
-    if(value.email) { expect(value.email).toMatch( jtregex.regex_valid_email_address ); }
-    if(value.iban) { expect(value.iban).toMatch( jtregex.regex_valid_iban ); }
-    if(value.telephone) { expect(value.telephone).toMatch( jtregex.regex_valid_telephone_numbers ); }
+    expect(value._id).toMatch( jtregex.valid_person_id );
+    //expect(value.units).toMatch( valid_unit_list );
+    if(value.firstname) { expect(value.firstname).toMatch( jtregex.valid_name_chars ); }
+    expect(value.lastname).toMatch( jtregex.valid_name_chars );
+    if(value.email) { expect(value.email).toMatch( jtregex.valid_email_address ); }
+    if(value.iban) { expect(value.iban).toMatch( jtregex.valid_iban ); }
+    if(value.telephone) { expect(value.telephone).toMatch( jtregex.valid_telephone_numbers ); }
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
     //expect(value.zip).toMatch( );
     //expect(value.city).toMatch( );
-    if(value.country) { expect(value.country).toMatch( jtregex.regex_valid_name_chars ); }
+    if(value.country) { expect(value.country).toMatch( jtregex.valid_name_chars ); }
   }
 });
 
@@ -192,7 +181,7 @@ test('apartment has valid active contract', () => {
 
 test('contract id matches dictionary key', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    expect(key).toMatch( jtregex.regex_valid_contract_id );
+    expect(key).toMatch( jtregex.valid_contract_id );
     expect(value._id).toBe( key );
   }
 });
@@ -275,7 +264,7 @@ test('VCF import', () => {
   loaddata.visiting_cards.forEach( (v) => {
     var d = v.data;
     var n = d.n.valueOf().replace(';', ' ').trim();
-    expect( n ).toMatch( regex_valid_name_chars );
+    expect( n ).toMatch( valid_name_chars );
   });
 });
 */
