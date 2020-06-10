@@ -18,6 +18,7 @@ valid_apartment_id: /^[0-9]{3}-[0-9]{2}-[0-9]{2}$/,
 valid_contract_id: /^[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2,4}$/,
 valid_unit_id: /^[0-9]{3}$/,
 valid_meter_id: /^(?:RA|HE|KW|WW)-(?:KU|BA|FL|SK|SM|SG|WO)-[0-9\-]{1,12}$/,
+valid_meter_nr: /^[0-9]{1,12}$/,
 valid_date: /^(?:19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}$/,
 valid_meter_expiry_with_factor: /^(?:19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}\ *\,\ *[0-9\.]{1,7}$/
 
