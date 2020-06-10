@@ -166,7 +166,7 @@ apartmentSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
 };
 
-var Apartment = mongoose.model( 'apartment', apartmentSchema );
+var Apartment = mongoose.model( 'Apartment', apartmentSchema );
 
 Apartment.route = 'apt';
 Apartment.thing_en = Apartment.modelName.toLowerCase();

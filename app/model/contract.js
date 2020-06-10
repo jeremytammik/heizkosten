@@ -73,7 +73,7 @@ contractSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.room_count} rooms with ${this.area_m2} m2`;
 };
 
-var Contract = mongoose.model( 'contract', contractSchema );
+var Contract = mongoose.model( 'Contract', contractSchema );
 
 Contract.route = 'contract';
 Contract.thing_en = Contract.modelName.toLowerCase();
