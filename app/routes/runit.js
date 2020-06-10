@@ -1,27 +1,20 @@
 const app = module.exports = require('express')();
-
+const datautil = require('../model/datautil');
+const jtformgen = require('../form/jtformgen');
 const Unit = require( '../model/unit' );
-
-const {
-  load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
-
-const {
-  jtformgen_list_documents,
-  jtformgen_unit_selected } = require('../form/jtformgen.js');
 
 app.get( '/', (req, res) => {
   Unit.find( {}, (err, results) => {
     if (err) { return console.log(err); }
     else {
-      return res.send( jtformgen_list_documents(
+      return res.send( jtformgen.jtformgen_list_documents(
         Unit, '', results, true ) );
     }
   });
 });
 
 app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Unit, res, req );
+  return datautil.load_data_for_model( Unit, res, req );
 });
 
 app.get( '/:id', (req, res) => {
@@ -50,5 +43,5 @@ app.get( '/:id/del', (req, res) => {
 
 app.get( '/:id/select', (req, res) => {
   var id = req.params.id;
-  res.send( jtformgen_unit_selected( id ) );
+  res.send( jtformgen.jtformgen_unit_selected( id ) );
 });
