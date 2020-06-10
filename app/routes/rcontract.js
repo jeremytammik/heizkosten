@@ -1,9 +1,7 @@
 const app = module.exports = require('express')();
+const util = require( '../calc/util' );
+const datautil = require('../model/datautil');
 const Contract = require( '../model/contract' );
-
-const {
-  load_data_for_model,
-  save_data_for_model } = require('../model/datautil');
 
 const {
   success_with_document_count,
@@ -21,11 +19,11 @@ app.get( '/', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  return load_data_for_model( Contract, res, req );
+  return datautil.load_data_for_model( Contract, res, req );
 });
 
 app.get( '/save_data', (req, res) => {
-  return save_data_for_model( Contract, res, req );
+  return datautil.save_data_for_model( Contract, res, req );
 });
 
 app.get( '/unit/:uid/list', (req, res) => {
