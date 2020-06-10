@@ -65,7 +65,7 @@ var contractSchema = new Schema({
   heatcostallocatorreadings: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   coldwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   hotwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
-  smokedetector_maintenance_cost_eur: Number },// constant defined by owner per detector replaced
+  smokedetector_maintenance_cost_eur: Number }, // constant defined by owner per detector replaced
   { _id: false } // suppress automatic generation
 );
 
@@ -78,5 +78,29 @@ var Contract = mongoose.model( 'contract', contractSchema );
 Contract.route = 'contract';
 Contract.thing_en = Contract.modelName.toLowerCase();
 Contract.thing_de = 'Vertrag';
+
+const { jtformgen_edit_document } = require('../form/jtformgen.js');
+
+Contract.get_edit_form_html = ( d, action, error ) => {
+  var id = d['_id'];
+  var url_action = 'view' === action ? '' : action + '_submit';
+  url_action = `/${Contract.route}/${id}/${url_action}`;
+  
+  var verb = (action === 'dupl')
+    ? `duplizieren, also neuen ${Contract.thing_de} anlegen mit aehnlichen Daten`
+    : (action === 'edit' ? 'edititieren' : 'anschauen');
+    
+  verb = Contract.thing_de + ' ' + id + ' ' + verb;
+
+  delete d['__v'];
+  
+  if( !(action === 'dupl') ) {
+    delete d['_id'];
+    delete d['unit_id'];
+    delete d['apartment_id'];
+  }
+  
+  return jtformgen_edit_document( d, url_action, verb, true, error );
+}
 
 module.exports = Contract;

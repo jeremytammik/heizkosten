@@ -96,10 +96,6 @@ var apartmentSchema = new Schema({
   grundbuchnr: String,
   area_m2: Number,
   room_count: Number,
-  //smokedetectors: { type: Map, of: String }, // dictionary mapping meter_id to expires Date
-  //coldwatermeters: { type: Map, of: String }, // map meter_id to expires Date
-  //hotwatermeters: { type: Map, of: String }, // map meter_id to expires Date
-  //heatcostallocators: { type: Map, of: [String,Number] }, // map meter_id to [expires: Date, factor: Number]
   smokedetectors: { // dictionary mapping meter_id to expires Date
     type: Object,
     validate: {
@@ -195,21 +191,20 @@ const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 // Turn the given map<String, String> into separate dictionary
 // entries d[] = mapto an Object so it can be converted to JSON
-function unwrap_map_into_d( d, mapname, keyname, valname)
-{
-  var map = d[mapname];
-  var i = 0;
-  map.forEach( function( val, key ) {
-    var e = mapname + ' ' + (++i).toString() + ' ';
-    d[e + keyname] = key;
-    d[e + valname] = val;
-  });
-  delete d[mapname];
-}
+//function unwrap_map_into_d( d, mapname, keyname, valname)
+//{
+//  var map = d[mapname];
+//  var i = 0;
+//  map.forEach( function( val, key ) {
+//    var e = mapname + ' ' + (++i).toString() + ' ';
+//    d[e + keyname] = key;
+//    d[e + valname] = val;
+//  });
+//  delete d[mapname];
+//}
 
 Apartment.get_edit_form_html = ( d, action, error ) => {
   var id = d['_id'];
-  //var url_action = create_duplicate ? 'dupl' : 'edit';
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Apartment.route}/${id}/${url_action}`;
   
