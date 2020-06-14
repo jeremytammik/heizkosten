@@ -73,8 +73,9 @@ function save_data_for_model( model, res, req )
       ];
 
       //console.log(d);
-      for( var [key, apt] of Object.entries(d) ) {
-        for( var [key2, s] of Object.entries(apt) ) {
+      //d2 = {};
+      for( const [key, apt] of Object.entries(d) ) {
+        for( const [key2, s] of Object.entries(apt) ) {
           if( apartment_meter_keys.includes( key2 ) ) {
             assert( typeof s === 'string' || s instanceof String );
             d[key][key2] = convert_string_to_array_and_dict( s );
