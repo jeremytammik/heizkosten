@@ -19,6 +19,15 @@ function load_data_for_model( model, res, req )
   });
 }
 
+const assert = function(condition, message) {
+  if (!condition)
+    throw Error('Assert failed: ' + (message || ''));
+};
+
+function convert_string_to_array_and_dict( s ) {
+  return s;
+}
+
 function save_data_for_model( model, res, req )
 {
   model.find( {}, function( err, docs ) {
@@ -49,6 +58,29 @@ function save_data_for_model( model, res, req )
         });
         d[key].heatcostallocators = hca2;
       };
+      console.log(d);
+    }
+
+    if( 'apt' === model.route ) {
+      // convert string to array and dict:
+      // date [, factor], date: amount [, date: amount]...
+
+      var apartment_meter_keys = [
+        'smokedetectors',
+        'coldwatermeters',
+        'hotwatermeters',
+        'heatcostallocators'
+      ];
+
+      //console.log(d);
+      for( var [key, apt] of Object.entries(d) ) {
+        for( var [key2, s] of Object.entries(apt) ) {
+          if( apartment_meter_keys.includes( key2 ) ) {
+            assert( typeof s === 'string' || s instanceof String );
+            d[key][key2] = convert_string_to_array_and_dict( s );
+          }
+        }
+      }
       console.log(d);
     }
 

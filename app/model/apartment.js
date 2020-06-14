@@ -57,9 +57,16 @@ id_wohnung
   HE heizung
   KW kaltwasser
   WW warmwasser
+  
+  smoke detector, water meter and heat cost allocator data:
+  
+  _f: heat cost allocator factor
+  _x: date_expiry
+  <date>: meter reading
+  
 */
 
-// validate meter data: date, [factor,] date: amount [, date: amount]...
+// validate meter data: date [, factor], date: amount [, date: amount]...
 function validate_meter_data( s, with_factor ) {
   var a = s.split( ',' );
   if( !jtregex.valid_date.test( a[0].trim() ) ) { return false; }
