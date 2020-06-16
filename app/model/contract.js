@@ -53,8 +53,28 @@ var contractSchema = new Schema({
     }
   },
   occupant_ids: [String],
-  begin: Date,
-  end: Date,
+  begin: {
+    type: String,
+    min: 10,
+    max: 10,
+    validate: {
+      validator: function(s) {
+        return jtregex.valid_date.test(s);
+      },
+      message: props => `'${props.value}' is not a valid contract begin date`
+    }
+  },
+  end: {
+    type: String,
+    min: 10,
+    max: 10,
+    validate: {
+      validator: function(s) {
+        return (!s) || jtregex.valid_date.test(s);
+      },
+      message: props => `'${props.value}' is not a valid contract end date`
+    }
+  },
   rent_apartment_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
   rent_other_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
   nebenkosten_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}

@@ -90,6 +90,10 @@ function convert_tsv_to_json()
   fs.writeFileSync( 'data/mieter.json', JSON.stringify( d, null, 2 ) );
 }
 
+function add_owners_to_apartments()
+{
+}
+
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
 
@@ -115,3 +119,6 @@ exports.contracts = contracts;
 //read_vcf();
 
 //convert_tsv_to_json();
+
+add_owners_to_apartments();
+
