@@ -66,8 +66,6 @@ var contractSchema = new Schema({
   },
   end: {
     type: String,
-    min: 10,
-    max: 10,
     validate: {
       validator: function(s) {
         return (!s) || jtregex.valid_date.test(s);
