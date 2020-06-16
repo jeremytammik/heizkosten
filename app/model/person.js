@@ -135,7 +135,7 @@ Person.get_edit_form_html = ( p, action, error ) => {
     ? `duplizieren, also neue ${Person.thing_de} anlegen mit aehnlichen Daten`
     : (action === 'edit' ? 'edititieren' : 'anschauen');
 
-  verb = Person.thing_de + ' ' + verb;
+  verb = Person.thing_de + ' ' + id + ' ' + verb;
 
   delete p['__v'];
 
