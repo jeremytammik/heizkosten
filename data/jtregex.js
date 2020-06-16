@@ -10,7 +10,7 @@ empty_or_ascii_or_umlaut: /^[0-9a-zA-Zäöü\ \:\;\.\,\-\+\_\@\&\*]*$/,
 valid_person_id: /^[0-9a-z_]{1,30}$/, // non-empty lowercase alphanumeric with underscore max 30 length
 valid_unit_list: /^[0-9,]{3,40}$/, // comma-separated digits only, min 3 max 40 length
 valid_name_chars: /^\*?[äöü\w][äöü\w\ \&\-\.]*\*?$/,
-valid_salutation: /^(?:Werter Mieter*in|Werter Eigentuemer*in|Werte Firma|Hallo)$/,
+valid_salutation: /^(?:Werter Mieter*in|Werter Eigentümer*in|Werte Firma|Hallo)$/,
 valid_email_address: /^[äöü\w_.+\-]+@[äöü\w\-]+\.[äöü\w\-\.]+$/,
 valid_iban: /^([a-zA-Z]{2})(\d{2})([a-zA-Z\d ]+)$/,
 //valid_telephone_number: /^[0-9\+][0-9\/\- ]{4,20}$/,
