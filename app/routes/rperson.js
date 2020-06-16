@@ -17,7 +17,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
-        Person, '', results, false ) );
+        Person, '', results, false, true ) );
     }
   });
 });
@@ -41,7 +41,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     else {
       var url_filter = `/person/unit/${uid}/list`;
       return res.send( jtformgen.jtformgen_list_documents(
-        Person, ` in ${uid}`, results, false, url_filter ) );
+        Person, ` in ${uid}`, results, false, true, url_filter ) );
     }
   });
 });
@@ -59,7 +59,7 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
           : '';
         return res.send( jtformgen.jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
-          false, url_filter, sfilter ) );
+          false, true, url_filter, sfilter ) );
       }
     }
   );
@@ -94,7 +94,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
           : '';
         return res.send( jtformgen.jtformgen_list_documents(
           Person, `${matching} in ${uid}`, results,
-          false, url_filter, sfilter ) );
+          false, true, url_filter, sfilter ) );
       });
     }
   });

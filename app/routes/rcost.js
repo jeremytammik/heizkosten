@@ -18,7 +18,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
-        Cost, '', results, true ) );
+        Cost, '', results, false, true ) );
     }
   });
 });
@@ -37,7 +37,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
-        Cost, ` in ${uid}`, results, false ) );
+        Cost, ` in ${uid}`, results, false, true ) );
     }
   });
 });

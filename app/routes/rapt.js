@@ -10,7 +10,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
-        Apartment, '', results, true ) );
+        Apartment, '', results, false, false ) );
     }
   });
 });
@@ -103,7 +103,7 @@ app.get( '/unit/:uid/list', (req, res) => {
     else {
       var url_filter = `/apt/unit/${uid}/list`;
       return res.send( jtformgen.jtformgen_list_documents(
-        Apartment, ` in ${uid}`, results, false, url_filter ) );
+        Apartment, ` in ${uid}`, results, false, false, url_filter ) );
     }
   });
 });
@@ -144,7 +144,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
           : '';
         return res.send( jtformgen.jtformgen_list_documents(
           Apartment, `${matching} in ${uid}`, results,
-          false, url_filter, sfilter ) );
+          false, false, url_filter, sfilter ) );
       });
     }
   });

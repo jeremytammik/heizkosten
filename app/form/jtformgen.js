@@ -43,7 +43,7 @@ function jtformgen_confirm_delete( model, description, id )
     + '<button><a href="/index.html">Nein</a></button></body>' );
 }
 
-function jtformgen_list_documents( model, where, docs, enable_select, url_filter, sfilter )
+function jtformgen_list_documents( model, where, docs, enable_select, enable_dupl_del, url_filter, sfilter )
 {
   var ssearch = url_filter ? `\
 <form action="${url_filter}" method="POST">\
@@ -66,13 +66,15 @@ function jtformgen_list_documents( model, where, docs, enable_select, url_filter
   b = [];
   a.forEach( (s) => {
     var [ds,id] = s.split( '+++' );
-    var view = `<a href="/${route}/${id}"><img src="/img/view.png"/></a>`
-    var actions = enable_select
+    var action_view = `<a href="/${route}/${id}"><img src="/img/view.png"/></a>`
+    var action_select_or_edit = enable_select
       ? `<a href="/${route}/${id}/select"><img src="/img/select.png"/></a>`
-      : `<a href="/${route}/${id}/edit"><img src="/img/edit.png"/></a>&nbsp;`
-      + `<a href="/${route}/${id}/dupl"><img src="/img/dupl.png"/></a>&nbsp;`
-      + `<a href="/${route}/${id}/del"><img src="/img/del.png"/></a>`;
-    b.push( `<li>${view} ${actions} ${ds}</li>` );
+      : `<a href="/${route}/${id}/edit"><img src="/img/edit.png"/></a>&nbsp;`;
+    var action_dupl_and_del = enable_dupl_del
+      ? `<a href="/${route}/${id}/dupl"><img src="/img/dupl.png"/></a>&nbsp;`
+      + `<a href="/${route}/${id}/del"><img src="/img/del.png"/></a>`
+      : '';
+    b.push( `<li>${action_view} ${action_select_or_edit} ${action_dupl_and_del} ${ds}</li>` );
   });
   
   var n = b.length.toString();

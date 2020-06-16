@@ -8,7 +8,7 @@ app.get( '/', (req, res) => {
     if (err) { return console.log(err); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
-        Unit, '', results, true ) );
+        Unit, '', results, true, false ) );
     }
   });
 });
