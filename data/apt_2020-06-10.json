@@ -858,7 +858,7 @@
   "001-06-03": {
     "_id": "001-06-03",
     "unit_id": "001",
-    "owner_id": "nada_cifizzari",
+    "owner_id": "unknown_owner_id",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1234,7 +1234,7 @@
   "001-02-01": {
     "_id": "001-02-01",
     "unit_id": "001",
-    "owner_id": "horst_weidenmueller",
+    "owner_id": "unknown_owner_id",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1654,7 +1654,7 @@
   "001-02-02": {
     "_id": "001-02-02",
     "unit_id": "001",
-    "owner_id": "otto_froehlich",
+    "owner_id": "unknown_owner_id",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1682,7 +1682,7 @@
   "001-03-02": {
     "_id": "001-03-02",
     "unit_id": "001",
-    "owner_id": "daniel_ilic",
+    "owner_id": "unknown_owner_id",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -2114,7 +2114,7 @@
   "001-03-06": {
     "_id": "001-03-06",
     "unit_id": "001",
-    "owner_id": "hildegard_diesner",
+    "owner_id": "unknown_owner_id",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
