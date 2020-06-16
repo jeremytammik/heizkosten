@@ -56,6 +56,7 @@ function read_vcf()
 
 --- end of VCF reader --- */
 
+/*
 function convert_tsv_to_json()
 {
   var fn = '/j/doc/people/otto/heizkosten/mieter/mieter01cleanup.tsv';
@@ -89,7 +90,9 @@ function convert_tsv_to_json()
   });
   fs.writeFileSync( 'data/mieter.json', JSON.stringify( d, null, 2 ) );
 }
+*/
 
+/*
 function add_owners_to_apartments()
 {
   var fs = require( 'fs' );
@@ -103,6 +106,7 @@ function add_owners_to_apartments()
   var fn = `data/tmp/apt_${ts}.json`;
   fs.writeFileSync( fn, JSON.stringify( apartments, null, 2 ) );
 }
+*/
 
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
@@ -130,5 +134,5 @@ exports.contracts = contracts;
 
 //convert_tsv_to_json();
 
-add_owners_to_apartments();
+//add_owners_to_apartments();
 
