@@ -70,7 +70,7 @@ var personSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) { return (!s) || jtregex.valid_salutation.test(s); },
-      message: props => `'${props.value}' is not a valid telephone number`
+      message: props => `'${props.value}' is not a valid salutation`
     }},
   street: String,
   streetnr: String,
