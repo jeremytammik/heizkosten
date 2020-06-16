@@ -61,7 +61,7 @@ function save_data_for_model( model, res, req )
       console.log(d);
     }
 
-    if( 'apt' === model.route ) {
+    if( false /* 'apt' === model.route */ ) {
       // convert string to array and dict:
       // date [, factor], date: amount [, date: amount]...
 
