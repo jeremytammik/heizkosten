@@ -66,7 +66,12 @@ var personSchema = new Schema({
       validator: function(s) { return (!s) || jtregex.valid_telephone_numbers.test(s); },
       message: props => `'${props.value}' is not a valid telephone number`
     }},
-  salutation: String,
+  salutation: {
+    type: String,
+    validate: {
+      validator: function(s) { return (!s) || jtregex.valid_salutation.test(s); },
+      message: props => `'${props.value}' is not a valid telephone number`
+    }},
   street: String,
   streetnr: String,
   zip: String,
