@@ -52,7 +52,7 @@ test('cost has valid unit and year matching dictionary key', () => {
 });
 
 test('loaded N persons', () => {
-  expect(Object.keys(loaddata.persons).length).toBe(12);
+  expect(Object.keys(loaddata.persons).length).toBe(109);
 });
 
 test('person id matches dictionary key', () => {
@@ -62,9 +62,9 @@ test('person id matches dictionary key', () => {
     expect(value.units).toMatch( jtregex.valid_unit_list );
     if(value.firstname) { expect(value.firstname).toMatch( jtregex.valid_name_chars ); }
     expect(value.lastname).toMatch( jtregex.valid_name_chars );
-    expect(value.email).toMatch( jtregex.valid_email_address );
-    expect(value.iban).toMatch( jtregex.valid_iban );
-    expect(value.telephone).toMatch( jtregex.valid_telephone_numbers );
+    if(value.email) { expect(value.email).toMatch( jtregex.valid_email_address ); }
+    if(value.iban) { expect(value.iban).toMatch( jtregex.valid_iban ); }
+    if(value.telephone) { expect(value.telephone).toMatch( jtregex.valid_telephone_numbers ); }
     //expect(value.salutation).toMatch( );
     //expect(value.street).toMatch( );
     //expect(value.streetnr).toMatch( );
@@ -222,7 +222,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
     expect(apartment_ids).toContain( value.apartment_id );
     value.occupant_ids.forEach( (p) => { expect(person_ids).toContain( p ); } );
     expect(value.begin).toBeInstanceOf(Date);
-    var end_is_null_or_later_than_begin = (null === value.end)
+    var end_is_null_or_later_than_begin = ("" === value.end)
       ? true
       : (value.begin.getTime() < value.end.getTime());
     expect(end_is_null_or_later_than_begin).toBeTruthy();
