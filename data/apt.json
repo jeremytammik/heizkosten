@@ -34,7 +34,7 @@
   "001-09-01": {
     "_id": "001-09-01",
     "unit_id": "001",
-    "owner_id": "",
+    "owner_id": "klauspeter_ziser",
     "grundbuchnr": "grundbuchnr_001-09-01",
     "area_m2": 66.8,
     "room_count": 2,
@@ -392,7 +392,7 @@
   "001-07-04": {
     "_id": "001-07-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "fehmi_maksuti",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -426,7 +426,7 @@
   "001-08-04": {
     "_id": "001-08-04",
     "unit_id": "001",
-    "owner_id": "zebra_gbr",
+    "owner_id": "ingeborg_lohse",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -460,7 +460,7 @@
   "001-09-04": {
     "_id": "001-09-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "angela_labodda",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -528,7 +528,7 @@
   "001-11-04": {
     "_id": "001-11-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "guenther_effenberg",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -562,7 +562,7 @@
   "001-12-04": {
     "_id": "001-12-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "ruth_fehrenbach",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -596,7 +596,7 @@
   "001-13-04": {
     "_id": "001-13-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "juergen_leonhardt",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -630,7 +630,7 @@
   "001-14-04": {
     "_id": "001-14-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "gisela_dannecker",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -664,7 +664,7 @@
   "001-15-04": {
     "_id": "001-15-04",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "thomas_koetzsch",
     "grundbuchnr": "",
     "area_m2": 107.32,
     "room_count": 4,
@@ -890,7 +890,7 @@
   "001-07-03": {
     "_id": "001-07-03",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "mina_forsthuber",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1018,7 +1018,7 @@
   "001-11-03": {
     "_id": "001-11-03",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "renate_spaeth",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1082,7 +1082,7 @@
   "001-13-03": {
     "_id": "001-13-03",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "eva_gerold",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1114,7 +1114,7 @@
   "001-14-03": {
     "_id": "001-14-03",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "elisabeth_bischof",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1146,7 +1146,7 @@
   "001-15-03": {
     "_id": "001-15-03",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "ruh_hesse",
     "grundbuchnr": "",
     "area_m2": 86.49,
     "room_count": 3,
@@ -1402,7 +1402,7 @@
   "001-08-01": {
     "_id": "001-08-01",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "frieda_nennhuber",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1486,7 +1486,7 @@
   "001-12-01": {
     "_id": "001-12-01",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "ramona_fehrenbach",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1514,7 +1514,7 @@
   "001-13-01": {
     "_id": "001-13-01",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "dirk_baur",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1542,7 +1542,7 @@
   "001-14-01": {
     "_id": "001-14-01",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "norbert_fehrenbach",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1570,7 +1570,7 @@
   "001-15-01": {
     "_id": "001-15-01",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "brigitte_raschke",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1738,7 +1738,7 @@
   "001-05-02": {
     "_id": "001-05-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "otto_froehlich",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1822,7 +1822,7 @@
   "001-08-02": {
     "_id": "001-08-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "thomas_meier",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1850,7 +1850,7 @@
   "001-10-02": {
     "_id": "001-10-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "klaus_brombach",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1906,7 +1906,7 @@
   "001-12-02": {
     "_id": "001-12-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "frank_neuschuetz",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1934,7 +1934,7 @@
   "001-13-02": {
     "_id": "001-13-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "marianne_galle",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1962,7 +1962,7 @@
   "001-14-02": {
     "_id": "001-14-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "ingeborg_mueller",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -1990,7 +1990,7 @@
   "001-15-02": {
     "_id": "001-15-02",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "rolf_christen",
     "grundbuchnr": "",
     "area_m2": 66.8,
     "room_count": 2,
@@ -2050,7 +2050,7 @@
   "001-01-06": {
     "_id": "001-01-06",
     "unit_id": "001",
-    "owner_id": "zebra_gbr",
+    "owner_id": "zebr",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2274,7 +2274,7 @@
   "001-08-06": {
     "_id": "001-08-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "zebra_gbr",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2306,7 +2306,7 @@
   "001-09-06": {
     "_id": "001-09-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "viktor_litke",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2370,7 +2370,7 @@
   "001-11-06": {
     "_id": "001-11-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "horst_weidenmueller",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2402,7 +2402,7 @@
   "001-13-06": {
     "_id": "001-13-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "marc_danner",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2434,7 +2434,7 @@
   "001-14-06": {
     "_id": "001-14-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "uwe_schultz",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2466,7 +2466,7 @@
   "001-15-06": {
     "_id": "001-15-06",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "namir_afizi",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2722,7 +2722,7 @@
   "001-07-05": {
     "_id": "001-07-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "ivica_paric",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2754,7 +2754,7 @@
   "001-08-05": {
     "_id": "001-08-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "valentino_morast",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2818,7 +2818,7 @@
   "001-10-05": {
     "_id": "001-10-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "margret_jahrisch",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2850,7 +2850,7 @@
   "001-11-05": {
     "_id": "001-11-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "manfred_schleith",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2882,7 +2882,7 @@
   "001-12-05": {
     "_id": "001-12-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "otto_froehlich",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,
@@ -2914,7 +2914,7 @@
   "001-13-05": {
     "_id": "001-13-05",
     "unit_id": "001",
-    "owner_id": "unknown_owner_id",
+    "owner_id": "andrea_schoeler",
     "grundbuchnr": "",
     "area_m2": 88.95,
     "room_count": 3,

@@ -92,6 +92,16 @@ function convert_tsv_to_json()
 
 function add_owners_to_apartments()
 {
+  var fs = require( 'fs' );
+  var apartments = JSON.parse( fs.readFileSync( 'data/apt.json', 'utf8' ) );
+  var apartments_with_owners = JSON.parse( fs.readFileSync( 'data/burcu/apt_20200614085236.json', 'utf8' ) );
+  
+  for( const [key, value] of Object.entries( apartments ) ) {
+    apartments[key].owner_id = apartments_with_owners[key].owner_id;
+  }
+  var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
+  var fn = `data/tmp/apt_${ts}.json`;
+  fs.writeFileSync( fn, JSON.stringify( apartments, null, 2 ) );
 }
 
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
