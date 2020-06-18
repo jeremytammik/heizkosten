@@ -87,6 +87,14 @@ var contractSchema = new Schema({
   { _id: false } // suppress automatic generation
 );
 
+contractSchema.pre( 'validate', function( next ) {
+  if( !(this._id.startsWith( this.apartment_id ) {
+    next(new Error( 'contract_id must match apartment_id' ) );
+  } else {
+    next();
+  }
+});
+
 contractSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.occupant_ids.join()}`;
 };
