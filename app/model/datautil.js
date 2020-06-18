@@ -12,8 +12,8 @@ function load_data_for_model( model, res, req )
       if (err) { return console.error(err); }
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
-        return res.send( jtformgen.success_with_document_count(
-          '', count.toString(), model.thing_en ) );
+        return jtformgen.success_with_document_count(
+          '', count.toString(), model.thing_en );
       });
     });
   });
