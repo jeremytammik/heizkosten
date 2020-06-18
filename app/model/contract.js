@@ -88,7 +88,7 @@ var contractSchema = new Schema({
 );
 
 contractSchema.pre( 'validate', function( next ) {
-  if( !(this._id.startsWith( this.apartment_id ) {
+  if( !(this._id.startsWith( this.apartment_id) ) ) {
     next(new Error( 'contract_id must match apartment_id' ) );
   } else {
     next();
