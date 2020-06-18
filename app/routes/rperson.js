@@ -14,7 +14,7 @@ app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 
 app.get( '/', (req, res) => {
   Person.find( {}, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
         Person, '', results, false, true ) );
@@ -37,7 +37,7 @@ app.get( '/load_tenant', (req, res) => {
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var url_filter = `/person/unit/${uid}/list`;
       return res.send( jtformgen.jtformgen_list_documents(
@@ -51,7 +51,7 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
   var sfilter = req.body.filter;
   Person.find( { 'units': {$in : [uid]}, $text: { $search : sfilter } },
     (err, results) => {
-      if (err) { return console.log(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       else {
         var url_filter = `/person/unit/${uid}/list`;
         var matching = sfilter
@@ -81,7 +81,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
   o.query = { units : {$in : [uid]}};
   Person.mapReduce( o, function (err, results) {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var ids = [];
       results.results.forEach( (r) => {
@@ -103,7 +103,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Person.get_edit_form_html( doc, 'view' );
@@ -115,7 +115,7 @@ app.get( '/:id', (req, res) => {
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Person.get_edit_form_html( doc, 'edit' );
@@ -134,9 +134,9 @@ app.post( '/:id/edit_submit', (req, res) => {
   }
   var id = req.params.id;
   Person.updateOne( { "_id": id }, p, (err,res2) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Person.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Person.thing_en ) );
     });
@@ -146,7 +146,7 @@ app.post( '/:id/edit_submit', (req, res) => {
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Person.get_edit_form_html( doc, 'dupl' );
@@ -161,7 +161,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id = p._id;
   Person.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
-      return console.error(err);
+      console.error(err); return res.send(err.toString());
     }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
@@ -194,7 +194,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen.jtformgen_confirm_delete( Person, s, id ) );
@@ -205,9 +205,9 @@ app.get( '/:id/del', (req, res) => {
 app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
   Person.deleteOne( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Person.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Person.thing_en ) );
     });

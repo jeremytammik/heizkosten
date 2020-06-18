@@ -108,7 +108,7 @@ Contract.thing_de = 'Vertrag';
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
 
 Contract.get_edit_form_html = ( d, action, error ) => {
-  var id = d['_id'];
+  var id = d._id;
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Contract.route}/${id}/${url_action}`;
   
@@ -118,14 +118,14 @@ Contract.get_edit_form_html = ( d, action, error ) => {
     
   verb = Contract.thing_de + ' ' + id + ' ' + verb;
 
-  delete d['__v'];
+  delete d.__v;
   
   if( !(action === 'dupl') ) {
-    delete d['_id'];
-    delete d['unit_id'];
-    delete d['apartment_id'];
+    delete d._id;
+    delete d.unit_id;
+    delete d.apartment_id;
   }
-  
+ 
   return jtformgen_edit_document( d, url_action, verb, true, error );
 }
 

@@ -7,7 +7,7 @@ const Apartment = require( '../model/apartment' );
 
 app.get( '/', (req, res) => {
   Apartment.find( {}, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
         Apartment, '', results, false, false ) );
@@ -56,7 +56,7 @@ app.get( '/generate_missing', (req, res) => {
   var nlevels = 16;
 
   Apartment.find( {'_id': {$in : model_ids } }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       docs = [];
       results.forEach( (x) => {
@@ -84,9 +84,9 @@ app.get( '/generate_missing', (req, res) => {
       });
       //console.log('-->\n', docs);
       Apartment.create( docs, (err,res2) => {
-        if (err) { return console.error(err); }
+        if (err) { console.error(err); return res.send(err.toString()); }
         Apartment.countDocuments( {}, (err, count) => {
-          if (err) { return console.error(err); }
+          if (err) { console.error(err); return res.send(err.toString()); }
           //console.log( count, 'apartments.' );
           return res.send( jtformgen.success_with_document_count(
             '', count.toString(), Apartment.thing_en ) );
@@ -99,7 +99,7 @@ app.get( '/generate_missing', (req, res) => {
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Apartment.find( { 'unit_id': uid }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var url_filter = `/apt/unit/${uid}/list`;
       return res.send( jtformgen.jtformgen_list_documents(
@@ -131,7 +131,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
   o.query = { unit_id : uid};
   Apartment.mapReduce( o, function (err, results) {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var ids = [];
       results.results.forEach( (r) => {
@@ -153,7 +153,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Apartment.get_edit_form_html( doc, 'view' );
@@ -165,7 +165,7 @@ app.get( '/:id', (req, res) => {
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Apartment.get_edit_form_html( doc, 'edit' );
@@ -210,7 +210,7 @@ app.post( '/:id/edit_submit', (req, res) => {
   }
 
   Person.count( { _id: a.owner_id }, (err, count) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     if( 0 == count ) {
       validation_errors = { errors: { owner_id: { path: 'owner_id', message: a.owner_id + ' is not a valid person_id' }}};
       var d = a._doc;
@@ -220,9 +220,9 @@ app.post( '/:id/edit_submit', (req, res) => {
     }
     console.log(`updating ${id}:`, c);
     Apartment.updateOne( { "_id": id }, c, (err,res2) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       Apartment.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
+        if (err) { console.error(err); return res.send(err.toString()); }
         return res.send( jtformgen.success_with_document_count(
           '', count.toString(), Apartment.thing_en ) );
       });
@@ -233,7 +233,7 @@ app.post( '/:id/edit_submit', (req, res) => {
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Apartment.get_edit_form_html( doc, 'dupl' );
@@ -254,7 +254,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 
   var id = c._id;
   Apartment.countDocuments( {'_id': id }, (err, count) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id' }}};
@@ -284,7 +284,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
@@ -295,9 +295,9 @@ app.get( '/:id/del', (req, res) => {
 app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
   Apartment.deleteOne( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Apartment.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Apartment.thing_en ) );
     });

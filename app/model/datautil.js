@@ -7,11 +7,11 @@ function load_data_for_model( model, res, req )
     `data/${model.route}.json`, 'utf8' ));
   
   model.deleteMany( {}, (err) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     model.create( Object.values(d), (err,res2) => {
-      if (err) { return res.send( console.error(err) ); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       model.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
+        if (err) { console.error(err); return res.send(err.toString()); }
         return res.send( jtformgen.success_with_document_count(
           '', count.toString(), model.thing_en ) );
       });
@@ -31,7 +31,7 @@ function convert_string_to_array_and_dict( s ) {
 function save_data_for_model( model, res, req )
 {
   model.find( {}, function( err, docs ) {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     var d = {};
     docs.forEach( (doc) => {
       var p = doc._doc;
@@ -90,7 +90,7 @@ function save_data_for_model( model, res, req )
     var fn = `data/tmp/${model.route}_${ts}.json`;
     fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
       function (err) {
-        if (err) { return console.log(err); }
+        if (err) { console.error(err); return res.send(err.toString()); }
         return res.send( `${model.thing_en} data saved in '${fn}'` );
       }
     );
@@ -107,7 +107,7 @@ function load_tenant_data_for_model( model, res, req )
   console.log( ids.length );
   
   model.find( { '_id': {$in : ids} }, (err, results) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     //console.log( results );
     var ids_exist = results.map( (r) => { return r._id; } );
     var n = ids_exist.length;
@@ -125,12 +125,12 @@ function load_tenant_data_for_model( model, res, req )
       value.altaddr = '';
     }
     model.create( Object.values(d), (err,res2) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       var sids = ids_exist.join( ', ' );
       var s = `Following ${n} ids already exist, have been skipped `
         + `and are ignored: ${sids}; please check them!`;
       model.countDocuments( {}, (err, count) => {
-        if (err) { return console.error(err); }
+        if (err) { console.error(err); return res.send(err.toString()); }
         return res.send( jtformgen.success_with_document_count(
           s, count.toString(), model.thing_en ) );
       });

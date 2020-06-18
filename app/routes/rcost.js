@@ -15,7 +15,7 @@ app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
 
 app.get( '/', (req, res) => {
   Cost.find( {}, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
         Cost, '', results, false, true ) );
@@ -34,7 +34,7 @@ app.get( '/save_data', (req, res) => {
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Cost.find( { 'unit_id': uid }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
         Cost, ` in ${uid}`, results, false, true ) );
@@ -45,7 +45,7 @@ app.get( '/unit/:uid/list', (req, res) => {
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Cost.get_edit_form_html( doc, 'view' );
@@ -57,7 +57,7 @@ app.get( '/:id', (req, res) => {
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Cost.get_edit_form_html( doc, 'edit' );
@@ -77,9 +77,9 @@ app.post( '/:id/edit_submit', (req, res) => {
   }
   var id = req.params.id;
   Cost.updateOne( { "_id": id }, c, (err,res2) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Cost.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Cost.thing_en ) );
     });
@@ -89,7 +89,7 @@ app.post( '/:id/edit_submit', (req, res) => {
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Cost.get_edit_form_html( doc, 'dupl' );
@@ -105,7 +105,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id = p.unit_id + '-' + p.year;
   Cost.countDocuments( {'_id': id }, (err, count) => {
     if (err) {
-      return console.error(err);
+      console.error(err); return res.send(err.toString());
     }
     if( 0 < count ) {
       var error = { 'errors': { '_id': {
@@ -138,7 +138,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen.jtformgen_confirm_delete( Cost, s, id ) );
@@ -149,9 +149,9 @@ app.get( '/:id/del', (req, res) => {
 app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
   Cost.deleteOne( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Cost.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Cost.thing_en ) );
     });

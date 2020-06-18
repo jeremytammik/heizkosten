@@ -6,7 +6,7 @@ const Contract = require( '../model/contract' );
 
 app.get( '/', (req, res) => {
   Contract.find( {}, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       return res.send( jtformgen.jtformgen_list_documents(
         Contract, '', results, false, true ) );
@@ -25,7 +25,7 @@ app.get( '/save_data', (req, res) => {
 app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Contract.find( { 'unit_id': uid }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var url_filter = `/contract/unit/${uid}/list`;
       return res.send( jtformgen.jtformgen_list_documents(
@@ -54,7 +54,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
   o.query = { unit_id : uid};
   Contract.mapReduce( o, function (err, results) {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var ids = [];
       results.results.forEach( (r) => {
@@ -76,7 +76,7 @@ emit( this._id, /${sfilter2}/.test(s) );\
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Contract.get_edit_form_html( doc, 'view' );
@@ -88,7 +88,7 @@ app.get( '/:id', (req, res) => {
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Contract.get_edit_form_html( doc, 'edit' );
@@ -120,9 +120,9 @@ app.post( '/:id/edit_submit', (req, res) => {
 
   console.log(`updating ${id}:`, c);
   Contract.updateOne( { "_id": id }, c, (err,res2) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Contract.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Contract.thing_en ) );
     });
@@ -132,7 +132,7 @@ app.post( '/:id/edit_submit', (req, res) => {
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var doc = results[0]._doc;
       var form = Contract.get_edit_form_html( doc, 'dupl' );
@@ -154,7 +154,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
   
   var id = c._id;
   Contract.countDocuments( {'_id': id }, (err, count) => {
-    if (err) { return console.error(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     var error = null;
     if( 0 < count ) {
       error = { 'errors': { '_id': {
@@ -192,7 +192,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     else {
       var s = results[0].get_display_string();
       res.send( jtformgen.jtformgen_confirm_delete( Contract, s, id ) );
@@ -203,9 +203,9 @@ app.get( '/:id/del', (req, res) => {
 app.get( '/:id/del_confirmed', (req, res) => {
   var id = req.params.id;
   Contract.deleteOne( {'_id': id }, (err, results) => {
-    if (err) { return console.log(err); }
+    if (err) { console.error(err); return res.send(err.toString()); }
     Contract.countDocuments( {}, (err, count) => {
-      if (err) { return console.error(err); }
+      if (err) { console.error(err); return res.send(err.toString()); }
       return res.send( jtformgen.success_with_document_count(
         '', count.toString(), Contract.thing_en ) );
     });
