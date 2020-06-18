@@ -9,7 +9,7 @@ function load_data_for_model( model, res, req )
   model.deleteMany( {}, (err) => {
     if (err) { return console.error(err); }
     model.create( Object.values(d), (err,res2) => {
-      if (err) { return console.error(err); }
+      if (err) { return res.send( console.error(err) ); }
       model.countDocuments( {}, (err, count) => {
         if (err) { return console.error(err); }
         return res.send( jtformgen.success_with_document_count(
