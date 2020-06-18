@@ -9,7 +9,7 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 const jtregex = require( '../../data/jtregex' );
-const util = require( '../calc/jtregex' );
+const util = require( '../calc/util' );
 
 const enum_contract_accounts = [
   'apartment_rental',
