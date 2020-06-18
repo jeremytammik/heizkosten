@@ -269,7 +269,7 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Apartment.get_edit_form_html( d, 'dupl', error );
       return res.send( form );
     }
-    c['_id'] = id;
+    //c['_id'] = id;
     Apartment.create( c, (err2,res2) => {
       if (err2) { return console.error(err2); }
       Apartment.countDocuments( {}, (err3, count) => {

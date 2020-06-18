@@ -176,8 +176,8 @@ app.post( '/:id/dupl_submit', (req, res) => {
       var form = Contract.get_edit_form_html( d, 'dupl', error );
       return res.send( form );
     }
-    c['_id'] = id;
-    console.log('now create');
+    //c['_id'] = id;
+    //console.log('now create');
     Contract.create( c, (err2,res2) => {
       if (err2) { return console.error(err2); }
       Contract.countDocuments( {}, (err3, count) => {
