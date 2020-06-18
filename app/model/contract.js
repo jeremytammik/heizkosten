@@ -89,10 +89,10 @@ var contractSchema = new Schema({
 
 contractSchema.pre( 'validate', function( next ) {
   if( !(this._id.startsWith( this.apartment_id) ) ) {
-    next(new Error( 'contract_id must match apartment_id' ) );
-  } else {
-    next();
-  }
+    //next(new Error( 'contract _id must match its apartment_id' ) );
+    this.invalidate( '_id', 'contract _id must match its apartment_id', this._id );
+  } 
+  next();
 });
 
 contractSchema.methods.get_display_string = function() {
