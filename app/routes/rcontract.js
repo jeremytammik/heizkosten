@@ -155,19 +155,29 @@ app.post( '/:id/dupl_submit', (req, res) => {
   var id = c._id;
   Contract.countDocuments( {'_id': id }, (err, count) => {
     if (err) { return console.error(err); }
+    var error = null;
     if( 0 < count ) {
-      var error = { 'errors': { '_id': {
+      error = { 'errors': { '_id': {
         'path': '_id', 'message': 'duplicate id' }}};
+    }
+    else if( !(id.startsWith( c.apartment_id) ) ) {
+      error = { 'errors': { '_id': {
+        'path': '_id', 'message': 'contract _id must match its apartment_id' }}};
+    }
+    if( error ) {
       var form = Contract.get_edit_form_html( req.body, 'dupl', error );
       return res.send( form );
     }
-    var p2 = new Contract( c );
-    error = p2.validateSync();
+    var c2 = new Contract( c );
+    error = c2.validateSync();
     if( error ) {
-      var form = Contract.get_edit_form_html( doc, 'dupl', error );
-      return res.send( form );      
+      var d = c2._doc;
+      d._id = id_original;
+      var form = Contract.get_edit_form_html( d, 'dupl', error );
+      return res.send( form );
     }
     c['_id'] = id;
+    console.log('now create');
     Contract.create( c, (err2,res2) => {
       if (err2) { return console.error(err2); }
       Contract.countDocuments( {}, (err3, count) => {
