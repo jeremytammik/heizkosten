@@ -7,6 +7,11 @@ function jtisodate( d ) {
   return d.toISOString().substr( 0, 10 );
 }
 
+function iso_date_string_is_before( begin, end )
+{
+  return begin.localeCompare( end ) < 0;
+}
+
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
 function date_units_diff(a, b, unit_amounts) {
   var split_to_whole_units = function (milliseconds, unit_amounts) {
@@ -105,6 +110,7 @@ function string_to_object_with_numbers( s ) {
 module.exports = {
   trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
   jtisodate: jtisodate,
+  iso_date_string_is_before: iso_date_string_is_before,
   date_diff_days: date_diff_days,
   days_in_year: days_in_year,
   get_duration_in_given_year: get_duration_in_given_year,
