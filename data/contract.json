@@ -53,7 +53,7 @@
     "apartment_id": "001-14-05",
     "occupant_ids": ["fabio_krueger"],
     "begin": "2014-12-01",
-    "end": "2010-04-30",
+    "end": "2020-04-30",
     "rent_apartment_eur": "2018-01-01: 698",
     "rent_other_eur": "2018-01-01: 60",
     "nebenkosten_eur": "2018-01-01: 142",

@@ -89,8 +89,11 @@ var contractSchema = new Schema({
 );
 
 contractSchema.pre( 'validate', function( next ) {
-  if( !(this._id.startsWith( this.apartment_id) ) ) {
+  if( !(this._id.startsWith( this.apartment_id + '-' ) ) ) {
     this.invalidate( '_id', 'contract _id must match its apartment_id', this._id );
+  }
+  if( !(this.apartment_id.startsWith( this.unit_id + '-' ) ) ) {
+    this.invalidate( 'apartment_id', 'contract apartment_id must match its unit_id', this.apartment_id );
   }
   if( this.end && !(util.iso_date_string_is_before( this.begin, this.end )) ) {
     this.invalidate( 'end', 'contract end date must be later than contract begin', this.end );
