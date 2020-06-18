@@ -97,19 +97,6 @@ app.get( '/:id/edit', (req, res) => {
   });
 });
 
-function convert_to_dict( c, keyprefix )
-{
-  d = {};
-  var i = 0;
-  while( c.hasOwnProperty( k = `${keyprefix}_${i}_key` ) ) {
-    d[c[k]] = c[v = `${keyprefix}_${i}_val`];
-    delete c[k];
-    delete c[v];
-    ++i;
-  }
-  return d;
-}
-
 app.post( '/:id/edit_submit', (req, res) => {
   var id = req.params.id;
   var c = util.trimAllFieldsInObjectAndChildren( req.body );
