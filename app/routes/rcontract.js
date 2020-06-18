@@ -15,7 +15,7 @@ app.get( '/', (req, res) => {
 });
 
 app.get( '/load_data', (req, res) => {
-  return datautil.load_data_for_model( Contract, res, req );
+  return res.send( datautil.load_data_for_model( Contract, res, req ) );
 });
 
 app.get( '/save_data', (req, res) => {
