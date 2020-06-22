@@ -73,6 +73,24 @@ emit( this._id, /${sfilter2}/i.test(s) );\
   });
 });
 
+app.get( '/unit/:uid/year/:year/list', (req, res) => {
+  var uid = req.params.uid;
+  var year = req.params.year;
+  var year_begin = year + '-01-01';
+  var year_end = year + '-12-31';
+  Contract.find( {
+      'unit_id': uid,
+      'begin': {$lte: year_end},
+      $or: [ {'end':''}, {'end': {$lte: year_begin}} ]
+    }, (err, results) => {
+    if (err) { console.error(err); return res.send(err.toString()); }
+    else {
+      return res.send( jtformgen.jtformgen_list_documents(
+        Contract, ` in ${uid} active in year ${year}`, results, false, false ) );
+    }
+  });
+});
+
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
