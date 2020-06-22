@@ -78,7 +78,7 @@ app.get( '/unit/:uid/year/:year/list', (req, res) => {
   var year = req.params.year;
   var year_begin = year + '-01-01';
   var year_end = year + '-12-31';
-  console.log( year_begin, '-', year_end );
+  //console.log( year_begin, '-', year_end );
   Contract.find( {
       'unit_id': uid,
       'begin': {$lte: year_end},
