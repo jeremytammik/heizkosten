@@ -114,7 +114,7 @@ function add_owners_to_apartments()
 var units = JSON.parse(fs.readFileSync('data/unit.json', 'utf8'));
 var costs = JSON.parse(fs.readFileSync('data/cost.json', 'utf8'));
 var persons = JSON.parse(fs.readFileSync('data//person.json', 'utf8'));
-var tenants = JSON.parse(fs.readFileSync('data/mieter.json', 'utf8'));
+//var tenants = JSON.parse(fs.readFileSync('data/mieter.json', 'utf8'));
 var apartments = JSON.parse(fs.readFileSync('data/apt.json', 'utf8'));
 var contracts = JSON.parse(fs.readFileSync('data/contract.json', 'utf8'), json_parse_date_reviver);
 
@@ -125,7 +125,7 @@ exports.json_parse_date_reviver = json_parse_date_reviver;
 exports.units = units;
 exports.costs = costs;
 exports.persons = persons;
-exports.tenants = tenants;
+//exports.tenants = tenants;
 exports.apartments = apartments;
 exports.contracts = contracts;
 
