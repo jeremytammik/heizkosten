@@ -75,21 +75,23 @@ test('person id matches dictionary key', () => {
 });
 
 test('tenant data fulfils person regex requirements', () => {
-  for (const [key, value] of Object.entries(loaddata.tenants)) {
-    expect(value._id).toBe( key );
-    expect(value._id).toMatch( jtregex.valid_person_id );
-    //expect(value.units).toMatch( valid_unit_list );
-    if(value.firstname) { expect(value.firstname).toMatch( jtregex.valid_name_chars ); }
-    expect(value.lastname).toMatch( jtregex.valid_name_chars );
-    if(value.email) { expect(value.email).toMatch( jtregex.valid_email_address ); }
-    if(value.iban) { expect(value.iban).toMatch( jtregex.valid_iban ); }
-    if(value.telephone) { expect(value.telephone).toMatch( jtregex.valid_telephone_numbers ); }
-    //expect(value.salutation).toMatch( );
-    //expect(value.street).toMatch( );
-    //expect(value.streetnr).toMatch( );
-    //expect(value.zip).toMatch( );
-    //expect(value.city).toMatch( );
-    if(value.country) { expect(value.country).toMatch( jtregex.valid_name_chars ); }
+  if( loaddata.tenants ) {
+    for (const [key, value] of Object.entries(loaddata.tenants)) {
+      expect(value._id).toBe( key );
+      expect(value._id).toMatch( jtregex.valid_person_id );
+      //expect(value.units).toMatch( valid_unit_list );
+      if(value.firstname) { expect(value.firstname).toMatch( jtregex.valid_name_chars ); }
+      expect(value.lastname).toMatch( jtregex.valid_name_chars );
+      if(value.email) { expect(value.email).toMatch( jtregex.valid_email_address ); }
+      if(value.iban) { expect(value.iban).toMatch( jtregex.valid_iban ); }
+      if(value.telephone) { expect(value.telephone).toMatch( jtregex.valid_telephone_numbers ); }
+      //expect(value.salutation).toMatch( );
+      //expect(value.street).toMatch( );
+      //expect(value.streetnr).toMatch( );
+      //expect(value.zip).toMatch( );
+      //expect(value.city).toMatch( );
+      if(value.country) { expect(value.country).toMatch( jtregex.valid_name_chars ); }
+    }
   }
 });
 
