@@ -125,7 +125,7 @@ var s = this._id + ' ' + this.owner_id
 + ' ' + Object.keys(this.heatcostallocators).join(' ')\
 + ' ' + this.room_count.toString() + ' rooms '\
 + this.area_m2.toString() + ' m2';\
-emit( this._id, /${sfilter2}/.test(s) );\
+emit( this._id, /${sfilter2}/i.test(s) );\
 };`;
 
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';

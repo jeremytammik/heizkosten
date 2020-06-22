@@ -48,7 +48,7 @@ var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
 + ' ' + Object.keys(this.coldwatermeters).join(' ')\
 + ' ' + Object.keys(this.hotwatermeters).join(' ')\
 + ' ' + Object.keys(this.heatcostallocators).join(' ');\
-emit( this._id, /${sfilter2}/.test(s) );\
+emit( this._id, /${sfilter2}/i.test(s) );\
 };`;
 
   o.reduce = 'function (k, vals) { return Array.sum(vals); };';
