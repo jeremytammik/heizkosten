@@ -60,10 +60,6 @@ function jtformgen_list_documents( model, where, docs, enable_select, enable_dup
   var a = [];
   docs.forEach( (d) => {
     a.push( d.get_display_string() + '+++' + d._id );
-
-    console.log(d.firstname + ' ' + d.lastname + ' ' + d.email
-      + ' ' + d.telephone + ' ' + d.street + ' ' + d.streetnr
-      + ' ' + d.zip + ' ' + d.city + ' ' + d.country);
   });
   a.sort();
   
