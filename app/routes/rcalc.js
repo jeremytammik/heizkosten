@@ -1,8 +1,10 @@
 const app = module.exports = require('express')();
-//const util = require( '../calc/util' );
-//const datautil = require('../model/datautil');
 const jtformgen = require('../form/jtformgen');
 const Contract = require( '../model/contract' );
+
+// Perfrom the Nebenkostenabrechnung for the given year.
+// That requires the unit, its costs for that year,
+// all the contracts and all the apartments.
 
 app.get( '/nk/unit/:uid/year/:year', (req, res) => {
   var uid = req.params.uid;
@@ -13,12 +15,19 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       'unit_id': uid,
       'begin': {$lte: year_end},
       $or: [ {'end':''}, {'end': {$gte: year_begin}} ]
-    }, (err, contracts) => {
-    if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      console.log(contracts);
-      return res.send( jtformgen.jtformgen_list_documents(
-        Contract, ` in ${uid} active in year ${year}`, contracts, false, false ) );
-    }
+    }, (e1, contracts) => {
+    if ( e1 ) { console.error( e1 ); return res.send( e1.toString() ); }
+    console.log( contracts.length, 'contracts', contracts );
+    Unit.find( { '_id': uid }, (e2, units) => {
+      if ( e2 ) { console.error( e2 ); return res.send( e2.toString() ); }
+      console.log( units );
+      var cost_id = uid + '-' + year;
+      Cost.find( { '_id': cost_id }, (e3, costs) => {
+        if ( e3 ) { console.error( e3 ); return res.send( e3.toString() ); }
+        console.log( costs );
+        return res.send( jtformgen.jtformgen_list_documents(
+          Contract, ` in ${uid} active in year ${year}`, contracts, false, false ) );
+      });
+    });
   });
 });
