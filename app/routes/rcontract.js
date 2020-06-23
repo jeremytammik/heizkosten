@@ -7,10 +7,8 @@ const Contract = require( '../model/contract' );
 app.get( '/', (req, res) => {
   Contract.find( {}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Contract, '', results, false, true ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Contract, '', results, false, true ) );
   });
 });
 
@@ -26,11 +24,9 @@ app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Contract.find( { 'unit_id': uid }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var url_filter = `/contract/unit/${uid}/list`;
-      return res.send( jtformgen.jtformgen_list_documents(
-        Contract, ` in ${uid}`, results, false, true, url_filter ) );
-    }
+    var url_filter = `/contract/unit/${uid}/list`;
+    return res.send( jtformgen.jtformgen_list_documents(
+      Contract, ` in ${uid}`, results, false, true, url_filter ) );
   });
 });
 
@@ -55,21 +51,19 @@ emit( this._id, /${sfilter2}/i.test(s) );\
   o.query = { unit_id : uid};
   Contract.mapReduce( o, function (err, results) {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var ids = [];
-      results.results.forEach( (r) => {
-        if( r.value ) { ids.push( r._id ); }
-      });
-      Contract.find( { '_id': {$in : ids} }, (err, results) => {
-        var url_filter = `/contract/unit/${uid}/list`;
-        var matching = sfilter
-          ? ` matching "${sfilter}"`
-          : '';
-        return res.send( jtformgen.jtformgen_list_documents(
-          Contract, `${matching} in ${uid}`, results,
-          false, true, url_filter, sfilter ) );
-      });
-    }
+    var ids = [];
+    results.results.forEach( (r) => {
+      if( r.value ) { ids.push( r._id ); }
+    });
+    Contract.find( { '_id': {$in : ids} }, (err, results) => {
+      var url_filter = `/contract/unit/${uid}/list`;
+      var matching = sfilter
+        ? ` matching "${sfilter}"`
+        : '';
+      return res.send( jtformgen.jtformgen_list_documents(
+        Contract, `${matching} in ${uid}`, results,
+        false, true, url_filter, sfilter ) );
+    });
   });
 });
 
@@ -85,10 +79,8 @@ app.get( '/unit/:uid/year/:year/list', (req, res) => {
       $or: [ {'end':''}, {'end': {$gte: year_begin}} ]
     }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Contract, ` in ${uid} active in year ${year}`, results, false, false ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Contract, ` in ${uid} active in year ${year}`, results, false, false ) );
   });
 });
 
@@ -96,11 +88,9 @@ app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Contract.get_edit_form_html( doc, 'view' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Contract.get_edit_form_html( doc, 'view' );
+    res.send( form );
   });
 });
 
@@ -108,11 +98,9 @@ app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Contract.get_edit_form_html( doc, 'edit' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Contract.get_edit_form_html( doc, 'edit' );
+    res.send( form );
   });
 });
 
@@ -152,11 +140,9 @@ app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Contract.get_edit_form_html( doc, 'dupl' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Contract.get_edit_form_html( doc, 'dupl' );
+    res.send( form );
   });
 });
 
@@ -212,10 +198,8 @@ app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Contract.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var s = results[0].get_display_string();
-      res.send( jtformgen.jtformgen_confirm_delete( Contract, s, id ) );
-    }
+    var s = results[0].get_display_string();
+    res.send( jtformgen.jtformgen_confirm_delete( Contract, s, id ) );
   });
 });
 
