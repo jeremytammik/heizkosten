@@ -85,7 +85,9 @@ var contractSchema = new Schema({
   rent_other_eur: { // dictionary mapping begin date to other rent in euro 'date: number [, date: number...]'
     type: String,
     validate: {
-      validator: jtvalidators.validate_dict_date_amount_string,
+      validator: function(s) {
+        return (!s) || jtvalidators.validate_dict_date_amount_string(s);
+      },
       message: 'invalid list of date: other rent [, ...]'
     }
   },
