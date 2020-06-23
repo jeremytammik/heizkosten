@@ -52,11 +52,11 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             // iterate over contracts
             a = [];
             for( let i = 0; i < n1; ++i ) {
-              var contract = contracts[i];
-              var unit = units[0];
-              var year_costs = costs[0];
-              var apartment = apartments[contract.apartment_id];
-              var addressee = addressees[contract.occupant_ids[0]];
+              var contract = contracts[i]._doc;
+              var unit = units[0]._doc;
+              var year_costs = costs[0]._doc;
+              var apartment = apartments[contract.apartment_id]._doc;
+              var addressee = addressees[contract.occupant_ids[0]]._doc;
               var energy_cost_eur = 907.54;
               a.push( nkabrechnung.get_nkabrechnung_for(
                 unit, year_costs, apartment, contract, addressee,
