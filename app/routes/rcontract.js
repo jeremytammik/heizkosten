@@ -40,10 +40,9 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   // skip smoke detectors; they have no unique numbers
 
   o.map = `function () {\
-var s = this._id + ' ' + this.occupant_ids.join( ' ' )\
-+ ' ' + Object.keys(this.coldwatermeters).join(' ')\
-+ ' ' + Object.keys(this.hotwatermeters).join(' ')\
-+ ' ' + Object.keys(this.heatcostallocators).join(' ');\
+var s = this._id + ' ' \
++ this.occupant_ids.join( ' ' ) \
++ ' ' + this.begin;\
 emit( this._id, /${sfilter2}/i.test(s) );\
 };`;
 
