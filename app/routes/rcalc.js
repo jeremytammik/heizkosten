@@ -1,6 +1,9 @@
 const app = module.exports = require('express')();
 const jtformgen = require('../form/jtformgen');
+const Apartment = require( '../model/apartment' );
 const Contract = require( '../model/contract' );
+const Cost = require( '../model/cost' );
+const Unit = require( '../model/unit' );
 
 // Perfrom the Nebenkostenabrechnung for the given year.
 // That requires the unit, its costs for that year,
