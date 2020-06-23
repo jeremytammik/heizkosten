@@ -105,7 +105,7 @@ contractSchema.methods.get_display_string = function() {
   return `${this._id} &ndash; ${this.occupant_ids.join()}`;
 };
 
-contractSchema.methods get_duration_in_given_year = function( begin, end ) {
+contractSchema.methods.get_duration_in_given_year = function( begin, end ) {
   // determine contract duration in given year span
   // adjust begin and end to contract begin and end in given year
   if( this.end < begin ) {
