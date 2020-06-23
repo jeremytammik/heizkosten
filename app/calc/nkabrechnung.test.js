@@ -11,5 +11,5 @@ test('test nkabrechnung', () => {
   expect(a.nebenkosten).toBe(2034.64);
   expect(a.credit).toBe(173.36);
   expect(a.new_nkvorauszahlung_per_month).toBe(168.93);
-  console.log( a.report_html );
+  //console.log( a.report_html );
 });
