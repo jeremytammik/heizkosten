@@ -138,9 +138,8 @@ function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year
   credit = util.round_to_two_digits( nkvorauszahlung - nebenkosten );
   new_nkvorauszahlung_per_month = util.round_to_two_digits( (nkvorauszahlung - 12 * (credit / 11.5)) / 12 );
   
-  var s = `<h2>Nebenkostenabrechnung ${year}</hr>\n`;
-  s += `<p>Wohnung ${contract.apartment_id}\n`;
-  s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}\n`;
+  var s = `<h3>Wohnung ${contract.apartment_id}</h3>\n`;
+  s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}</p>\n`;
   s += '<table>\n';
   s += `<tr><td>Vorauszahlung geleistet</td><td>${nkvorauszahlung}</td></tr>\n`;
   s += `<tr><td>Rueckbehalt</td><td>${rueckbehalt}</td></tr>\n`;

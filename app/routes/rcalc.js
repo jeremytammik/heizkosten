@@ -1,4 +1,5 @@
 const app = module.exports = require('express')();
+const jtformgen = require('../form/jtformgen');
 const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
 const Contract = require( '../model/contract' );
@@ -62,7 +63,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
                 unit, year_costs, apartment, contract, addressee,
                 year, energy_cost_eur ) );              
             }
-            return res.send( jtformgen.nkabrechnung_report_html( a ) );
+            return res.send( jtformgen.nkabrechnung_report_html( year, a ) );
           });
         });
       });

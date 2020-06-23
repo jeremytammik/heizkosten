@@ -184,9 +184,10 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-function nkabrechnung_report_html( a )
+function nkabrechnung_report_html( year, a )
 {
-  var s =  a.join('\n');
+  var s = `<h1>Nebenkostenabrechnung ${year}</h1>\n`;
+  s +=  a.join('\n');
   return wrap_html( s );
 }
 

@@ -71,32 +71,34 @@ function days_in_year( y ) {
 // Determine duration == overlap of given timespan in given year
 
 function get_duration_in_given_year( ts_begin, ts_end, year ) {
-  console.log( ts_begin, ts_end, year );
+  
+  var no_end = !ts_end;
+  
+  console.log( 'in', ts_begin, ts_end, no_end, year );
   
   // adjust begin and end to contract begin and end in given year
 
   var begin = new Date( year - 1, 11, 31, 1 ); // 12, 0 // 11, 31
   var end =  new Date( year, 11, 31, 23 ); // `${year}-12-31T22:59:59` // year, 12, 0 // 11, 31
 
-  //console.log('year', begin, end);
+  console.log( 'year', begin, end );
   
-  if(ts_end < begin)
-  {
-    return begin, begin;
+  if( !no_end && ts_end < begin ) {
+    return [begin, begin];
   }
-  else if (ts_begin > end)
-  {
-    return end, end;
+  else if( ts_begin > end ) {
+    return [end, end];
   }
   else {
-    if(ts_begin > begin) {
+    if( ts_begin > begin ) {
       begin = ts_begin;
     }
-    if(ts_end < end) {
+    if( !(no_end) && ts_end < end ) {
       end = ts_end;
     }
   }
-  //console.log('-->', begin, end);
+  
+  console.log( '-->', begin, end );
   
   return [begin, end];
 }
