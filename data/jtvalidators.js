@@ -1,3 +1,5 @@
+const jtregex = require( './jtregex' );
+
 const jtvalidators = {
 
 // validate meter data: date [, factor], date: amount [, date: amount]...
