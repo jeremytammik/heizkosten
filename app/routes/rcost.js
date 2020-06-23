@@ -16,10 +16,8 @@ app.delete('/api/v1/cost/unit/:uid', CostService.deleteAllForUnit);
 app.get( '/', (req, res) => {
   Cost.find( {}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Cost, '', results, false, true ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Cost, '', results, false, true ) );
   });
 });
 
@@ -35,10 +33,8 @@ app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Cost.find( { 'unit_id': uid }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Cost, ` in ${uid}`, results, false, true ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Cost, ` in ${uid}`, results, false, true ) );
   });
 });
 
@@ -46,11 +42,9 @@ app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, 'view' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Cost.get_edit_form_html( doc, 'view' );
+    res.send( form );
   });
 });
 
@@ -58,11 +52,9 @@ app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, 'edit' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Cost.get_edit_form_html( doc, 'edit' );
+    res.send( form );
   });
 });
 
@@ -90,11 +82,9 @@ app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Cost.get_edit_form_html( doc, 'dupl' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Cost.get_edit_form_html( doc, 'dupl' );
+    res.send( form );
   });
 });
 
@@ -139,10 +129,8 @@ app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Cost.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var s = results[0].get_display_string();
-      res.send( jtformgen.jtformgen_confirm_delete( Cost, s, id ) );
-    }
+    var s = results[0].get_display_string();
+    res.send( jtformgen.jtformgen_confirm_delete( Cost, s, id ) );
   });
 });
 
