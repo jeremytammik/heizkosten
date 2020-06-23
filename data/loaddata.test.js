@@ -236,9 +236,9 @@ test('contract expected payments have valid dictionary structure: list of pairs 
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     //console.log(value);
     var a = jtvalidators.validate_dict_date_amount_string(value.rent_apartment_eur);
-    var b = jtvalidators.validate_dict_date_amount_string(value.rent_other_eur);
+    var b = value.rent_other_eur ? jtvalidators.validate_dict_date_amount_string(value.rent_other_eur) : true;
     var c = jtvalidators.validate_dict_date_amount_string(value.nebenkosten_eur);
-    console.log(a, b, c);
+    //console.log(a, b, c);
     expect(a).toBe(true);
     expect(b).toBe(true);
     expect(c).toBe(true);

@@ -23,7 +23,6 @@ validate_meter_data: function( s, with_factor ) {
 },
 
 validate_dict_date_amount_string: function( s ) {
-  console.log(s);
   var a = s.trim().split( ',' );
   var n = a.length;
   for( let i = 0; i < n; ++i ) {
