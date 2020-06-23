@@ -184,6 +184,8 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
+//function nkabrechnung_report_html()
+
 module.exports = {
   success_with_document_count,
   jtformgen_confirm_delete,

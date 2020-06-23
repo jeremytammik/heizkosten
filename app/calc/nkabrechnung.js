@@ -4,7 +4,7 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 //
-// Following advice from http://book.mixu.net/node/ch6.html
+// Following advice on JavaScript OOP from http://book.mixu.net/node/ch6.html
 //
 
 /*
@@ -97,10 +97,11 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 
 function Nkabrechnung(
   contract_id,
-  year, // todo, possibly: support flexible begin and end date
+  yr, // todo, possibly: support flexible begin and end date
   energy_cost_eur )
 {
   var contract = loaddata.contracts[contract_id];
+  var year = yr;
   var apartment = loaddata.apartments[contract.apartment_id];
   var unit = loaddata.units[apartment.unit_id];
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
@@ -129,10 +130,30 @@ function Nkabrechnung(
   this.nebenkosten = util.round_to_two_digits( this.energy_cost_eur + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
   this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
   this.new_nkvorauszahlung_per_month = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
+  
+  var adressee = loaddata.persons[contract.occupant_ids[0]];
+
+  var s = `<h2>Nebenkostenabrechnung ${year}</hr>\n`;
+  s += `<p>Wohnung ${contract.apartment_id}\n`;
+  s += `<p>An ${adressee.firstname} ${adressee.lastname}, ${adressee.street} ${adressee.streetnr}, ${adressee.city}\n`;
+  s += '<table>\n';
+  s += `<tr><td>Vorauszahlung geleistet</td><td>${this.nkvorauszahlung}</td></tr>\n`;
+  s += `<tr><td>Rueckbehalt</td><td>${this.rueckbehalt}</td></tr>\n`;
+  s += `<tr><td>Hausgeld umlagefaehig</td><td>${this.hausgeld_umlagefaehig}</td></tr>\n`;
+  s += `<tr><td>Grundsteuer</td><td>${this.grundsteuer}</td></tr>\n`;
+  s += `<tr><td>Rauchmelderwartung</td><td>${this.rauchmelderwartung}</td></tr>\n`;
+  s += `<tr><td>Nebenkosten</td><td>${this.nebenkosten}</td></tr>\n`;
+  s += `<tr><td>Guthaben</td><td>${this.credit}</td></tr>\n`;
+  s += `<tr><td>Vorauszahlung zukuenftig</td><td>${this.new_nkvorauszahlung_per_month}</td></tr>\n`;
+  s += '</table>\n';
+  
+  this.report_html = s;
 }
 
 // class methods
-//Nkabrechnung.prototype.fooBar = function() {
+
+//Nkabrechnung.prototype.report_html = function() {
+//  console.log(this);
 //};
 
 module.exports = Nkabrechnung;
