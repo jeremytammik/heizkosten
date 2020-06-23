@@ -20,17 +20,22 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       $or: [ {'end':''}, {'end': {$gte: year_begin}} ]
     }, (e1, contracts) => {
     if ( e1 ) { console.error( e1 ); return res.send( e1.toString() ); }
-    console.log( contracts.length, 'contracts', contracts );
-    Unit.find( { '_id': uid }, (e2, units) => {
+    var n = contracts.length;
+    var apt_ids = [];
+    for( let i = 0; i < n; ++i ) { apt_ids.push( contracts[i].apartment_id ); }
+    Apartment.find( { '_id': {$in : apt_ids} }, (e2, apts) => {
       if ( e2 ) { console.error( e2 ); return res.send( e2.toString() ); }
-      console.log( units );
-      var cost_id = uid + '-' + year;
-      console.log( cost_id );
-      Cost.find( { '_id': cost_id }, (e3, costs) => {
+      Unit.find( { '_id': uid }, (e3, units) => {
         if ( e3 ) { console.error( e3 ); return res.send( e3.toString() ); }
-        console.log( costs );
-        return res.send( jtformgen.jtformgen_list_documents(
-          Contract, ` in ${uid} active in year ${year}`, contracts, false, false ) );
+        console.log( units );
+        var cost_id = uid + '-' + year;
+        console.log( cost_id );
+        Cost.find( { '_id': cost_id }, (e4, costs) => {
+          if ( e4 ) { console.error( e4 ); return res.send( e4.toString() ); }
+          console.log( costs );
+          return res.send( jtformgen.jtformgen_list_documents(
+            Contract, ` in ${uid} active in year ${year}`, contracts, false, false ) );
+        });
       });
     });
   });
