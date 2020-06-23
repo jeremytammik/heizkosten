@@ -1,0 +1,1038 @@
+{
+  "001-09-02-2018": {
+    "occupant_ids": [
+      "erich_klimaczewski"
+    ],
+    "_id": "001-09-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-09-02",
+    "begin": "2002-07-01",
+    "end": "2019-03-31",
+    "rent_apartment_eur": "2018-01-01: 478, 2019-01-01: 500",
+    "rent_other_eur": "2018-01-01: 50",
+    "nebenkosten_eur": "2018-01-01: 173",
+    "deposit_eur": 1050,
+    "payments_rent_apartment": "2018: 5736",
+    "payments_rent_other": "2018: 600",
+    "payments_nk": "2018: 2076",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-09-02-01": {
+    "occupant_ids": [
+      "sabine_diesslin"
+    ],
+    "_id": "001-09-02-01",
+    "unit_id": "001",
+    "apartment_id": "001-09-02",
+    "begin": "2019-04-01",
+    "end": "",
+    "rent_apartment_eur": "2019-04-01: 614",
+    "rent_other_eur": "2019-04-01: 0",
+    "nebenkosten_eur": "2019-04-01: 116",
+    "deposit_eur": 1050,
+    "payments_rent_apartment": "2018: 0",
+    "payments_rent_other": "2018: 0",
+    "payments_nk": "2018: 0",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-05-03-01": {
+    "occupant_ids": [
+      "esref_esbah"
+    ],
+    "_id": "001-05-03-01",
+    "unit_id": "001",
+    "apartment_id": "001-05-03",
+    "begin": "2013-05-01",
+    "end": "",
+    "rent_apartment_eur": "2018-01-01: 713",
+    "rent_other_eur": "2018-01-01: 12",
+    "nebenkosten_eur": "2018-01-01: 318",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "2018: 8556",
+    "payments_rent_other": "2018: 144",
+    "payments_nk": "2018: 3816",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-14-05-2018": {
+    "occupant_ids": [
+      "fabio_krueger"
+    ],
+    "_id": "001-14-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-14-05",
+    "begin": "2014-12-01",
+    "end": "2020-04-30",
+    "rent_apartment_eur": "2018-01-01: 698",
+    "rent_other_eur": "2018-01-01: 60",
+    "nebenkosten_eur": "2018-01-01: 142",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "2018: 8376",
+    "payments_rent_other": "2018: 720",
+    "payments_nk": "2018: 1704",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-12-06-2017": {
+    "occupant_ids": [
+      "mandy_schmidt"
+    ],
+    "_id": "001-12-06-2017",
+    "unit_id": "001",
+    "apartment_id": "001-12-06",
+    "begin": "2013-09-01",
+    "end": "2018-01-31",
+    "rent_apartment_eur": "2017-01-01: 637.30",
+    "rent_other_eur": "2017-01-01: 0",
+    "nebenkosten_eur": "2017-01-01: 212.70",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "2018: 637.3",
+    "payments_rent_other": "2018: 0",
+    "payments_nk": "2018: 212.7",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-12-06-2018": {
+    "occupant_ids": [
+      "herbert_braeuning"
+    ],
+    "_id": "001-12-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-12-06",
+    "begin": "2018-02-01",
+    "end": "2019-12-31",
+    "rent_apartment_eur": "2018-02-01: 626",
+    "rent_other_eur": "2018-02-01: 0",
+    "nebenkosten_eur": "2018-02-01: 134",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "2018: 7512",
+    "payments_rent_other": "2018: 0",
+    "payments_nk": "2018: 1608",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-04-2018": {
+    "occupant_ids": [
+      "alexander_kem"
+    ],
+    "_id": "001-01-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-04",
+    "begin": "2015-12-16",
+    "end": "2020-03-31",
+    "rent_apartment_eur": "2018-01-01: 752",
+    "rent_other_eur": "2018-01-01: 50",
+    "nebenkosten_eur": "2018-01-01: 184",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-14-05-01": {
+    "occupant_ids": [
+      "katharina_spoerri_schiesser"
+    ],
+    "_id": "001-14-05-01",
+    "unit_id": "001",
+    "apartment_id": "001-14-05",
+    "begin": "2020-05-01",
+    "end": "",
+    "rent_apartment_eur": "2020-05-01: 721",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-05-01: 129",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-04-01": {
+    "occupant_ids": [
+      "abdula_tahiri"
+    ],
+    "_id": "001-01-04-01",
+    "unit_id": "001",
+    "apartment_id": "001-01-04",
+    "begin": "2020-04-01",
+    "end": "",
+    "rent_apartment_eur": "2020-04-01: 867",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-04-01: 183",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-06-04-01": {
+    "occupant_ids": [
+      "marc_mueller"
+    ],
+    "_id": "001-06-04-01",
+    "unit_id": "001",
+    "apartment_id": "001-06-04",
+    "begin": "2020-03-01",
+    "end": "",
+    "rent_apartment_eur": "2020-03-01: 867",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-03-01: 183",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-05-01": {
+    "occupant_ids": [
+      "naim_mulaj"
+    ],
+    "_id": "001-04-05-01",
+    "unit_id": "001",
+    "apartment_id": "001-04-05",
+    "begin": "2020-05-01",
+    "end": "",
+    "rent_apartment_eur": "2020-05-01: 771",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-05-01: 129",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-06-01": {
+    "occupant_ids": [
+      "marco_mayra_roihl_rebolledo"
+    ],
+    "_id": "001-01-06-01",
+    "unit_id": "001",
+    "apartment_id": "001-01-06",
+    "begin": "2020-04-01",
+    "end": "",
+    "rent_apartment_eur": "2020-04-01: 771",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-04-01: 129",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-06-01": {
+    "occupant_ids": [
+      "zoran_cvjetkovic"
+    ],
+    "_id": "001-00-06-01",
+    "unit_id": "001",
+    "apartment_id": "001-00-06",
+    "begin": "2020-06-01",
+    "end": "",
+    "rent_apartment_eur": "2020-06-01: 721",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-06-01: 129",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-06-2018": {
+    "occupant_ids": [
+      "zerin_bakimci"
+    ],
+    "_id": "001-00-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-06",
+    "begin": "2013-08-01",
+    "end": "2020-05-31",
+    "rent_apartment_eur": "2013-08-01: 637,30",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2013-08-01: 236,26",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-06-2018": {
+    "occupant_ids": [
+      "constatin_tatiana_mattern"
+    ],
+    "_id": "001-01-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-06",
+    "begin": "2017-09-01",
+    "end": "2020-03-31",
+    "rent_apartment_eur": "2017-09-01: 666",
+    "rent_other_eur": "2017-09-01: 10",
+    "nebenkosten_eur": "2017-09-01: 147,86",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-05-2018": {
+    "occupant_ids": [
+      "svetlana_schuravlov"
+    ],
+    "_id": "001-04-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-04-05",
+    "begin": "2016-02-01",
+    "end": "2020-04-30",
+    "rent_apartment_eur": "2016-02-01: 710",
+    "rent_other_eur": "2016-02-01: 50",
+    "nebenkosten_eur": "2016-02-01: 240",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-06-04-2018": {
+    "occupant_ids": [
+      "katerina_maxim_graf"
+    ],
+    "_id": "001-06-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-06-04",
+    "begin": "2014-12-01",
+    "end": "2020-02-29",
+    "rent_apartment_eur": "2014-12-01: 746",
+    "rent_other_eur": "2014-12-01: 10",
+    "nebenkosten_eur": "2014-12-01: 184",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-12-06-01": {
+    "occupant_ids": [
+      "nicole_brunner"
+    ],
+    "_id": "001-12-06-01",
+    "unit_id": "001",
+    "apartment_id": "001-12-06",
+    "begin": "2020-01-01",
+    "end": "",
+    "rent_apartment_eur": "2020-01-01: 626",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2020-01-01: 134",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-03-2018": {
+    "occupant_ids": [
+      "alina_herolind_latiffi"
+    ],
+    "_id": "001-00-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-03",
+    "begin": "2019-11-01",
+    "end": "",
+    "rent_apartment_eur": "2019-11-01: 830",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-11-01: 140",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-03-2017": {
+    "occupant_ids": [
+      "hazbije_arif_mengjiqi"
+    ],
+    "_id": "001-00-03-2017",
+    "unit_id": "001",
+    "apartment_id": "001-00-03",
+    "begin": "2013-04-01",
+    "end": "2019-04-30",
+    "rent_apartment_eur": "2013-04-01: 592",
+    "rent_other_eur": "2013-04-01: 20",
+    "nebenkosten_eur": "2013-04-01: 186,06",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-03-04-2018": {
+    "occupant_ids": [
+      "hazbije_arif_mengjiqi"
+    ],
+    "_id": "001-03-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-03-04",
+    "begin": "2019-05-01",
+    "end": "",
+    "rent_apartment_eur": "2019-05-01: 752",
+    "rent_other_eur": "2019-05-01: 10",
+    "nebenkosten_eur": "2019-05-01: 198",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-03-04-2017": {
+    "occupant_ids": [
+      "theresa_kneifel"
+    ],
+    "_id": "001-03-04-2017",
+    "unit_id": "001",
+    "apartment_id": "001-03-04",
+    "begin": "1986-06-01",
+    "end": "2019-04-30",
+    "rent_apartment_eur": "1986-06-01: 698,08",
+    "rent_other_eur": "1986-06-01: 10",
+    "nebenkosten_eur": "1986-06-01: 171,23",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-02-2018": {
+    "occupant_ids": [
+      "theresa_kneifel"
+    ],
+    "_id": "001-04-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-04-02",
+    "begin": "2019-04-01",
+    "end": "",
+    "rent_apartment_eur": "2019-04-01: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-04-01: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-08-03-2016": {
+    "occupant_ids": [
+      "michael_dreyer"
+    ],
+    "_id": "001-08-03-2016",
+    "unit_id": "001",
+    "apartment_id": "001-08-03",
+    "begin": "2010-08-01",
+    "end": "2019-02-28",
+    "rent_apartment_eur": "2010-08-01: 572",
+    "rent_other_eur": "2010-08-01: 50",
+    "nebenkosten_eur": "2010-08-01: 138",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-08-03-2018": {
+    "occupant_ids": [
+      "imbi_danner"
+    ],
+    "_id": "001-08-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-08-03",
+    "begin": "2019-03-01",
+    "end": "",
+    "rent_apartment_eur": "2019-03-01: 800",
+    "rent_other_eur": "2019-03-01: 10",
+    "nebenkosten_eur": "2019-03-01: 92",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-07-01-2017": {
+    "occupant_ids": [
+      "patrick_wenzel"
+    ],
+    "_id": "001-07-01-2017",
+    "unit_id": "001",
+    "apartment_id": "001-07-01",
+    "begin": "2016-11-01",
+    "end": "2019-06-31",
+    "rent_apartment_eur": "2016-11-01: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2016-11-01: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-07-01-2018": {
+    "occupant_ids": [
+      "andrej_weber"
+    ],
+    "_id": "001-07-01-2018",
+    "unit_id": "001",
+    "apartment_id": "001-07-01",
+    "begin": "2019-07-01",
+    "end": "",
+    "rent_apartment_eur": "2019-07-01: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-07-01: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-02-2017": {
+    "occupant_ids": [
+      "michael_koehler"
+    ],
+    "_id": "001-04-02-2017",
+    "unit_id": "001",
+    "apartment_id": "001-04-02",
+    "begin": "2004-09-01",
+    "end": "2019-03-31",
+    "rent_apartment_eur": "2004-09-01: 473,14",
+    "rent_other_eur": "2004-09-01: 80",
+    "nebenkosten_eur": "2004-09-01: 217,45",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-01-2017": {
+    "occupant_ids": [
+      "arnel_mustafic"
+    ],
+    "_id": "001-02-01-2017",
+    "unit_id": "001",
+    "apartment_id": "001-02-01",
+    "begin": "2018-03-15",
+    "end": "2019-02-15",
+    "rent_apartment_eur": "2018-03-15: 534",
+    "rent_other_eur": "2018-03-15: 50",
+    "nebenkosten_eur": "2018-03-15: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-01-2016": {
+    "occupant_ids": [
+      "fotios_tsaknakis"
+    ],
+    "_id": "001-02-01-2016",
+    "unit_id": "001",
+    "apartment_id": "001-02-01",
+    "begin": "2017-10-01",
+    "end": "2018-02-28",
+    "rent_apartment_eur": "2017-10-01: 534",
+    "rent_other_eur": "2017-10-01: 50",
+    "nebenkosten_eur": "2017-10-01: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-01-2018": {
+    "occupant_ids": [
+      "anne_reinhardt"
+    ],
+    "_id": "001-02-01-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-01",
+    "begin": "2019-02-15",
+    "end": "",
+    "rent_apartment_eur": "2019-02-15: 534",
+    "rent_other_eur": "2019-02-15: 60",
+    "nebenkosten_eur": "2019-02-15: 116",
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-12-05-2018": {
+    "occupant_ids": [
+      "fotios_tsaknakis"
+    ],
+    "_id": "001-12-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-12-05",
+    "begin": "2018-03-01",
+    "end": "",
+    "rent_apartment_eur": "2018-03-01: 626",
+    "rent_other_eur": "2018-03-01: 0",
+    "nebenkosten_eur": "2018-03-01: 134",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-01-2017": {
+    "occupant_ids": [
+      "flamur_metaj"
+    ],
+    "_id": "001-00-01-2017",
+    "unit_id": "001",
+    "apartment_id": "001-00-01",
+    "begin": "2018-10-01",
+    "end": "2019-06-30",
+    "rent_apartment_eur": "2018-10-01: 534",
+    "rent_other_eur": "2018-10-01:",
+    "nebenkosten_eur": "2018-10-01: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-01-2018": {
+    "occupant_ids": [
+      "lalezar_dauti"
+    ],
+    "_id": "001-00-01-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-01",
+    "begin": "2019-07-01",
+    "end": "",
+    "rent_apartment_eur": "2019-07-01: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-07-01: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-02-2017": {
+    "occupant_ids": [
+      "erika_jurtschak"
+    ],
+    "_id": "001-00-02-2017",
+    "unit_id": "001",
+    "apartment_id": "001-00-02",
+    "begin": "2016-09-15",
+    "end": "2019-04-14",
+    "rent_apartment_eur": "2016-09-15: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2016-09-15: 176",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-02-2018": {
+    "occupant_ids": [
+      "sergej_valentina_wambold"
+    ],
+    "_id": "001-00-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-02",
+    "begin": "2019-04-15",
+    "end": "2020-07-31",
+    "rent_apartment_eur": "2019-04-15: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-04-15: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-11-06-2018": {
+    "occupant_ids": [
+      "dieter_staedter"
+    ],
+    "_id": "001-11-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-11-06",
+    "begin": "2007-03-01",
+    "end": "2020-07-31",
+    "rent_apartment_eur": "2007-03-01: 636,04",
+    "rent_other_eur": "2007-03-01: 10",
+    "nebenkosten_eur": "2007-03-01: 192,89",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-04-2018": {
+    "occupant_ids": [
+      "julia_kiselev"
+    ],
+    "_id": "001-00-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-04",
+    "begin": "2007-01-01",
+    "end": "",
+    "rent_apartment_eur": "2007-01-01: 645,18",
+    "rent_other_eur": "2007-01-01: 100",
+    "nebenkosten_eur": "2007-01-01: 227,71",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-00-05-2018": {
+    "occupant_ids": [
+      "svetlana_morozova"
+    ],
+    "_id": "001-00-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-00-05",
+    "begin": "2007-01-01",
+    "end": "",
+    "rent_apartment_eur": "2007-01-01: 533,70",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2007-01-01: 298,12",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-01-2018": {
+    "occupant_ids": [
+      "erika_bihler"
+    ],
+    "_id": "001-01-01-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-01",
+    "begin": "1988-12-01",
+    "end": "",
+    "rent_apartment_eur": "1988-12-01: 482,22",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "1988-12-01: 125,18",
+    "deposit_eur": 1022,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-03-2018": {
+    "occupant_ids": [
+      "erwin_leisinger"
+    ],
+    "_id": "001-01-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-03",
+    "begin": "1982-10-01",
+    "end": "",
+    "rent_apartment_eur": "1982-10-01: 520",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "1982-10-01: 166,87",
+    "deposit_eur": 1022,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-02-2018": {
+    "occupant_ids": [
+      "timo_schwabe"
+    ],
+    "_id": "001-01-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-02",
+    "begin": "2008-07-01",
+    "end": "",
+    "rent_apartment_eur": "2008-07-01: 472,72",
+    "rent_other_eur": "2008-07-01: 10",
+    "nebenkosten_eur": "2008-07-01: 164",
+    "deposit_eur": 1050,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-01-05-2018": {
+    "occupant_ids": [
+      "thomas_weidner"
+    ],
+    "_id": "001-01-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-01-05",
+    "begin": "2015-09-01",
+    "end": "",
+    "rent_apartment_eur": "2015-09-01: 626",
+    "rent_other_eur": "2015-09-01: 60",
+    "nebenkosten_eur": "2015-09-01: 134",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-02-2018": {
+    "occupant_ids": [
+      "dagmar_renner"
+    ],
+    "_id": "001-02-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-02",
+    "begin": "2018-07-01",
+    "end": "",
+    "rent_apartment_eur": "2018-07-01: 534",
+    "rent_other_eur": "2018-07-01: 10",
+    "nebenkosten_eur": "2018-07-01: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-03-2018": {
+    "occupant_ids": [
+      "klaus_baer"
+    ],
+    "_id": "001-02-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-03",
+    "begin": "1975-04-01",
+    "end": "",
+    "rent_apartment_eur": "1975-04-01: 534",
+    "rent_other_eur": "1975-04-01: 10",
+    "nebenkosten_eur": "1975-04-01: 116",
+    "deposit_eur": 511,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-11-06-01": {
+    "occupant_ids": [
+      "wolfgang_thomas"
+    ],
+    "_id": "001-11-06-01",
+    "unit_id": "001",
+    "apartment_id": "001-11-06",
+    "begin": "2020-08-01",
+    "end": "",
+    "rent_apartment_eur": "2020-08-01: 721",
+    "rent_other_eur": "2020-08-01:",
+    "nebenkosten_eur": "2020-08-01: 129",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-04-2018": {
+    "occupant_ids": [
+      "juergen_ludmilla_kurjata"
+    ],
+    "_id": "001-02-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-04",
+    "begin": "2013-08-01",
+    "end": "",
+    "rent_apartment_eur": "2013-08-01: 746",
+    "rent_other_eur": "2013-08-01: 50",
+    "nebenkosten_eur": "2013-08-01: 197,53",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-05-2018": {
+    "occupant_ids": [
+      "atay_bayir"
+    ],
+    "_id": "001-02-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-05",
+    "begin": "2008-08-01",
+    "end": "",
+    "rent_apartment_eur": "2008-08-01: 641,32",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2008-08-01: 233,68",
+    "deposit_eur": 1200,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-02-06-2018": {
+    "occupant_ids": [
+      "michael_sen_kiselev"
+    ],
+    "_id": "001-02-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-02-06",
+    "begin": "2003-04-01",
+    "end": "",
+    "rent_apartment_eur": "2003-04-01: 633,64",
+    "rent_other_eur": "2003-04-01: 10",
+    "nebenkosten_eur": "2003-04-01: 144,61",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-03-01-2018": {
+    "occupant_ids": [
+      "njomza_xhemail_rexhepi"
+    ],
+    "_id": "001-03-01-2018",
+    "unit_id": "001",
+    "apartment_id": "001-03-01",
+    "begin": "2018-02-01",
+    "end": "",
+    "rent_apartment_eur": "2018-02-01: 534",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2018-02-01: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-03-03-2018": {
+    "occupant_ids": [
+      "sladjana_steinberger"
+    ],
+    "_id": "001-03-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-03-03",
+    "begin": "2019-01-01",
+    "end": "",
+    "rent_apartment_eur": "2019-01-01: 612",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2019-01-01: 138",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-03-05-2018": {
+    "occupant_ids": [
+      "oezlem_yasemin_uygar_hancer_"
+    ],
+    "_id": "001-03-05-2018",
+    "unit_id": "001",
+    "apartment_id": "001-03-05",
+    "begin": "2012-07-15",
+    "end": "",
+    "rent_apartment_eur": "2012-07-15: 730,50",
+    "rent_other_eur": "2012-07-15: 100",
+    "nebenkosten_eur": "2012-07-15: 282,50",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-03-2018": {
+    "occupant_ids": [
+      "mahrez_argoubi"
+    ],
+    "_id": "001-04-03-2018",
+    "unit_id": "001",
+    "apartment_id": "001-04-03",
+    "begin": "2011-09-15",
+    "end": "",
+    "rent_apartment_eur": "2011-09-15: 710,40",
+    "rent_other_eur": "2011-09-15: 10",
+    "nebenkosten_eur": "2011-09-15: 258,00",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-04-2018": {
+    "occupant_ids": [
+      "fatmir_muhaxhiri"
+    ],
+    "_id": "001-04-04-2018",
+    "unit_id": "001",
+    "apartment_id": "001-04-04",
+    "begin": "2009-11-01",
+    "end": "",
+    "rent_apartment_eur": "2009-11-01: 680",
+    "rent_other_eur": "",
+    "nebenkosten_eur": "2009-11-01: 247,07",
+    "deposit_eur": 1600,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-04-06-2018": {
+    "occupant_ids": [
+      "christian_kern"
+    ],
+    "_id": "001-04-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-04-06",
+    "begin": "2018-01-01",
+    "end": "",
+    "rent_apartment_eur": "2018-01-01: 626",
+    "rent_other_eur": "2018-01-01: 60",
+    "nebenkosten_eur": "2018-01-01: 134",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-07-02-2018": {
+    "occupant_ids": [
+      "burcu_avsar"
+    ],
+    "_id": "001-07-02-2018",
+    "unit_id": "001",
+    "apartment_id": "001-07-02",
+    "begin": "2017-08-15",
+    "end": "",
+    "rent_apartment_eur": "2017-08-15: 484",
+    "rent_other_eur": "2017-08-15: 10",
+    "nebenkosten_eur": "2017-08-15: 116",
+    "deposit_eur": 1100,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-07-06-2018": {
+    "occupant_ids": [
+      "brunhilde_madert_zeiher"
+    ],
+    "_id": "001-07-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-07-06",
+    "begin": "1990-07-01",
+    "end": "",
+    "rent_apartment_eur": "1990-07-01: 643,64",
+    "rent_other_eur": "1990-07-01: 50",
+    "nebenkosten_eur": "1990-07-01: 118,72",
+    "deposit_eur": 1022,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  },
+  "001-08-06-2018": {
+    "occupant_ids": [
+      "sherife_bekim_fezjuli"
+    ],
+    "_id": "001-08-06-2018",
+    "unit_id": "001",
+    "apartment_id": "001-08-06",
+    "begin": "2018-10-01",
+    "end": "",
+    "rent_apartment_eur": "2018-10-01: 626",
+    "rent_other_eur": "2018-10-01: 60",
+    "nebenkosten_eur": "2018-10-01: 154",
+    "deposit_eur": 1300,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5
+  }
+}

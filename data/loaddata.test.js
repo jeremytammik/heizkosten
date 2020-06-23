@@ -52,7 +52,7 @@ test('cost has valid unit and year matching dictionary key', () => {
 });
 
 test('loaded N persons', () => {
-  expect(Object.keys(loaddata.persons).length).toBe(109);
+  expect( Object.keys( loaddata.persons ).length ).toBe( 118 );
 });
 
 test('person id matches dictionary key', () => {
