@@ -138,17 +138,18 @@ function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year
   credit = util.round_to_two_digits( nkvorauszahlung - nebenkosten );
   new_nkvorauszahlung_per_month = util.round_to_two_digits( (nkvorauszahlung - 12 * (credit / 11.5)) / 12 );
   
+  var tdr = '<td class="right">';
   var s = `<h3>Wohnung ${contract.apartment_id}</h3>\n`;
   s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}</p>\n`;
   s += '<table>\n';
-  s += `<tr><td>Vorauszahlung geleistet</td><td>${nkvorauszahlung.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Rueckbehalt</td><td>${rueckbehalt}</td></tr>\n`;
-  s += `<tr><td>Hausgeld umlagefaehig</td><td>${hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Grundsteuer</td><td>${grundsteuer.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Rauchmelderwartung</td><td>${rauchmelderwartung.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Nebenkosten</td><td>${nebenkosten.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Guthaben</td><td>${credit.toFixed(2)}</td></tr>\n`;
-  s += `<tr><td>Vorauszahlung zukuenftig</td><td>${new_nkvorauszahlung_per_month.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${nkvorauszahlung.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Rueckbehalt</td>${tdr}${rueckbehalt}</td></tr>\n`;
+  s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Grundsteuer</td>${tdr}${grundsteuer.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Rauchmelderwartung</td>${tdr}${rauchmelderwartung.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Nebenkosten</td>${tdr}${nebenkosten.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Guthaben</td>${tdr}${credit.toFixed(2)}</td></tr>\n`;
+  s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${new_nkvorauszahlung_per_month.toFixed(2)}</td></tr>\n`;
   s += '</table>\n';
   
   return s;
