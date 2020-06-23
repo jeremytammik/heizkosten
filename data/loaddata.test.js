@@ -1,6 +1,7 @@
 'use strict';
 
 const jtregex = require( './jtregex' );
+const jtvalidators = require( './jtvalidators' );
 const loaddata = require('./loaddata');
 
 test('JSON parse date reviver', () => {
@@ -231,24 +232,12 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   }
 });
 
-function validate_dict_date_amount_string( s )
-{
-  //console.log(s);
-  var a = s.split( ',' );
-  a.forEach( (p) => {
-    var b = p.split( ':' );
-    if( !jtregex.valid_date.test( b[0].trim() ) ) { return false; }
-    if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
-  });
-  return true;
-}
-
 test('contract expected payments have valid dictionary structure: list of pairs of begin_date:amount', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     //console.log(value);
-    expect(validate_dict_date_amount_string(value.rent_apartment_eur)).toBe(true);
-    expect(validate_dict_date_amount_string(value.rent_other_eur)).toBe(true);
-    expect(validate_dict_date_amount_string(value.nebenkosten_eur)).toBe(true);
+    expect(jtvalidators.validate_dict_date_amount_string(value.rent_apartment_eur)).toBe(true);
+    expect(jtvalidators.validate_dict_date_amount_string(value.rent_other_eur)).toBe(true);
+    expect(jtvalidators.validate_dict_date_amount_string(value.nebenkosten_eur)).toBe(true);
   }
 });
 
