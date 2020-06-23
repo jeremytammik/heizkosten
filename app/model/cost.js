@@ -78,6 +78,32 @@ costSchema.methods.get_display_string = function() {
     `yearly costs in ${this.year} for ${this.unit_id}`;
 };
 
+costSchema.methods.get_hausgeld_umlagefaehig_anteilig = function() {
+  //var h = unit.costs[year.toString()].allocatable;
+  //var total = sum_of_object_values( h );
+  //var total_propertional = total - total_anteilig;
+  //var total_anteilig = costs.kabelgebuehren;
+  return this.kabelgebuehren;
+};
+
+costSchema.methods.get_hausgeld_umlagefaehig_proportional = function() {
+  return this.allgemeinstrom
+    + this.muellgebuehren_hausmeister
+    + this.streu_und_putzmittel
+    + this.aussenanlage_pflege
+    + this.versicherungen
+    + this.niederschlagswasser
+    + this.trinkwasseruntersuchung
+    + this.material_und_hilfsstoffe
+    + this.reinigung
+    + this.hausmeister_sozialabgaben
+    + this.hausservice_fremdfirmen
+    + this.lift_umlagefaehig
+    + this.feuerloescher_wartung
+    + this.wartung_eingangstueren
+    + this.wartung_lueftungsanlage;
+};
+
 var Cost = mongoose.model( 'Cost', costSchema );
 
 const { jtformgen_edit_document } = require('../form/jtformgen.js');
