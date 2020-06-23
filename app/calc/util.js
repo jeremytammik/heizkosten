@@ -62,16 +62,16 @@ function date_diff_days_2(a, b) {
   return Math.floor(diff / oneDay);
 }
 
-function days_in_year(y) {
+function days_in_year( y ) {
   var begin = new Date( y-1, 11, 31 );
   var end =  new Date( y, 11, 31 );
   return date_diff_days( begin, end ); // 365 or 366!
 }
 
 // Determine duration == overlap of given timespan in given year
-function get_duration_in_given_year( ts_begin, ts_end, year )
-{
-  //console.log(ts_begin, ts_end);
+
+function get_duration_in_given_year( ts_begin, ts_end, year ) {
+  console.log( ts_begin, ts_end, year );
   
   // adjust begin and end to contract begin and end in given year
 

@@ -104,10 +104,14 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 
 function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year, energy_cost_eur )
 {
+  console.log(year, contract, util);
   // Determine contract duration in given year span
   
   var days_in_year = util.days_in_year( year ); // 365 or 366!
+  console.log(days_in_year);
+  console.log(contract.begin, contract.end, year );
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
+  console.log(begin, end);
   var contract_days = util.date_diff_days( begin, end );
   var contract_months = util.date_diff_months( begin, end );
   var contract_duration = days_in_year / contract_days;
