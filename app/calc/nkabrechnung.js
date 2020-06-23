@@ -216,4 +216,9 @@ function Nkabrechnung(
 //  console.log(this);
 //};
 
-module.exports = Nkabrechnung;
+module.exports = {
+  Nkabrechnung,
+  get_nkabrechnung_for
+};
+
+
