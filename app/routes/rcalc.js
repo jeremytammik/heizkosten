@@ -25,6 +25,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       if ( e2 ) { console.error( e2 ); return res.send( e2.toString() ); }
       console.log( units );
       var cost_id = uid + '-' + year;
+      console.log( cost_id );
       Cost.find( { '_id': cost_id }, (e3, costs) => {
         if ( e3 ) { console.error( e3 ); return res.send( e3.toString() ); }
         console.log( costs );
