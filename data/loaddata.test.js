@@ -235,9 +235,13 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
 test('contract expected payments have valid dictionary structure: list of pairs of begin_date:amount', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     //console.log(value);
-    expect(jtvalidators.validate_dict_date_amount_string(value.rent_apartment_eur)).toBe(true);
-    expect(jtvalidators.validate_dict_date_amount_string(value.rent_other_eur)).toBe(true);
-    expect(jtvalidators.validate_dict_date_amount_string(value.nebenkosten_eur)).toBe(true);
+    var a = jtvalidators.validate_dict_date_amount_string(value.rent_apartment_eur);
+    var b = jtvalidators.validate_dict_date_amount_string(value.rent_other_eur);
+    var c = jtvalidators.validate_dict_date_amount_string(value.nebenkosten_eur);
+    console.log(a, b, c);
+    expect(a).toBe(true);
+    expect(b).toBe(true);
+    expect(c).toBe(true);
   }
 });
 

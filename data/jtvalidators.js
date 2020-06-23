@@ -11,22 +11,27 @@ validate_meter_data: function( s, with_factor ) {
     if( !jtregex.valid_real_number.test( a[1].trim() ) ) { return false; }
     begin = 2;
   }
-  a.slice( begin ).forEach( (p) => {
-    var b = p.split( ':' );
+  var a2 = a.slice( begin );
+  var n = a2.length;
+  for( let i = 0; i < n; ++i ) {
+    var b = a2[i].split( ':' );
+    if( !(2 === b.length) ) { return false; }
     if( !jtregex.valid_date.test( b[0].trim() ) ) { return false; }
     if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
-  });
+  };
   return true;
 },
 
 validate_dict_date_amount_string: function( s ) {
-  //console.log(s);
+  console.log(s);
   var a = s.split( ',' );
-  a.forEach( (p) => {
-    var b = p.split( ':' );
+  var n = a.length;
+  for( let i = 0; i < n; ++i ) {
+    var b = a[i].split( ':' );
+    if( !(2 === b.length) ) { return false; }
     if( !jtregex.valid_date.test( b[0].trim() ) ) { return false; }
     if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
-  });
+  }
   return true;
 }
 
