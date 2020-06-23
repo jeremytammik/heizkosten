@@ -9,6 +9,7 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 const jtregex = require( '../../data/jtregex' );
+const jtvalidators = require( '../../data/jtvalidators' );
 
 /*
 id_wohnung
@@ -65,24 +66,6 @@ id_wohnung
   <date>: meter reading
   
 */
-
-// validate meter data: date [, factor], date: amount [, date: amount]...
-function validate_meter_data( s, with_factor ) {
-  var a = s.split( ',' );
-  if( !jtregex.valid_date.test( a[0].trim() ) ) { return false; }
-  var begin = 1;
-  if( with_factor ) {
-    if( !jtregex.valid_real_number.test( a[1].trim() ) ) { return false; }
-    begin = 2;
-  }
-  a.slice( begin ).forEach( (p) => {
-    var b = p.split( ':' );
-    if( !jtregex.valid_date.test( b[0].trim() ) ) { return false; }
-    if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
-  });
-  return true;
-}
-
 
 var apartmentSchema = new Schema({
   _id: { // suppress automatic generation  
@@ -143,7 +126,7 @@ var apartmentSchema = new Schema({
         for (const [k,v] of Object.entries(d)) {
           if(!(k.substr(0,2) === 'KW')) { return false; }
           if(!jtregex.valid_meter_id.test(k)) { return false; }
-          if(!validate_meter_data( v, false )) { return false; }
+          if(!jtvalidators.validate_meter_data( v, false )) { return false; }
         }
         return true;
       },
@@ -157,7 +140,7 @@ var apartmentSchema = new Schema({
         for (const [k,v] of Object.entries(d)) {
           if(!(k.substr(0,2) === 'WW')) { return false; }
           if(!jtregex.valid_meter_id.test(k)) { return false; }
-          if(!validate_meter_data( v, false )) { return false; }
+          if(!jtvalidators.validate_meter_data( v, false )) { return false; }
         }
         return true;
       },
@@ -172,7 +155,7 @@ var apartmentSchema = new Schema({
         for (const [k,v] of Object.entries(d)) {
           if( !(k.substr(0,2) === 'HE')) { return false; }
           if(!jtregex.valid_meter_id.test(k)) { return false; }
-          if(!validate_meter_data( v, true )) { return false; }
+          if(!jtvalidators.validate_meter_data( v, true )) { return false; }
         }
         return true;
       },
