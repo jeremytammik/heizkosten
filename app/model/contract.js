@@ -106,24 +106,19 @@ contractSchema.methods.get_display_string = function() {
 };
 
 contractSchema.methods get_duration_in_given_year = function( begin, end ) {
-  
-  // Determine contract duration in given year span
-  
+  // determine contract duration in given year span
   // adjust begin and end to contract begin and end in given year
-  
-  if(this.end < begin)
-  {
+  if( this.end < begin ) {
     return begin, begin;
   }
-  else if (this.begin > end)
-  {
+  else if ( this.begin > end ) {
     return end, end;
   }
   else {
-    if(begin < this.begin) {
+    if( begin < this.begin ) {
       begin = this.begin;
     }
-    if(this.end < end) {
+    if( this.end < end ) {
       end = this.end;
     }
   }
