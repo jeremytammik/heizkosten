@@ -104,14 +104,12 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 
 function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year, energy_cost_eur )
 {
-  console.log(year, contract, util);
+  //console.log(year, contract, util);
+  
   // Determine contract duration in given year span
   
   var days_in_year = util.days_in_year( year ); // 365 or 366!
-  console.log(days_in_year);
-  console.log(contract.begin, contract.end, year );
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
-  console.log(begin, end);
   var contract_days = util.date_diff_days( begin, end );
   var contract_months = util.date_diff_months( begin, end );
   var contract_duration = days_in_year / contract_days;
@@ -155,7 +153,7 @@ function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year
   return s;
 }
 
-function Nkabrechnung(
+function get_nkabrechnung(
   contract_id,
   yr, // todo, possibly: support flexible begin and end date
   energy_cost_eur )
@@ -166,7 +164,8 @@ function Nkabrechnung(
   var unit = loaddata.units[apartment.unit_id];
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
   
-  this.energy_cost_eur = energy_cost_eur;
+  var nk = {};
+  nk.energy_cost_eur = energy_cost_eur;
 
   // Determine contract duration in given year span
   
@@ -183,35 +182,18 @@ function Nkabrechnung(
   var pnk_for_year = pnk[ year.toString() ];
   if( !pnk_for_year ) { pnk_for_year = contract_months * get_latest_contract_expected_payments( contract.nebenkosten_eur ); }
   //console.log(contract_months, contract.nebenkosten_eur, pnk_for_year);
-  this.nkvorauszahlung = pnk_for_year;
-  this.rueckbehalt = 0; // this information is entered manually
+  nk.nkvorauszahlung = pnk_for_year;
+  nk.rueckbehalt = 0; // this information is entered manually
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.nebenkosten_anteil_schluessel);
-  this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
-  this.grundsteuer = apartment.landtax_eur * contract_duration;
-  this.rauchmelderwartung = Object.keys( apartment.smokedetectors ).length * contract.smokedetector_maintenance_cost_eur * contract_duration;
-  this.nebenkosten = util.round_to_two_digits( this.energy_cost_eur + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
-  this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
-  this.new_nkvorauszahlung_per_month = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
-  
-  var addressee = loaddata.persons[contract.occupant_ids[0]];
-
-  var s = `<h2>Nebenkostenabrechnung ${year}</hr>\n`;
-  s += `<p>Wohnung ${contract.apartment_id}\n`;
-  s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}\n`;
-  s += '<table>\n';
-  s += `<tr><td>Vorauszahlung geleistet</td><td>${this.nkvorauszahlung}</td></tr>\n`;
-  s += `<tr><td>Rueckbehalt</td><td>${this.rueckbehalt}</td></tr>\n`;
-  s += `<tr><td>Hausgeld umlagefaehig</td><td>${this.hausgeld_umlagefaehig}</td></tr>\n`;
-  s += `<tr><td>Grundsteuer</td><td>${this.grundsteuer}</td></tr>\n`;
-  s += `<tr><td>Rauchmelderwartung</td><td>${this.rauchmelderwartung}</td></tr>\n`;
-  s += `<tr><td>Nebenkosten</td><td>${this.nebenkosten}</td></tr>\n`;
-  s += `<tr><td>Guthaben</td><td>${this.credit}</td></tr>\n`;
-  s += `<tr><td>Vorauszahlung zukuenftig</td><td>${this.new_nkvorauszahlung_per_month}</td></tr>\n`;
-  s += '</table>\n';
-  
-  this.report_html = s;
+  nk.hausgeld_umlagefaehig = util.round_to_two_digits( h );
+  nk.grundsteuer = apartment.landtax_eur * contract_duration;
+  nk.rauchmelderwartung = Object.keys( apartment.smokedetectors ).length * contract.smokedetector_maintenance_cost_eur * contract_duration;
+  nk.nebenkosten = util.round_to_two_digits( nk.energy_cost_eur + nk.rueckbehalt + nk.hausgeld_umlagefaehig + nk.grundsteuer + nk.rauchmelderwartung );
+  nk.credit = util.round_to_two_digits( nk.nkvorauszahlung - nk.nebenkosten );
+  nk.new_nkvorauszahlung_per_month = util.round_to_two_digits( (nk.nkvorauszahlung - 12 * (nk.credit / 11.5)) / 12 );
+  return nk;
 }
 
 // class methods
@@ -221,6 +203,6 @@ function Nkabrechnung(
 //};
 
 module.exports = {
-  Nkabrechnung,
+  get_nkabrechnung,
   get_nkabrechnung_for
 };

@@ -1,8 +1,8 @@
-const Nkabrechnung = require('./nkabrechnung');
+const nkabrechnung = require('./nkabrechnung');
 
 test('test nkabrechnung', () => {
   var contract_id = "001-01-04-2018";
-  var a = new Nkabrechnung( contract_id, 2018, 907.54 );
+  var a = nkabrechnung.get_nkabrechnung( contract_id, 2018, 907.54 );
   //console.log(a);
   expect(a.nkvorauszahlung).toBe(2208);
   expect(a.hausgeld_umlagefaehig).toBe(828.66);
