@@ -4,7 +4,7 @@ const app = module.exports = require('express')();
 const jtformgen = require('../form/jtformgen');
 const Contract = require( '../model/contract' );
 
-app.get( '/nk/unit/:uid/year/:year/list', (req, res) => {
+app.get( '/nk/unit/:uid/year/:year', (req, res) => {
   var uid = req.params.uid;
   var year = req.params.year;
   var year_begin = year + '-01-01';
