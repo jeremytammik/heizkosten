@@ -9,6 +9,7 @@ var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 const jtregex = require( '../../data/jtregex' );
+const jtvalidators = require( '../../data/jtvalidators' );
 const util = require( '../calc/util' );
 
 const enum_contract_accounts = [
@@ -74,9 +75,27 @@ var contractSchema = new Schema({
       message: props => `'${props.value}' is not a valid contract end date`
     }
   },
-  rent_apartment_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
-  rent_other_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
-  nebenkosten_eur: { type: Object }, // dictionary mapping begin date to rent in euro { Date: Number}
+  rent_apartment_eur: { // comma-separated string of colon-separated pairs mapping begin date to rent in euro 'date: number [, date: number...]'
+    type: String,
+    validate: {
+      validator: jtvalidators.validate_dict_date_amount_string,
+      message: 'invalid list of date: apartment rent [, ...]'
+    }
+  },
+  rent_other_eur: { // dictionary mapping begin date to other rent in euro 'date: number [, date: number...]'
+    type: String,
+    validate: {
+      validator: jtvalidators.validate_dict_date_amount_string,
+      message: 'invalid list of date: other rent [, ...]'
+    }
+  },
+  nebenkosten_eur: { // dictionary mapping begin date to nk prepayment in euro 'date: number [, date: number...]'
+    type: String,
+    validate: {
+      validator: jtvalidators.validate_dict_date_amount_string,
+      message: 'invalid list of date: nebenkostenvorauszahlung [, ...]'
+    }
+  },
   deposit_eur: Number,
   payments_rent_apartment: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
   payments_rent_other: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
