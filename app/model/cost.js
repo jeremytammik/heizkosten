@@ -114,7 +114,6 @@ Cost.thing_de = 'Kosten';
 
 Cost.get_edit_form_html = ( a, action, error ) => {
   var id = a['_id'];
-  //var url_action = create_duplicate ? 'dupl' : 'edit';
   var url_action = 'view' === action ? '' : action + '_submit';
   url_action = `/${Cost.route}/${id}/${url_action}`;
 
@@ -133,7 +132,6 @@ Cost.get_edit_form_html = ( a, action, error ) => {
     delete a['unit_id'];
     delete a['year'];
   }
-  
   return jtformgen_edit_document( a, url_action, verb, false, error );
 }
 
