@@ -184,12 +184,17 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-//function nkabrechnung_report_html()
+function nkabrechnung_report_html( a )
+{
+  var s =  a.join('\n');
+  return wrap_html( s );
+}
 
 module.exports = {
   success_with_document_count,
   jtformgen_confirm_delete,
   jtformgen_list_documents,
   jtformgen_unit_selected,
-  jtformgen_edit_document
+  jtformgen_edit_document,
+  nkabrechnung_report_html
 };
