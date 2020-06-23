@@ -15,10 +15,8 @@ app.get('/api/v1/person/unit/:uid', PersonService.findAllForUnit);
 app.get( '/', (req, res) => {
   Person.find( {}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Person, '', results, false, true ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Person, '', results, false, true ) );
   });
 });
 
@@ -38,11 +36,9 @@ app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Person.find( {'units': {$in : [uid]}}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var url_filter = `/person/unit/${uid}/list`;
-      return res.send( jtformgen.jtformgen_list_documents(
-        Person, ` in ${uid}`, results, false, true, url_filter ) );
-    }
+    var url_filter = `/person/unit/${uid}/list`;
+    return res.send( jtformgen.jtformgen_list_documents(
+      Person, ` in ${uid}`, results, false, true, url_filter ) );
   });
 });
 
@@ -52,15 +48,13 @@ app.post( '/unit/:uid/list_filtering_using_mongodb_text_search', (req, res) => {
   Person.find( { 'units': {$in : [uid]}, $text: { $search : sfilter } },
     (err, results) => {
       if (err) { console.error(err); return res.send(err.toString()); }
-      else {
-        var url_filter = `/person/unit/${uid}/list`;
-        var matching = sfilter
-          ? ` matching "${sfilter}"`
-          : '';
-        return res.send( jtformgen.jtformgen_list_documents(
-          Person, `${matching} in ${uid}`, results,
-          false, true, url_filter, sfilter ) );
-      }
+      var url_filter = `/person/unit/${uid}/list`;
+      var matching = sfilter
+        ? ` matching "${sfilter}"`
+        : '';
+      return res.send( jtformgen.jtformgen_list_documents(
+        Person, `${matching} in ${uid}`, results,
+        false, true, url_filter, sfilter ) );
     }
   );
 });
@@ -83,21 +77,19 @@ emit( this._id, /${sfilter2}/i.test(s) );\
   o.query = { units : {$in : [uid]}};
   Person.mapReduce( o, function (err, results) {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var ids = [];
-      results.results.forEach( (r) => {
-        if( r.value ) { ids.push( r._id ); }
-      });
-      Person.find( { '_id': {$in : ids} }, (err, results) => {
-        var url_filter = `/person/unit/${uid}/list`;
-        var matching = sfilter
-          ? ` matching "${sfilter}"`
-          : '';
-        return res.send( jtformgen.jtformgen_list_documents(
-          Person, `${matching} in ${uid}`, results,
-          false, true, url_filter, sfilter ) );
-      });
-    }
+    var ids = [];
+    results.results.forEach( (r) => {
+      if( r.value ) { ids.push( r._id ); }
+    });
+    Person.find( { '_id': {$in : ids} }, (err, results) => {
+      var url_filter = `/person/unit/${uid}/list`;
+      var matching = sfilter
+        ? ` matching "${sfilter}"`
+        : '';
+      return res.send( jtformgen.jtformgen_list_documents(
+        Person, `${matching} in ${uid}`, results,
+        false, true, url_filter, sfilter ) );
+    });
   });
 });
 
@@ -105,11 +97,9 @@ app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Person.get_edit_form_html( doc, 'view' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Person.get_edit_form_html( doc, 'view' );
+    res.send( form );
   });
 });
 
@@ -117,11 +107,9 @@ app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Person.get_edit_form_html( doc, 'edit' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Person.get_edit_form_html( doc, 'edit' );
+    res.send( form );
   });
 });
 
@@ -148,11 +136,9 @@ app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Person.get_edit_form_html( doc, 'dupl' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Person.get_edit_form_html( doc, 'dupl' );
+    res.send( form );
   });
 });
 
@@ -196,10 +182,8 @@ app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Person.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var s = results[0].get_display_string();
-      res.send( jtformgen.jtformgen_confirm_delete( Person, s, id ) );
-    }
+    var s = results[0].get_display_string();
+    res.send( jtformgen.jtformgen_confirm_delete( Person, s, id ) );
   });
 });
 
