@@ -136,7 +136,7 @@ function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year
   
   var s = `<h2>Nebenkostenabrechnung ${year}</hr>\n`;
   s += `<p>Wohnung ${contract.apartment_id}\n`;
-  s += `<p>An ${adressee.firstname} ${adressee.lastname}, ${adressee.street} ${adressee.streetnr}, ${adressee.city}\n`;
+  s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}\n`;
   s += '<table>\n';
   s += `<tr><td>Vorauszahlung geleistet</td><td>${nkvorauszahlung}</td></tr>\n`;
   s += `<tr><td>Rueckbehalt</td><td>${rueckbehalt}</td></tr>\n`;
@@ -191,11 +191,11 @@ function Nkabrechnung(
   this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
   this.new_nkvorauszahlung_per_month = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
   
-  var adressee = loaddata.persons[contract.occupant_ids[0]];
+  var addressee = loaddata.persons[contract.occupant_ids[0]];
 
   var s = `<h2>Nebenkostenabrechnung ${year}</hr>\n`;
   s += `<p>Wohnung ${contract.apartment_id}\n`;
-  s += `<p>An ${adressee.firstname} ${adressee.lastname}, ${adressee.street} ${adressee.streetnr}, ${adressee.city}\n`;
+  s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}\n`;
   s += '<table>\n';
   s += `<tr><td>Vorauszahlung geleistet</td><td>${this.nkvorauszahlung}</td></tr>\n`;
   s += `<tr><td>Rueckbehalt</td><td>${this.rueckbehalt}</td></tr>\n`;
