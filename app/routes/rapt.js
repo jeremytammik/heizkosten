@@ -8,10 +8,8 @@ const Apartment = require( '../model/apartment' );
 app.get( '/', (req, res) => {
   Apartment.find( {}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Apartment, '', results, false, false ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Apartment, '', results, false, false ) );
   });
 });
 
@@ -57,42 +55,40 @@ app.get( '/generate_missing', (req, res) => {
 
   Apartment.find( {'_id': {$in : model_ids } }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      docs = [];
-      results.forEach( (x) => {
-        var doc = JSON.parse( JSON.stringify( x._doc ) );
-        doc.owner_id = 'unknown_owner_id';
-        doc.grundbuchnr = '';
-        strip_meter_numbers( doc, 'smokedetectors' );
-        strip_meter_numbers( doc, 'coldwatermeters' );
-        strip_meter_numbers( doc, 'hotwatermeters' );
-        strip_meter_numbers( doc, 'heatcostallocators' );
-        delete doc['__v'];
-        //console.log(doc);
-        [sunit,slevel,sapttyp] = doc._id.split('-');
-        for (var i = 0; i < nlevels; ++i) {
-          var s = i.toString();
-          if( 10 > i ) { s = '0' + s; }
-          if( s === slevel ) { continue; }
-          var id2 = `${sunit}-${s}-${sapttyp}`;
-          docs.push( JSON.parse( JSON.stringify( doc ) ) );
-          var j = docs.length - 1;
-          docs[j]._id = id2;
-          suffix_meter_numbers( docs[j], 'smokedetectors', id2 );
-          //console.log( docs[docs.length-1] );
-        }
-      });
-      //console.log('-->\n', docs);
-      Apartment.create( docs, (err,res2) => {
+    docs = [];
+    results.forEach( (x) => {
+      var doc = JSON.parse( JSON.stringify( x._doc ) );
+      doc.owner_id = 'unknown_owner_id';
+      doc.grundbuchnr = '';
+      strip_meter_numbers( doc, 'smokedetectors' );
+      strip_meter_numbers( doc, 'coldwatermeters' );
+      strip_meter_numbers( doc, 'hotwatermeters' );
+      strip_meter_numbers( doc, 'heatcostallocators' );
+      delete doc['__v'];
+      //console.log(doc);
+      [sunit,slevel,sapttyp] = doc._id.split('-');
+      for (var i = 0; i < nlevels; ++i) {
+        var s = i.toString();
+        if( 10 > i ) { s = '0' + s; }
+        if( s === slevel ) { continue; }
+        var id2 = `${sunit}-${s}-${sapttyp}`;
+        docs.push( JSON.parse( JSON.stringify( doc ) ) );
+        var j = docs.length - 1;
+        docs[j]._id = id2;
+        suffix_meter_numbers( docs[j], 'smokedetectors', id2 );
+        //console.log( docs[docs.length-1] );
+      }
+    });
+    //console.log('-->\n', docs);
+    Apartment.create( docs, (err,res2) => {
+      if (err) { console.error(err); return res.send(err.toString()); }
+      Apartment.countDocuments( {}, (err, count) => {
         if (err) { console.error(err); return res.send(err.toString()); }
-        Apartment.countDocuments( {}, (err, count) => {
-          if (err) { console.error(err); return res.send(err.toString()); }
-          //console.log( count, 'apartments.' );
-          return res.send( jtformgen.success_with_document_count(
-            '', count.toString(), Apartment.thing_en ) );
-        });
+        //console.log( count, 'apartments.' );
+        return res.send( jtformgen.success_with_document_count(
+          '', count.toString(), Apartment.thing_en ) );
       });
-    }
+    });
   });
 });
 
@@ -100,11 +96,9 @@ app.get( '/unit/:uid/list', (req, res) => {
   var uid = req.params.uid;
   Apartment.find( { 'unit_id': uid }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var url_filter = `/apt/unit/${uid}/list`;
-      return res.send( jtformgen.jtformgen_list_documents(
-        Apartment, ` in ${uid}`, results, false, false, url_filter ) );
-    }
+    var url_filter = `/apt/unit/${uid}/list`;
+    return res.send( jtformgen.jtformgen_list_documents(
+      Apartment, ` in ${uid}`, results, false, false, url_filter ) );
   });
 });
 
@@ -132,21 +126,19 @@ emit( this._id, /${sfilter2}/i.test(s) );\
   o.query = { unit_id : uid};
   Apartment.mapReduce( o, function (err, results) {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var ids = [];
-      results.results.forEach( (r) => {
-        if( r.value ) { ids.push( r._id ); }
-      });
-      Apartment.find( { '_id': {$in : ids} }, (err, results) => {
-        var url_filter = `/apt/unit/${uid}/list`;
-        var matching = sfilter
-          ? ` matching "${sfilter}"`
-          : '';
-        return res.send( jtformgen.jtformgen_list_documents(
-          Apartment, `${matching} in ${uid}`, results,
-          false, false, url_filter, sfilter ) );
-      });
-    }
+    var ids = [];
+    results.results.forEach( (r) => {
+      if( r.value ) { ids.push( r._id ); }
+    });
+    Apartment.find( { '_id': {$in : ids} }, (err, results) => {
+      var url_filter = `/apt/unit/${uid}/list`;
+      var matching = sfilter
+        ? ` matching "${sfilter}"`
+        : '';
+      return res.send( jtformgen.jtformgen_list_documents(
+        Apartment, `${matching} in ${uid}`, results,
+        false, false, url_filter, sfilter ) );
+    });
   });
 });
 
@@ -154,11 +146,9 @@ app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Apartment.get_edit_form_html( doc, 'view' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Apartment.get_edit_form_html( doc, 'view' );
+    res.send( form );
   });
 });
 
@@ -166,11 +156,9 @@ app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Apartment.get_edit_form_html( doc, 'edit' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Apartment.get_edit_form_html( doc, 'edit' );
+    res.send( form );
   });
 });
 
@@ -234,11 +222,9 @@ app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Apartment.get_edit_form_html( doc, 'dupl' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Apartment.get_edit_form_html( doc, 'dupl' );
+    res.send( form );
   });
 });
 
@@ -285,10 +271,8 @@ app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
   Apartment.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var s = results[0].get_display_string();
-      res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
-    }
+    var s = results[0].get_display_string();
+    res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
   });
 });
 
