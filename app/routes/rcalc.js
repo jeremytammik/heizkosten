@@ -5,7 +5,7 @@ const Contract = require( '../model/contract' );
 const Cost = require( '../model/cost' );
 const Unit = require( '../model/unit' );
 
-// Perfrom the Nebenkostenabrechnung for the given year.
+// Perform the Nebenkostenabrechnung for the given year.
 // That requires the unit, its costs for that year,
 // all the contracts and all the apartments.
 
