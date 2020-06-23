@@ -4,7 +4,7 @@ const jtvalidators = {
 
 // validate meter data: date [, factor], date: amount [, date: amount]...
 validate_meter_data: function( s, with_factor ) {
-  var a = s.split( ',' );
+  var a = s.trim().split( ',' );
   if( !jtregex.valid_date.test( a[0].trim() ) ) { return false; }
   var begin = 1;
   if( with_factor ) {
@@ -24,7 +24,7 @@ validate_meter_data: function( s, with_factor ) {
 
 validate_dict_date_amount_string: function( s ) {
   console.log(s);
-  var a = s.split( ',' );
+  var a = s.trim().split( ',' );
   var n = a.length;
   for( let i = 0; i < n; ++i ) {
     var b = a[i].split( ':' );
