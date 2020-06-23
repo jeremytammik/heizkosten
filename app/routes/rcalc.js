@@ -1,6 +1,6 @@
 const app = module.exports = require('express')();
 const { jtformgen_edit_document } = require('../form/jtformgen');
-const { get_nkabrechnung_for } = require('../calc/nkabrechnung');
+const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
 const Contract = require( '../model/contract' );
 const Cost = require( '../model/cost' );
@@ -59,7 +59,9 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               var apartment = apartments[contract.apartment_id];
               var addressee = addressees[contract.occupant_ids[0]];
               var energy_cost_eur = 907.54;
-              a.push( get_nkabrechnung_for( unit, year_costs, apartment, contract, addressee, year, energy_cost_eur ) );              
+              a.push( nkabrechnung.get_nkabrechnung_for(
+                unit, year_costs, apartment, contract, addressee,
+                year, energy_cost_eur ) );              
             }
             return res.send( jtformgen.nkabrechnung_report_html( a ) );
           });
