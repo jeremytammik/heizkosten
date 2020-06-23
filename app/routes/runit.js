@@ -6,10 +6,8 @@ const Unit = require( '../model/unit' );
 app.get( '/', (req, res) => {
   Unit.find( {}, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      return res.send( jtformgen.jtformgen_list_documents(
-        Unit, '', results, true, false ) );
-    }
+    return res.send( jtformgen.jtformgen_list_documents(
+      Unit, '', results, true, false ) );
   });
 });
 
@@ -21,11 +19,9 @@ app.get( '/:id', (req, res) => {
   var id = req.params.id;
   Unit.find( {'_id': id }, (err, results) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    else {
-      var doc = results[0]._doc;
-      var form = Unit.get_edit_form_html( doc, 'view' );
-      res.send( form );
-    }
+    var doc = results[0]._doc;
+    var form = Unit.get_edit_form_html( doc, 'view' );
+    res.send( form );
   });
 });
 
