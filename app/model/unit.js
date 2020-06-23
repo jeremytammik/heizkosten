@@ -131,7 +131,7 @@ Unit.route = Unit.modelName.toLowerCase();
 Unit.thing_en = Unit.modelName.toLowerCase();
 Unit.thing_de = 'Gebaeude';
 
-const { jtformgen_edit_document } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen');
 
 Unit.get_edit_form_html = ( d, action, error ) => {
   var id = d['_id'];

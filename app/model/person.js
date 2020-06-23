@@ -123,7 +123,7 @@ Person.route = Person.modelName.toLowerCase();
 Person.thing_en = Person.modelName.toLowerCase();
 Person.thing_de = Person.modelName;
 
-const { jtformgen_edit_document } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen');
 
 Person.get_edit_form_html = ( p, action, error ) => {
   var id = p['_id'];

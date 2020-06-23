@@ -194,7 +194,7 @@ Apartment.room_codes = {
   "WO": "wohnen"
 };
 
-const { jtformgen_edit_document } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen');
 
 // Turn the given map<String, String> into separate dictionary
 // entries d[] = mapto an Object so it can be converted to JSON

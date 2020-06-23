@@ -106,7 +106,7 @@ costSchema.methods.get_hausgeld_umlagefaehig_proportional = function() {
 
 var Cost = mongoose.model( 'Cost', costSchema );
 
-const { jtformgen_edit_document } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen');
 
 Cost.route = Cost.modelName.toLowerCase();
 Cost.thing_en = 'yearly cost';

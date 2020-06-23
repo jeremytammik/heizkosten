@@ -220,5 +220,3 @@ module.exports = {
   Nkabrechnung,
   get_nkabrechnung_for
 };
-
-

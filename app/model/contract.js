@@ -152,7 +152,7 @@ Contract.route = 'contract';
 Contract.thing_en = Contract.modelName.toLowerCase();
 Contract.thing_de = 'Vertrag';
 
-const { jtformgen_edit_document } = require('../form/jtformgen.js');
+const { jtformgen_edit_document } = require('../form/jtformgen');
 
 Contract.get_edit_form_html = ( d, action, error ) => {
   var id = d._id;
