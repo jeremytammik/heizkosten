@@ -54,6 +54,13 @@ function get_contract_payments_total( contract, konto, year )
   return total;
 }
 
+function get_latest_contract_expected_payments( dict_date_amount_string )
+{
+  var a = dict_date_amount_string.split( ',' );
+  var b = a[ a.length - 1 ].split( ':' );
+  return Number( b[1] );
+}
+
 // https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
 function sum_of_object_values( obj )
 {
@@ -113,13 +120,17 @@ function Nkabrechnung(
   var days_in_year = util.days_in_year( year ); // 365 or 366!
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
+  var contract_months = util.date_diff_months( begin, end );
   var contract_duration = days_in_year / contract_days;
 
   //console.log('contract beg/end, days in year, contract days and duration',
   //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
   
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
-  this.nkvorauszahlung = pnk[ year.toString() ];
+  var pnk_for_year = pnk[ year.toString() ];
+  if( !pnk_for_year ) { pnk_for_year = contract_months * get_latest_contract_expected_payments( contract.nebenkosten_eur ); }
+  //console.log(contract_months, contract.nebenkosten_eur, pnk_for_year);
+  this.nkvorauszahlung = pnk_for_year;
   this.rueckbehalt = 0; // this information is entered manually
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );

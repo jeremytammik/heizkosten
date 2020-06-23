@@ -42,6 +42,15 @@ function date_diff_days(a, b) {
   return date_units_diff(a,b)[0];
 }
 
+function date_diff_months(a, b) {
+  var months;
+  months = (b.getFullYear() - a.getFullYear()) * 12;
+  months -= a.getMonth();
+  months += b.getMonth();
+  //console.log(a, b, months);
+  return months <= 0 ? 0 : months;  
+}
+
 // https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
 
 function date_diff_days_2(a, b) {
@@ -112,6 +121,7 @@ module.exports = {
   jtisodate: jtisodate,
   iso_date_string_is_before: iso_date_string_is_before,
   date_diff_days: date_diff_days,
+  date_diff_months: date_diff_months,
   days_in_year: days_in_year,
   get_duration_in_given_year: get_duration_in_given_year,
   round_to_two_digits: round_to_two_digits,
