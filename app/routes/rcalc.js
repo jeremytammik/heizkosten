@@ -20,12 +20,16 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       'unit_id': uid,
       'begin': {$lte: year_end},
       $or: [ {'end':''}, {'end': {$gte: year_begin}} ]
-    }, (e1, contracts) => {
+    }, (e1, cntrcts) => {
     if ( e1 ) { console.error( e1 ); return res.send( e1.toString() ); }
-    var n1 = contracts.length;
+    // extract apartment and occupant ids and
+    // reorganise contracts into dictionary
+    var n1 = cntrcts.length;
+    var contracts = {};
     var apt_ids = [];
     var p_ids = [];
     for( let i = 0; i < n1; ++i ) {
+      contracts[cntrcts[i]._id] = cntrcts[i];
       apt_ids.push( contracts[i].apartment_id );
       p_ids.push( contracts[i].occupant_ids[0] );
     }
@@ -51,9 +55,12 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               addressees[persons[i]._id] = persons[i];
             }
             // iterate over contracts
+            var keys = Object.keys( contracts );
+            keys.sort();
+            console.log( keys.length, n1 );
             a = [];
             for( let i = 0; i < n1; ++i ) {
-              var contract = contracts[i]._doc;
+              var contract = contracts[keys[i]]._doc;
               var unit = units[0]._doc;
               var year_costs = costs[0]._doc;
               var apartment = apartments[contract.apartment_id]._doc;
