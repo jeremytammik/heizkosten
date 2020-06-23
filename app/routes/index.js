@@ -5,6 +5,7 @@ app.get( '/', (req, res) => {
 });
 
 app.use( '/apt', require( './rapt' ));
+app.use( '/calc', require( './rcalc' ));
 app.use( '/contract', require( './rcontract' ));
 app.use( '/cost', require( './rcost' ));
 app.use( '/person', require( './rperson' ));
