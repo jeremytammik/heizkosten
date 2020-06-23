@@ -63,7 +63,6 @@ app.post( '/unit/:uid/list', (req, res) => { // list_filtering_using_match
   var uid = req.params.uid;
   var sfilter = req.body.filter;
   var sfilter2 = sfilter ? sfilter : '.*'; // avoid mongo error on empty filter string
-  console.log( 'sfilter2', sfilter2 );
   var o = {};
 
   o.map = `function () {\
