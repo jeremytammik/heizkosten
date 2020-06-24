@@ -84,7 +84,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             
             // PDF teardown
             var data = doc.output();
-            fs.writeFileSync( `/public/nk${year}.pdf`, data, 'binary' );
+            fs.writeFileSync( `nk${year}.pdf`, data, 'binary' );
             delete global.window;
             delete global.html2pdf;
             delete global.navigator;
