@@ -17,10 +17,9 @@ app.get( '/load_data', (req, res) => {
 
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
-  Unit.find( {'_id': id }, (err, results) => {
+  Unit.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Unit.get_edit_form_html( doc, 'view' );
+    var form = Unit.get_edit_form_html( result._doc, 'view' );
     res.send( form );
   });
 });
