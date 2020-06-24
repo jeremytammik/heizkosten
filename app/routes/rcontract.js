@@ -85,20 +85,20 @@ app.get( '/unit/:uid/year/:year/list', (req, res) => {
 
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
-  Contract.find( {'_id': id }, (err, results) => {
+  //Contract.find( {'_id': id }, (err, results) => {})
+  Contract.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Contract.get_edit_form_html( doc, 'view' );
+    var form = Contract.get_edit_form_html( result._doc, 'view' );
     res.send( form );
   });
 });
 
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
-  Contract.find( {'_id': id }, (err, results) => {
+  //Contract.find( {'_id': id }, (err, results) => {})
+  Contract.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Contract.get_edit_form_html( doc, 'edit' );
+    var form = Contract.get_edit_form_html( result._doc, 'edit' );
     res.send( form );
   });
 });
@@ -137,10 +137,10 @@ app.post( '/:id/edit_submit', (req, res) => {
 
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
-  Contract.find( {'_id': id }, (err, results) => {
+  //Contract.find( {'_id': id }, (err, results) => {})
+  Contract.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Contract.get_edit_form_html( doc, 'dupl' );
+    var form = Contract.get_edit_form_html( result._doc, 'dupl' );
     res.send( form );
   });
 });
@@ -195,9 +195,10 @@ app.post( '/:id/dupl_submit', (req, res) => {
 
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
-  Contract.find( {'_id': id }, (err, results) => {
+  //Contract.find( {'_id': id }, (err, results) => {})
+  Contract.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var s = results[0].get_display_string();
+    var s = result.get_display_string();
     res.send( jtformgen.jtformgen_confirm_delete( Contract, s, id ) );
   });
 });
