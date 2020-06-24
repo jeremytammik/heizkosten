@@ -1,6 +1,4 @@
 const app = module.exports = require('express')();
-const fs = require('fs');
-const jsPDF = require('jspdf');
 const jtformgen = require('../form/jtformgen');
 const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
@@ -67,6 +65,8 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             global.navigator = {};
             global.html2pdf = {};
             global.btoa = () => {};
+            const fs = require('fs');
+            const jsPDF = require('jspdf');
             var doc = new jsPDF();
             doc.text( title, 10, 10 );
             
