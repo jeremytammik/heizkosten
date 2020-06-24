@@ -269,9 +269,11 @@ app.post( '/:id/dupl_submit', (req, res) => {
 
 app.get( '/:id/del', (req, res) => {
   var id = req.params.id;
-  Apartment.find( {'_id': id }, (err, results) => {
+  //Apartment.find( {'_id': id }, (err, results) => {})
+  Apartment.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var s = results[0].get_display_string();
+    console.log(result);
+    var s = result.get_display_string();
     res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
   });
 });

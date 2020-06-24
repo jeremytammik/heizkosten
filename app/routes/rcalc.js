@@ -20,18 +20,18 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       'unit_id': uid,
       'begin': {$lte: year_end},
       $or: [ {'end':''}, {'end': {$gte: year_begin}} ]
-    }, (e1, cntrcts) => {
+    }, (e1, ctrcts) => {
     if ( e1 ) { console.error( e1 ); return res.send( e1.toString() ); }
     // extract apartment and occupant ids and
     // reorganise contracts into dictionary
-    var n1 = cntrcts.length;
+    var n1 = ctrcts.length;
     var contracts = {};
     var apt_ids = [];
     var p_ids = [];
     for( let i = 0; i < n1; ++i ) {
-      contracts[cntrcts[i]._id] = cntrcts[i];
-      apt_ids.push( contracts[i].apartment_id );
-      p_ids.push( contracts[i].occupant_ids[0] );
+      contracts[ctrcts[i]._id] = ctrcts[i]._doc;
+      apt_ids.push( ctrcts[i].apartment_id );
+      p_ids.push( ctrcts[i].occupant_ids[0] );
     }
     Apartment.find( { '_id': {$in : apt_ids} }, (e2, apts) => {
       if ( e2 ) { console.error( e2 ); return res.send( e2.toString() ); }
@@ -57,10 +57,9 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             // iterate over contracts
             var keys = Object.keys( contracts );
             keys.sort();
-            console.log( keys.length, n1 );
             a = [];
             for( let i = 0; i < n1; ++i ) {
-              var contract = contracts[keys[i]]._doc;
+              var contract = contracts[keys[i]];
               var unit = units[0]._doc;
               var year_costs = costs[0]._doc;
               var apartment = apartments[contract.apartment_id]._doc;
