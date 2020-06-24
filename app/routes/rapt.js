@@ -144,20 +144,20 @@ emit( this._id, /${sfilter2}/i.test(s) );\
 
 app.get( '/:id', (req, res) => {
   var id = req.params.id;
-  Apartment.find( {'_id': id }, (err, results) => {
+  //Apartment.find( {'_id': id }, (err, results) => {})
+  Apartment.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Apartment.get_edit_form_html( doc, 'view' );
+    var form = Apartment.get_edit_form_html( result._doc, 'view' );
     res.send( form );
   });
 });
 
 app.get( '/:id/edit', (req, res) => {
   var id = req.params.id;
-  Apartment.find( {'_id': id }, (err, results) => {
+  //Apartment.find( {'_id': id }, (err, results) => {})
+  Apartment.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Apartment.get_edit_form_html( doc, 'edit' );
+    var form = Apartment.get_edit_form_html( result._doc, 'edit' );
     res.send( form );
   });
 });
@@ -220,10 +220,10 @@ app.post( '/:id/edit_submit', (req, res) => {
 
 app.get( '/:id/dupl', (req, res) => {
   var id = req.params.id;
-  Apartment.find( {'_id': id }, (err, results) => {
+  //Apartment.find( {'_id': id }, (err, results) => {})
+  Apartment.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    var doc = results[0]._doc;
-    var form = Apartment.get_edit_form_html( doc, 'dupl' );
+    var form = Apartment.get_edit_form_html( result._doc, 'dupl' );
     res.send( form );
   });
 });
@@ -272,7 +272,6 @@ app.get( '/:id/del', (req, res) => {
   //Apartment.find( {'_id': id }, (err, results) => {})
   Apartment.findById( id, (err, result) => {
     if (err) { console.error(err); return res.send(err.toString()); }
-    console.log(result);
     var s = result.get_display_string();
     res.send( jtformgen.jtformgen_confirm_delete( Apartment, s, id ) );
   });
