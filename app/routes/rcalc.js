@@ -1,5 +1,6 @@
 const app = module.exports = require('express')();
-const jspdf = require('jspdf');
+const fs = require('fs');
+const jsPDF = require('jspdf');
 const jtformgen = require('../form/jtformgen');
 const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
@@ -58,7 +59,17 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             // iterate over contracts
             var keys = Object.keys( contracts );
             keys.sort();
+            var title = `Nebenkostenabrechnung ${year}`;
             a = [];
+            
+            // PDF setup
+            global.window = {document: {createElementNS: () => {return {}} }};
+            global.navigator = {};
+            global.html2pdf = {};
+            global.btoa = () => {};
+            var doc = new jsPDF();
+            doc.text( title, 10, 10 );
+            
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[keys[i]];
               var unit = units[0]._doc;
@@ -70,6 +81,15 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
                 unit, year_costs, apartment, contract, addressee,
                 year, energy_cost_eur ) );              
             }
+            
+            // PDF teardown
+            var data = doc.output();
+            fs.writeFileSync( `/public/nk${year}.pdf`, data, 'binary' );
+            delete global.window;
+            delete global.html2pdf;
+            delete global.navigator;
+            delete global.btoa;            
+            
             return res.send( jtformgen.nkabrechnung_report_html( year, a ) );
           });
         });
