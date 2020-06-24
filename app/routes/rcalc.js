@@ -67,8 +67,8 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             global.btoa = () => {};
             const fs = require('fs');
             const jsPDF = require('jspdf');
-            var doc = new jsPDF();
-            doc.text( title, 10, 10 );
+            var pdf = new jsPDF();
+            pdf.text( title, 10, 10 );
             
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[keys[i]];
@@ -83,7 +83,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             }
             
             // PDF teardown
-            var data = doc.output();
+            var data = pdf.output();
             var fn = `nk-${uid}-${year}.pdf`;
             fs.writeFileSync( './public/' + fn, data, 'binary' );
             delete global.window;
