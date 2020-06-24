@@ -83,15 +83,15 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             }
             
             // PDF teardown
-            var path = `./public/nk${year}.pdf`;
             var data = doc.output();
-            fs.writeFileSync( path, data, 'binary' );
+            var fn = `nk-${uid}-${year}.pdf`;
+            fs.writeFileSync( './public/' + fn, data, 'binary' );
             delete global.window;
             delete global.html2pdf;
             delete global.navigator;
             delete global.btoa;            
             
-            return res.send( jtformgen.nkabrechnung_report_html( year, a, path ) );
+            return res.send( jtformgen.nkabrechnung_report_html( year, a, fn ) );
           });
         });
       });

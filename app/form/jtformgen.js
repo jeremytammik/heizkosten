@@ -184,11 +184,11 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-function nkabrechnung_report_html( year, a, pdfpath )
+function nkabrechnung_report_html( year, a, pdfname )
 {
   var s = `<h1>Nebenkostenabrechnung ${year}</h1>\n`;
   s +=  a.join('\n');
-  s += `\n<a href="${pdfpath}">PDF</a>`;
+  s += `\n<br/><p><a href="/${pdfname}">PDF</a></p>`;
   return wrap_html( s );
 }
 
