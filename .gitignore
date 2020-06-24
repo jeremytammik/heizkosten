@@ -112,3 +112,4 @@ data/person.json
 # ignore exported and burcu edited data 
 data/tmp/
 data/burcu/
+public/*.pdf
