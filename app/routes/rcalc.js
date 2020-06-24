@@ -1,4 +1,5 @@
 const app = module.exports = require('express')();
+const jspdf = require('jspdf');
 const jtformgen = require('../form/jtformgen');
 const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
