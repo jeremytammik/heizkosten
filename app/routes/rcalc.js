@@ -57,7 +57,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             // iterate over contracts
             var keys = Object.keys( contracts );
             keys.sort();
-            var title = `Nebenkostenabrechnung ${year}`;
+            var title = `Nebenkostenabrechnung ${year} äöü`;
             a = [];
             
             // PDF setup
