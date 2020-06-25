@@ -102,7 +102,7 @@ function get_hausgeld_umlagefaehig_proportional( costs )
     + costs.wartung_lueftungsanlage;
 }
 
-function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year, energy_cost_eur )
+function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year, energy_cost_eur ) // energiekosten
 {
   //console.log(year, contract, util);
   
@@ -156,7 +156,7 @@ function get_nkabrechnung_for( unit, costs, apartment, contract, addressee, year
 function get_nkabrechnung(
   contract_id,
   yr, // todo, possibly: support flexible begin and end date
-  energy_cost_eur )
+  energy_cost_eur ) // energiekosten
 {
   var contract = loaddata.contracts[contract_id];
   var year = yr;
