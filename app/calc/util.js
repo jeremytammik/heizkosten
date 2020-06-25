@@ -104,6 +104,8 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
 }
 
 function round_to_two_digits( a ) {
+  // why not use toFixed(2)? answer:
+  // https://stackoverflow.com/questions/566564/math-roundnum-vs-num-tofixed0-and-browser-inconsistencies
   return Math.round( (a+0.000000001) * 100) / 100;
 }
 
