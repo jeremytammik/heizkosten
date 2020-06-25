@@ -12,7 +12,6 @@
  output: einzelabrechnung
 */
 
-const loaddata = require('../../data/loaddata');
 const util = require('./util');
 
 // Determine contract duration in given year span
