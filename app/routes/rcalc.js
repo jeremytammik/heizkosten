@@ -1,6 +1,5 @@
 const app = module.exports = require('express')();
 const jtformgen = require('../form/jtformgen');
-const nkabrechnung = require('../calc/nkabrechnung');
 const Apartment = require( '../model/apartment' );
 const Contract = require( '../model/contract' );
 const Coal = require( '../calc/coal' );
@@ -8,7 +7,8 @@ const Cost = require( '../model/cost' );
 const Person = require( '../model/person' );
 const Unit = require( '../model/unit' );
 
-// Perform the Nebenkostenabrechnung for the given year.
+// Perform the utility cost allocation Nebenkostenabrechnung
+// for the given year for all contracts.
 // That requires the unit, its costs for that year,
 // all the contracts and all the apartments.
 
@@ -41,11 +41,9 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       }
       Unit.findById( uid, (e3, unit) => {
         if ( e3 ) { console.error( e3 ); return res.send( e3.toString() ); }
-        console.log(unit);
         var cost_id = uid + '-' + year;
         Cost.findById( cost_id, (e4, costs) => {
           if ( e4 ) { console.error( e4 ); return res.send( e4.toString() ); }
-          console.log(costs);
           Person.find( { '_id': {$in : p_ids} }, (e5, persons) => {
             if ( e5 ) { console.error( e5 ); return res.send( e5.toString() ); }
             // reorganise persons into dictionary
@@ -55,21 +53,21 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               addressees[persons[i]._id] = persons[i];
             }
 
+            var energy_cost_eur = 907.54; // todo: get this from apartment data
+            
             var map_contract_to_coal = {};
             
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[i];
-              //var unit = unit._doc;
-              //var year_costs = costs._doc;
               var apartment = apartments[contract.apartment_id]._doc;
               var addressee = addressees[contract.occupant_ids[0]]._doc;
-              var energy_cost_eur = 907.54;
               
               map_contract_to_coal[contract._id] = new Coal(
                 unit, costs, apartment, contract,
                 addressee, year, energy_cost_eur );
             }
-            return res.send( jtformgen.nkabrechnung_report( uid, year, map_contract_to_coal ) );
+            return res.send( jtformgen.nkabrechnung_report(
+              uid, year, map_contract_to_coal ) );
           });
         });
       });
