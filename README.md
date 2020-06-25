@@ -48,7 +48,7 @@ npm start
     - area_m2 wohnflaeche gesamt
     - apartment count anzahl wohnungen
     - splitting_factor_m2 z.b. 0.5, 0.7
-    - payments, z.b. reparaturruecklage
+    - payments zahlungen, z.b. reparaturruecklage
 - apartment wohnung
     - owner besitzer
     - grundbuchnr
