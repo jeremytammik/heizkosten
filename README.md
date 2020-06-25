@@ -42,6 +42,13 @@ npm start
 
 ## Data Structure
 
+- unit &ndash; das haus oder objekt
+    - address
+    - manager verwalter
+    - area_m2 wohnflaeche gesamt
+    - apartment count anzahl wohnungen
+    - splitting_factor_m2 z.b. 0.5, 0.7
+    - payments, z.b. reparaturruecklage
 - apartment wohnung
     - owner besitzer
     - grundbuchnr
@@ -120,13 +127,6 @@ npm start
     - zip
     - city
     - country
-- unit
-    - address
-    - manager verwalter
-    - area_m2 wohnflaeche gesamt
-    - apartment count anzahl wohnungen
-    - splitting_factor_m2 z.b. 0.5, 0.7
-    - payments, z.b. reparaturruecklage
 
 
 ## Author
