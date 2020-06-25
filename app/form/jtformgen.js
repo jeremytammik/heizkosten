@@ -184,12 +184,61 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-function nkabrechnung_report_html( year, a, pdfname )
+function nkabrechnung_report( year, map_contract_to_coal )
 {
-  var s = `<h1>Nebenkostenabrechnung ${year}</h1>\n`;
-  s +=  a.join('\n');
-  s += `\n<br/><p><a href="/${pdfname}">PDF</a></p>`;
-  return wrap_html( s );
+  var title = `Nebenkostenabrechnung ${year} äöü`;
+  
+  // PDF setup
+  
+  global.window = {document: {createElementNS: () => {return {}} }};
+  global.navigator = {};
+  global.html2pdf = {};
+  global.btoa = () => {};
+  const fs = require('fs');
+  const jsPDF = require('jspdf');
+  var pdf = new jsPDF();
+  pdf.text( title, 10, 10 );
+  
+  var keys = Object.keys( map_contract_to_coal );
+  keys.sort();
+  var n = key.length;
+  var tdr = '<td class="right">';
+  a = [];
+  for( let i = 0; i < n; ++i ) {
+    var k = keys[i];
+    var c = map_contract_to_coal[k];
+    
+    var s = `<h3>Wohnung ${c.apartment_id}</h3>\n`;
+    s += `<p>An ${c.addressee}</p>\n`;
+    s += '<table>\n';
+    s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${c.nkvorauszahlung.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Rueckbehalt</td>${tdr}${c.rueckbehalt.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${c.hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Grundsteuer</td>${tdr}${c.grundsteuer.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Rauchmelderwartung</td>${tdr}${c.rauchmelderwartung.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Energiekosten</td>${tdr}${c.energycost.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Nebenkosten</td>${tdr}${c.nebenkosten.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Guthaben</td>${tdr}${c.credit.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${c.new_nkvorauszahlung_pm.toFixed(2)}</td></tr>\n`;
+    s += '</table>\n';
+
+    a.push( s );
+  }
+  
+  // PDF teardown
+  
+  var data = pdf.output();
+  var pdfname = `nk-${uid}-${year}.pdf`;
+  fs.writeFileSync( './public/' + pdfname, data, 'binary' );
+  delete global.window;
+  delete global.html2pdf;
+  delete global.navigator;
+  delete global.btoa;            
+  
+  var s2 = `<h1>${title}</h1>\n`;
+  s2 +=  a.join('\n');
+  s2 += `\n<br/><p><a href="/${pdfname}">PDF</a></p>`;
+  return wrap_html( s2 );
 }
 
 module.exports = {
@@ -198,5 +247,5 @@ module.exports = {
   jtformgen_list_documents,
   jtformgen_unit_selected,
   jtformgen_edit_document,
-  nkabrechnung_report_html
+  nkabrechnung_report
 };

@@ -53,20 +53,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               addressees[persons[i]._id] = persons[i];
             }
 
-            var title = `Nebenkostenabrechnung ${year} äöü`;
-            a = [];
-            
-            // PDF setup
-            global.window = {document: {createElementNS: () => {return {}} }};
-            global.navigator = {};
-            global.html2pdf = {};
-            global.btoa = () => {};
-            const fs = require('fs');
-            const jsPDF = require('jspdf');
-            var pdf = new jsPDF();
-            pdf.text( title, 10, 10 );
-            
-            var ucoals = {}; // map contract id to coal
+            var map_contract_to_coal = {};
             
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[i];
@@ -76,21 +63,11 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               var addressee = addressees[contract.occupant_ids[0]]._doc;
               var energy_cost_eur = 907.54;
               
-              ucoals[contract._id] = new Coal(
+              map_contract_to_coal[contract._id] = new Coal(
                 unit, year_costs, apartment, contract,
                 addressee, year, energy_cost_eur );
             }
-            
-            // PDF teardown
-            var data = pdf.output();
-            var fn = `nk-${uid}-${year}.pdf`;
-            fs.writeFileSync( './public/' + fn, data, 'binary' );
-            delete global.window;
-            delete global.html2pdf;
-            delete global.navigator;
-            delete global.btoa;            
-            
-            return res.send( jtformgen.nkabrechnung_report_html( year, ucoals ) );
+            return res.send( jtformgen.nkabrechnung_report_html( year, map_contract_to_coal ) );
           });
         });
       });
