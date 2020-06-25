@@ -54,12 +54,12 @@ npm start
     - grundbuchnr
     - area_m2
     - room_count
-    - smokedetectors nummer, ablaufdatum, ablesewerte
-    - coldwatermeters nummer, ablaufdatum, ablesewerte
-    - hotwatermeters nummer, ablaufdatum, ablesewerte
-    - heatcostallocators nummer, ablaufdatum, faktor, ablesewerte
-    - management_cost_eur
-    - heating_electrity_cost_eur
+    - smokedetectors rauchmelder nummer, ablaufdatum, ablesewerte
+    - coldwatermeters kaltwasserzaehler nummer, ablaufdatum, ablesewerte
+    - hotwatermeters warmwasserzaehler nummer, ablaufdatum, ablesewerte
+    - heatcostallocators heizkostenmessgeraete nummer, ablaufdatum, faktor, ablesewerte
+    - management_cost_eur verwaltungskosten
+    - heating_electrity_cost_eur heizungsstrom
     - landtax_eur grundsteuer
     - nebenkosten_anteil_schluessel: 0.011
 - contract vertrag
@@ -74,7 +74,7 @@ npm start
     - payments_rent_apartment gezahlte wohnungsmiete
     - payments_rent_other gezahlte sonstige miete
     - payments_nk gezahlte nebenkostenvorauszahlungen
-    - smokedetector_maintenance_cost_eur: 5
+    - smokedetector_maintenance_cost_eur rauchmelderwartungskosten
 - yearly cost jaehrliche kosten
     - hausgeld nicht umlagefaehig, zahlen eigentuemer
         - hausgeld_eur
@@ -97,7 +97,7 @@ npm start
         - wartung_eingangstueren
         - wartung_lueftungsanlage
     - gesamtkosten heizung kaltwasser warmwasser HKW (5 items):
-        - brennstoff - fuel
+        - fuel brennstoff
             - fuel_consumption_kwh
             - fuel_consumption_eur
         - heiznebenkosten
