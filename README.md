@@ -1,6 +1,6 @@
 # herucoal
 
-Housing unit heating and running cost allocation
+Housing unit utilities &ndash; heating, hot and cold water, management, maintenance and running &ndash; cost allocation
 [node.js](https://nodejs.org) app
 and [mongodb](https://www.mongodb.com) database.
 
