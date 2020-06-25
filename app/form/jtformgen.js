@@ -184,7 +184,7 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-function nkabrechnung_report( year, map_contract_to_coal )
+function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
   var title = `Nebenkostenabrechnung ${year} äöü`;
   
@@ -201,7 +201,7 @@ function nkabrechnung_report( year, map_contract_to_coal )
   
   var keys = Object.keys( map_contract_to_coal );
   keys.sort();
-  var n = key.length;
+  var n = keys.length;
   var tdr = '<td class="right">';
   a = [];
   for( let i = 0; i < n; ++i ) {

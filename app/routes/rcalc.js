@@ -24,12 +24,12 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
     }, (e1, contracts) => {
     if ( e1 ) { console.error( e1 ); return res.send( e1.toString() ); }
     // extract apartment and occupant ids
-    var n1 = ctrcts.length;
+    var n1 = contracts.length;
     var apt_ids = [];
     var p_ids = [];
     for( let i = 0; i < n1; ++i ) {
-      apt_ids.push( ctrcts[i].apartment_id );
-      p_ids.push( ctrcts[i].occupant_ids[0] );
+      apt_ids.push( contracts[i].apartment_id );
+      p_ids.push( contracts[i].occupant_ids[0] );
     }
     Apartment.find( { '_id': {$in : apt_ids} }, (e2, apts) => {
       if ( e2 ) { console.error( e2 ); return res.send( e2.toString() ); }
@@ -41,9 +41,11 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
       }
       Unit.findById( uid, (e3, unit) => {
         if ( e3 ) { console.error( e3 ); return res.send( e3.toString() ); }
+        console.log(unit);
         var cost_id = uid + '-' + year;
         Cost.findById( cost_id, (e4, costs) => {
           if ( e4 ) { console.error( e4 ); return res.send( e4.toString() ); }
+          console.log(costs);
           Person.find( { '_id': {$in : p_ids} }, (e5, persons) => {
             if ( e5 ) { console.error( e5 ); return res.send( e5.toString() ); }
             // reorganise persons into dictionary
@@ -57,17 +59,17 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[i];
-              var unit = unit._doc;
-              var year_costs = costs._doc;
+              //var unit = unit._doc;
+              //var year_costs = costs._doc;
               var apartment = apartments[contract.apartment_id]._doc;
               var addressee = addressees[contract.occupant_ids[0]]._doc;
               var energy_cost_eur = 907.54;
               
               map_contract_to_coal[contract._id] = new Coal(
-                unit, year_costs, apartment, contract,
+                unit, costs, apartment, contract,
                 addressee, year, energy_cost_eur );
             }
-            return res.send( jtformgen.nkabrechnung_report_html( year, map_contract_to_coal ) );
+            return res.send( jtformgen.nkabrechnung_report( uid, year, map_contract_to_coal ) );
           });
         });
       });
