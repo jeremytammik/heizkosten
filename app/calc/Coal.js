@@ -157,7 +157,7 @@ function Coal( unit, costs, apartment, contract,
   this.energycost = energy_cost_eur;
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
   this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
-  this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (credit / 11.5)) / 12 );
+  this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
 }
 
 module.exports = Coal;
