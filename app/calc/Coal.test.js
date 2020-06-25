@@ -11,10 +11,11 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
   var addressee = loaddata.persons[contract.occupant_ids[0]];
 
-  var coal = new Coal( unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur )
+  var coal = new Coal(
+    unit, costs, apartment, contract,
+    addressee, year, energy_cost_eur );
   
-  console.log( coal );
+  //console.log( coal );
   
   expect( coal.nkvorauszahlung ).toBe(2208);
   expect( coal.hausgeld_umlagefaehig ).toBe(828.66);
@@ -22,5 +23,5 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
   expect( coal.rauchmelderwartung ).toBe(20);
   expect( coal.nebenkosten ).toBe(2034.64);
   expect( coal.credit ).toBe(173.36);
-  expect( coal.new_nkvorauszahlung_pM ).toBe(168.93);
+  expect( coal.new_nkvorauszahlung_pm ).toBe(168.93);
 });
