@@ -40,7 +40,7 @@ npm start
     - Load contract data
 
 
-## Rough Data Structure
+## Data Structure
 
 - apartment wohnung
     - owner besitzer
