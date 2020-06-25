@@ -9,7 +9,7 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
   var apartment = loaddata.apartments[contract.apartment_id];
   var unit = loaddata.units[apartment.unit_id];
   var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
-  var addressee = loaddata.persons(contract.occupant_ids[0]);
+  var addressee = loaddata.persons[contract.occupant_ids[0]];
 
   var coal = new Coal( unit, costs, apartment, contract,
     addressee, year, energy_cost_eur )
