@@ -40,6 +40,94 @@ npm start
     - Load contract data
 
 
+## Rough Data Structure
+
+- apartment wohnung
+    - owner besitzer
+    - grundbuchnr
+    - area_m2
+    - room_count
+    - smokedetectors nummer, ablaufdatum, ablesewerte
+    - coldwatermeters nummer, ablaufdatum, ablesewerte
+    - hotwatermeters nummer, ablaufdatum, ablesewerte
+    - heatcostallocators nummer, ablaufdatum, faktor, ablesewerte
+    - management_cost_eur
+    - heating_electrity_cost_eur
+    - landtax_eur grundsteuer
+    - nebenkosten_anteil_schluessel: 0.011
+- contract vertrag
+    - occupants bewohner
+    - apartment 
+    - begin vertragsbeginn
+    - end vertragsende
+    - rent_apartment_eur erwartete monatliche wohnungsmiete
+    - rent_other_eur erwartete monatliche sonstige miete
+    - nebenkosten_eur erwartete nebenkostenvorauszahlungen
+    - deposit_eur kaution
+    - payments_rent_apartment gezahlte wohnungsmiete
+    - payments_rent_other gezahlte sonstige miete
+    - payments_nk gezahlte nebenkostenvorauszahlungen
+    - smokedetector_maintenance_cost_eur: 5
+- yearly cost jaehrliche kosten
+    - hausgeld nicht umlagefaehig, zahlen eigentuemer
+        - hausgeld_eur
+    - hausgeld umlagefaehig, zahlen mieter
+        - kabelgebuehren
+    - pro quadratmeter mit nebenkosten_anteil_schluessel
+        - allgemeinstrom
+        - muellgebuehren_hausmeister
+        - streu_und_putzmittel
+        - aussenanlage_pflege
+        - versicherungen
+        - niederschlagswasser
+        - trinkwasseruntersuchung
+        - material_und_hilfsstoffe
+        - reinigung
+        - hausmeister_sozialabgaben
+        - hausservice_fremdfirmen
+        - lift_umlagefaehig
+        - feuerloescher_wartung
+        - wartung_eingangstueren
+        - wartung_lueftungsanlage
+    - gesamtkosten heizung kaltwasser warmwasser HKW (5 items):
+        - brennstoff - fuel
+            - fuel_consumption_kwh
+            - fuel_consumption_eur
+        - heiznebenkosten
+            - heating_nk_consumption_allocation_eur
+            - heating_nk_maintenance_eur
+            - heating_nk_electrity_eur
+            - heating_nk_chimneysweep_eur
+        - heizzusatzkosten - kosten heizgeraete
+            - heating_zk_heizgeraete_eur
+        - zusatzkosten warmwasser
+            - hotwater_zk_eur
+        - hausnebenkosten (kaltwasseraufbereitung und entsorgung) enthaelt u.a. (5 positionen):
+            - house_nk_coldwater_m3
+            - house_nk_coldwater_eur
+            - house_nk_coldwater_equipment_eur
+            - house_nk_coldwater_allocation_fee_eur
+            - house_nk_coldwater_sonderkosten_eur
+- person
+    - firstname
+    - lastname
+    - email
+    - iban
+    - telephone
+    - salutation
+    - street
+    - streetnr
+    - zip
+    - city
+    - country
+- unit
+    - address
+    - manager verwalter
+    - area_m2 wohnflaeche gesamt
+    - apartment count anzahl wohnungen
+    - splitting_factor_m2 z.b. 0.5, 0.7
+    - payments, z.b. reparaturruecklage
+
 
 ## Author
 
