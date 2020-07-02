@@ -15,7 +15,8 @@
     "payments_rent_apartment": "2018: 5736",
     "payments_rent_other": "2018: 600",
     "payments_nk": "2018: 2076",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-09-02-01": {
     "occupant_ids": [
@@ -33,7 +34,8 @@
     "payments_rent_apartment": "2018: 0",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 0",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-03-2018": {
     "occupant_ids": [
@@ -51,7 +53,8 @@
     "payments_rent_apartment": "2018: 8556",
     "payments_rent_other": "2018: 144",
     "payments_nk": "2018: 3816",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-14-05-2018": {
     "occupant_ids": [
@@ -69,7 +72,8 @@
     "payments_rent_apartment": "2018: 8376",
     "payments_rent_other": "2018: 720",
     "payments_nk": "2018: 1704",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-12-06-2017": {
     "occupant_ids": [
@@ -87,7 +91,8 @@
     "payments_rent_apartment": "2018: 637.3",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 212.7",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-12-06-2018": {
     "occupant_ids": [
@@ -105,7 +110,8 @@
     "payments_rent_apartment": "2018: 7512",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 1608",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-04-2018": {
     "occupant_ids": [
@@ -123,7 +129,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-14-05-01": {
     "occupant_ids": [
@@ -141,7 +148,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-04-01": {
     "occupant_ids": [
@@ -159,7 +167,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-04-01": {
     "occupant_ids": [
@@ -177,7 +186,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-05-01": {
     "occupant_ids": [
@@ -195,7 +205,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-06-01": {
     "occupant_ids": [
@@ -213,7 +224,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-06-01": {
     "occupant_ids": [
@@ -231,7 +243,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-06-2018": {
     "occupant_ids": [
@@ -249,7 +262,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-06-2018": {
     "occupant_ids": [
@@ -267,7 +281,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-05-2018": {
     "occupant_ids": [
@@ -285,7 +300,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-04-2018": {
     "occupant_ids": [
@@ -303,7 +319,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-12-06-01": {
     "occupant_ids": [
@@ -321,7 +338,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-03-2018": {
     "occupant_ids": [
@@ -339,7 +357,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-03-2017": {
     "occupant_ids": [
@@ -357,7 +376,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-03-04-2018": {
     "occupant_ids": [
@@ -375,7 +395,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-03-04-2017": {
     "occupant_ids": [
@@ -392,7 +413,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-02-2018": {
     "occupant_ids": [
@@ -409,7 +431,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-08-03-2016": {
     "occupant_ids": [
@@ -427,7 +450,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-08-03-2018": {
     "occupant_ids": [
@@ -445,7 +469,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-07-01-2017": {
     "occupant_ids": [
@@ -462,7 +487,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-07-01-2018": {
     "occupant_ids": [
@@ -479,7 +505,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-02-2017": {
     "occupant_ids": [
@@ -496,7 +523,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-01-2017": {
     "occupant_ids": [
@@ -513,7 +541,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-01-2016": {
     "occupant_ids": [
@@ -530,7 +559,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-01-2018": {
     "occupant_ids": [
@@ -547,7 +577,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-12-05-2018": {
     "occupant_ids": [
@@ -565,7 +596,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-01-2017": {
     "occupant_ids": [
@@ -583,7 +615,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-01-2018": {
     "occupant_ids": [
@@ -601,7 +634,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-02-2017": {
     "occupant_ids": [
@@ -619,7 +653,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-02-2018": {
     "occupant_ids": [
@@ -637,7 +672,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-11-06-2018": {
     "occupant_ids": [
@@ -655,7 +691,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-04-2018": {
     "occupant_ids": [
@@ -673,7 +710,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-00-05-2018": {
     "occupant_ids": [
@@ -691,7 +729,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-01-2018": {
     "occupant_ids": [
@@ -709,7 +748,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-03-2018": {
     "occupant_ids": [
@@ -727,7 +767,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-02-2018": {
     "occupant_ids": [
@@ -745,7 +786,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-01-05-2018": {
     "occupant_ids": [
@@ -763,7 +805,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-02-2018": {
     "occupant_ids": [
@@ -781,7 +824,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-03-2018": {
     "occupant_ids": [
@@ -799,7 +843,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-11-06-01": {
     "occupant_ids": [
@@ -817,7 +862,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-04-2018": {
     "occupant_ids": [
@@ -835,7 +881,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-05-2018": {
     "occupant_ids": [
@@ -853,7 +900,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-02-06-2018": {
     "occupant_ids": [
@@ -871,7 +919,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-03-01-2018": {
     "occupant_ids": [
@@ -889,7 +938,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-03-03-2018": {
     "occupant_ids": [
@@ -907,7 +957,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-03-05-2018": {
     "occupant_ids": [
@@ -925,7 +976,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-03-2018": {
     "occupant_ids": [
@@ -943,7 +995,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-04-2018": {
     "occupant_ids": [
@@ -961,7 +1014,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-04-06-2018": {
     "occupant_ids": [
@@ -979,7 +1033,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-07-02-2018": {
     "occupant_ids": [
@@ -997,7 +1052,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-07-06-2018": {
     "occupant_ids": [
@@ -1015,7 +1071,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-08-06-2018": {
     "occupant_ids": [
@@ -1033,7 +1090,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-01-2018": {
     "occupant_ids": [
@@ -1051,7 +1109,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-02-2018": {
     "occupant_ids": [
@@ -1069,7 +1128,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-04-2018": {
     "occupant_ids": [
@@ -1087,7 +1147,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-05-2018": {
     "occupant_ids": [
@@ -1105,7 +1166,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-05-06-2018": {
     "occupant_ids": [
@@ -1123,7 +1185,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-01-2018": {
     "occupant_ids": [
@@ -1141,7 +1204,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-02-2018": {
     "occupant_ids": [
@@ -1159,7 +1223,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-05-2018": {
     "occupant_ids": [
@@ -1177,7 +1242,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-06-06-2018": {
     "occupant_ids": [
@@ -1195,7 +1261,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-09-03-2018": {
     "occupant_ids": [
@@ -1213,7 +1280,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-09-05-2018": {
     "occupant_ids": [
@@ -1231,7 +1299,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-10-01-2018": {
     "occupant_ids": [
@@ -1249,7 +1318,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-10-03-2018": {
     "occupant_ids": [
@@ -1267,7 +1337,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-10-04-2018": {
     "occupant_ids": [
@@ -1285,7 +1356,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-10-06-2018": {
     "occupant_ids": [
@@ -1303,7 +1375,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-11-01-2018": {
     "occupant_ids": [
@@ -1321,7 +1394,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-12-03-2018": {
     "occupant_ids": [
@@ -1339,7 +1413,8 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   },
   "001-15-05-2018": {
     "occupant_ids": [
@@ -1357,6 +1432,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": 0
   }
 }
