@@ -105,7 +105,8 @@ var contractSchema = new Schema({
   //heatcostallocators: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   //coldwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
   //hotwatermeters: { type: Object }, // dictionary mapping meter number to a list of readings, dictionary mapping date to amount
-  smokedetector_maintenance_cost_eur: Number }, // constant defined by owner per detector replaced
+  smokedetector_maintenance_cost_eur: Number, // constant defined by owner per detector replaced
+  energiekosten_2019_eur: Number } // temporary one-off field using third-party input data for 2019 only
   { _id: false } // suppress automatic generation
 );
 

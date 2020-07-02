@@ -164,7 +164,6 @@ var apartmentSchema = new Schema({
   },
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
-  energiekosten_2019_eur: Number, // temporary one-off field using third-party input data for 2019 only
   landtax_eur: Number,
   nebenkosten_anteil_schluessel: Number },
   { _id: false } // suppress automatic generation
