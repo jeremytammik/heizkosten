@@ -298,12 +298,13 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( 'Mietvertrag ' + c.contract_id );
     //lines.push( pdf_template_text );
     
-    doc.text( lines, 10, 20 );
+    doc.text( 10, 20, lines );
     
-    lines = doc.splitTextToSize( pdf_template_text, 190 );
+    lines = doc.splitTextToSize( pdf_template_text, 170 );
     
     doc.text( 10, 60, lines );
-    
+
+    doc.text( 10, 400, 'Absender bla bla bla' );
   }
   
   // PDF teardown
