@@ -288,7 +288,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 10, 80, lines );
     
-    doc.text( 100, 200, labels, {'align': 'right'} );
+    doc.text( 70, 200, labels, {'align': 'right'} );
+    doc.text( 120, 200, values, {'align': 'right'} );
   }
   
   // PDF teardown
