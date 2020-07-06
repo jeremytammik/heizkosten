@@ -184,7 +184,7 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-const pdf_template_text = `\
+const pdf_template_text = '\
 Basierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabrechnung für das Jahr 2019. \
 Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS Hausverwaltung, Nansenstr. 3, 79539 Lörrach erstellt. \
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
@@ -198,7 +198,7 @@ Auf der Basis des aktuellen Betrages Ihrer Nebenkosten ergibt sich eine Anpassun
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
-`;
+';
 
 function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
