@@ -202,7 +202,7 @@ Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen dam
 
 function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
-  var title = `Nebenkostenabrechnung ${year} äöü`;
+  var title = `Nebenkostenabrechnung ${year}`;
   
   // PDF setup
   
