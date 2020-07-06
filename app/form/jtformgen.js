@@ -243,8 +243,17 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
 
     a.push( s );
     
-    pdf.text( title, 10, 10 );
-    
+    var lines = [];
+    lines.push( c.salutation );
+    lines.push( c.addressee );
+    lines.push( c.address );
+    lines.push( '' );
+    lines.push( 'Wohnung ' + c.apartment_id );
+    lines.push( 'Mietvertrag ' + c.contract_id );
+    lines.push( '' );
+    lines.push( pdf_template_text );
+    pdf.addPage();
+    pdf.text( lines, 10, 10 );
   }
   
   // PDF teardown
