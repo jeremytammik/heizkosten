@@ -164,7 +164,7 @@ function Coal( unit, costs, apartment, contract,
   this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
   
-  console.log('this', this);
+  //console.log('this', this);
 }
 
 module.exports = Coal;
