@@ -194,7 +194,7 @@ Den entsprechenden Faktor finden Sie in der ersten Zeile der folgenden Tabelle. 
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
-\nAuf der Basis Ihrer aktuellen Nebenkosten in Zeile 6 ergibt sich eine Anpassung der Vorauszahlung. \
+\n\nAuf der Basis Ihrer aktuellen Nebenkosten in Zeile 6 ergibt sich eine Anpassung der Vorauszahlung. \
 Die neue Vorauszahlung wird in Zeile 10 angegeben. \
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
