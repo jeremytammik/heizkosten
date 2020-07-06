@@ -239,15 +239,15 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     labels.push( 'Rauchmelderwartung' );
     values.push( c.rauchmelderwartung.toFixed(2) );
     labels.push( 'Energiekosten' );
-    values.push( '<u>${c.energycost.toFixed(2) );
+    values.push( c.energycost.toFixed(2) );
     labels.push( 'Nebenkosten' );
-    values.push( '<b>${c.nebenkosten.toFixed(2) );
+    values.push( c.nebenkosten.toFixed(2) );
     labels.push( 'Vorauszahlung geleistet' );
     values.push( c.nkvorauszahlung.toFixed(2) );
     labels.push( 'Rueckbehalt' );
     values.push( c.rueckbehalt.toFixed(2) );
     labels.push( 'Guthaben' );
-    values.push( '<b>${c.credit.toFixed(2) );
+    values.push( c.credit.toFixed(2) );
     labels.push( 'Vorauszahlung zukuenftig' );
     values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
     
@@ -288,8 +288,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 10, 80, lines );
     
-    lines = [];
-    
+    doc.text( 10, 200, labels, {'align': 'right'} );
   }
   
   // PDF teardown
