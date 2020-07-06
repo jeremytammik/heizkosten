@@ -150,7 +150,7 @@ function Coal( unit, costs, apartment, contract,
   this.apartment_id = contract.apartment_id;
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
-  this.salutation = addresse.salutation;
+  this.salutation = addressee.salutation;
   this.addressee = `${addressee.firstname} ${addressee.lastname}`;
   this.address = `${addressee.street} ${addressee.streetnr}, ${addressee.zip} ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
