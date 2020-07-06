@@ -61,7 +61,7 @@ npm start
     - management_cost_eur verwaltungskosten
     - heating_electrity_cost_eur heizungsstrom
     - landtax_eur grundsteuer
-    - nebenkosten_anteil_schluessel: 0.011
+    - faktor_hauskosten_umlagefaehig: 0.011
 - contract vertrag
     - occupants bewohner
     - apartment 
@@ -79,23 +79,24 @@ npm start
     - hausgeld nicht umlagefaehig, zahlen eigentuemer
         - hausgeld_eur
     - hausgeld umlagefaehig, zahlen mieter
-        - kabelgebuehren
-    - pro quadratmeter mit nebenkosten_anteil_schluessel
-        - allgemeinstrom
-        - muellgebuehren_hausmeister
-        - streu_und_putzmittel
-        - aussenanlage_pflege
-        - versicherungen
-        - niederschlagswasser
-        - trinkwasseruntersuchung
-        - material_und_hilfsstoffe
-        - reinigung
-        - hausmeister_sozialabgaben
-        - hausservice_fremdfirmen
-        - lift_umlagefaehig
-        - feuerloescher_wartung
-        - wartung_eingangstueren
-        - wartung_lueftungsanlage
+        - pro wohnung
+            - kabelgebuehren
+        - pro quadratmeter mit faktor_hauskosten_umlagefaehig anteilig verteilt
+            - allgemeinstrom
+            - muellgebuehren_hausmeister
+            - streu_und_putzmittel
+            - aussenanlage_pflege
+            - versicherungen
+            - niederschlagswasser
+            - trinkwasseruntersuchung
+            - material_und_hilfsstoffe
+            - reinigung
+            - hausmeister_sozialabgaben
+            - hausservice_fremdfirmen
+            - lift_umlagefaehig
+            - feuerloescher_wartung
+            - wartung_eingangstueren
+            - wartung_lueftungsanlage
     - gesamtkosten heizung kaltwasser warmwasser HKW (5 items):
         - fuel brennstoff
             - fuel_consumption_kwh

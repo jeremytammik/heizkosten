@@ -18,11 +18,13 @@ var costSchema = new Schema({
   
   hausgeld_eur: Number, 
 
-  // hausgeld umlagefaehig, zahlen mieter
+  // zahlen umlagefaehig mieter
   
-  kabelgebuehren: Number, // pro wohnung
+  // hausgeld pro wohnung
   
-  // pro quadratmeter mit nebenkosten_anteil_schluessel
+  kabelgebuehren: Number,
+  
+  // pro quadratmeter mit faktor_hauskosten_umlagefaehig
   
   allgemeinstrom: Number,
   muellgebuehren_hausmeister: Number,

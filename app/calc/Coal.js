@@ -129,7 +129,7 @@ function Coal( unit, costs, apartment, contract,
   
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
-  var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.nebenkosten_anteil_schluessel);
+  var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
 
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
   
@@ -148,7 +148,7 @@ function Coal( unit, costs, apartment, contract,
   //s += '</table>\n';
 
   this.apartment_id = contract.apartment_id;
-  this.faktor_hauskosten_umlagefaehig = apartment.nebenkosten_anteil_schluessel;
+  this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.addressee = `${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
   this.rueckbehalt = 0; // this information is entered manually

@@ -24,7 +24,7 @@ id_wohnung
     verwaltergebuehr
     grundsteuer
   zimmerkuerzel: BA bad, FL flur, KU kueche, SK, SM, SG schlaf klein, mittel und gross
-  nebenkosten_anteil_schluessel is more or less the total unit living area divided by the apartment area m2
+  faktor_hauskosten_umlagefaehig is more or less the total unit living area divided by the apartment area m2
   
   there are 16 storeys numbered 00-15 with 6 apartments on each storey --> 96
   01 + 02 are 2-room ones
@@ -165,7 +165,7 @@ var apartmentSchema = new Schema({
   management_cost_eur: Number,
   heating_electrity_cost_eur: Number,
   landtax_eur: Number,
-  nebenkosten_anteil_schluessel: Number },
+  faktor_hauskosten_umlagefaehig: Number },
   { _id: false } // suppress automatic generation
 );
 
