@@ -560,7 +560,7 @@
     "payments_rent_other": "",
     "payments_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 511.84
+    "energiekosten_2019_eur": 0
   },
   "001-02-01-2018": {
     "occupant_ids": [
@@ -578,7 +578,7 @@
     "payments_rent_other": "",
     "payments_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 0
+    "energiekosten_2019_eur": 511.84
   },
   "001-12-05-2018": {
     "occupant_ids": [
