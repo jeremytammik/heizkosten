@@ -230,9 +230,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var labels = [];
     var values = [];
 
-    labels.push( 'Faktor Hauskosten umlagefaehig' );
+    labels.push( 'Faktor Hauskosten umlagefähig' );
     values.push( c.faktor_hauskosten_umlagefaehig.toFixed(4) );
-    labels.push( 'Hausgeld umlagefaehig' );
+    labels.push( 'Hausgeld umlagefähig' );
     values.push( c.hausgeld_umlagefaehig.toFixed(2) );
     labels.push( 'Grundsteuer' );
     values.push( c.grundsteuer.toFixed(2) );
@@ -244,11 +244,11 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     values.push( c.nebenkosten.toFixed(2) );
     labels.push( 'Vorauszahlung geleistet' );
     values.push( c.nkvorauszahlung.toFixed(2) );
-    labels.push( 'Rueckbehalt' );
+    labels.push( 'Rückbehalt' );
     values.push( c.rueckbehalt.toFixed(2) );
     labels.push( 'Guthaben' );
     values.push( c.credit.toFixed(2) );
-    labels.push( 'Vorauszahlung zukuenftig' );
+    labels.push( 'Vorauszahlung zukünftig' );
     values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
     
     var j = 0;
