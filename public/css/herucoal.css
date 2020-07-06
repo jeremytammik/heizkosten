@@ -1,6 +1,7 @@
 body, td, label, input { font-family: sans-serif; font-size: small }
 td.right { text-align: right }
 td.center { text-align: center }
+tr.ul { border-bottom: 1px solid #000 } /* underlined */
 ul.actions { list-style-type: none; margin: 0; padding: 0 }
 table { border: 1px solid black }
 img { height: 1.2em }
