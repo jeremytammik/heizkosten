@@ -184,7 +184,7 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-const pdf_template_text_lines = '\
+const pdf_template_text = '\
 Basierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabrechnung für das Jahr 2019. \
 Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS Hausverwaltung, Nansenstr. 3, 79539 Lörrach erstellt. \
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
