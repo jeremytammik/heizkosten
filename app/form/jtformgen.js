@@ -190,11 +190,11 @@ Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS 
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
 Dort können Sie in den nächsten zwei Wochen Einsicht in die Unterlagen nehmen. Bitte vereinbaren Sie dazu einen Termin. \
 Der Anteil an diesen umlagefähigen Hauskosten hängt von Ihrer Wohnungsgröße und der Mietdauer ab. \
-Sollten Sie das ganze Jahr Vorauszahlungen geleistet haben, beträgt Ihr Anteil ${}. \
+Sollten Sie das ganze Jahr Vorauszahlungen geleistet haben, beträgt Ihr Anteil ${x}. \
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
-Auf der Basis des aktuellen Betrages Ihrer Nebenkosten ergibt sich eine Anpassung Ihrer monatlichen Vorauszahlung um ${} €. \
+Auf der Basis des aktuellen Betrages Ihrer Nebenkosten ergibt sich eine Anpassung Ihrer monatlichen Vorauszahlung um ${x} €. \
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
