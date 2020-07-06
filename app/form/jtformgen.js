@@ -227,21 +227,44 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var k = keys[i];
     var c = map_contract_to_coal[k];
     
-    console.log('c', c);
+    var labels = [];
+    var values = [];
+
+    labels.push( 'Faktor Hauskosten umlagefaehig' );
+    values.push( c.faktor_hauskosten_umlagefaehig.toFixed(4) );
+    labels.push( 'Hausgeld umlagefaehig' );
+    values.push( c.hausgeld_umlagefaehig.toFixed(2) );
+    labels.push( 'Grundsteuer' );
+    values.push( c.grundsteuer.toFixed(2) );
+    labels.push( 'Rauchmelderwartung' );
+    values.push( c.rauchmelderwartung.toFixed(2) );
+    labels.push( 'Energiekosten' );
+    values.push( '<u>${c.energycost.toFixed(2) );
+    labels.push( 'Nebenkosten' );
+    values.push( '<b>${c.nebenkosten.toFixed(2) );
+    labels.push( 'Vorauszahlung geleistet' );
+    values.push( c.nkvorauszahlung.toFixed(2) );
+    labels.push( 'Rueckbehalt' );
+    values.push( c.rueckbehalt.toFixed(2) );
+    labels.push( 'Guthaben' );
+    values.push( '<b>${c.credit.toFixed(2) );
+    labels.push( 'Vorauszahlung zukuenftig' );
+    values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
     
+    var j = 0;
     var s = `<h3>Wohnung ${c.apartment_id}</h3>\n`;
     s += `<p>${c.salutation} ${c.addressee}, ${c.address}</p>\n`;
     s += '<table>\n';
-    s += `<tr><td class="right ul">Faktor Hauskosten umlagefaehig</td><td class="right ul">${c.faktor_hauskosten_umlagefaehig.toFixed(4)}</td></tr>\n`;
-    s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${c.hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Grundsteuer</td>${tdr}${c.grundsteuer.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Rauchmelderwartung</td>${tdr}${c.rauchmelderwartung.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Energiekosten</td>${tdr}<u>${c.energycost.toFixed(2)}</u></td></tr>\n`;
-    s += `<tr>${tdr}Nebenkosten</td>${tdr}<b>${c.nebenkosten.toFixed(2)}</b></td></tr>\n`;
-    s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${c.nkvorauszahlung.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Rueckbehalt</td>${tdr}${c.rueckbehalt.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Guthaben</td>${tdr}<b>${c.credit.toFixed(2)}</b></td></tr>\n`;
-    s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${c.new_nkvorauszahlung_pm.toFixed(2)}</td></tr>\n`;
+    s += `<tr><td class="right ul">${labels[j]}</td><td class="right ul">${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}<u>${values[j]}</u></td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`;
     s += '</table>\n';
 
     a.push( s );
@@ -264,6 +287,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines = doc.splitTextToSize( pdf_template_text, 150 );
     
     doc.text( 10, 80, lines );
+    
+    lines = [];
+    
   }
   
   // PDF teardown
