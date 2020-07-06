@@ -52,12 +52,16 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
             for( let i = 0; i < n5; ++i ) {
               addressees[persons[i]._id] = persons[i];
             }
-            var energy_cost_eur = 907.54; // todo: get this from apartment data
             var map_contract_to_coal = {};
             for( let i = 0; i < n1; ++i ) {
               var contract = contracts[i];
               var apartment = apartments[contract.apartment_id]._doc;
               var addressee = addressees[contract.occupant_ids[0]]._doc;
+              
+              var energy_cost_eur = "2018" === year
+                ? 907.54 // todo: get this from contract data
+                : contact.energiekosten_2019_eur;
+              
               map_contract_to_coal[contract._id] = new Coal(
                 unit, costs, apartment, contract,
                 addressee, year, energy_cost_eur );
