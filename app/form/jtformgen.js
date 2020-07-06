@@ -254,9 +254,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.btoa = () => {};
   const fs = require('fs');
   const jsPDF = require('jspdf');
-  var pdf = new jsPDF( 'p', 'mm', 'dina4' );
+  var doc = new jsPDF( 'p', 'mm', 'dina4' );
   doc.setFontSize(16);
-  pdf.text( title, 10, 10 );
+  doc.text( title, 10, 10 );
   doc.setFontSize(12);
   
   var keys = Object.keys( map_contract_to_coal );
@@ -287,7 +287,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
 
     a.push( s );
 
-    pdf.addPage();
+    doc.addPage();
 
     var lines = [];
     lines.push( c.salutation );
@@ -298,7 +298,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( 'Mietvertrag ' + c.contract_id );
     //lines.push( pdf_template_text );
     
-    pdf.text( lines, 10, 20 );
+    doc.text( lines, 10, 20 );
     
     lines = doc.splitTextToSize( pdf_template_text, 7.5 )
     
