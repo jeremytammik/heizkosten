@@ -227,7 +227,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     console.log('c', c);
     
     var s = `<h3>Wohnung ${c.apartment_id}</h3>\n`;
-    s += `<p>An ${c.addressee}</p>\n`;
+    s += `<p>${c.salutation} ${c.addressee}, ${c.address}</p>\n`;
     s += '<table>\n';
     s += `<tr><td class="right ul">Faktor Hauskosten umlagefaehig</td><td class="right ul">${c.faktor_hauskosten_umlagefaehig.toFixed(4)}</td></tr>\n`;
     s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${c.hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
@@ -242,6 +242,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     s += '</table>\n';
 
     a.push( s );
+    
+    pdf.text( title, 10, 10 );
+    
   }
   
   // PDF teardown
