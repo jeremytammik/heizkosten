@@ -147,7 +147,8 @@ function Coal( unit, costs, apartment, contract,
   //s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${new_nkvorauszahlung_per_month.toFixed(2)}</td></tr>\n`;
   //s += '</table>\n';
 
-  this.apartment_id = contract.apartment_id;
+  //this.apartment_id = contract.apartment_id;
+  
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.salutation = addressee.salutation;

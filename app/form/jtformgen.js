@@ -184,7 +184,7 @@ var s3 = `\
 return wrap_html( s1 + s2 + s3 );
 }
 
-const pdf_template_text = '\
+const pdf_template_text_lines = '\
 Basierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabrechnung für das Jahr 2019. \
 Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS Hausverwaltung, Nansenstr. 3, 79539 Lörrach erstellt. \
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
@@ -200,6 +200,44 @@ Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
 ';
 
+var doc = new jsPDF('p', 'in', 'letter'),
+  sizes = [12, 16, 20],
+  fonts = [['Times', 'Roman'], ['Helvetica', ''], ['Times', 'Italic']],
+  font, size, lines,
+  margin = 0.5, // inches on a 8.5 x 11 inch sheet.
+  verticalOffset = margin,
+  loremipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
+
+// Margins:
+doc.setDrawColor(0, 255, 0)
+	.setLineWidth(1 / 72)
+	.line(margin, margin, margin, 11 - margin)
+	.line(8.5 - margin, margin, 8.5 - margin, 11 - margin)
+
+// the 3 blocks of text
+for (var i in fonts) {
+  if (fonts.hasOwnProperty(i)) {
+    font = fonts[i]
+    size = sizes[i]
+
+    lines = doc.setFont(font[0], font[1])
+					.setFontSize(size)
+					.splitTextToSize(loremipsum, 7.5)
+		// Don't want to preset font, size to calculate the lines?
+		// .splitTextToSize(text, maxsize, options)
+		// allows you to pass an object with any of the following:
+		// {
+		// 	'fontSize': 12
+		// 	, 'fontStyle': 'Italic'
+		// 	, 'fontName': 'Times'
+		// }
+		// Without these, .splitTextToSize will use current / default
+		// font Family, Style, Size.
+    doc.text(0.5, verticalOffset + size / 72, lines)
+
+    verticalOffset += (lines.length + 0.5) * size / 72
+  }
+}
 function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
   var title = `Nebenkostenabrechnung ${year}`;
@@ -212,8 +250,10 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.btoa = () => {};
   const fs = require('fs');
   const jsPDF = require('jspdf');
-  var pdf = new jsPDF();
+  var pdf = new jsPDF( 'p', 'mm', 'dina4' );
+  doc.setFontSize(16);
   pdf.text( title, 10, 10 );
+  doc.setFontSize(12);
   
   var keys = Object.keys( map_contract_to_coal );
   keys.sort();
@@ -242,18 +282,24 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     s += '</table>\n';
 
     a.push( s );
-    
+
+    pdf.addPage();
+
     var lines = [];
     lines.push( c.salutation );
     lines.push( c.addressee );
     lines.push( c.address );
     lines.push( '' );
-    lines.push( 'Wohnung ' + c.apartment_id );
+    //lines.push( 'Wohnung ' + c.apartment_id );
     lines.push( 'Mietvertrag ' + c.contract_id );
-    lines.push( '' );
-    lines.push( pdf_template_text );
-    pdf.addPage();
-    pdf.text( lines, 10, 10 );
+    //lines.push( pdf_template_text );
+    
+    pdf.text( lines, 10, 20 );
+    
+    lines = doc.splitTextToSize( pdf_template_text, 7.5 )
+    
+    doc.text( 10, 60, lines );
+    
   }
   
   // PDF teardown
