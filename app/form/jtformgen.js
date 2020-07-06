@@ -300,7 +300,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( lines, 10, 20 );
     
-    lines = doc.splitTextToSize( pdf_template_text, 7.5 )
+    lines = doc.splitTextToSize( pdf_template_text, 190 );
     
     doc.text( 10, 60, lines );
     
