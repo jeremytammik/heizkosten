@@ -308,9 +308,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   // PDF teardown
   
-  var data = pdf.output();
+  var pdfdata = doc.output();
   var pdfname = `nk-${uid}-${year}.pdf`;
-  fs.writeFileSync( './public/' + pdfname, data, 'binary' );
+  fs.writeFileSync( './public/' + pdfname, pdfdata, 'binary' );
   delete global.window;
   delete global.html2pdf;
   delete global.navigator;
