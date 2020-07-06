@@ -227,13 +227,14 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var s = `<h3>Wohnung ${c.apartment_id}</h3>\n`;
     s += `<p>An ${c.addressee}</p>\n`;
     s += '<table>\n';
-    s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${c.nkvorauszahlung.toFixed(2)}</td></tr>\n`;
-    s += `<tr>${tdr}Rueckbehalt</td>${tdr}${c.rueckbehalt.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Faktor Hauskosten umlagefaehig</td>${tdr}${c.faktor_hauskosten_umlagefaehig.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${c.hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Grundsteuer</td>${tdr}${c.grundsteuer.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Rauchmelderwartung</td>${tdr}${c.rauchmelderwartung.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Energiekosten</td>${tdr}${c.energycost.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Nebenkosten</td>${tdr}${c.nebenkosten.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${c.nkvorauszahlung.toFixed(2)}</td></tr>\n`;
+    s += `<tr>${tdr}Rueckbehalt</td>${tdr}${c.rueckbehalt.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Guthaben</td>${tdr}${c.credit.toFixed(2)}</td></tr>\n`;
     s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${c.new_nkvorauszahlung_pm.toFixed(2)}</td></tr>\n`;
     s += '</table>\n';
