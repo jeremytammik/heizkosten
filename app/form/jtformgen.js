@@ -190,57 +190,16 @@ Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS 
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
 Dort können Sie in den nächsten zwei Wochen Einsicht in die Unterlagen nehmen. Bitte vereinbaren Sie dazu einen Termin. \
 Der Anteil an diesen umlagefähigen Hauskosten hängt von Ihrer Wohnungsgröße und der Mietdauer ab. \
-Sollten Sie das ganze Jahr Vorauszahlungen geleistet haben, beträgt Ihr Anteil ${x}. \
+Den entsprechenden Faktor finden Sie in der ersten Zeile der folgenden Tabelle. \
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
-Auf der Basis des aktuellen Betrages Ihrer Nebenkosten ergibt sich eine Anpassung Ihrer monatlichen Vorauszahlung um ${x} €. \
+Auf der Basis Ihrer aktuellen Nebenkosten in Zeile 6 ergibt sich eine Anpassung der Vorauszahlung. \
+Die neue Vorauszahlung wird in Zeile 10 angegeben. \
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
 ';
-
-/*
-var doc = new jsPDF('p', 'in', 'letter'),
-  sizes = [12, 16, 20],
-  fonts = [['Times', 'Roman'], ['Helvetica', ''], ['Times', 'Italic']],
-  font, size, lines,
-  margin = 0.5, // inches on a 8.5 x 11 inch sheet.
-  verticalOffset = margin,
-  loremipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
-
-// Margins:
-doc.setDrawColor(0, 255, 0)
-	.setLineWidth(1 / 72)
-	.line(margin, margin, margin, 11 - margin)
-	.line(8.5 - margin, margin, 8.5 - margin, 11 - margin)
-
-// the 3 blocks of text
-for (var i in fonts) {
-  if (fonts.hasOwnProperty(i)) {
-    font = fonts[i]
-    size = sizes[i]
-
-    lines = doc.setFont(font[0], font[1])
-					.setFontSize(size)
-					.splitTextToSize(loremipsum, 7.5)
-		// Don't want to preset font, size to calculate the lines?
-		// .splitTextToSize(text, maxsize, options)
-		// allows you to pass an object with any of the following:
-		// {
-		// 	'fontSize': 12
-		// 	, 'fontStyle': 'Italic'
-		// 	, 'fontName': 'Times'
-		// }
-		// Without these, .splitTextToSize will use current / default
-		// font Family, Style, Size.
-    doc.text(0.5, verticalOffset + size / 72, lines)
-
-    verticalOffset += (lines.length + 0.5) * size / 72
-  }
-}
-*/
-
 
 function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
@@ -290,6 +249,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.addPage();
 
     var lines = [];
+    lines.push( 'Weidenmüller GmbH, Todtmooser Strasse 67, D-79872 Bernau' );
+    lines.push( '' );
     lines.push( c.salutation );
     lines.push( c.addressee );
     lines.push( c.address );
@@ -300,11 +261,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 10, 20, lines );
     
-    lines = doc.splitTextToSize( pdf_template_text, 170 );
+    lines = doc.splitTextToSize( pdf_template_text, 150 );
     
-    doc.text( 10, 60, lines );
-
-    doc.text( 10, 400, 'Absender bla bla bla' );
+    doc.text( 10, 80, lines );
   }
   
   // PDF teardown
