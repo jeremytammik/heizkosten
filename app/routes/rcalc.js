@@ -60,7 +60,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               
               var energy_cost_eur = "2018" === year
                 ? 907.54 // todo: get this from contract data
-                : contact.energiekosten_2019_eur;
+                : contract.energiekosten_2019_eur;
               
               map_contract_to_coal[contract._id] = new Coal(
                 unit, costs, apartment, contract,
