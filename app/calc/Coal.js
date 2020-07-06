@@ -148,7 +148,7 @@ function Coal( unit, costs, apartment, contract,
   //s += '</table>\n';
 
   this.apartment_id = contract.apartment_id;
-  this.anteil_hauskosten_umlagefaehig = apartment.nebenkosten_anteil_schluessel;
+  this.faktor_hauskosten_umlagefaehig = apartment.nebenkosten_anteil_schluessel;
   this.addressee = `${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
   this.rueckbehalt = 0; // this information is entered manually
