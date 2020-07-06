@@ -252,7 +252,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
     
     var j = 0;
-    var s = `<h3>Wohnung ${c.apartment_id}</h3>\n`;
+    var s = `<h3>Mietvertrag ${c.contract_id}</h3>\n`;
     s += `<p>${c.salutation} ${c.addressee}, ${c.address}</p>\n`;
     s += '<table>\n';
     s += `<tr><td class="right ul">${labels[j]}</td><td class="right ul">${values[j]}</td></tr>\n`; ++j;
@@ -278,9 +278,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( c.addressee );
     lines.push( c.address );
     lines.push( '' );
-    //lines.push( 'Wohnung ' + c.apartment_id );
     lines.push( 'Mietvertrag ' + c.contract_id );
-    //lines.push( pdf_template_text );
     
     doc.text( 10, 20, lines );
     
