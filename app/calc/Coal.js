@@ -148,6 +148,7 @@ function Coal( unit, costs, apartment, contract,
   //s += '</table>\n';
 
   this.apartment_id = contract.apartment_id;
+  this.anteil_hauskosten_umlagefaehig = apartment.nebenkosten_anteil_schluessel;
   this.addressee = `${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
   this.rueckbehalt = 0; // this information is entered manually
@@ -155,7 +156,11 @@ function Coal( unit, costs, apartment, contract,
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * contract_duration );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * contract_duration );
   this.energycost = energy_cost_eur;
-  this.nebenkosten = util.round_to_two_digits( this.energycost + this.rueckbehalt + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
+  
+  this.nebenkosten = util.round_to_two_digits(
+    this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung
+      - (this.nkvorauszahlung + this.rueckbehalt) );
+  
   this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
 }
