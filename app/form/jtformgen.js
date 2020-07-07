@@ -280,16 +280,16 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( '' );
     lines.push( 'Mietvertrag ' + c.contract_id );
     
-    doc.text( 10, 20, lines );
+    doc.text( 20, 20, lines );
     
     lines = doc.splitTextToSize( pdf_template_text, 150 );
     
-    doc.text( 10, 80, lines );
+    doc.text( 20, 80, lines );
     
     doc.text( 100, 200, labels, {'align': 'right'} );
     doc.text( 120, 200, values, {'align': 'right'} );
 
-    doc.text( 10, 270, 'Rheinfelden, den 15. Juli 2020' );
+    doc.text( 20, 270, 'Rheinfelden, den 15. Juli 2020' );
   }
   
   // PDF teardown
