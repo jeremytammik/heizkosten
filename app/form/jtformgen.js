@@ -288,6 +288,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 100, 200, labels, {'align': 'right'} );
     doc.text( 120, 200, values, {'align': 'right'} );
+
+    doc.text( 10, 400, 'Rheinfelden, den 15. Juli 2020' );
   }
   
   // PDF teardown
