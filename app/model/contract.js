@@ -98,7 +98,8 @@ var contractSchema = new Schema({
       message: 'invalid list of date: nebenkostenvorauszahlung [, ...]'
     }
   },
-  deposit_eur: Number,
+  deposit_eur: Number, // kaution
+  withholding_nk_eur: Number, // nebenkostenrueckbehalt von der kaution nach vertragsende
   payments_rent_apartment: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
   payments_rent_other: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
   payments_nk: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
