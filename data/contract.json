@@ -15,6 +15,7 @@
     "payments_rent_apartment": "2018: 5736",
     "payments_rent_other": "2018: 600",
     "payments_nk": "2018: 2076",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 298.57
   },
@@ -34,6 +35,7 @@
     "payments_rent_apartment": "2018: 0",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 0",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 396.14
   },
@@ -53,6 +55,7 @@
     "payments_rent_apartment": "2018: 8556",
     "payments_rent_other": "2018: 144",
     "payments_nk": "2018: 3816",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 942.78
   },
@@ -72,6 +75,7 @@
     "payments_rent_apartment": "2018: 8376",
     "payments_rent_other": "2018: 720",
     "payments_nk": "2018: 1704",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 737.51
   },
@@ -91,6 +95,7 @@
     "payments_rent_apartment": "2018: 637.3",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 212.7",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -110,6 +115,7 @@
     "payments_rent_apartment": "2018: 7512",
     "payments_rent_other": "2018: 0",
     "payments_nk": "2018: 1608",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1011.84
   },
@@ -129,6 +135,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 957.25
   },
@@ -148,6 +155,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -167,6 +175,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -186,6 +195,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -205,6 +215,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -224,6 +235,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -243,6 +255,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -262,6 +275,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1057.01
   },
@@ -281,6 +295,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1892.03
   },
@@ -300,6 +315,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1625.68
   },
@@ -319,6 +335,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 767.36
   },
@@ -338,6 +355,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -357,6 +375,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 173.82
   },
@@ -376,6 +395,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 576.58
   },
@@ -395,6 +415,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 552.79
   },
@@ -413,6 +434,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 396.78
   },
@@ -431,6 +453,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 89.92
   },
@@ -450,6 +473,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 112.91
   },
@@ -469,6 +493,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 415.84
   },
@@ -487,6 +512,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 752.35
   },
@@ -505,6 +531,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 616.27
   },
@@ -523,6 +550,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 471.43
   },
@@ -541,6 +569,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 271.87
   },
@@ -559,6 +588,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -577,6 +607,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 511.84
   },
@@ -596,6 +627,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 556.57
   },
@@ -615,6 +647,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 609.02
   },
@@ -634,6 +667,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 787.79
   },
@@ -653,6 +687,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 499.59
   },
@@ -672,6 +707,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 482.94
   },
@@ -691,6 +727,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1301.26
   },
@@ -710,6 +747,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 2095.14
   },
@@ -729,6 +767,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1973.85
   },
@@ -748,6 +787,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 476.3
   },
@@ -767,6 +807,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 948.64
   },
@@ -786,6 +827,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 445.69
   },
@@ -805,6 +847,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 492.39
   },
@@ -824,6 +867,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 628.72
   },
@@ -843,6 +887,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 658.79
   },
@@ -862,6 +907,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 0
   },
@@ -881,6 +927,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1282.58
   },
@@ -900,6 +947,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1795.53
   },
@@ -919,6 +967,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 416.33
   },
@@ -938,6 +987,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1050.58
   },
@@ -957,6 +1007,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 604.97
   },
@@ -976,6 +1027,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1653.8
   },
@@ -995,6 +1047,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1190.79
   },
@@ -1014,6 +1067,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1616.96
   },
@@ -1033,6 +1087,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1209.73
   },
@@ -1052,6 +1107,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 816.73
   },
@@ -1071,6 +1127,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 465.58
   },
@@ -1090,6 +1147,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 763.31
   },
@@ -1109,6 +1167,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 720.24
   },
@@ -1128,6 +1187,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 797.71
   },
@@ -1147,6 +1207,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1155.81
   },
@@ -1166,6 +1227,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 718.01
   },
@@ -1185,6 +1247,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1006.02
   },
@@ -1204,6 +1267,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 169.84
   },
@@ -1223,6 +1287,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 638.15
   },
@@ -1242,6 +1307,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1270.59
   },
@@ -1261,6 +1327,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1424.16
   },
@@ -1280,6 +1347,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 582.29
   },
@@ -1299,6 +1367,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 806.61
   },
@@ -1318,6 +1387,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1060.69
   },
@@ -1337,6 +1407,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1211.3
   },
@@ -1356,6 +1427,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 1319.55
   },
@@ -1375,6 +1447,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 177.14
   },
@@ -1394,6 +1467,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 631.41
   },
@@ -1413,6 +1487,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 826.92
   },
@@ -1432,6 +1507,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 731.92
   },
@@ -1451,6 +1527,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 844.54
   },
@@ -1470,6 +1547,7 @@
     "payments_rent_apartment": "",
     "payments_rent_other": "",
     "payments_nk": "",
+    "withholding_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 286.25
   }
