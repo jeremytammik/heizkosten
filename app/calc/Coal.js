@@ -155,7 +155,7 @@ function Coal( unit, costs, apartment, contract,
   this.addressee = `${addressee.firstname} ${addressee.lastname}`;
   this.address = `${addressee.street} ${addressee.streetnr}, ${addressee.zip} ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
-  this.rueckbehalt = contract.withholding_nk_eur;
+  this.rueckbehalt = util.round_to_two_digits( contract.withholding_nk_eur );
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * contract_duration );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * contract_duration );
@@ -165,10 +165,10 @@ function Coal( unit, costs, apartment, contract,
   
   // - (this.nkvorauszahlung + this.rueckbehalt) );
   
-  this.credit = util.round_to_two_digits( this.nkvorauszahlung - this.nebenkosten );
+  this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
   
-  //console.log('this', this);
+  //console.log('Coal', this);
 }
 
 module.exports = Coal;
