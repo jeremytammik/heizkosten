@@ -18,7 +18,7 @@ const util = require('./util');
 function get_contract_duration_in_given_year( contract, begin, end )
 {
   // adjust begin and end to contract begin and end in given year
-  
+
   if(contract.end < begin)
   {
     return begin, begin;
@@ -78,7 +78,7 @@ function get_hausgeld_umlagefaehig_anteilig( costs )
   //var total = sum_of_object_values( h );
   //var total_propertional = total - total_anteilig;
   //var total_anteilig = costs.kabelgebuehren;
-  
+
   return costs.kabelgebuehren;
 }
 
@@ -105,9 +105,9 @@ function Coal( unit, costs, apartment, contract,
   addressee, year, energy_cost_eur ) // energiekosten
 {
   //console.log(year, contract, util);
-  
+
   // Determine contract duration in given year span
-  
+
   var days_in_year = util.days_in_year( year ); // 365 or 366!
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
@@ -116,23 +116,23 @@ function Coal( unit, costs, apartment, contract,
 
   //console.log('contract beg/end, days in year, contract days and duration',
   //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
-  
+
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
   var pnk_for_year = pnk[ year.toString() ];
-  
+
   if( !pnk_for_year ) {
     pnk_for_year = contract_months
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
   }
-  
+
   //console.log(contract_months, contract.nebenkosten_eur, pnk_for_year);
-  
+
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
 
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
-  
+
   //var tdr = '<td class="right">';
   //var s = `<h3>Wohnung ${contract.apartment_id}</h3>\n`;
   //s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}</p>\n`;
@@ -148,7 +148,7 @@ function Coal( unit, costs, apartment, contract,
   //s += '</table>\n';
 
   //this.apartment_id = contract.apartment_id;
-  
+
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.salutation = addressee.salutation;
@@ -160,14 +160,14 @@ function Coal( unit, costs, apartment, contract,
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * contract_duration );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * contract_duration );
   this.energycost = energy_cost_eur;
-  
+
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
-  
+
   // - (this.nkvorauszahlung + this.rueckbehalt) );
-  
+
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
-  
+
   //console.log('Coal', this);
 }
 
