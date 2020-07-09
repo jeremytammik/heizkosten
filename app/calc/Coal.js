@@ -155,7 +155,7 @@ function Coal( unit, costs, apartment, contract,
   this.addressee = `${addressee.firstname} ${addressee.lastname}`;
   this.address = `${addressee.street} ${addressee.streetnr}, ${addressee.zip} ${addressee.city}`;
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
-  this.rueckbehalt = 0; // this information is entered manually
+  this.rueckbehalt = contract.withholding_nk_eur;
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * contract_duration );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * contract_duration );
