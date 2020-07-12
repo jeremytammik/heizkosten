@@ -4,6 +4,7 @@ function trimAllFieldsInObjectAndChildren( o ) {
 }
 
 function jtisodate( d ) {
+  if( !d.hasOwnProperty( 'toISOString' ) ) { d = new Date(d); }
   return d.toISOString().substr( 0, 10 );
 }
 
@@ -74,14 +75,19 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
   
   var no_end = !ts_end;
   
-  //console.log( 'in', ts_begin, ts_end, no_end, year );
+  console.log( 'in', ts_begin, ts_end, no_end, year );
   
   // adjust begin and end to contract begin and end in given year
 
-  var begin = new Date( year - 1, 11, 31, 1 ); // 12, 0 // 11, 31
-  var end =  new Date( year, 11, 31, 23 ); // `${year}-12-31T22:59:59` // year, 12, 0 // 11, 31
+  //var begin = new Date( year - 1, 11, 31, 1 ); // 12, 0 // 11, 31
+  //var end =  new Date( year, 11, 31, 23 ); // `${year}-12-31T22:59:59` // year, 12, 0 // 11, 31
 
   //console.log( 'year', begin, end );
+  
+  ts_begin = jtisodate( ts_begin );
+  ts_end = jtisodate( ts_end );
+  var begin = year.toString() + '-01-01';
+  var end = year.toString() + '-12-31';
   
   if( !no_end && ts_end < begin ) {
     return [begin, begin];
@@ -98,7 +104,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
     }
   }
   
-  //console.log( '-->', begin, end );
+  console.log( '-->', begin, end );
   
   return [begin, end];
 }

@@ -41,3 +41,21 @@ test('number of days in leap year', () => {
   var d = util.date_diff_days( begin, end );
   expect(d).toBe(366);
 });
+
+test( 'get_duration_in_given_year for entire year', () => {
+  var year = 2019;
+  var begin = '2018-11-10'; 
+  var end = '2020-01-10';
+  var pair = util.get_duration_in_given_year( begin, end, year );
+  expect( pair[0] ).toBe( '2019-01-01' );
+  expect( pair[1] ).toBe( '2019-12-31' );
+});
+  
+test( 'get_duration_in_given_year for partial year', () => {
+  var year = 2018;
+  var begin = '2017-11-10'; 
+  var end = '2018-03-31';
+  var pair = util.get_duration_in_given_year( begin, end, year );
+  expect( pair[0] ).toBe( '2018-01-01' );
+  expect( pair[1] ).toBe( '2018-03-31' );
+});

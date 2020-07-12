@@ -114,8 +114,8 @@ function Coal( unit, costs, apartment, contract,
   var contract_months = util.date_diff_months( begin, end );
   var contract_duration = days_in_year / contract_days;
 
-  //console.log('contract beg/end, days in year, contract days and duration',
-  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  console.log('contract beg/end, days in year, contract days and duration',
+    util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
 
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
   var pnk_for_year = pnk[ year.toString() ];
@@ -125,7 +125,7 @@ function Coal( unit, costs, apartment, contract,
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
   }
 
-  //console.log(contract_months, contract.nebenkosten_eur, pnk_for_year);
+  console.log( 'months, nk, payments', contract_months, contract.nebenkosten_eur, pnk_for_year);
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
