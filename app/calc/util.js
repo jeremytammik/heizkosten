@@ -13,6 +13,17 @@ function iso_date_string_is_before( begin, end )
   return begin.localeCompare( end ) < 0;
 }
 
+function parseIsoDate( ds ) {
+  console.log('parseIsoDate', ds);
+  var dt = ds.split( '-' ).map( parseFloat );
+  return new Date(dt[0], dt[1] - 1, dt[2], 0, 0, 0, 0);
+}
+
+function last_day_in_year( year )
+{
+  return year.toString() + '-12-31';
+}
+
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
 function date_units_diff(a, b, unit_amounts) {
   var split_to_whole_units = function (milliseconds, unit_amounts) {
@@ -28,8 +39,8 @@ function date_units_diff(a, b, unit_amounts) {
   if (unit_amounts == undefined) {
     unit_amounts = [1000, 60, 60, 24];
   }
-  var utc_a = new Date(a.toUTCString());
-  var utc_b = new Date(b.toUTCString());
+  var utc_a = new Date( a.toUTCString() );
+  var utc_b = new Date( b.toUTCString() );
   var diff = (utc_b - utc_a);
   return split_to_whole_units(diff, unit_amounts);
 }
@@ -39,16 +50,31 @@ function date_units_diff(a, b, unit_amounts) {
 //document.write("In difference: 0 days, 1 hours, 2 minutes.".replace(
 //   /0|1|2/g, function (x) {return String( d[Number(x)] );} ));
 
-function date_diff_days(a, b) {
-  return date_units_diff(a,b)[0];
+function date_diff_days( a, b ) {
+  //return date_units_diff(a,b)[0];
+  if( !a.hasOwnProperty( 'toISOString' ) ) { a = parseIsoDate( a ); }
+  if( !b.hasOwnProperty( 'toISOString' ) ) { b = parseIsoDate( b ); }
+  var diff = b - a;
+  diff = Math.abs( diff );
+  diff += 1;
+  var ms_per_day = 24 * 60 * 60 * 1000; 
+  return diff / ms_per_day;
+
+const utcDate1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
+const utcDate2 = new Date(Date.UTC(0, 0, 0, 0, 0, 0));
+
+console.log(utcDate1.toUTCString());
+// expected output: Fri, 02 Feb 1996 03:04:05 GMT  
 }
 
 function date_diff_months(a, b) {
+  if( !a.hasOwnProperty( 'toISOString' ) ) { a = parseIsoDate( a ); }
+  if( !b.hasOwnProperty( 'toISOString' ) ) { b = parseIsoDate( b ); }
   var months;
   months = (b.getFullYear() - a.getFullYear()) * 12;
   months -= a.getMonth();
-  months += b.getMonth();
-  //console.log(a, b, months);
+  months += b.getMonth() + 1;
+  console.log( 'date_diff_months', a, b, months );
   return months <= 0 ? 0 : months;  
 }
 
@@ -75,7 +101,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
   
   var no_end = !ts_end;
   
-  console.log( 'in', ts_begin, ts_end, no_end, year );
+  //console.log( 'in', ts_begin, ts_end, no_end, year );
   
   // adjust begin and end to contract begin and end in given year
 
@@ -86,8 +112,8 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
   
   ts_begin = jtisodate( ts_begin );
   ts_end = jtisodate( ts_end );
-  var begin = year.toString() + '-01-01';
-  var end = year.toString() + '-12-31';
+  var begin = last_day_in_year( year - 1 );
+  var end = last_day_in_year( year );
   
   if( !no_end && ts_end < begin ) {
     return [begin, begin];
@@ -104,7 +130,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
     }
   }
   
-  console.log( '-->', begin, end );
+  //console.log( '-->', begin, end );
   
   return [begin, end];
 }

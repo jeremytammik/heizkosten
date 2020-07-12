@@ -21,23 +21,49 @@ test('trimAllFieldsInObjectAndChildren', () => {
   expect(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]})).toEqual({'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]});
 });
 
-test('date difference', () => {
-  var begin = new Date(2019, 0, 1);
-  var end = new Date(2019, 8, 1);
+test('date_diff_days date difference', () => {
+  
+  var begin = '2019-01-01'; // same day
+  var end = '2019-01-01';
   var d = util.date_diff_days( begin, end );
-  expect(d).toBe(242);
+  expect( d ).toBe( 0 );
+  
+  var begin = '2019-01-01'; // 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 1
+  var end = '2019-09-01';
+  var d = util.date_diff_days( begin, end );
+  expect( d ).toBe( 243 );
+  
+  // crazy stuff using Date class
+  //begin = new Date( 2019, 0, 1 );
+  //end = new Date( 2019, 8, 1 );
+  //d = util.date_diff_days( begin, end );
+  //expect( d ).toBe( 242.95833333333334 );
+  
+  var begin = '2019-01-01';
+  var end = '2019-12-31';
+  var d = util.date_diff_days( begin, end );
+  expect( d ).toBe( 365 );
+  
+  var begin = '2020-01-01';
+  var end = '2020-12-31';
+  var d = util.date_diff_days( begin, end );
+  expect( d ).toBe( 366 );
 });
 
 test('number of days in year', () => {
-  var begin = new Date(2018, 11, 31);
-  var end = new Date(2019, 11, 31);
+  //var begin = new Date(2018, 11, 31);
+  //var end = new Date(2019, 11, 31);
+  var begin = '2018-12-31';
+  var end = '2019-12-31';
   var d = util.date_diff_days( begin, end );
   expect(d).toBe(365);
 });
 
 test('number of days in leap year', () => {
-  var begin = new Date(2019, 11, 31);
-  var end = new Date(2020, 11, 31);
+  //var begin = new Date(2019, 11, 31);
+  //var end = new Date(2020, 11, 31);
+  var begin = '2019-12-31';
+  var end = '2020-12-31';
   var d = util.date_diff_days( begin, end );
   expect(d).toBe(366);
 });
