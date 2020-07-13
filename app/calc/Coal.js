@@ -112,7 +112,7 @@ function Coal( unit, costs, apartment, contract,
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
   var contract_months = util.isodate_diff_months( begin, end );
-  var contract_duration = days_in_year / contract_days;
+  var contract_duration = contract_days / days_in_year;
 
   console.log('contract beg/end, days in year, contract days and duration',
     util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
