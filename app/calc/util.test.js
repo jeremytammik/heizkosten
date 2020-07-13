@@ -1,16 +1,6 @@
 const util = require('./util');
 
 test('trimAllFieldsInObjectAndChildren', () => {
-  //import * as _ from 'lodash';
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren(' bob '), 'bob'));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren('2 '), '2'));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob ']), ['2', 'bob']));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'b ': ' bob '}), {'b': 'bob'}));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': 5, d: true }), {'b': 'bob', 'c': 5, d: true}));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'b ': ' bob ', 'c': {' d': 'alica c c '}}), {'b': 'bob', 'c': {'d': 'alica c c'}}));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': {'c ': {'d': 'e '}}}), {'a': 'bob', 'b': {'c': {'d': 'e'}}}));
-  //assert.true(_.isEqual(util.trimAllFieldsInObjectAndChildren({'a ': ' bob ', 'b': [{'c ': {'d': 'e '}}, {' f ': ' g ' }]}), {'a': 'bob', 'b': [{'c': {'d': 'e'}}, {'f': 'g' }]}));
-
   expect(util.trimAllFieldsInObjectAndChildren(' bob ')).toBe('bob');
   expect(util.trimAllFieldsInObjectAndChildren('2 ')).toBe('2');
   expect(util.trimAllFieldsInObjectAndChildren(['2 ', ' bob '])).toEqual(['2', 'bob']);
@@ -51,10 +41,6 @@ test('date_diff_days date difference', () => {
 });
 
 test('number of days in year', () => {
-  //var begin = new Date(2018, 11, 31);
-  //var end = new Date(2019, 11, 31);
-  //var begin = '2018-12-31';
-  //var end = '2019-12-31';
   var begin = util.isodate_first_in_year( 2019 );
   var end = util.isodate_first_in_year( 2020 );
   var d = util.date_diff_days( begin, end );
@@ -62,10 +48,6 @@ test('number of days in year', () => {
 });
 
 test('number of days in leap year', () => {
-  //var begin = new Date(2019, 11, 31);
-  //var end = new Date(2020, 11, 31);
-  //var begin = '2019-12-31';
-  //var end = '2020-12-31';
   var begin = util.isodate_first_in_year( 2020 );
   var end = util.isodate_first_in_year( 2021 );
   var d = util.date_diff_days( begin, end );
@@ -94,7 +76,7 @@ test( 'get contract duration in given year for partial year', () => {
   year = 2018;
   const cbegin = '2015-12-16';
   const cend = '2018-04-01';
-  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  var days_in_year = util.days_in_year( year );
   expect( days_in_year ).toBe( 365 );
   var [begin, end] = util.get_duration_in_given_year( cbegin, cend, year );
   expect( begin ).toBe( '2018-01-01' );
@@ -107,11 +89,11 @@ test( 'get contract duration in given year for partial year', () => {
   expect( contract_duration ).toBe( 0.2465753424657534 );
 });
 
-test( 'get contract duration in given year for entire year', () => {
+test( 'get contract duration for entire given year', () => {
   year = 2018;
   const cbegin = '2015-12-16';
   const cend = '2020-04-01';
-  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  var days_in_year = util.days_in_year( year );
   expect( days_in_year ).toBe( 365 );
   var [begin, end] = util.get_duration_in_given_year( cbegin, cend, year );
   expect( begin ).toBe( '2018-01-01' );
