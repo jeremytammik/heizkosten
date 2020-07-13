@@ -124,7 +124,8 @@ var contracts = JSON.parse(fs.readFileSync('data/contract.json', 'utf8')); // , 
 //var visiting_cards = vCard.parse( fs.readFileSync('data/m03.vcf', 'utf8') );
 //console.log(visiting_cards);
 
-exports.json_parse_date_reviver = json_parse_date_reviver;
+//exports.json_parse_date_reviver = json_parse_date_reviver;
+
 exports.units = units;
 exports.costs = costs;
 exports.persons = persons;
