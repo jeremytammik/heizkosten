@@ -8,21 +8,28 @@ function jtisodate( d ) {
   return d.toISOString().substr( 0, 10 );
 }
 
-function iso_date_string_is_before( begin, end )
+function isodate_string_is_before( begin, end )
 {
   return begin.localeCompare( end ) < 0;
 }
 
-function parseIsoDate( ds ) {
-  console.log('parseIsoDate', ds);
-  var dt = ds.split( '-' ).map( parseFloat );
-  return new Date(dt[0], dt[1] - 1, dt[2], 0, 0, 0, 0);
+function isodate_parse( d ) {
+  const ymd = d.split( '-' ).map( parseFloat );
+  //const dat = new Date( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0, 0 );
+  const dat = new Date( Date.UTC( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0 ) );
+  //console.log( 'isodate_parse', d, '-->', ymd, '-->', dat );
+  return dat;
 }
 
-function last_day_in_year( year )
+function isodate_first_in_year( year )
 {
-  return year.toString() + '-12-31';
+  return year.toString() + '-01-01';
 }
+
+//function last_day_in_year( year )
+//{
+//  return year.toString() + '-12-31';
+//}
 
 // https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438
 function date_units_diff(a, b, unit_amounts) {
@@ -51,31 +58,25 @@ function date_units_diff(a, b, unit_amounts) {
 //   /0|1|2/g, function (x) {return String( d[Number(x)] );} ));
 
 function date_diff_days( a, b ) {
+  //console.log( 'date_diff_days', a, b );
   //return date_units_diff(a,b)[0];
-  if( !a.hasOwnProperty( 'toISOString' ) ) { a = parseIsoDate( a ); }
-  if( !b.hasOwnProperty( 'toISOString' ) ) { b = parseIsoDate( b ); }
+  if( !a.hasOwnProperty( 'toISOString' ) ) { a = isodate_parse( a ); }
+  if( !b.hasOwnProperty( 'toISOString' ) ) { b = isodate_parse( b ); }
   var diff = b - a;
   diff = Math.abs( diff );
-  diff += 1;
   var ms_per_day = 24 * 60 * 60 * 1000; 
   return diff / ms_per_day;
-
-const utcDate1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
-const utcDate2 = new Date(Date.UTC(0, 0, 0, 0, 0, 0));
-
-console.log(utcDate1.toUTCString());
-// expected output: Fri, 02 Feb 1996 03:04:05 GMT  
 }
 
-function date_diff_months(a, b) {
-  if( !a.hasOwnProperty( 'toISOString' ) ) { a = parseIsoDate( a ); }
-  if( !b.hasOwnProperty( 'toISOString' ) ) { b = parseIsoDate( b ); }
+function date_diff_months( a, b ) {
+  if( !a.hasOwnProperty( 'toISOString' ) ) { a = isodate_parse( a ); }
+  if( !b.hasOwnProperty( 'toISOString' ) ) { b = isodate_parse( b ); }
   var months;
   months = (b.getFullYear() - a.getFullYear()) * 12;
   months -= a.getMonth();
   months += b.getMonth() + 1;
   console.log( 'date_diff_months', a, b, months );
-  return months <= 0 ? 0 : months;  
+  return months <= 0 ? 0 : months;
 }
 
 // https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
@@ -98,23 +99,23 @@ function days_in_year( y ) {
 // Determine duration == overlap of given timespan in given year
 
 function get_duration_in_given_year( ts_begin, ts_end, year ) {
-  
+
   var no_end = !ts_end;
-  
+
   //console.log( 'in', ts_begin, ts_end, no_end, year );
-  
+
   // adjust begin and end to contract begin and end in given year
 
   //var begin = new Date( year - 1, 11, 31, 1 ); // 12, 0 // 11, 31
   //var end =  new Date( year, 11, 31, 23 ); // `${year}-12-31T22:59:59` // year, 12, 0 // 11, 31
 
   //console.log( 'year', begin, end );
-  
+
   ts_begin = jtisodate( ts_begin );
   ts_end = jtisodate( ts_end );
-  var begin = last_day_in_year( year - 1 );
-  var end = last_day_in_year( year );
-  
+  var begin = isodate_first_in_year( year );
+  var end = isodate_first_in_year( year + 1 );
+
   if( !no_end && ts_end < begin ) {
     return [begin, begin];
   }
@@ -129,9 +130,9 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
       end = ts_end;
     }
   }
-  
+
   //console.log( '-->', begin, end );
-  
+
   return [begin, end];
 }
 
@@ -155,7 +156,8 @@ function string_to_object_with_numbers( s ) {
 module.exports = {
   trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
   jtisodate: jtisodate,
-  iso_date_string_is_before: iso_date_string_is_before,
+  isodate_string_is_before: isodate_string_is_before,
+  isodate_first_in_year: isodate_first_in_year,
   date_diff_days: date_diff_days,
   date_diff_months: date_diff_months,
   days_in_year: days_in_year,

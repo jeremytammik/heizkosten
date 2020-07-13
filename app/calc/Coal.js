@@ -41,8 +41,8 @@ function get_contract_duration_in_given_year( contract, begin, end )
 function get_contract_payments_total( contract, konto, year )
 {
   var total = 0;
-  var year_begin = new Date(year-1, 11, 31);
-  var year_end =  new Date(year, 11, 31);
+  var year_begin = last_day_in_year( year - 1 );
+  var year_end = last_day_in_year( year );
   contract.payments.forEach( (p) => {
     if( konto === p.account
        && year_begin < p.date
@@ -111,7 +111,7 @@ function Coal( unit, costs, apartment, contract,
   var days_in_year = util.days_in_year( year ); // 365 or 366!
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   var contract_days = util.date_diff_days( begin, end );
-  var contract_months = util.date_diff_months( begin, end );
+  var contract_months = util.isodate_diff_months( begin, end );
   var contract_duration = days_in_year / contract_days;
 
   console.log('contract beg/end, days in year, contract days and duration',

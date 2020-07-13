@@ -42,30 +42,34 @@ test('date_diff_days date difference', () => {
   var begin = '2019-01-01';
   var end = '2019-12-31';
   var d = util.date_diff_days( begin, end );
-  expect( d ).toBe( 365 );
+  expect( d ).toBe( 364 );
   
   var begin = '2020-01-01';
   var end = '2020-12-31';
   var d = util.date_diff_days( begin, end );
-  expect( d ).toBe( 366 );
+  expect( d ).toBe( 365 );
 });
 
 test('number of days in year', () => {
   //var begin = new Date(2018, 11, 31);
   //var end = new Date(2019, 11, 31);
-  var begin = '2018-12-31';
-  var end = '2019-12-31';
+  //var begin = '2018-12-31';
+  //var end = '2019-12-31';
+  var begin = util.isodate_first_in_year( 2019 );
+  var end = util.isodate_first_in_year( 2020 );
   var d = util.date_diff_days( begin, end );
-  expect(d).toBe(365);
+  expect( d ).toBe( 365 );
 });
 
 test('number of days in leap year', () => {
   //var begin = new Date(2019, 11, 31);
   //var end = new Date(2020, 11, 31);
-  var begin = '2019-12-31';
-  var end = '2020-12-31';
+  //var begin = '2019-12-31';
+  //var end = '2020-12-31';
+  var begin = util.isodate_first_in_year( 2020 );
+  var end = util.isodate_first_in_year( 2021 );
   var d = util.date_diff_days( begin, end );
-  expect(d).toBe(366);
+  expect( d ).toBe( 366 );
 });
 
 test( 'get_duration_in_given_year for entire year', () => {
@@ -74,7 +78,7 @@ test( 'get_duration_in_given_year for entire year', () => {
   var end = '2020-01-10';
   var pair = util.get_duration_in_given_year( begin, end, year );
   expect( pair[0] ).toBe( '2019-01-01' );
-  expect( pair[1] ).toBe( '2019-12-31' );
+  expect( pair[1] ).toBe( '2020-01-01' );
 });
   
 test( 'get_duration_in_given_year for partial year', () => {
