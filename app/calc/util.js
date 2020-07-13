@@ -14,10 +14,11 @@ function isodate_string_is_before( begin, end )
 }
 
 function isodate_parse( d ) {
+  console.log( 'isodate_parse', d );
   const ymd = d.split( '-' ).map( parseFloat );
   //const dat = new Date( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0, 0 );
   const dat = new Date( Date.UTC( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0 ) );
-  //console.log( 'isodate_parse', d, '-->', ymd, '-->', dat );
+  console.log( 'isodate_parse', d, '-->', ymd, '-->', dat );
   return dat;
 }
 
