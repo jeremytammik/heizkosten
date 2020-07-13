@@ -4,13 +4,13 @@ const jtregex = require( './jtregex' );
 const jtvalidators = require( './jtvalidators' );
 const loaddata = require('./loaddata');
 
-test('JSON parse date reviver', () => {
-  const text = '{ "date": "2016-04-26" }';
-  const obj = JSON.parse(text, loaddata.json_parse_date_reviver);
-  expect(obj.date.getFullYear()).toBe(2016);
-  expect(obj.date.getMonth()).toBe(3);
-  expect(obj.date.getDate()).toBe(26);
-});
+//test('JSON parse date reviver', () => {
+//  const text = '{ "date": "2016-04-26" }';
+//  const obj = JSON.parse(text, loaddata.json_parse_date_reviver);
+//  expect(obj.date.getFullYear()).toBe(2016);
+//  expect(obj.date.getMonth()).toBe(3);
+//  expect(obj.date.getDate()).toBe(26);
+//});
 
 test('all data characters are ascii or umlaut', () => {
   for (const [key, value] of Object.entries(loaddata)) {
