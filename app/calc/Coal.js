@@ -104,7 +104,7 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 function Coal( unit, costs, apartment, contract,
   addressee, year, energy_cost_eur ) // energiekosten
 {
-  //console.log(year, contract, util);
+  console.log(year, contract, util);
 
   // Determine contract duration in given year span
 

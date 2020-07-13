@@ -14,11 +14,11 @@ function isodate_string_is_before( begin, end )
 }
 
 function isodate_parse( d ) {
-  console.log( 'isodate_parse', d );
+  //console.log( 'isodate_parse', d );
   const ymd = d.split( '-' ).map( parseFloat );
   //const dat = new Date( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0, 0 );
   const dat = new Date( Date.UTC( ymd[0], ymd[1] - 1, ymd[2], 0, 0, 0 ) );
-  console.log( 'isodate_parse', d, '-->', ymd, '-->', dat );
+  //console.log( 'isodate_parse', d, '-->', ymd, '-->', dat );
   return dat;
 }
 
@@ -75,8 +75,8 @@ function date_diff_months( a, b ) {
   var months;
   months = (b.getFullYear() - a.getFullYear()) * 12;
   months -= a.getMonth();
-  months += b.getMonth() + 1;
-  console.log( 'date_diff_months', a, b, months );
+  months += b.getMonth();
+  //console.log( 'date_diff_months', a, b, months );
   return months <= 0 ? 0 : months;
 }
 
@@ -92,8 +92,10 @@ function date_diff_days_2(a, b) {
 }
 
 function days_in_year( y ) {
-  var begin = new Date( y-1, 11, 31 );
-  var end =  new Date( y, 11, 31 );
+  //var begin = new Date( y-1, 11, 31 );
+  //var end =  new Date( y, 11, 31 );
+  const begin = isodate_first_in_year( year );
+  const end = isodate_first_in_year( year + 1 );
   return date_diff_days( begin, end ); // 365 or 366!
 }
 

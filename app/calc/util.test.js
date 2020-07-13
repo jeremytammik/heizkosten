@@ -89,3 +89,20 @@ test( 'get_duration_in_given_year for partial year', () => {
   expect( pair[0] ).toBe( '2018-01-01' );
   expect( pair[1] ).toBe( '2018-03-31' );
 });
+
+test( 'get contract duration in given year for partial year', () => {
+  year = 2018;
+  const cbegin = '2015-12-16';
+  const cend = '2018-04-01';
+  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  expect( days_in_year ).toBe( 365 );
+  var [begin, end] = util.get_duration_in_given_year( cbegin, cend, year );
+  expect( begin ).toBe( '2018-01-01' );
+  expect( end ).toBe( '2018-04-01' );
+  var contract_days = util.date_diff_days( begin, end );
+  expect( contract_days ).toBe( 31 + 28 + 31 );
+  var contract_months = util.date_diff_months( begin, end );
+  expect( contract_months ).toBe( 3 );
+  var contract_duration = contract_days / days_in_year;
+  expect( contract_duration ).toBe( 0.2465753424657534 );
+});
