@@ -82,7 +82,7 @@ function date_diff_months( a, b ) {
 
 // https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
 
-function date_diff_days_2(a, b) {
+function date_diff_days_2( a, b ) {
   console.log(a);
   var tza = a.getTimezoneOffset();
   var tzb = b.getTimezoneOffset();
@@ -91,7 +91,7 @@ function date_diff_days_2(a, b) {
   return Math.floor(diff / oneDay);
 }
 
-function days_in_year( y ) {
+function days_in_year( year ) {
   //var begin = new Date( y-1, 11, 31 );
   //var end =  new Date( y, 11, 31 );
   const begin = isodate_first_in_year( year );
