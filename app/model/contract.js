@@ -118,7 +118,7 @@ contractSchema.pre( 'validate', function( next ) {
   if( !(this.apartment_id.startsWith( this.unit_id + '-' ) ) ) {
     this.invalidate( 'apartment_id', 'contract apartment_id must match its unit_id', this.apartment_id );
   }
-  if( this.end && !(util.iso_date_string_is_before( this.begin, this.end )) ) {
+  if( this.end && !(util.isodate_string_is_before( this.begin, this.end )) ) {
     this.invalidate( 'end', 'contract end date must be later than contract begin', this.end );
   }
   next();
