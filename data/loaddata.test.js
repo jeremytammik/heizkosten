@@ -213,8 +213,10 @@ test('contract referenced unit and apartment match contract id', () => {
 
 test('contract begin and end are dates', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    expect( value.begin.constructor.name ).toBe( 'Date' );
-    if( value.end ) { expect( value.end.constructor.name ).toBe( 'Date' ); }
+    //expect( value.begin.constructor.name ).toBe( 'Date' );
+    //if( value.end ) { expect( value.end.constructor.name ).toBe( 'Date' ); }
+    expect( value.begin ).toMatch( jtregex.date_format );
+    if( value.end ) { expect( value.begin ).toMatch( jtregex.date_format ); }
   }
 });
 
@@ -224,11 +226,14 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     expect(apartment_ids).toContain( value.apartment_id );
     value.occupant_ids.forEach( (p) => { expect(person_ids).toContain( p ); } );
-    expect(value.begin).toBeInstanceOf(Date);
-    var end_is_null_or_later_than_begin = ("" === value.end)
-      ? true
-      : (value.begin.getTime() < value.end.getTime());
-    expect(end_is_null_or_later_than_begin).toBeTruthy();
+    //expect(value.begin).toBeInstanceOf(Date);
+    //var end_is_null_or_later_than_begin = ("" === value.end)
+    //  ? true
+    //  : (value.begin.getTime() < value.end.getTime());
+    //expect(end_is_null_or_later_than_begin).toBeTruthy();
+    if( value.end ) {
+      expect( value.begin.localeCompare( value.end ) < 0 )
+        .toBeTruthy(); }
   }
 });
 

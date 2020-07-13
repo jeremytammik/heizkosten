@@ -2,6 +2,7 @@ var fs = require( 'fs' );
 //var vCard = require( 'vcf' );
 //var util = require( 'util' )
 
+/* --- Date reviver ---
 const { date_with_optional_time_format } = require( './jtregex' );
 
 function json_parse_date_reviver(key, value) {
@@ -10,6 +11,8 @@ function json_parse_date_reviver(key, value) {
   }
   return value;
 }
+
+*/
 
 /* --- VCF reader ---
 
@@ -116,7 +119,7 @@ var costs = JSON.parse(fs.readFileSync('data/cost.json', 'utf8'));
 var persons = JSON.parse(fs.readFileSync('data//person.json', 'utf8'));
 //var tenants = JSON.parse(fs.readFileSync('data/mieter.json', 'utf8'));
 var apartments = JSON.parse(fs.readFileSync('data/apt.json', 'utf8'));
-var contracts = JSON.parse(fs.readFileSync('data/contract.json', 'utf8'), json_parse_date_reviver);
+var contracts = JSON.parse(fs.readFileSync('data/contract.json', 'utf8')); // , json_parse_date_reviver);
 
 //var visiting_cards = vCard.parse( fs.readFileSync('data/m03.vcf', 'utf8') );
 //console.log(visiting_cards);
