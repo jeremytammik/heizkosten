@@ -106,3 +106,20 @@ test( 'get contract duration in given year for partial year', () => {
   var contract_duration = contract_days / days_in_year;
   expect( contract_duration ).toBe( 0.2465753424657534 );
 });
+
+test( 'get contract duration in given year for entire year', () => {
+  year = 2018;
+  const cbegin = '2015-12-16';
+  const cend = '2020-04-01';
+  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  expect( days_in_year ).toBe( 365 );
+  var [begin, end] = util.get_duration_in_given_year( cbegin, cend, year );
+  expect( begin ).toBe( '2018-01-01' );
+  expect( end ).toBe( '2019-01-01' );
+  var contract_days = util.date_diff_days( begin, end );
+  expect( contract_days ).toBe( 365 );
+  var contract_months = util.date_diff_months( begin, end );
+  expect( contract_months ).toBe( 12 );
+  var contract_duration = contract_days / days_in_year;
+  expect( contract_duration ).toBe( 1 );
+});
