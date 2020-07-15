@@ -105,7 +105,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
 
   var no_end = !ts_end;
 
-  //console.log( 'in', ts_begin, ts_end, no_end, year );
+  console.log( 'in', ts_begin, ts_end, no_end, year );
 
   // adjust begin and end to contract begin and end in given year
 
@@ -114,16 +114,17 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
 
   //console.log( 'year', begin, end );
 
-  ts_begin = jtisodate( ts_begin );
-  ts_end = jtisodate( ts_end );
   var begin = isodate_first_in_year( year );
   var end = isodate_first_in_year( year + 1 );
 
+  ts_begin = jtisodate( ts_begin );
+  ts_end = no_end ? end : jtisodate( ts_end );
+  
   if( !no_end && ts_end < begin ) {
-    return [begin, begin];
+    end = begin;
   }
   else if( ts_begin > end ) {
-    return [end, end];
+    begin = end;
   }
   else {
     if( ts_begin > begin ) {
@@ -134,7 +135,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
     }
   }
 
-  //console.log( '-->', begin, end );
+  console.log( '-->', begin, end );
 
   return [begin, end];
 }

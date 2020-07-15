@@ -105,3 +105,20 @@ test( 'get contract duration for entire given year', () => {
   var contract_duration = contract_days / days_in_year;
   expect( contract_duration ).toBe( 1 );
 });
+
+test( 'get contract duration with undefined end', () => {
+  year = 2018;
+  const cbegin = '2018-06-16';
+  const cend = '';
+  var days_in_year = util.days_in_year( year );
+  expect( days_in_year ).toBe( 365 );
+  var [begin, end] = util.get_duration_in_given_year( cbegin, cend, year );
+  expect( begin ).toBe( '2018-06-16' );
+  expect( end ).toBe( '2019-01-01' );
+  var contract_days = util.date_diff_days( begin, end );
+  expect( contract_days ).toBe( 199 );
+  var contract_months = util.date_diff_months( begin, end );
+  expect( contract_months ).toBe( 7 );
+  var contract_duration = contract_days / days_in_year;
+  expect( contract_duration ).toBe( 0.5452054794520548 );
+});
