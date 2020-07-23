@@ -328,6 +328,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 20, 60, lines );
     
+    values[6] = '**' + values[6] + '**';
+    
     doc.text( 100, 150, labels, {'align': 'right'} );
     doc.text( 120, 150, values, {'align': 'right'} );
 
