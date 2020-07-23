@@ -252,24 +252,37 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     labels.push( 'Faktor Hauskosten umlagefähig' );
     values.push( c.faktor_hauskosten_umlagefaehig.toFixed(4) );
-    labels.push( 'Hausgeld umlagefähig' );
+    labels.push( '1. Daraus: anteiliges Hausgeld' );
     values.push( c.hausgeld_umlagefaehig.toFixed(2) );
-    labels.push( 'Grundsteuer' );
+    labels.push( '2. Grundsteuer' );
     values.push( c.grundsteuer.toFixed(2) );
-    labels.push( 'Rauchmelderwartung' );
+    labels.push( '3. Wartung Rauchmelder' );
     values.push( c.rauchmelderwartung.toFixed(2) );
-    labels.push( 'Energiekosten' );
+    labels.push( '4. Energiekosten' );
     values.push( c.energycost.toFixed(2) );
-    labels.push( 'Nebenkosten' );
+    labels.push( '5. Summe Nebenkosten' );
     values.push( c.nebenkosten.toFixed(2) );
-    labels.push( 'Vorauszahlung geleistet' );
+    labels.push( '6. Geleistete Vorrauszahlungen' );
     values.push( c.nkvorauszahlung.toFixed(2) );
-    labels.push( 'Rückbehalt' );
+    labels.push( '7. Evtl. Rückbehalt' );
     values.push( c.rueckbehalt.toFixed(2) );
-    labels.push( 'Guthaben' );
+    labels.push( '8. Guthaben (+) oder Nachzahlung (-)' );
     values.push( c.credit.toFixed(2) );
-    labels.push( 'Vorauszahlung zukünftig' );
+    
+    var labels2 = [];
+    var values2 = [];
+
+    labels.push( '9. Kaltmiete, wie bisher' );
+    values.push( c.old_rent_pm.toFixed(2) );
+    labels.push( '10. NK- Vorrauszahlung, neu' );
     values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
+    labels.push( '11. Sonstige Mieten (Garage usw.)' );
+    values.push( c.old_rent_other_pm.toFixed(2) );
+    
+    const total = c.old_rent_pm + c.new_nkvorauszahlung_pm + c.old_rent_other_pm;
+    
+    labels.push( '12. Neue Warmmiete' );
+    values.push( total.toFixed(2) );
     
     var j = 0;
     var s = `<h3>Mietvertrag ${c.contract_id}</h3>\n`;
@@ -284,7 +297,14 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
-    s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`;
+    s += '</table>\n';
+    s += '<p>Daraus ergibt sich folgende zukünftige Warmmiete:</p>';
+    j = 0;
+    s += '<table>\n';
+    s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels2[j]}</td>${tdr}<u>${values2[j]}</u></td></tr>\n`; ++j;
     s += '</table>\n';
 
     a.push( s );
