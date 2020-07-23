@@ -216,7 +216,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   var doc = new jsPDF( 'p', 'mm', 'dina4' );
   doc.setFontSize(16);
   doc.text( title, 10, 10 );
-  doc.setFontSize(12);
+  doc.setFontSize(11);
   
   var keys = Object.keys( map_contract_to_coal );
   keys.sort();
@@ -324,11 +324,16 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     lines = doc.splitTextToSize( pdf_template_text, 150 );
     
-    doc.text( 20, 80, lines );
+    doc.text( 20, 60, lines );
     
-    doc.text( 100, 200, labels, {'align': 'right'} );
-    doc.text( 120, 200, values, {'align': 'right'} );
+    doc.text( 100, 150, labels, {'align': 'right'} );
+    doc.text( 120, 150, values, {'align': 'right'} );
 
+    doc.text( 20, 220, 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
+
+    doc.text( 100, 250, labels2, {'align': 'right'} );
+    doc.text( 120, 250, values2, {'align': 'right'} );
+    
     doc.text( 20, 270, 'Rheinfelden, den 15. Juli 2020' );
     
     //break; // after processing first contract for debugging
