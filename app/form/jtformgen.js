@@ -232,6 +232,24 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var labels = [];
     var values = [];
 
+    // Faktor Hauskosten umlagefähig: x,xxxxx
+    // 
+    // 1. Daraus: anteiliges Hausgeld: xxx,xx €
+    // 2. Grundsteuer: xxx.xx €
+    // 3. Wartung Rauchmelder: xxx,xx €
+    // 4. Energiekosten: xxx,xx €
+    // 5. Summe Nebenkosten: xxx.xx €
+    // 6. Geleistete Vorrauszahlungen: xxx,xx €
+    // 7. Evtl. Rückbehalt: xxx,xx €
+    // 8. Guthaben (+) oder Nachzahlung (-): xxx,xx €
+    // 
+    // daraus ergibt sich eine zukünftige Miete:
+    // 
+    // 9. Kaltmiete, wie bisher: xxx,xx €
+    // 10. NK- Vorrauszahlung, neu: xxx,xx €
+    // 11. Sonstige Mieten (Garage usw.): xxx,xx €
+    // 12. Summe monatliche Miete: xxx,xx €
+    
     labels.push( 'Faktor Hauskosten umlagefähig' );
     values.push( c.faktor_hauskosten_umlagefaehig.toFixed(4) );
     labels.push( 'Hausgeld umlagefähig' );

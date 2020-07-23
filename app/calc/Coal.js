@@ -170,6 +170,7 @@ function Coal( unit, costs, apartment, contract,
 
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
+  this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
 
   //console.log('Coal', this);
 }
