@@ -55,9 +55,13 @@ function get_contract_payments_total( contract, konto, year )
 
 function get_latest_contract_expected_payments( dict_date_amount_string )
 {
-  var a = dict_date_amount_string.split( ',' );
-  var b = a[ a.length - 1 ].split( ':' );
-  return Number( b[1] );
+  var b = 0;
+  if( dict_date_amount_string ) {
+    var a = dict_date_amount_string.split( ',' );
+    b = a[ a.length - 1 ].split( ':' );
+    b = Number( b[1] );
+  }
+  return b;
 }
 
 // https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
