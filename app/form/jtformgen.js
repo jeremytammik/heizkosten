@@ -303,8 +303,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     s += '<table>\n';
     s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
-    s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels2[j]}</td>${tdr}<u>${values2[j]}</u></td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels2[j]}</td>${tdr}${values2[j]}</td></tr>\n`; ++j;
     s += '</table>\n';
 
     a.push( s );
