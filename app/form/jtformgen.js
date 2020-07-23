@@ -264,6 +264,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     values.push( c.energycost.toFixed(2) );
     labels.push( '5. Summe Nebenkosten' );
     values.push( c.nebenkosten.toFixed(2) );
+    labels.push( '' );
+    values.push( '' );
     labels.push( '6. Geleistete Vorrauszahlungen' );
     values.push( c.nkvorauszahlung.toFixed(2) );
     labels.push( '7. Evtl. Rückbehalt' );
@@ -328,7 +330,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 20, 60, lines );
     
-    values[6] = '**' + values[6] + '**';
+    //values[6] = '<b>' + values[6] + '</b>';
     
     doc.text( 100, 150, labels, {'align': 'right'} );
     doc.text( 120, 150, values, {'align': 'right'} );
