@@ -272,17 +272,17 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var labels2 = [];
     var values2 = [];
 
-    labels.push( '9. Kaltmiete, wie bisher' );
-    values.push( c.old_rent_pm.toFixed(2) );
-    labels.push( '10. NK- Vorrauszahlung, neu' );
-    values.push( c.new_nkvorauszahlung_pm.toFixed(2) );
-    labels.push( '11. Sonstige Mieten (Garage usw.)' );
-    values.push( c.old_rent_other_pm.toFixed(2) );
+    labels2.push( '9. Kaltmiete, wie bisher' );
+    values2.push( c.old_rent_pm.toFixed(2) );
+    labels2.push( '10. NK- Vorrauszahlung, neu' );
+    values2.push( c.new_nkvorauszahlung_pm.toFixed(2) );
+    labels2.push( '11. Sonstige Mieten (Garage usw.)' );
+    values2.push( c.old_rent_other_pm.toFixed(2) );
     
     const total = c.old_rent_pm + c.new_nkvorauszahlung_pm + c.old_rent_other_pm;
     
-    labels.push( '12. Neue Warmmiete' );
-    values.push( total.toFixed(2) );
+    labels2.push( '12. Neue Warmmiete' );
+    values2.push( total.toFixed(2) );
     
     var j = 0;
     var s = `<h3>Mietvertrag ${c.contract_id}</h3>\n`;
