@@ -194,7 +194,7 @@ Den entsprechenden Faktor finden Sie in der ersten Zeile der folgenden Tabelle. 
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
-\n\nAuf der Basis Ihrer aktuellen Nebenkosten in Zeile 6 ergibt sich eine Anpassung der Vorauszahlung. \
+\n\nAuf der Basis Ihrer aktuellen Nebenkosten Nr. 5 ergibt sich eine Anpassung der Vorauszahlung. \
 Die neue Vorauszahlung wird in Zeile 10 angegeben. \
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
@@ -329,12 +329,12 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 100, 150, labels, {'align': 'right'} );
     doc.text( 120, 150, values, {'align': 'right'} );
 
-    doc.text( 20, 220, 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
+    doc.text( 20, 200, 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
 
-    doc.text( 100, 250, labels2, {'align': 'right'} );
-    doc.text( 120, 250, values2, {'align': 'right'} );
+    doc.text( 100, 210, labels2, {'align': 'right'} );
+    doc.text( 120, 210, values2, {'align': 'right'} );
     
-    doc.text( 20, 270, 'Rheinfelden, den 15. Juli 2020' );
+    doc.text( 20, 250, 'Rheinfelden, den 15. Juli 2020' );
     
     //break; // after processing first contract for debugging
   }
