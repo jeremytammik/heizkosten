@@ -115,8 +115,8 @@ function Coal( unit, costs, apartment, contract,
   var contract_months = util.date_diff_months( begin, end );
   var contract_duration = contract_days / days_in_year;
 
-  console.log('contract beg/end, days in year, contract days and duration',
-    util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  //console.log('contract beg/end, days in year, contract days and duration',
+  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
 
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
   var pnk_for_year = pnk[ year.toString() ];
@@ -126,13 +126,13 @@ function Coal( unit, costs, apartment, contract,
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
   }
 
-  console.log( 'months, nk, payments', contract_months, contract.nebenkosten_eur, pnk_for_year);
+  //console.log( 'months, nk, payments', contract_months, contract.nebenkosten_eur, pnk_for_year);
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
 
-  console.log( 'hausgeld anteilig, umlagefaehig, result', h_anteilig, h_proportional, h );
+  //console.log( 'hausgeld anteilig, umlagefaehig, result', h_anteilig, h_proportional, h );
   
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
 

@@ -66,7 +66,7 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
                 unit, costs, apartment, contract,
                 addressee, year, energy_cost_eur );
               
-              break; // after processing first contract for debugging
+              //break; // after processing first contract for debugging
             }
             return res.send( jtformgen.nkabrechnung_report(
               uid, year, map_contract_to_coal ) );

@@ -227,7 +227,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var k = keys[i];
     var c = map_contract_to_coal[k];
     
-    console.log(c);
+    //console.log(c);
     
     var labels = [];
     var values = [];
