@@ -292,12 +292,12 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var s = `<h3>Mietvertrag ${c.contract_id}</h3>\n`;
     s += `<p>${c.salutation} ${c.addressee}, ${c.address}</p>\n`;
     s += '<table>\n';
-    s += `<tr><td class="right ul">${labels[j]}</td><td class="right ul">${values[j]}</td></tr>\n`; ++j;
+    s += `<tr><td class="right ul">${labels[j]}</td><td class="right ul">${values[j]}</td></tr>\n`; ++j; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}<u>${values[j]}</u></td></tr>\n`; ++j;
-    s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
+    s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
@@ -335,10 +335,10 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 100, 150, labels, {'align': 'right'} );
     doc.text( 120, 150, values, {'align': 'right'} );
 
-    doc.text( 20, 200, 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
+    doc.text( 20, 210, 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
 
-    doc.text( 100, 210, labels2, {'align': 'right'} );
-    doc.text( 120, 210, values2, {'align': 'right'} );
+    doc.text( 100, 220, labels2, {'align': 'right'} );
+    doc.text( 120, 220, values2, {'align': 'right'} );
     
     doc.text( 20, 250, 'Rheinfelden, den 15. Juli 2020' );
     
