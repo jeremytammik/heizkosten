@@ -95,7 +95,7 @@ function days_in_year( year ) {
   //var begin = new Date( y-1, 11, 31 );
   //var end =  new Date( y, 11, 31 );
   const begin = isodate_first_in_year( year );
-  const end = isodate_first_in_year( year + 1 );
+  const end = isodate_first_in_year( parseInt(year) + 1 );
   return date_diff_days( begin, end ); // 365 or 366!
 }
 
@@ -143,7 +143,9 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
 function round_to_two_digits( a ) {
   // why not use toFixed(2)? answer:
   // https://stackoverflow.com/questions/566564/math-roundnum-vs-num-tofixed0-and-browser-inconsistencies
-  return Math.round( (a+0.000000001) * 100) / 100;
+  const b = Math.round( (a+0.000000001) * 100) / 100;
+  //console.log( 'round_to_two_digits', a, '-->', b );
+  return b;
 }
 
 // convert comma-separated list of colon-separated pairs to js object mapping key to number

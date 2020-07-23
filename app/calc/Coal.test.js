@@ -15,7 +15,7 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
     unit, costs, apartment, contract,
     addressee, year, energy_cost_eur );
   
-  //console.log( coal );
+  console.log( coal );
   
   expect( coal.nkvorauszahlung ).toBe(2208);
   expect( coal.hausgeld_umlagefaehig ).toBe(828.66);

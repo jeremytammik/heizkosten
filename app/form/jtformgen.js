@@ -227,6 +227,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     var k = keys[i];
     var c = map_contract_to_coal[k];
     
+    console.log(c);
+    
     var labels = [];
     var values = [];
 
@@ -290,6 +292,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 120, 200, values, {'align': 'right'} );
 
     doc.text( 20, 270, 'Rheinfelden, den 15. Juli 2020' );
+    
+    //break; // after processing first contract for debugging
   }
   
   // PDF teardown
