@@ -194,7 +194,7 @@ Den entsprechenden Faktor finden Sie in der ersten Zeile der folgenden Tabelle. 
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
-\n\nAuf der Basis Ihrer aktuellen Nebenkosten Nr. 5 ergibt sich eine Anpassung der Vorauszahlung. \
+\n\nAuf der Basis Ihrer aktuellen Nebenkosten in Zeile 5 ergibt sich eine Anpassung der Vorauszahlung. \
 Die neue Vorauszahlung wird in Zeile 10 angegeben. \
 Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
 Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
@@ -252,6 +252,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     labels.push( 'Faktor Hauskosten umlagefähig' );
     values.push( c.faktor_hauskosten_umlagefaehig.toFixed(4) );
+    labels.push( '' );
+    values.push( '' );
     labels.push( '1. Daraus: anteiliges Hausgeld' );
     values.push( c.hausgeld_umlagefaehig.toFixed(2) );
     labels.push( '2. Grundsteuer' );
