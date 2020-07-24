@@ -130,6 +130,8 @@ function Coal( unit, costs, apartment, contract,
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
   }
 
+  var pnk_pm = pnk_for_year / contract_months;
+  
   //console.log( 'months, nk, payments', contract_months, contract.nebenkosten_eur, pnk_for_year);
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
@@ -173,7 +175,7 @@ function Coal( unit, costs, apartment, contract,
   // - (this.nkvorauszahlung + this.rueckbehalt) );
 
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
-  this.new_nkvorauszahlung_pm = util.round_to_two_digits( (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
+  this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
   this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
   this.old_rent_other_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_other_eur ) );
 
