@@ -132,8 +132,12 @@ function Coal( unit, costs, apartment, contract,
 
   var pnk_pm = pnk_for_year / contract_months;
   
-  //console.log( 'months, nk, payments', contract_months, contract.nebenkosten_eur, pnk_for_year);
-
+  if( '001-09-02-01' === contract._id ) {
+    console.log( 'id',contract._id + ':',
+      contract_months, 'months, old nk pm', contract.nebenkosten_eur,
+      'payments for year and for month', pnk_for_year, pnk_pm );
+  }
+  
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
