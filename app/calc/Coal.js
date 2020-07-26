@@ -146,6 +146,7 @@ function Coal( unit, costs, apartment, contract,
   
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
 
+  
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.salutation = addressee.salutation;
@@ -159,7 +160,9 @@ function Coal( unit, costs, apartment, contract,
   this.energycost = energy_cost_eur;
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
-  this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
+  //this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (pnk_for_year - 12 * (this.credit / 11.5)) / 12 );
+  const credit_rounded_up = (nmonths / (nmonths - 0.5)) * this.credit;
+  this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm - credit_rounded_up / 12 );
   this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
   this.old_rent_other_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_other_eur ) );
 
