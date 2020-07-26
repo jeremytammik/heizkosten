@@ -146,22 +146,6 @@ function Coal( unit, costs, apartment, contract,
   
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
 
-  //var tdr = '<td class="right">';
-  //var s = `<h3>Wohnung ${contract.apartment_id}</h3>\n`;
-  //s += `<p>An ${addressee.firstname} ${addressee.lastname}, ${addressee.street} ${addressee.streetnr}, ${addressee.city}</p>\n`;
-  //s += '<table>\n';
-  //s += `<tr>${tdr}Vorauszahlung geleistet</td>${tdr}${nkvorauszahlung.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Rueckbehalt</td>${tdr}${rueckbehalt}</td></tr>\n`;
-  //s += `<tr>${tdr}Hausgeld umlagefaehig</td>${tdr}${hausgeld_umlagefaehig.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Grundsteuer</td>${tdr}${grundsteuer.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Rauchmelderwartung</td>${tdr}${rauchmelderwartung.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Nebenkosten</td>${tdr}${nebenkosten.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Guthaben</td>${tdr}${credit.toFixed(2)}</td></tr>\n`;
-  //s += `<tr>${tdr}Vorauszahlung zukuenftig</td>${tdr}${new_nkvorauszahlung_per_month.toFixed(2)}</td></tr>\n`;
-  //s += '</table>\n';
-
-  //this.apartment_id = contract.apartment_id;
-
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.salutation = addressee.salutation;
@@ -173,11 +157,7 @@ function Coal( unit, costs, apartment, contract,
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * fraction );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * fraction );
   this.energycost = energy_cost_eur;
-
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
-
-  // - (this.nkvorauszahlung + this.rueckbehalt) );
-
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (this.nkvorauszahlung - 12 * (this.credit / 11.5)) / 12 );
   this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
