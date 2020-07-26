@@ -15,43 +15,43 @@
 const util = require('./util');
 
 // Determine contract duration in given year span
-function get_contract_duration_in_given_year( contract, begin, end )
-{
-  // adjust begin and end to contract begin and end in given year
+//function get_contract_duration_in_given_year( contract, begin, end )
+//{
+//  // adjust begin and end to contract begin and end in given year
+//
+//  if(contract.end < begin)
+//  {
+//    return begin, begin;
+//  }
+//  else if (contract.begin > end)
+//  {
+//    return end, end;
+//  }
+//  else {
+//    if(begin < contract.begin) {
+//      begin = contract.begin;
+//    }
+//    if(contract.end < end) {
+//      end = contract.end;
+//    }
+//  }
+//  return begin, end;
+//}
 
-  if(contract.end < begin)
-  {
-    return begin, begin;
-  }
-  else if (contract.begin > end)
-  {
-    return end, end;
-  }
-  else {
-    if(begin < contract.begin) {
-      begin = contract.begin;
-    }
-    if(contract.end < end) {
-      end = contract.end;
-    }
-  }
-  return begin, end;
-}
-
-function get_contract_payments_total( contract, konto, year )
-{
-  var total = 0;
-  var year_begin = last_day_in_year( year - 1 );
-  var year_end = last_day_in_year( year );
-  contract.payments.forEach( (p) => {
-    if( konto === p.account
-       && year_begin < p.date
-       && p.date < year_end ) {
-        total += p.amount;
-    }
-  });
-  return total;
-}
+//function get_contract_payments_total( contract, konto, year )
+//{
+//  var total = 0;
+//  var year_begin = last_day_in_year( year - 1 );
+//  var year_end = last_day_in_year( year );
+//  contract.payments.forEach( (p) => {
+//    if( konto === p.account
+//       && year_begin < p.date
+//       && p.date < year_end ) {
+//        total += p.amount;
+//    }
+//  });
+//  return total;
+//}
 
 function get_latest_contract_expected_payments( dict_date_amount_string )
 {
@@ -115,32 +115,32 @@ function Coal( unit, costs, apartment, contract,
   var days_in_year = util.days_in_year( year ); // 365 or 366!
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
   //console.log( 'contract end in year', end );
-  var contract_days = util.date_diff_days( begin, end );
-  var contract_months = util.date_diff_months( begin, end );
-  var contract_duration = contract_days / days_in_year;
+  var ndays = util.date_diff_days( begin, end );
+  var nmonths = util.date_diff_months( begin, end );
+  var fraction = ndays / days_in_year;
 
   //console.log('contract beg/end, days in year, contract days and duration',
-  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, contract_days, contract_duration );
+  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, ndays, fraction );
 
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
   var pnk_for_year = pnk[ year.toString() ];
 
   if( !pnk_for_year ) {
-    pnk_for_year = contract_months
+    pnk_for_year = nmonths
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
   }
 
-  var pnk_pm = pnk_for_year / contract_months;
+  var pnk_pm = pnk_for_year / nmonths;
   
   if( '001-09-02-01' === contract._id ) {
     console.log( 'id',contract._id + ':',
-      contract_months, 'months, old nk pm', contract.nebenkosten_eur,
+      nmonths, 'months, old nk pm', contract.nebenkosten_eur,
       'payments for year and for month', pnk_for_year, pnk_pm );
   }
   
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
-  var h = contract_duration * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
+  var h = fraction * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
 
   //console.log( 'hausgeld anteilig, umlagefaehig, result', h_anteilig, h_proportional, h );
   
@@ -170,8 +170,8 @@ function Coal( unit, costs, apartment, contract,
   this.nkvorauszahlung = util.round_to_two_digits( pnk_for_year );
   this.rueckbehalt = util.round_to_two_digits( contract.withholding_nk_eur );
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
-  this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * contract_duration );
-  this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * contract_duration );
+  this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * fraction );
+  this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * fraction );
   this.energycost = energy_cost_eur;
 
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
