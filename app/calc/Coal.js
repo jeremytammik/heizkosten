@@ -132,11 +132,11 @@ function Coal( unit, costs, apartment, contract,
 
   var pnk_pm = pnk_for_year / nmonths;
   
-  if( '001-09-02-01' === contract._id ) {
-    console.log( 'id',contract._id + ':',
-      nmonths, 'months, old nk pm', contract.nebenkosten_eur,
-      'payments for year and for month', pnk_for_year, pnk_pm );
-  }
+  //if( '001-09-02-01' === contract._id ) {
+  //  console.log( 'id',contract._id + ':',
+  //    nmonths, 'months, old nk pm', contract.nebenkosten_eur,
+  //    'payments for year and for month', pnk_for_year, pnk_pm );
+  //}
   
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
@@ -162,7 +162,7 @@ function Coal( unit, costs, apartment, contract,
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   //this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (pnk_for_year - 12 * (this.credit / 11.5)) / 12 );
   const credit_rounded_up = (nmonths / (nmonths - 0.5)) * this.credit;
-  this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm - credit_rounded_up / 12 );
+  this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm - credit_rounded_up / nmonths );
   this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
   this.old_rent_other_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_other_eur ) );
 
