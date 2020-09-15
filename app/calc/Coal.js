@@ -126,8 +126,11 @@ function Coal( unit, costs, apartment, contract,
   var pnk_for_year = pnk[ year.toString() ];
 
   if( !pnk_for_year ) {
+    // todo: implement support for reading all expected payments, not just the last one
+    // also implement test for this case
     pnk_for_year = nmonths
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
+      
   }
 
   var pnk_pm = pnk_for_year / nmonths;
