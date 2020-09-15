@@ -128,6 +128,9 @@ function Coal( unit, costs, apartment, contract,
   if( !pnk_for_year ) {
     // todo: implement support for reading all expected payments, not just the last one
     // also implement test for this case
+    //     "nebenkosten_eur": "2019-01-01: 211.37",
+    //     "nebenkosten_eur": "2019-01-01: 204.44, 2019-07-01: 218.30",
+    // year sum 2019 == 2536.44
     pnk_for_year = nmonths
       * get_latest_contract_expected_payments( contract.nebenkosten_eur );
       
