@@ -1,0 +1,161 @@
+<h1>herucoal</h1>
+<p>Housing unit utilities &ndash; heating, hot and cold water, management, maintenance and running &ndash; cost allocation
+<a href="https://nodejs.org">node.js</a> app
+and <a href="https://www.mongodb.com">mongodb</a> database.</p>
+<p>UIs required:</p>
+<ul>
+<li>Admin, see everything</li>
+<li>Consumption, meters</li>
+<li>Hausverwalter</li>
+<li>Nebenkosten (Vermieter)</li>
+</ul>
+<h2>Installation</h2>
+<ul>
+<li>Install <a href="https://nodejs.org">node.js</a></li>
+<li>Install <a href="https://www.mongodb.com">mongodb</a>
+  &ndash; not the cloud-hosted 'Atlas' version, but the <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x">MongoDB Community Edition, e.g., on macOS</a>,
+  which in turn requires <a href="https://brew.sh/#install">brew</a>.</li>
+<li>Download and install <a href="https://github.com/jeremytammik/herucoal">Herucoal</a> &ndash; use the green button above saying 'Clone or Download' and download and unpack the zip file.</li>
+<li>Enter the herucoal directory, run terminal and enter <code>npm install</code></li>
+<li>In the terminal in the herucoal directory, run <code>npm start</code></li>
+<li>Open the URL listed in the browser</li>
+</ul>
+<h2>Startup</h2>
+<p><code>mongod &amp;
+cd ~/Documents/herucoal
+git pull
+npm start</code></p>
+<h2>Usage</h2>
+<ul>
+<li>Load the existing data: Admin<ul>
+<li>Load unit data</li>
+<li>Load apartment data</li>
+<li>Load person data</li>
+<li>Load contract data</li>
+</ul>
+</li>
+</ul>
+<h2>Data Structure</h2>
+<ul>
+<li>unit &ndash; das haus oder objekt<ul>
+<li>address</li>
+<li>manager verwalter</li>
+<li>area_m2 wohnflaeche gesamt</li>
+<li>apartment count anzahl wohnungen</li>
+<li>splitting_factor_m2 z.b. 0.5, 0.7</li>
+<li>payments zahlungen, z.b. reparaturruecklage</li>
+</ul>
+</li>
+<li>apartment wohnung<ul>
+<li>owner besitzer</li>
+<li>grundbuchnr</li>
+<li>area_m2</li>
+<li>room_count</li>
+<li>smokedetectors rauchmelder nummer, ablaufdatum, ablesewerte</li>
+<li>coldwatermeters kaltwasserzaehler nummer, ablaufdatum, ablesewerte</li>
+<li>hotwatermeters warmwasserzaehler nummer, ablaufdatum, ablesewerte</li>
+<li>heatcostallocators heizkostenmessgeraete nummer, ablaufdatum, faktor, ablesewerte</li>
+<li>management_cost_eur verwaltungskosten</li>
+<li>heating_electrity_cost_eur heizungsstrom</li>
+<li>landtax_eur grundsteuer</li>
+<li>faktor_hauskosten_umlagefaehig: 0.011</li>
+</ul>
+</li>
+<li>contract vertrag<ul>
+<li>occupants bewohner</li>
+<li>apartment </li>
+<li>begin vertragsbeginn</li>
+<li>end vertragsende</li>
+<li>rent_apartment_eur erwartete monatliche wohnungsmiete</li>
+<li>rent_other_eur erwartete monatliche sonstige miete</li>
+<li>nebenkosten_eur erwartete nebenkostenvorauszahlungen</li>
+<li>deposit_eur kaution</li>
+<li>payments_rent_apartment gezahlte wohnungsmiete</li>
+<li>payments_rent_other gezahlte sonstige miete</li>
+<li>payments_nk gezahlte nebenkostenvorauszahlungen</li>
+<li>smokedetector_maintenance_cost_eur rauchmelderwartungskosten</li>
+</ul>
+</li>
+<li>yearly cost jaehrliche kosten<ul>
+<li>hausgeld nicht umlagefaehig, zahlen eigentuemer<ul>
+<li>hausgeld_eur</li>
+</ul>
+</li>
+<li>hausgeld umlagefaehig, zahlen mieter<ul>
+<li>pro wohnung<ul>
+<li>kabelgebuehren</li>
+</ul>
+</li>
+<li>pro quadratmeter mit faktor_hauskosten_umlagefaehig anteilig verteilt<ul>
+<li>allgemeinstrom</li>
+<li>muellgebuehren_hausmeister</li>
+<li>streu_und_putzmittel</li>
+<li>aussenanlage_pflege</li>
+<li>versicherungen</li>
+<li>niederschlagswasser</li>
+<li>trinkwasseruntersuchung</li>
+<li>material_und_hilfsstoffe</li>
+<li>reinigung</li>
+<li>hausmeister_sozialabgaben</li>
+<li>hausservice_fremdfirmen</li>
+<li>lift_umlagefaehig</li>
+<li>feuerloescher_wartung</li>
+<li>wartung_eingangstueren</li>
+<li>wartung_lueftungsanlage</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>gesamtkosten heizung kaltwasser warmwasser HKW (5 items):<ul>
+<li>fuel brennstoff<ul>
+<li>fuel_consumption_kwh</li>
+<li>fuel_consumption_eur</li>
+</ul>
+</li>
+<li>heiznebenkosten<ul>
+<li>heating_nk_consumption_allocation_eur</li>
+<li>heating_nk_maintenance_eur</li>
+<li>heating_nk_electrity_eur</li>
+<li>heating_nk_chimneysweep_eur</li>
+</ul>
+</li>
+<li>heizzusatzkosten - kosten heizgeraete<ul>
+<li>heating_zk_heizgeraete_eur</li>
+</ul>
+</li>
+<li>zusatzkosten warmwasser<ul>
+<li>hotwater_zk_eur</li>
+</ul>
+</li>
+<li>hausnebenkosten (kaltwasseraufbereitung und entsorgung) enthaelt u.a. (5 positionen):<ul>
+<li>house_nk_coldwater_m3</li>
+<li>house_nk_coldwater_eur</li>
+<li>house_nk_coldwater_equipment_eur</li>
+<li>house_nk_coldwater_allocation_fee_eur</li>
+<li>house_nk_coldwater_sonderkosten_eur</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>person<ul>
+<li>firstname</li>
+<li>lastname</li>
+<li>email</li>
+<li>iban</li>
+<li>telephone</li>
+<li>salutation</li>
+<li>street</li>
+<li>streetnr</li>
+<li>zip</li>
+<li>city</li>
+<li>country</li>
+</ul>
+</li>
+</ul>
+<h2>Author</h2>
+<p>Jeremy Tammik, <a href="http://thebuildingcoder.typepad.com">The Building Coder</a>, <a href="http://www.autodesk.com/adn">ADN</a> <a href="http://www.autodesk.com/adnopen">Open</a>, <a href="http://www.autodesk.com">Autodesk Inc.</a></p>
+<h2>License</h2>
+<p>(C) Copyright 2020 Jeremy Tammik. All rights reserved.
+Please see the <a href="LICENSE">LICENSE</a> file for full details.</p>

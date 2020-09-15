@@ -189,7 +189,7 @@ Basierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabre
 Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS Hausverwaltung, Nansenstr. 3, 79539 Lörrach erstellt. \
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
 Dort können Sie in den nächsten zwei Wochen Einsicht in die Unterlagen nehmen. Bitte vereinbaren Sie dazu einen Termin. \
-Der Anteil an diesen umlagefähigen Hauskosten hängt von Ihrer Wohnungsgröße und der Mietdauer ab. \
+Der Anteil an diesen umlagefähigen Hauskosten hängt von Ihrer Wohnungsgrösse und der Mietdauer ab. \
 Den entsprechenden Faktor finden Sie in der ersten Zeile der folgenden Tabelle. \
 Bei kürzerer Vorauszahlungszeit reduziert sich Ihr Anteil um 1/12 pro Monat. \
 Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswerte auf Wasseruhren und Heizkostenzähler errechnet. \
