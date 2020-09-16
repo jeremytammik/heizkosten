@@ -111,7 +111,7 @@ function get_prepayments_during(
       var ppphm = 0.5 * pppm; // expected prepayment amount per half month
       var day = end;
       console.log( day, icurrent, ppstartdate, pppm, ppphm );
-      while( begin <= day ) {
+      while( begin < day ) {
         if( day < ppstartdate ) {
           --icurrent;
           ppstartdate = a[icurrent][0].trim();

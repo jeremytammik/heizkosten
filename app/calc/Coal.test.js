@@ -49,8 +49,8 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenab
   expect( coal.grundsteuer ).toBe(234.80);
   expect( coal.rauchmelderwartung ).toBe(15);
   expect( coal.nebenkosten ).toBe(2814.34);
-  expect( coal.credit ).toBe(-277.90);
-  expect( coal.new_nkvorauszahlung_pm ).toBe(235.54);
+  expect( coal.credit ).toBe(-277.22);
+  expect( coal.new_nkvorauszahlung_pm ).toBe(235.53);
 
   calculate_nk_prepayment_based_on_days = false;
 
@@ -61,7 +61,7 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenab
   
   console.log( coal );
   
-  expect( coal.nkvorauszahlung ).toBe(2536.44);
+  expect( coal.nkvorauszahlung ).toBe(2543.37); // 2536.44
   expect( coal.hausgeld_umlagefaehig ).toBe(672.51);
   expect( coal.grundsteuer ).toBe(234.80);
   expect( coal.rauchmelderwartung ).toBe(15);
@@ -94,6 +94,8 @@ Daraus ergibt sich folgende zukünftige Warmmiete:
 "nebenkosten_eur": "2019-01-01: 211.37",
 "nebenkosten_eur": "2019-01-01: 204.44, 2019-07-01: 218.30",
 
+Calculate per day:
+
 jc> pppm = 204.44
         pppm = 204.44
         204.44
@@ -103,5 +105,16 @@ jc> pppy = 12 * pppm
 jc> pppd = pppy / 365
         pppd = 6.721315068
         6.721315068
+
+Calculate per month:
+
+jc> a = 6 * 204.44
+        a = 1226.64
+        1226.64
+jc> b = 6 * 218.30
+        b = 1309.8
+        1309.8
+jc> a + b
+        2536.44
 
 */
