@@ -209,6 +209,7 @@ module.exports = {
   trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
   jtisodate: jtisodate,
   get_day_before: get_day_before,
+  get_day_half_month_earlier: get_day_half_month_earlier,
   isodate_string_is_before: isodate_string_is_before,
   isodate_string_is_before_or_eq: isodate_string_is_before_or_eq,
   isodate_first_in_year: isodate_first_in_year,
