@@ -78,9 +78,7 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
     }
     else {
       b = a.reverse();
-      a.forEach() { d_a =>
-      b = a[ a.length - 1 ].split( ':' );
-      b = Number( b[1] );
+      a.forEach( console.log ); // date_amount
     }
   }
   return pp;
