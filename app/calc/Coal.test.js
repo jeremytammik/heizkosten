@@ -45,7 +45,7 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenab
   expect( coal.nkvorauszahlung ).toBe(2536.44);
   expect( coal.hausgeld_umlagefaehig ).toBe(672.51);
   expect( coal.grundsteuer ).toBe(234.80);
-  expect( coal.rauchmelderwartung ).toBe(15.00);
+  expect( coal.rauchmelderwartung ).toBe(15);
   expect( coal.nebenkosten ).toBe(2814.34);
   expect( coal.credit ).toBe(-277.90);
   expect( coal.new_nkvorauszahlung_pm ).toBe(235.54);
