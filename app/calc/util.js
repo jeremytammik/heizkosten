@@ -10,7 +10,16 @@ function jtisodate( d ) {
 
 function isodate_string_is_before( begin, end )
 {
-  return begin.localeCompare( end ) < 0;
+  rc = begin.localeCompare( end ) < 0;
+  console.log( begin, end, rc );
+  return rc;
+}
+
+function isodate_string_is_before_or_eq( begin, end )
+{
+  rc = begin.localeCompare( end ) <= 0;
+  console.log( begin, end, rc );
+  return rc;
 }
 
 function isodate_parse( d ) {
@@ -163,6 +172,7 @@ module.exports = {
   trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
   jtisodate: jtisodate,
   isodate_string_is_before: isodate_string_is_before,
+  isodate_string_is_before_or_eq: isodate_string_is_before_or_eq,
   isodate_first_in_year: isodate_first_in_year,
   date_diff_days: date_diff_days,
   date_diff_months: date_diff_months,
