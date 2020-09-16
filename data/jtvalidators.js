@@ -34,7 +34,7 @@ validate_dict_date_amount_string: function( s ) {
   for( let i = 0; i < n; ++i ) {
     var b = a[i].split( ':' );
     if( !(2 === b.length) ) { return false; }
-    if( !validate_begin_date( b[0].trim() ) ) { return false; }
+    if( !this.validate_begin_date( b[0].trim() ) ) { return false; }
     if( !jtregex.valid_real_number.test( b[1].trim() ) ) { return false; }
   }
   return true;
