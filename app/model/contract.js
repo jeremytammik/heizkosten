@@ -61,7 +61,7 @@ var contractSchema = new Schema({
     max: 10,
     validate: {
       validator: function(s) {
-        return jtregex.valid_date.test(s);
+        return jtvalidators.validate_begin_date(s);
       },
       message: props => `'${props.value}' is not a valid contract begin date`
     }
@@ -70,7 +70,7 @@ var contractSchema = new Schema({
     type: String,
     validate: {
       validator: function(s) {
-        return (!s) || jtregex.valid_date.test(s);
+        return (!s) || jtvalidators.validate_end_date(s);
       },
       message: props => `'${props.value}' is not a valid contract end date`
     }
