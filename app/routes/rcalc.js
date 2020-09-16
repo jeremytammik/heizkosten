@@ -61,10 +61,13 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               var energy_cost_eur = "2018" === year
                 ? 907.54 // todo: get this from contract data
                 : contract.energiekosten_2019_eur;
+                
+              var calculate_nk_prepayment_based_on_days = false;
               
               map_contract_to_coal[contract._id] = new Coal(
                 unit, costs, apartment, contract,
-                addressee, year, energy_cost_eur );
+                addressee, year, energy_cost_eur,
+                calculate_nk_prepayment_based_on_days );
               
               //break; // after processing first contract for debugging
             }
