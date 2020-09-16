@@ -71,9 +71,9 @@ function get_prepayments_during(
   var pp = 0;
   if( dict_date_amount_string ) {
     var a = dict_date_amount_string.split( ',' ).map( s => s.split( ':' ) );
-    var last = a[ a.length - 1 ];
-    var last_date = last[0].trim();
-    if( util.isodate_string_is_before_or_eq( last_date, begin ) ) {
+    //var last = a[ a.length - 1 ];
+    //var last_date = last[0].trim();
+    if( false /*util.isodate_string_is_before_or_eq( last_date, begin )*/ ) {
       // calculate prepayment based on full months
       var nmonths = util.date_diff_months( begin, end );
       var last_amount = Number( last[1] );
