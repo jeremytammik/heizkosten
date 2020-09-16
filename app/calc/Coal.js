@@ -154,22 +154,22 @@ function Coal( unit, costs, apartment, contract,
   }
 
   var pnk_pm = pnk_for_year / nmonths;
-  
+
   //if( '001-09-02-01' === contract._id ) {
   //  console.log( 'id',contract._id + ':',
   //    nmonths, 'months, old nk pm', contract.nebenkosten_eur,
   //    'payments for year and for month', pnk_for_year, pnk_pm );
   //}
-  
+
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = fraction * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
 
   //console.log( 'hausgeld anteilig, umlagefaehig, result', h_anteilig, h_proportional, h );
-  
+
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
 
-  
+
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
   this.salutation = addressee.salutation;
