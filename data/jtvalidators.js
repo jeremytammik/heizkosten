@@ -22,7 +22,7 @@ validate_meter_data: function( s, with_factor ) {
   return true;
 },
 
-validate_begin_date( s ) {
+validate_begin_date: function( s ) {
     if( !jtregex.valid_date.test( s ) ) { return false; }
     var day = 1 * str.slice(8, 10);
     return 1 === day || 14 === day || 15 === day;
