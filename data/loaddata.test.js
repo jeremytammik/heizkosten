@@ -213,8 +213,6 @@ test('contract referenced unit and apartment match contract id', () => {
 
 test('contract begin and end are dates', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    //expect( value.begin.constructor.name ).toBe( 'Date' );
-    //if( value.end ) { expect( value.end.constructor.name ).toBe( 'Date' ); }
     expect( value.begin ).toMatch( jtregex.date_format );
     if( value.end ) { expect( value.begin ).toMatch( jtregex.date_format ); }
   }
@@ -226,16 +224,10 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
   for (const [key, value] of Object.entries(loaddata.contracts)) {
     expect(apartment_ids).toContain( value.apartment_id );
     value.occupant_ids.forEach( (p) => { expect(person_ids).toContain( p ); } );
-    //expect(value.begin).toBeInstanceOf(Date);
-    //var end_is_null_or_later_than_begin = ("" === value.end)
-    //  ? true
-    //  : (value.begin.getTime() < value.end.getTime());
-    //expect(end_is_null_or_later_than_begin).toBeTruthy();
     expect( (typeof value.begin === 'string') || (value.begin instanceof String) ).toBeTruthy();
     expect(jtvalidators.validate_begin_end_date(value.begin)).toBeTruthy();
     if( value.end ) {
       expect( value.begin.localeCompare( value.end ) < 0 ).toBeTruthy();
-      console.log( value.end );
       expect( jtvalidators.validate_begin_end_date(value.end) ).toBeTruthy();
     }
   }
@@ -243,7 +235,6 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
 
 test('contract expected payments have valid dictionary structure: list of pairs of begin_date:amount', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
-    //console.log(value);
     var a = jtvalidators.validate_dict_date_amount_string(value.rent_apartment_eur);
     var b = value.rent_other_eur ? jtvalidators.validate_dict_date_amount_string(value.rent_other_eur) : true;
     var c = jtvalidators.validate_dict_date_amount_string(value.nebenkosten_eur);
