@@ -89,6 +89,7 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
           pppd = (a[icurrent][1] * 12) / 365; // expected prepayment amount per day
         }
         pp += pppd;
+        console.log( day, pppd );
       }
     }
   }
