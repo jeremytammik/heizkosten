@@ -71,7 +71,7 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
     var a = dict_date_amount_string.split( ',' );
     var last = a[ a.length - 1 ].split( ':' );
     var last_date = last[0];
-    if( isodate_string_is_before( last_date, begin ) ) {
+    if( util.isodate_string_is_before( last_date, begin ) ) {
       var nmonths = util.date_diff_months( begin, end );
       var last_amount = Number( last[1] );
       pp = nmonths * last_amount;
