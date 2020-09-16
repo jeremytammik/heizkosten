@@ -128,15 +128,12 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 function Coal( unit, costs, apartment, contract,
   addressee, year, energy_cost_eur ) // energiekosten
 {
-  //console.log( year, contract, util );
-
   // Determine contract duration in given year span
 
-  var days_in_year = util.days_in_year( year ); // 365 or 366!
+  var days_in_year = util.days_in_year( year ); // 365 or 366
   var [begin, end] = util.get_duration_in_given_year( contract.begin, contract.end, year );
-  console.log( 'contract begin and end in year:', begin, end );
+  //console.log( 'contract begin and end in year:', begin, end );
   var ndays = util.date_diff_days( begin, end );
-  var nmonths = util.date_diff_months( begin, end );
   var fraction = ndays / days_in_year;
 
   //console.log('contract beg/end, days in year, contract days and duration',
@@ -153,22 +150,10 @@ function Coal( unit, costs, apartment, contract,
     pnk_for_year = get_prepayments_during( contract.nebenkosten_eur, begin, end );
   }
 
-  var pnk_pm = pnk_for_year / nmonths;
-
-  //if( '001-09-02-01' === contract._id ) {
-  //  console.log( 'id',contract._id + ':',
-  //    nmonths, 'months, old nk pm', contract.nebenkosten_eur,
-  //    'payments for year and for month', pnk_for_year, pnk_pm );
-  //}
-
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
   var h = fraction * (h_anteilig / unit.apt_count + h_proportional * apartment.faktor_hauskosten_umlagefaehig);
-
-  //console.log( 'hausgeld anteilig, umlagefaehig, result', h_anteilig, h_proportional, h );
-
   var smoke_detector_count = Object.keys( apartment.smokedetectors ).length;
-
 
   this.contract_id = contract._id;
   this.faktor_hauskosten_umlagefaehig = apartment.faktor_hauskosten_umlagefaehig;
@@ -183,13 +168,12 @@ function Coal( unit, costs, apartment, contract,
   this.energycost = energy_cost_eur;
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
-  //this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm + (pnk_for_year - 12 * (this.credit / 11.5)) / 12 );
+  const nmonths = util.date_diff_months( begin, end );
   const credit_rounded_up = (nmonths / (nmonths - 0.5)) * this.credit;
+  const pnk_pm = pnk_for_year / nmonths;
   this.new_nkvorauszahlung_pm = util.round_to_two_digits( pnk_pm - credit_rounded_up / nmonths );
   this.old_rent_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_apartment_eur ) );
   this.old_rent_other_pm = util.round_to_two_digits( get_latest_contract_expected_payments( contract.rent_other_eur ) );
-
-  //console.log('Coal', this);
 }
 
 module.exports = Coal;
