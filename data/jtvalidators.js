@@ -26,7 +26,7 @@ validate_begin_date: function( s ) {
     if( !jtregex.valid_date.test( s ) ) { return false; }
     var day = 1 * str.slice(8, 10);
     return 1 === day || 14 === day || 15 === day;
-}
+},
 
 validate_dict_date_amount_string: function( s ) {
   var a = s.trim().split( ',' );
