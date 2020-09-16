@@ -64,7 +64,9 @@ function get_latest_contract_expected_payments( dict_date_amount_string )
   return b;
 }
 
-function get_prepayments_during( dict_date_amount_string, begin, end )
+function get_prepayments_during(
+  dict_date_amount_string, begin, end,
+  calculate_prepayment_based_on_days )
 {
   var pp = 0;
   if( dict_date_amount_string ) {
@@ -72,18 +74,20 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
     var last = a[ a.length - 1 ];
     var last_date = last[0].trim();
     if( util.isodate_string_is_before_or_eq( last_date, begin ) ) {
+      // calculate prepayment based on full months
       var nmonths = util.date_diff_months( begin, end );
       var last_amount = Number( last[1] );
       pp = nmonths * last_amount;
     }
-    else {
+    else if( calculate_prepayment_based_on_days ) {
+      // calculate prepayment based on days
       var ndays = 0;
       var icurrent = a.length - 1;
       var ppstartdate = a[icurrent][0].trim();
       var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
       var pppd = pppm * 12 / 365; // expected prepayment amount per day
       var day = end;
-      console.log( util.get_day_before( day ), icurrent, ppstartdate, pppm, pppd );
+      console.log( day, icurrent, ppstartdate, pppm, pppd );
       while( begin <= day ) {
         if( day < ppstartdate ) {
           --icurrent;
@@ -95,9 +99,32 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
         day = util.get_day_before( day );
         pp += pppd;
         ++ndays;
-        console.log( day, ndays, pppd, pp );
       }
+      console.log( day, ndays, pppd, pp );
     }
+    else {
+      // calculate prepayment based on half months
+      var nhalfmonths = 0;
+      var icurrent = a.length - 1;
+      var ppstartdate = a[icurrent][0].trim();
+      var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
+      var ppphm = 0.5 * pppm; // expected prepayment amount per half month
+      var day = end;
+      console.log( day, icurrent, ppstartdate, pppm, ppphm );
+      while( begin <= day ) {
+        if( day < ppstartdate ) {
+          --icurrent;
+          ppstartdate = a[icurrent][0].trim();
+          pppm = Number( a[icurrent][1] );
+          ppphm = 0.5 * pppm;
+          console.log( day, icurrent, ppstartdate, pppm, ppphm );
+        }
+        day = util.get_day_half_month_earlier( day );
+        pp += ppphm;
+        ++nhalfmonths;
+      }
+      console.log( day, nhalfmonths, ppphm, pp );
+    }      
   }
   return pp;
 }
@@ -144,7 +171,8 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 }
 
 function Coal( unit, costs, apartment, contract,
-  addressee, year, energy_cost_eur ) // energiekosten
+  addressee, year, energy_cost_eur, // energiekosten
+  calculate_nk_prepayment_based_on_days )
 {
   // Determine contract duration in given year span
 
@@ -161,11 +189,9 @@ function Coal( unit, costs, apartment, contract,
   var pnk_for_year = pnk[ year.toString() ];
 
   if( !pnk_for_year ) {
-    // todo: implement support for reading all expected payments, not just the last one
-    // also implement test for this case
-    //pnk_for_year = nmonths
-    //  * get_latest_contract_expected_payments( contract.nebenkosten_eur );
-    pnk_for_year = get_prepayments_during( contract.nebenkosten_eur, begin, end );
+    pnk_for_year = get_prepayments_during(
+      contract.nebenkosten_eur, begin, end,
+      calculate_nk_prepayment_based_on_days );
   }
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );

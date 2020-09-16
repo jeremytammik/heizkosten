@@ -27,18 +27,37 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
 });
 
 test('test Coal utility cost allocation algorithm given changes in nebenkostenabvorauszahlung for a given contract', () => {
-  var year = 2019;
-  var contract_id = "001-01-06-2018";
-  var energy_cost_eur = 1892.03;
-  var contract = loaddata.contracts[contract_id];
-  var apartment = loaddata.apartments[contract.apartment_id];
-  var unit = loaddata.units[apartment.unit_id];
-  var costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
-  var addressee = loaddata.persons[contract.occupant_ids[0]];
+  const year = 2019;
+  const contract_id = "001-01-06-2018";
+  const energy_cost_eur = 1892.03;
+  const contract = loaddata.contracts[contract_id];
+  const apartment = loaddata.apartments[contract.apartment_id];
+  const unit = loaddata.units[apartment.unit_id];
+  const costs = loaddata.costs[apartment.unit_id + '-' + year.toString()];
+  const addressee = loaddata.persons[contract.occupant_ids[0]];
+  var calculate_nk_prepayment_based_on_days = true;
 
   var coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur );
+    addressee, year, energy_cost_eur,
+    calculate_nk_prepayment_based_on_days );
+  
+  console.log( coal );
+  
+  expect( coal.nkvorauszahlung ).toBe(2537.12);
+  expect( coal.hausgeld_umlagefaehig ).toBe(672.51);
+  expect( coal.grundsteuer ).toBe(234.80);
+  expect( coal.rauchmelderwartung ).toBe(15);
+  expect( coal.nebenkosten ).toBe(2814.34);
+  expect( coal.credit ).toBe(-277.90);
+  expect( coal.new_nkvorauszahlung_pm ).toBe(235.54);
+
+  calculate_nk_prepayment_based_on_days = false;
+
+  coal = new Coal(
+    unit, costs, apartment, contract,
+    addressee, year, energy_cost_eur,
+    calculate_nk_prepayment_based_on_days );
   
   console.log( coal );
   
