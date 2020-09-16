@@ -8,6 +8,13 @@ function jtisodate( d ) {
   return d.toISOString().substr( 0, 10 );
 }
 
+function get_day_before( date_string )
+{
+  var d = new Date( date_string );
+  d.setDate( d.getDate() - 1 );
+  return jtisodate( d );
+}
+
 function isodate_string_is_before( begin, end )
 {
   rc = begin.localeCompare( end ) < 0;
@@ -171,6 +178,7 @@ function string_to_object_with_numbers( s ) {
 module.exports = {
   trimAllFieldsInObjectAndChildren: trimAllFieldsInObjectAndChildren,
   jtisodate: jtisodate,
+  get_day_before: get_day_before,
   isodate_string_is_before: isodate_string_is_before,
   isodate_string_is_before_or_eq: isodate_string_is_before_or_eq,
   isodate_first_in_year: isodate_first_in_year,
