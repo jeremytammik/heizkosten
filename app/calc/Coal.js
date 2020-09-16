@@ -85,16 +85,16 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
 }
 
 // https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
-function sum_of_object_values( obj )
-{
-  var sum = 0;
-  for( var el in obj ) {
-    if( obj.hasOwnProperty( el ) ) {
-      sum += obj[el]; // parseFloat( obj[el] );
-    }
-  }
-  return sum;
-}
+//function sum_of_object_values( obj )
+//{
+//  var sum = 0;
+//  for( var el in obj ) {
+//    if( obj.hasOwnProperty( el ) ) {
+//      sum += obj[el]; // parseFloat( obj[el] );
+//    }
+//  }
+//  return sum;
+//}
 
 function get_hausgeld_umlagefaehig_anteilig( costs )
 {
