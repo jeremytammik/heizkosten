@@ -232,11 +232,11 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
     //  : (value.begin.getTime() < value.end.getTime());
     //expect(end_is_null_or_later_than_begin).toBeTruthy();
     expect( (typeof value.begin === 'string') || (value.begin instanceof String) ).toBeTruthy();
-    expect(jtvalidators.validate_begin_date(value.begin)).toBeTruthy();
+    expect(jtvalidators.validate_begin_end_date(value.begin)).toBeTruthy();
     if( value.end ) {
       expect( value.begin.localeCompare( value.end ) < 0 ).toBeTruthy();
       console.log( value.end );
-      expect( jtvalidators.validate_end_date(value.end) ).toBeTruthy();
+      expect( jtvalidators.validate_begin_end_date(value.end) ).toBeTruthy();
     }
   }
 });
