@@ -53,9 +53,6 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenab
 
 /*
 
-"nebenkosten_eur": "2019-01-01: 211.37",
-"nebenkosten_eur": "2019-01-01: 204.44, 2019-07-01: 218.30",
-
 Mietvertrag 001-01-06-2018
 Werter Mieter*in Constatin & Tatiana Mattern, Fecampring 28, 79618 Rheinfelden
 
@@ -74,4 +71,18 @@ Daraus ergibt sich folgende zukünftige Warmmiete:
 10. NK- Vorrauszahlung, neu	235.54
 11. Sonstige Mieten (Garage usw.)	10.00
 12. Neue Warmmiete	911.54
+
+"nebenkosten_eur": "2019-01-01: 211.37",
+"nebenkosten_eur": "2019-01-01: 204.44, 2019-07-01: 218.30",
+
+jc> pppm = 204.44
+        pppm = 204.44
+        204.44
+jc> pppy = 12 * pppm
+        pppy = 2453.28
+        2453.28
+jc> pppd = pppy / 365
+        pppd = 6.721315068
+        6.721315068
+
 */

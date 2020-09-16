@@ -18,10 +18,10 @@ function get_day_before( date_string )
 function isodate_string_is_before( begin, end )
 {
   //rc = (begin.localeCompare( end ) < 0);
-  //rc = (begin < end);
-  const b = new Date( begin );
-  const e = new Date( end );
-  rc = b.getTime() < e.getTime();
+  rc = (begin.trim() < end.trim());
+  //const b = new Date( begin );
+  //const e = new Date( end );
+  //rc = b.getTime() < e.getTime();
   console.log( 'is before?', begin, end, rc );
   return rc;
 }
@@ -30,10 +30,10 @@ function isodate_string_is_before_or_eq( begin, end )
 {
   // input 2019-07-01, 2019-01-01 returns false result using:
   //var i = begin.localeCompare( end );
-  //rc = (begin <= end);
-  const b = new Date( begin );
-  const e = new Date( end );
-  rc = b.getTime() <= e.getTime();
+  rc = (begin.trim() <= end.trim());
+  //const b = new Date( begin );
+  //const e = new Date( end );
+  //rc = b.getTime() <= e.getTime();
   console.log( 'is before or eq?', begin, end, rc );
   return rc;
 }
