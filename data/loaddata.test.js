@@ -227,7 +227,7 @@ test('contract has valid apartment, occupants, begin date, and later end', () =>
     expect( (typeof value.begin === 'string') || (value.begin instanceof String) ).toBeTruthy();
     expect(jtvalidators.validate_begin_end_date(value.begin)).toBeTruthy();
     if( value.end ) {
-      expect( value.begin.localeCompare( value.end ) < 0 ).toBeTruthy();
+      expect( value.begin.localeCompare( value.end ) < 0 ).toBeTruthy(); // util.isodate_string_is_before
       expect( jtvalidators.validate_begin_end_date(value.end) ).toBeTruthy();
     }
   }

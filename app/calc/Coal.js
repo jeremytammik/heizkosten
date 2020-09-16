@@ -66,14 +66,24 @@ function get_latest_contract_expected_payments( dict_date_amount_string )
 
 function get_prepayments_during( dict_date_amount_string, begin, end )
 {
-  var b = 0;
+  var pp = 0;
   if( dict_date_amount_string ) {
     var a = dict_date_amount_string.split( ',' );
-    a.forEach
-    b = a[ a.length - 1 ].split( ':' );
-    b = Number( b[1] );
+    var last = a[ a.length - 1 ].split( ':' );
+    var last_date = last[0];
+    if( isodate_string_is_before( last_date, begin ) ) {
+      var nmonths = util.date_diff_months( begin, end );
+      var last_amount = Number( last[1] );
+      pp = nmonths * last_amount;
+    }
+    else {
+      b = a.reverse();
+      a.forEach() { d_a =>
+      b = a[ a.length - 1 ].split( ':' );
+      b = Number( b[1] );
+    }
   }
-  return b;
+  return pp;
 }
 
 // https://stackoverflow.com/questions/16449295/how-to-sum-the-values-of-a-javascript-object
@@ -142,7 +152,7 @@ function Coal( unit, costs, apartment, contract,
     // also implement test for this case
     //pnk_for_year = nmonths
     //  * get_latest_contract_expected_payments( contract.nebenkosten_eur );
-    pnk_for_year = get_nk_prepayments( contract.nebenkosten_eur, begin, end );
+    pnk_for_year = get_prepayments_during( contract.nebenkosten_eur, begin, end );
   }
 
   var pnk_pm = pnk_for_year / nmonths;
