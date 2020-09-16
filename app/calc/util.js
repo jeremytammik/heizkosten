@@ -11,14 +11,14 @@ function jtisodate( d ) {
 function isodate_string_is_before( begin, end )
 {
   rc = begin.localeCompare( end ) < 0;
-  console.log( begin, end, rc );
+  //console.log( begin, end, rc );
   return rc;
 }
 
 function isodate_string_is_before_or_eq( begin, end )
 {
   rc = begin.localeCompare( end ) <= 0;
-  console.log( begin, end, rc );
+  //console.log( begin, end, rc );
   return rc;
 }
 
