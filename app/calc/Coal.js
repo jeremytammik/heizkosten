@@ -112,7 +112,7 @@ function get_prepayments_during(
       var day = end;
       console.log( day, icurrent, ppstartdate, pppm, ppphm );
       while( begin < day ) {
-        if( day < ppstartdate ) {
+        if( day <= ppstartdate ) {
           --icurrent;
           ppstartdate = a[icurrent][0].trim();
           pppm = Number( a[icurrent][1] );
