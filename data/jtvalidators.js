@@ -26,7 +26,7 @@ validate_begin_date: function( s ) {
   if( !jtregex.valid_date.test( s ) ) { return false; }
   //const mon = 1 * str.slice(5, 7);
   //const mid_month_begin_date = [16,15,16,16,16,...]
-  const day = 1 * str.slice(8, 10);
+  const day = 1 * s.slice(8, 10);
   return 1 == day || 15 == day || 16 == day;
 },
 
