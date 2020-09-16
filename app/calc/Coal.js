@@ -79,20 +79,20 @@ function get_prepayments_during( dict_date_amount_string, begin, end )
     else {
       var ndays = 0;
       var icurrent = a.length - 1;
-      var ppstartdate = util.get_day_before( a[icurrent][0].trim() );
+      var ppstartdate = a[icurrent][0].trim();
       var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
       var pppd = pppm * 12 / 365; // expected prepayment amount per day
       var day = end;
       console.log( util.get_day_before( day ), icurrent, ppstartdate, pppm, pppd );
       while( begin <= day ) {
-        day = util.get_day_before( day );
         if( day < ppstartdate ) {
           --icurrent;
-          ppstartdate = util.get_day_before( a[icurrent][0].trim() );
+          ppstartdate = a[icurrent][0].trim();
           pppm = Number( a[icurrent][1] );
           pppd = pppm * 12 / 365;
           console.log( day, icurrent, ppstartdate, pppm, pppd );
         }
+        day = util.get_day_before( day );
         pp += pppd;
         ++ndays;
         console.log( day, ndays, pppd, pp );
