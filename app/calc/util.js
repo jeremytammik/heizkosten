@@ -15,6 +15,28 @@ function get_day_before( date_string )
   return jtisodate( d );
 }
 
+function get_day_half_month_earlier( date_string )
+{
+  var d = new Date( date_string );
+  var dom = d.getDate();
+  if( 11 < dom && dom < 20 ) {
+    d.setDate( 1 );
+  }
+  else if( dom <= 3 ) {
+    d.setMonth( d.getMonth() - 1 );
+    d.setDate( 15 );
+  }
+  else if( 25 <= dom ) {
+    d.setDate( 15 );
+  }
+  else {
+    throw 'get_day_half_month_earlier: '
+      + 'cannot decide how to handle '
+      + date_string;
+  }
+  return jtisodate( d );
+}
+
 function isodate_string_is_before( begin, end )
 {
   //rc = (begin.localeCompare( end ) < 0);
