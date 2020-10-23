@@ -302,6 +302,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     s += `<tr>${tdr}${labels[j]}</td>${tdr}${values[j]}</td></tr>\n`; ++j;
     s += `<tr>${tdr}${labels[j]}</td>${tdr}<b>${values[j]}</b></td></tr>\n`; ++j;
     s += '</table>\n';
+    s += '<p>Es ändert sich gar nichts.</p></br>';
     s += '<p>Daraus ergibt sich folgende zukünftige Warmmiete:</p>';
     j = 0;
     s += '<table>\n';
