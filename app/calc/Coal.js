@@ -87,20 +87,20 @@ function get_prepayments_during(
       var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
       var pppd = pppm * 12 / 365; // expected prepayment amount per day
       var day = end;
-      console.log( day, icurrent, ppstartdate, pppm, pppd );
+      //console.log( day, icurrent, ppstartdate, pppm, pppd );
       while( begin <= day ) {
         if( day < ppstartdate ) {
           --icurrent;
           ppstartdate = a[icurrent][0].trim();
           pppm = Number( a[icurrent][1] );
           pppd = pppm * 12 / 365;
-          console.log( day, icurrent, ppstartdate, pppm, pppd );
+          //console.log( day, icurrent, ppstartdate, pppm, pppd );
         }
         day = util.get_day_before( day );
         pp += pppd;
         ++ndays;
       }
-      console.log( day, ndays, pppd, pp );
+      //console.log( day, ndays, pppd, pp );
     }
     else {
       // calculate prepayment based on half months
@@ -110,20 +110,20 @@ function get_prepayments_during(
       var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
       var ppphm = 0.5 * pppm; // expected prepayment amount per half month
       var day = end;
-      console.log( day, icurrent, ppstartdate, pppm, ppphm );
+      //console.log( day, icurrent, ppstartdate, pppm, ppphm );
       while( begin < day ) {
         if( day <= ppstartdate ) {
           --icurrent;
           ppstartdate = a[icurrent][0].trim();
           pppm = Number( a[icurrent][1] );
           ppphm = 0.5 * pppm;
-          console.log( day, icurrent, ppstartdate, pppm, ppphm );
+          //console.log( day, icurrent, ppstartdate, pppm, ppphm );
         }
         day = util.get_day_half_month_earlier( day );
         pp += ppphm;
         ++nhalfmonths;
       }
-      console.log( day, nhalfmonths, ppphm, pp );
+      //console.log( day, nhalfmonths, ppphm, pp );
     }      
   }
   return pp;
