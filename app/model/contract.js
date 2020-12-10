@@ -82,6 +82,13 @@ var contractSchema = new Schema({
       message: 'invalid list of date: apartment rent [, ...]'
     }
   },
+  nebenkosten_eur: { // dictionary mapping begin date to nk prepayment in euro 'date: number [, date: number...]'
+    type: String,
+    validate: {
+      validator: jtvalidators.validate_dict_date_amount_string,
+      message: 'invalid list of date: nebenkostenvorauszahlung [, ...]'
+    }
+  },
   rent_other_eur: { // dictionary mapping begin date to other rent in euro 'date: number [, date: number...]'
     type: String,
     validate: {
@@ -91,13 +98,7 @@ var contractSchema = new Schema({
       message: 'invalid list of date: other rent [, ...]'
     }
   },
-  nebenkosten_eur: { // dictionary mapping begin date to nk prepayment in euro 'date: number [, date: number...]'
-    type: String,
-    validate: {
-      validator: jtvalidators.validate_dict_date_amount_string,
-      message: 'invalid list of date: nebenkostenvorauszahlung [, ...]'
-    }
-  },
+  rent_other_description: String, // beschreibung sonstige miete
   deposit_eur: Number, // kaution
   withholding_nk_eur: Number, // nebenkostenrueckbehalt von der kaution nach vertragsende
   payments_rent_apartment: { type: Object }, // dictionary mapping calendar year to total payments in euro { Year: Number}
