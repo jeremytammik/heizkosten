@@ -107,7 +107,7 @@ dist
 yarn.lock
 
 # protect personal data
-data/person.json
+#data/person.json
 
 # ignore exported and burcu edited data 
 data/tmp/
