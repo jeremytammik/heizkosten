@@ -1,24 +1,4 @@
 {
-  "001-09-02-2018": {
-    "occupant_ids": [
-      "erich_klimaczewski"
-    ],
-    "_id": "001-09-02-2018",
-    "unit_id": "001",
-    "apartment_id": "001-09-02",
-    "begin": "2002-07-01",
-    "end": "2019-04-01",
-    "rent_apartment_eur": "2018-01-01: 478, 2019-01-01: 500",
-    "rent_other_eur": "2018-01-01: 50",
-    "nebenkosten_eur": "2018-01-01: 173",
-    "deposit_eur": 1050,
-    "withholding_nk_eur": 300,
-    "payments_rent_apartment": "2018: 5736",
-    "payments_rent_other": "2018: 600",
-    "payments_nk": "2018: 2076",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 298.57
-  },
   "001-09-02-01": {
     "occupant_ids": [
       "sabine_diesslin"
@@ -47,7 +27,7 @@
     "unit_id": "001",
     "apartment_id": "001-05-03",
     "begin": "2013-05-01",
-    "end": "",
+    "end": "2020-11-01",
     "rent_apartment_eur": "2018-01-01: 713",
     "rent_other_eur": "2018-01-01: 12",
     "nebenkosten_eur": "2018-01-01: 318",
@@ -78,46 +58,6 @@
     "payments_nk": "2018: 1704",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 737.51
-  },
-  "001-12-06-2017": {
-    "occupant_ids": [
-      "mandy_schmidt"
-    ],
-    "_id": "001-12-06-2017",
-    "unit_id": "001",
-    "apartment_id": "001-12-06",
-    "begin": "2013-09-01",
-    "end": "2018-02-01",
-    "rent_apartment_eur": "2017-01-01: 637.30",
-    "rent_other_eur": "2017-01-01: 0",
-    "nebenkosten_eur": "2017-01-01: 212.70",
-    "deposit_eur": 1300,
-    "withholding_nk_eur": 0,
-    "payments_rent_apartment": "2018: 637.3",
-    "payments_rent_other": "2018: 0",
-    "payments_nk": "2018: 212.7",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 0
-  },
-  "001-12-06-2018": {
-    "occupant_ids": [
-      "herbert_braeuning"
-    ],
-    "_id": "001-12-06-2018",
-    "unit_id": "001",
-    "apartment_id": "001-12-06",
-    "begin": "2018-02-01",
-    "end": "2020-01-01",
-    "rent_apartment_eur": "2018-02-01: 626",
-    "rent_other_eur": "2018-02-01: 0",
-    "nebenkosten_eur": "2018-02-01: 134",
-    "deposit_eur": 1300,
-    "withholding_nk_eur": 0,
-    "payments_rent_apartment": "2018: 7512",
-    "payments_rent_other": "2018: 0",
-    "payments_nk": "2018: 1608",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 1011.84
   },
   "001-01-04-2018": {
     "occupant_ids": [
@@ -379,26 +319,6 @@
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 173.82
   },
-  "001-00-03-2017": {
-    "occupant_ids": [
-      "hazbije_arif_mengjiqi"
-    ],
-    "_id": "001-00-03-2017",
-    "unit_id": "001",
-    "apartment_id": "001-00-03",
-    "begin": "2013-04-01",
-    "end": "2019-05-01",
-    "rent_apartment_eur": "2013-04-01: 592",
-    "rent_other_eur": "2013-04-01: 20",
-    "nebenkosten_eur": "2013-04-01: 186.06",
-    "deposit_eur": 1300,
-    "withholding_nk_eur": 0,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 576.58
-  },
   "001-03-04-2018": {
     "occupant_ids": [
       "hazbije_arif_mengjiqi"
@@ -418,26 +338,6 @@
     "payments_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 552.79
-  },
-  "001-03-04-2017": {
-    "occupant_ids": [
-      "theresa_kneifel"
-    ],
-    "_id": "001-03-04-2017",
-    "unit_id": "001",
-    "apartment_id": "001-03-04",
-    "begin": "1986-06-01",
-    "end": "2019-05-01",
-    "rent_apartment_eur": "1986-06-01: 698.08",
-    "rent_other_eur": "1986-06-01: 10",
-    "nebenkosten_eur": "1986-06-01: 171.23",
-    "deposit_eur": 1023,
-    "withholding_nk_eur": 100,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 396.78
   },
   "001-04-02-2018": {
     "occupant_ids": [
@@ -499,26 +399,6 @@
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 415.84
   },
-  "001-07-01-2017": {
-    "occupant_ids": [
-      "patrick_wenzel"
-    ],
-    "_id": "001-07-01-2017",
-    "unit_id": "001",
-    "apartment_id": "001-07-01",
-    "begin": "2016-11-01",
-    "end": "2019-07-01",
-    "rent_apartment_eur": "2016-11-01: 534",
-    "rent_other_eur": "",
-    "nebenkosten_eur": "2016-11-01: 116",
-    "deposit_eur": 1050,
-    "withholding_nk_eur": 100,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 752.35
-  },
   "001-07-01-2018": {
     "occupant_ids": [
       "andrej_weber"
@@ -558,46 +438,6 @@
     "payments_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 471.43
-  },
-  "001-02-01-2017": {
-    "occupant_ids": [
-      "arnel_mustafic"
-    ],
-    "_id": "001-02-01-2017",
-    "unit_id": "001",
-    "apartment_id": "001-02-01",
-    "begin": "2018-03-15",
-    "end": "2019-02-16",
-    "rent_apartment_eur": "2018-03-15: 534",
-    "rent_other_eur": "2018-03-15: 50",
-    "nebenkosten_eur": "2018-03-15: 116",
-    "deposit_eur": 1100,
-    "withholding_nk_eur": 100,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 271.87
-  },
-  "001-02-01-2016": {
-    "occupant_ids": [
-      "fotios_tsaknakis"
-    ],
-    "_id": "001-02-01-2016",
-    "unit_id": "001",
-    "apartment_id": "001-02-01",
-    "begin": "2017-10-01",
-    "end": "2018-03-01",
-    "rent_apartment_eur": "2017-10-01: 534",
-    "rent_other_eur": "2017-10-01: 50",
-    "nebenkosten_eur": "2017-10-01: 116",
-    "deposit_eur": 0,
-    "withholding_nk_eur": 0,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 0
   },
   "001-02-01-2018": {
     "occupant_ids": [
@@ -639,26 +479,6 @@
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 556.57
   },
-  "001-00-01-2017": {
-    "occupant_ids": [
-      "flamur_metaj"
-    ],
-    "_id": "001-00-01-2017",
-    "unit_id": "001",
-    "apartment_id": "001-00-01",
-    "begin": "2018-10-01",
-    "end": "2019-07-01",
-    "rent_apartment_eur": "2018-10-01: 534",
-    "rent_other_eur": "2018-10-01: 0",
-    "nebenkosten_eur": "2018-10-01: 116",
-    "deposit_eur": 1100,
-    "withholding_nk_eur": 200,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 609.02
-  },
   "001-00-01-2018": {
     "occupant_ids": [
       "lalezar_dauti"
@@ -670,7 +490,7 @@
     "end": "",
     "rent_apartment_eur": "2019-07-01: 534",
     "rent_other_eur": "",
-    "nebenkosten_eur": "2019-07-01: 116, 2019-09-01: 196",
+    "nebenkosten_eur": "2019-07-01: 116",
     "deposit_eur": 1100,
     "withholding_nk_eur": 0,
     "payments_rent_apartment": "",
@@ -678,26 +498,6 @@
     "payments_nk": "",
     "smokedetector_maintenance_cost_eur": 5,
     "energiekosten_2019_eur": 787.79
-  },
-  "001-00-02-2017": {
-    "occupant_ids": [
-      "erika_jurtschak"
-    ],
-    "_id": "001-00-02-2017",
-    "unit_id": "001",
-    "apartment_id": "001-00-02",
-    "begin": "2016-09-15",
-    "end": "2019-04-15",
-    "rent_apartment_eur": "2016-09-15: 534",
-    "rent_other_eur": "",
-    "nebenkosten_eur": "2016-09-15: 176",
-    "deposit_eur": 1100,
-    "withholding_nk_eur": 0,
-    "payments_rent_apartment": "",
-    "payments_rent_other": "",
-    "payments_nk": "",
-    "smokedetector_maintenance_cost_eur": 5,
-    "energiekosten_2019_eur": 499.59
   },
   "001-00-02-2018": {
     "occupant_ids": [
@@ -1147,7 +947,7 @@
     "unit_id": "001",
     "apartment_id": "001-08-06",
     "begin": "2018-10-01",
-    "end": "",
+    "end": "2020-12-01",
     "rent_apartment_eur": "2018-10-01: 626",
     "rent_other_eur": "2018-10-01: 60",
     "nebenkosten_eur": "2018-10-01: 154",
@@ -1167,7 +967,7 @@
     "unit_id": "001",
     "apartment_id": "001-05-01",
     "begin": "2016-09-01",
-    "end": "",
+    "end": "2020-12-01",
     "rent_apartment_eur": "2016-09-01: 534",
     "rent_other_eur": "2016-09-01: 160",
     "nebenkosten_eur": "2016-09-01: 116",
@@ -1429,7 +1229,7 @@
     "begin": "2016-07-01",
     "end": "",
     "rent_apartment_eur": "2016-07-01: 792.28",
-    "rent_other_eur": "2016-07-01: 60",
+    "rent_other_eur": "2016-07-01: 80",
     "nebenkosten_eur": "2016-07-01: 184",
     "deposit_eur": 1600,
     "withholding_nk_eur": 0,
@@ -1571,6 +1371,46 @@
     "rent_apartment_eur": "2020-09-01: 534",
     "rent_other_eur": "",
     "nebenkosten_eur": "2020-09-01: 116",
+    "deposit_eur": 1100,
+    "withholding_nk_eur": 0,
+    "payments_rent_apartment": "",
+    "payments_rent_other": "",
+    "payments_nk": "",
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": null
+  },
+  "001-08-06-01": {
+    "occupant_ids": [
+      "christopher_olson"
+    ],
+    "_id": "001-08-06-01",
+    "unit_id": "001",
+    "apartment_id": "001-08-06",
+    "begin": "2020-12-01",
+    "end": "",
+    "rent_apartment_eur": "2020-12-01: 721",
+    "rent_other_eur": "2020-12-01: 72",
+    "nebenkosten_eur": "2020-12-01: 129",
+    "deposit_eur": 1300,
+    "withholding_nk_eur": 0,
+    "payments_rent_apartment": "0",
+    "payments_rent_other": "0",
+    "payments_nk": "0",
+    "smokedetector_maintenance_cost_eur": 5,
+    "energiekosten_2019_eur": null
+  },
+  "001-05-01-01": {
+    "occupant_ids": [
+      "irene_marquardt"
+    ],
+    "_id": "001-05-01-01",
+    "unit_id": "001",
+    "apartment_id": "001-05-01",
+    "begin": "2020-12-01",
+    "end": "",
+    "rent_apartment_eur": "2020-12-01: 543",
+    "rent_other_eur": "2020-12-01: 60",
+    "nebenkosten_eur": "2020-12-01: 117",
     "deposit_eur": 1100,
     "withholding_nk_eur": 0,
     "payments_rent_apartment": "",
