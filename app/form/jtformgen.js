@@ -203,6 +203,8 @@ Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
 ';
 
+import { jsPDF } from "jspdf";
+
 function nkabrechnung_report( uid, year, map_contract_to_coal )
 {
   var title = `Nebenkostenabrechnung ${year}`;
@@ -214,10 +216,10 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.html2pdf = {};
   global.btoa = () => {};
   const fs = require('fs');
-  const { jsPDF } = require('jspdf');
+  //const { jsPDF } = require('jspdf');
   var doc = new jsPDF( 'p', 'mm', 'dina4' );
   doc.setFontSize(16);
-  doc.text( title, 10, 10 );
+  doc.text( 10, 10, title );
   doc.setFontSize(11);
   
   var keys = Object.keys( map_contract_to_coal );
