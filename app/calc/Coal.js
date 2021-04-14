@@ -68,8 +68,9 @@ function get_prepayments_during(
   dict_date_amount_string, begin, end,
   calculate_prepayment_based_on_days )
 {
-  console.log( dict_date_amount_string, begin, end,
-    calculate_prepayment_based_on_days );
+  //console.log( dict_date_amount_string, begin, end,
+  //  calculate_prepayment_based_on_days );
+  
   var pp = 0;
   if( dict_date_amount_string ) {
     var a = dict_date_amount_string.split( ',' ).map( s => s.split( ':' ) );
@@ -112,7 +113,7 @@ function get_prepayments_during(
       var pppm = Number( a[icurrent][1] ); // expected prepayment amount per month
       var ppphm = 0.5 * pppm; // expected prepayment amount per half month
       var day = end;
-      console.log( day, icurrent, ppstartdate, pppm, ppphm );
+      //console.log( day, icurrent, ppstartdate, pppm, ppphm );
       while( begin < day ) {
         if( day <= ppstartdate ) {
           --icurrent;
@@ -184,8 +185,8 @@ function Coal( unit, costs, apartment, contract,
   var ndays = util.date_diff_days( begin, end );
   var fraction = ndays / days_in_year;
 
-  console.log('contract', contract._id, 'beg/end, days in year, contract days and duration',
-    util.jtisodate(begin), util.jtisodate(end), days_in_year, ndays, fraction );
+  //console.log('contract', contract._id, 'beg/end, days in year, contract days and duration',
+  //  util.jtisodate(begin), util.jtisodate(end), days_in_year, ndays, fraction );
 
   var pnk = util.string_to_object_with_numbers( contract.payments_nk );
   var pnk_for_year = pnk[ year.toString() ];
