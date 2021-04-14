@@ -113,3 +113,7 @@ yarn.lock
 data/tmp/
 data/burcu/
 public/*.pdf
+
+# PDF output files
+nk-001-2018.pdf
+nk-001-2019.pdf
