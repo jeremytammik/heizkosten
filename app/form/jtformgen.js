@@ -330,7 +330,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
 
     a.push( s );
 
-    doc.addPage();
+    //doc.addPage();
 
     var lines = [];
     lines.push( 'Weidenmüller GmbH, Todtmooser Strasse 67, D-79872 Bernau' );
@@ -341,14 +341,17 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( '' );
     lines.push( 'Mietvertrag ' + c.contract_id );
     
-    doc.text( 20, 20, lines );
+    //doc.text( 20, 20, lines );
+    for( var line in lines ) { doc.text( line ); }
     
-    lines = doc.splitTextToSize( pdf_template_text, 150 );
+    //lines = doc.splitTextToSize( pdf_template_text, 150 );
+    //doc.text( 20, 60, lines );
     
-    doc.text( 20, 60, lines );
-    
+    doc.text( pdf_template_text );
+
     //values[6] = '<b>' + values[6] + '</b>';
     
+    /*
     doc.text( 100, 150, labels, {'align': 'right'} );
     doc.text( 120, 150, values, {'align': 'right'} );
 
@@ -359,6 +362,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 120, 230, values2, {'align': 'right'} );
     
     doc.text( 20, 260, 'Rheinfelden, den 15. Juli 2020' );
+    */
     
     //break; // after processing first contract for debugging
   }
@@ -367,10 +371,10 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   //var pdfdata = doc.output();
   //fs.writeFileSync( './public/' + pdfname, pdfdata, 'binary' );
-  delete global.window;
-  delete global.html2pdf;
-  delete global.navigator;
-  delete global.btoa;            
+  //delete global.window;
+  //delete global.html2pdf;
+  //delete global.navigator;
+  //delete global.btoa;            
   
   var s2 = `<h1>${title}</h1>\n`;
   s2 +=  a.join('\n');
