@@ -16,7 +16,6 @@
     "body-parser": ">= 1.14.2",
     "express": ">= 4.13.4",
     "express-validator": "^6.4.1",
-    "jspdf": "2.3.1",
     "mongoose": "^5.12.3",
     "mongoose-partial-full-search": "0.0.4",
     "mquery": ">=3.2.3",
