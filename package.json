@@ -12,7 +12,6 @@
     "start": "node app/server.js",
     "test": "jest"
   },
-  "type": "module",
   "dependencies": {
     "body-parser": ">= 1.14.2",
     "express": ">= 4.13.4",
