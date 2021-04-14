@@ -212,7 +212,6 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.html2pdf = {};
   global.btoa = () => {};
   const fs = require('fs');
-  var pdfdata = doc.output();
   var pdfname = `nk-${uid}-${year}.pdf`;
   
   //const { jsPDF } = require('jspdf');
