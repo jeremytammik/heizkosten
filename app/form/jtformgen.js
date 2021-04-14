@@ -5,6 +5,7 @@
 // Copyright 2020 by Jeremy Tammik.
 
 //import { jsPDF } from "jspdf";
+const { jsPDF } = require('jspdf');
 
 const util = require( '../calc/util' );
 
@@ -214,7 +215,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.html2pdf = {};
   global.btoa = () => {};
   const fs = require('fs');
-  const jsPDF = require('jspdf');
+  //const { jsPDF } = require('jspdf');
   var doc = new jsPDF( 'p', 'mm', 'dina4' );
   doc.setFontSize(16);
   doc.text( title, 10, 10 );
