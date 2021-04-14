@@ -1,4 +1,4 @@
 #!/bin/bash
 # Start up mongoDB and herucoal
-mongod --dbpath ~/data/db &
+open -a Terminal.app h2 
 npm start
