@@ -4,9 +4,6 @@
 //
 // Copyright 2020 by Jeremy Tammik.
 
-//import { jsPDF } from "jspdf";
-const { jsPDF } = require('jspdf');
-
 const util = require( '../calc/util' );
 
 const input_attributes_string = 'type="string" maxlength="40" size="33"';
@@ -215,11 +212,28 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   global.html2pdf = {};
   global.btoa = () => {};
   const fs = require('fs');
+  var pdfdata = doc.output();
+  var pdfname = `nk-${uid}-${year}.pdf`;
+  
   //const { jsPDF } = require('jspdf');
-  var doc = new jsPDF( 'p', 'mm', 'dina4' );
-  doc.setFontSize(16);
-  doc.text( title, 10, 10 );
-  doc.setFontSize(11);
+  //const doc = new jsPDF( 'p', 'mm', 'dina4' );
+  const PDFDocument = require('pdfkit');
+  const doc = new PDFDocument();
+  doc.pipe( fs.createWriteStream(pdfname ) );
+
+  //doc.setFontSize(16);
+  //doc.text( title, 10, 10 );
+
+  doc
+    //.font('fonts/PalatinoBold.ttf')
+    .fontSize(16)
+    .text(title, 10, 10 );
+
+  //doc.setFontSize(11);
+
+  doc
+    //.font('fonts/Palatino.ttf')
+    .fontSize(11);
   
   var keys = Object.keys( map_contract_to_coal );
   keys.sort();
@@ -352,9 +366,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   // PDF teardown
   
-  var pdfdata = doc.output();
-  var pdfname = `nk-${uid}-${year}.pdf`;
-  fs.writeFileSync( './public/' + pdfname, pdfdata, 'binary' );
+  //var pdfdata = doc.output();
+  //fs.writeFileSync( './public/' + pdfname, pdfdata, 'binary' );
   delete global.window;
   delete global.html2pdf;
   delete global.navigator;

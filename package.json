@@ -21,6 +21,7 @@
     "mongoose-partial-full-search": "0.0.4",
     "mquery": ">=3.2.3",
     "node-notifier": ">=8.0.1",
+    "pdfkit": "^0.12.1",
     "vcf": "^2.0.6"
   },
   "engines": {
