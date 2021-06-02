@@ -26,7 +26,7 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
   expect( coal.new_nkvorauszahlung_pm ).toBe(168.93);
 });
 
-test('test Coal utility cost allocation algorithm given changes in nebenkostenabvorauszahlung for a given contract', () => {
+test('test Coal utility cost allocation algorithm given changes in nebenkostenvorauszahlung for a given contract', () => {
   const year = 2019;
   const contract_id = "001-01-06-2018";
   const energy_cost_eur = 1892.03;
