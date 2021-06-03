@@ -191,7 +191,7 @@ function Coal( unit, costs, apartment, contract,
   //  util.jtisodate(begin), util.jtisodate(end), days_in_year, ndays, fraction );
 
   const pnk = util.string_to_object_with_numbers( contract.payments_nk );
-  const pnk_for_year = pnk[ year.toString() ];
+  var pnk_for_year = pnk[ year.toString() ];
 
   if( !pnk_for_year ) {
     pnk_for_year = get_prepayments_during(
@@ -199,7 +199,7 @@ function Coal( unit, costs, apartment, contract,
       calculate_nk_prepayment_based_on_days );
   }
   
-  const ec = string_to_object_with_numbers( energy_cost_str );
+  const ec = util.string_to_object_with_numbers( energy_cost_str );
   const ec_for_year = ec[ year.toString() ];
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
