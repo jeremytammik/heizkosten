@@ -196,12 +196,14 @@ function round_to_two_digits( a ) {
 
 // convert comma-separated list of colon-separated pairs to js object mapping key to number
 function string_to_object_with_numbers( s ) {
+  
   var d = {};
   var a = s.split( ',' );
   a.forEach( (s) => {
     var b = s.split( ':' );
-    d[b[0]] = Number(b[1]);
+    d[b[0].trim()] = Number(b[1]);
   });
+  console.log(s,'-->',d);
   return d;
 }
 
