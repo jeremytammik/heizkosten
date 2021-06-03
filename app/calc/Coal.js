@@ -202,7 +202,7 @@ function Coal( unit, costs, apartment, contract,
   const ec = util.string_to_object_with_numbers( energy_cost_str );
   const ec_for_year = ec[ year.toString() ];
 
-  console.log('contract', contract._id, 'year', year, 'energy cost', ec_for_year );
+  //console.log('contract', contract._id, 'year', year, 'energy cost', ec_for_year );
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
