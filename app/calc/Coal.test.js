@@ -87,7 +87,7 @@ test('test Coal utility cost allocation algorithm for a given contract in year 2
     addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
-  console.log( coal );
+  //console.log( coal );
   
   //expect( coal.nkvorauszahlung ).toBe(2537.12);
   //expect( coal.hausgeld_umlagefaehig ).toBe(672.51);
@@ -104,7 +104,7 @@ test('test Coal utility cost allocation algorithm for a given contract in year 2
     addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
-  console.log( coal );
+  //console.log( coal );
   
   //expect( coal.nkvorauszahlung ).toBe(2536.44);
   //expect( coal.hausgeld_umlagefaehig ).toBe(672.51);
