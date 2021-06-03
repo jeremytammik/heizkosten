@@ -76,12 +76,14 @@ function get_prepayments_during(
     var a = dict_date_amount_string.split( ',' ).map( s => s.split( ':' ) );
     //var last = a[ a.length - 1 ];
     //var last_date = last[0].trim();
+    
     if( false /*util.isodate_string_is_before_or_eq( last_date, begin )*/ ) {
       // calculate prepayment based on full months
       var nmonths = util.date_diff_months( begin, end );
       var last_amount = Number( last[1] );
       pp = nmonths * last_amount;
     }
+    
     else if( calculate_prepayment_based_on_days ) {
       // calculate prepayment based on days
       var ndays = 0;
@@ -174,7 +176,7 @@ function get_hausgeld_umlagefaehig_proportional( costs )
 }
 
 function Coal( unit, costs, apartment, contract,
-  addressee, year, energy_cost_eur, // energiekosten
+  addressee, year, energy_cost_str, // energy cost according to ista per year
   calculate_nk_prepayment_based_on_days )
 {
   // Determine contract duration in given year span
@@ -188,14 +190,17 @@ function Coal( unit, costs, apartment, contract,
   //console.log('contract', contract._id, 'beg/end, days in year, contract days and duration',
   //  util.jtisodate(begin), util.jtisodate(end), days_in_year, ndays, fraction );
 
-  var pnk = util.string_to_object_with_numbers( contract.payments_nk );
-  var pnk_for_year = pnk[ year.toString() ];
+  const pnk = util.string_to_object_with_numbers( contract.payments_nk );
+  const pnk_for_year = pnk[ year.toString() ];
 
   if( !pnk_for_year ) {
     pnk_for_year = get_prepayments_during(
       contract.nebenkosten_eur, begin, end,
       calculate_nk_prepayment_based_on_days );
   }
+  
+  const ec = string_to_object_with_numbers( energy_cost_str );
+  const ec_for_year = ec[ year.toString() ];
 
   var h_anteilig = get_hausgeld_umlagefaehig_anteilig( costs );
   var h_proportional = get_hausgeld_umlagefaehig_proportional( costs );
@@ -212,7 +217,7 @@ function Coal( unit, costs, apartment, contract,
   this.hausgeld_umlagefaehig = util.round_to_two_digits( h );
   this.grundsteuer = util.round_to_two_digits( apartment.landtax_eur * fraction );
   this.rauchmelderwartung = util.round_to_two_digits( smoke_detector_count * contract.smokedetector_maintenance_cost_eur * fraction );
-  this.energycost = energy_cost_eur;
+  this.energycost = ec_for_year;
   this.nebenkosten = util.round_to_two_digits( this.energycost + this.hausgeld_umlagefaehig + this.grundsteuer + this.rauchmelderwartung );
   this.credit = util.round_to_two_digits( this.nkvorauszahlung + this.rueckbehalt - this.nebenkosten );
   const nmonths = util.date_diff_months( begin, end );

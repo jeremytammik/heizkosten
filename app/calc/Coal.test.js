@@ -4,7 +4,7 @@ const Coal = require('./Coal');
 test('test Coal utility cost allocation algorithm implementing nebenkostenabrechnung for a given contract in year 2018', () => {
   var year = 2018;
   var contract_id = "001-01-04-2018";
-  var energy_cost_eur = 907.54;
+  var energy_cost_str = "2018: 907.54";
   var contract = loaddata.contracts[contract_id];
   var apartment = loaddata.apartments[contract.apartment_id];
   var unit = loaddata.units[apartment.unit_id];
@@ -13,7 +13,7 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
 
   var coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur );
+    addressee, year, energy_cost_str );
   
   //console.log( coal );
   
@@ -29,7 +29,7 @@ test('test Coal utility cost allocation algorithm implementing nebenkostenabrech
 test('test Coal utility cost allocation algorithm given changes in nebenkostenvorauszahlung for a given contract in year 2019', () => {
   const year = 2019;
   const contract_id = "001-01-06-2018";
-  const energy_cost_eur = 1892.03;
+  const energy_cost_str = "2019: 1892.03";
   const contract = loaddata.contracts[contract_id];
   const apartment = loaddata.apartments[contract.apartment_id];
   const unit = loaddata.units[apartment.unit_id];
@@ -39,7 +39,7 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenvo
 
   var coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur,
+    addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
   //console.log( coal );
@@ -56,7 +56,7 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenvo
 
   coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur,
+    addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
   //console.log( coal );
@@ -73,7 +73,7 @@ test('test Coal utility cost allocation algorithm given changes in nebenkostenvo
 test('test Coal utility cost allocation algorithm for a given contract in year 2020', () => {
   const year = 2020;
   const contract_id = "001-00-01-2018";
-  const energy_cost_eur = 1000.00;
+  const energy_cost_str = "2020: 1000.00";
   const contract = loaddata.contracts[contract_id];
   const apartment = loaddata.apartments[contract.apartment_id];
   const unit = loaddata.units[apartment.unit_id];
@@ -84,7 +84,7 @@ test('test Coal utility cost allocation algorithm for a given contract in year 2
 
   var coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur,
+    addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
   console.log( coal );
@@ -101,7 +101,7 @@ test('test Coal utility cost allocation algorithm for a given contract in year 2
 
   coal = new Coal(
     unit, costs, apartment, contract,
-    addressee, year, energy_cost_eur,
+    addressee, year, energy_cost_str,
     calculate_nk_prepayment_based_on_days );
   
   console.log( coal );

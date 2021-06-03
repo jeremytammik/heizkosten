@@ -58,15 +58,15 @@ app.get( '/nk/unit/:uid/year/:year', (req, res) => {
               const apartment = apartments[contract.apartment_id]._doc;
               const addressee = addressees[contract.occupant_ids[0]]._doc;
               
-              const energy_cost_eur = "2018" === year
-                ? 907.54 // todo: get this from contract data
-                : contract.energiekosten_2019_eur;
+              const energy_cost_str = "2018" === year
+                ? "2018: 907.54"
+                : contract.energiekosten_ista; // string of comma-separated year:cost mapping
                 
-              const calculate_nk_prepayment_based_on_days = false;
+              const calculate_nk_prepayment_based_on_days = false; // if false, base on half month
               
               map_contract_to_coal[contract._id] = new Coal(
                 unit, costs, apartment, contract,
-                addressee, year, energy_cost_eur,
+                addressee, year, energy_cost_str,
                 calculate_nk_prepayment_based_on_days );
               
               //break; // after processing first contract for debugging
