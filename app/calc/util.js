@@ -203,7 +203,7 @@ function string_to_object_with_numbers( s ) {
     var b = s.split( ':' );
     d[b[0].trim()] = Number(b[1]);
   });
-  console.log(s,'-->',d);
+  //console.log(s,'-->',d);
   return d;
 }
 
