@@ -111,7 +111,7 @@ function add_owners_to_apartments()
 }
 */
 
-
+/*
 function add_energiekosten_2020_to_contracts()
 {
   var fs = require( 'fs' );
@@ -119,13 +119,16 @@ function add_energiekosten_2020_to_contracts()
   var energiekosten_2020 = JSON.parse( fs.readFileSync( 'data/energiekosten_2020.json', 'utf8' ) );
   
   for( const [key, value] of Object.entries( energiekosten_2020 ) ) {
-    contracts[key].energiekosten_ista = energiekosten_2020[key].owner_id;
+    if(key in contracts) {
+      s = contracts[key].energiekosten_ista + ", " + value;
+      contracts[key].energiekosten_ista = s;
+    }
   }
   var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
-  var fn = `data/tmp/contracts_${ts}.json`;
+  var fn = `data/tmp/contract_${ts}.json`;
   fs.writeFileSync( fn, JSON.stringify( contracts, null, 2 ) );
 }
-
+*/
 
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
@@ -156,3 +159,4 @@ exports.contracts = contracts;
 
 //add_owners_to_apartments();
 
+//add_energiekosten_2020_to_contracts();
