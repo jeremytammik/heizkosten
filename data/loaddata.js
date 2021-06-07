@@ -130,6 +130,18 @@ function add_energiekosten_2020_to_contracts()
 }
 */
 
+function list_energiekosten_in_contracts()
+{
+  var fs = require( 'fs' );
+  var contracts = JSON.parse( fs.readFileSync( 'data/contract.json', 'utf8' ) );
+
+  var keys = Object.keys( contracts );
+  keys.sort();
+  keys.forEach( (key) => {
+    console.log( key + ':\t' +
+      contracts[key].energiekosten_ista ) } );
+}
+
 // https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
 // https://github.com/RickStrahl/json.date-extensions
 
@@ -160,3 +172,5 @@ exports.contracts = contracts;
 //add_owners_to_apartments();
 
 //add_energiekosten_2020_to_contracts();
+
+list_energiekosten_in_contracts();
