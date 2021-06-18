@@ -185,7 +185,7 @@ return wrap_html( s1 + s2 + s3 );
 }
 
 const pdf_template_text = '\
-Basierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabrechnung für das Jahr 2019. \
+\n\nBasierend auf den oben angegebenen Mietvertrag erhalten Sie Ihre Nebenkostenabrechnung für das Jahr 2020. \
 Die aufgeführten umlagefähigen Hauskosten werden von unseren Verwalter Fa. PS Hausverwaltung, Nansenstr. 3, 79539 Lörrach erstellt. \
 Diese und die Auflistung der Kosten für die steuerlich abziehbaren haushaltsnahen Dienstleistungen finden Sie in der Anlage. \
 Dort können Sie in den nächsten zwei Wochen Einsicht in die Unterlagen nehmen. Bitte vereinbaren Sie dazu einen Termin. \
@@ -196,8 +196,8 @@ Die Energiekosten werden von der Fa. Ista auf der Grundlage Ihrer Verbrauchswert
 Die entsprechenden Ableseprotokolle können in unseren Büro eingesehen werden. \
 \n\nAuf der Basis Ihrer aktuellen Nebenkosten in Zeile 5 ergibt sich eine Anpassung der Vorauszahlung. \
 Die neue Vorauszahlung wird in Zeile 10 angegeben. \
-Bei Nachzahlungen sind diese bis spätestens zum 30.07.2020 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
-Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2020 an. \
+Bei Nachzahlungen sind diese bis spätestens zum 30.07.2021 auf das Konto DE30 6805 2230 0000 0131 36 zu überweisen. \
+Bitte passen Sie Ihren Dauerauftrag ab den 1. September 2021 an. \
 Eine Erhöhung der Nebenkosten ist keine Mieterhöhung, sondern Sie gleichen damit nur aus, was wir für Sie bereits an Kosten ausgelegt haben. \
 ';
 
@@ -218,7 +218,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   //const doc = new jsPDF( 'p', 'mm', 'dina4' );
   const PDFDocument = require('pdfkit');
   const doc = new PDFDocument();
-  doc.pipe( fs.createWriteStream(pdfname ) );
+  doc.pipe( fs.createWriteStream( pdfname ) );
 
   //doc.setFontSize(16);
   //doc.text( title, 10, 10 );
@@ -330,7 +330,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
 
     a.push( s );
 
-    //doc.addPage();
+    doc.addPage( { margin: 50 } );
 
     var lines = [];
     lines.push( 'Weidenmüller GmbH, Todtmooser Strasse 67, D-79872 Bernau' );
@@ -342,7 +342,8 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     lines.push( 'Mietvertrag ' + c.contract_id );
     
     //doc.text( 20, 20, lines );
-    for( var line in lines ) { doc.text( line ); }
+    //for( var line in lines ) { doc.text( line ); }
+    lines.forEach( (line) => { doc.text( line ); } );
     
     //lines = doc.splitTextToSize( pdf_template_text, 150 );
     //doc.text( 20, 60, lines );
@@ -363,6 +364,29 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.text( 20, 260, 'Rheinfelden, den 15. Juli 2020' );
     */
+
+    doc.moveDown();
+    labels.forEach( (line) => {
+      doc.text( line, { width: 220, align: 'right'} ); } );
+
+    doc.moveUp( labels.length - 2 );
+    values.forEach( (line) => {
+      doc.text( line, 300 ); } );
+    
+    doc.moveDown();
+    doc.text( 'Es ändert sich gar nichts.', 70 );
+    doc.text( 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
+
+    doc.moveDown();
+    labels2.forEach( (line) => {
+      doc.text( line, { width: 200, align: 'right'} ); } );
+
+    doc.moveUp( labels2.length );
+    values2.forEach( (line) => {
+      doc.text( line, 300 ); } );
+    
+    doc.moveDown();
+    doc.text( 'Rheinfelden, den 15. Juli 2020', 70 );
     
     //break; // after processing first contract for debugging
   }
@@ -374,7 +398,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   //delete global.window;
   //delete global.html2pdf;
   //delete global.navigator;
-  //delete global.btoa;            
+  //delete global.btoa;
+  
+  doc.end();
   
   var s2 = `<h1>${title}</h1>\n`;
   s2 +=  a.join('\n');
