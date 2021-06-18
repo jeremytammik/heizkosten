@@ -216,9 +216,11 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   //const { jsPDF } = require('jspdf');
   //const doc = new jsPDF( 'p', 'mm', 'dina4' );
-  const PDFDocument = require('pdfkit');
+  const PDFDocument = require( 'pdfkit' );
   const doc = new PDFDocument();
-  doc.pipe( fs.createWriteStream( pdfname ) );
+  const path = __dirname + '/../../public/' + pdfname;
+  console.log( path );
+  doc.pipe( fs.createWriteStream( path ) );
 
   //doc.setFontSize(16);
   //doc.text( title, 10, 10 );
@@ -386,7 +388,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
       doc.text( line, 300 ); } );
     
     doc.moveDown();
-    doc.text( 'Rheinfelden, den 15. Juli 2020', 70 );
+    doc.text( 'Rheinfelden, den 23. Juni 2021', 70 );
     
     //break; // after processing first contract for debugging
   }
