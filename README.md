@@ -136,5 +136,5 @@ Jeremy Tammik, [The Building Coder](http://thebuildingcoder.typepad.com), [ADN](
 
 ## License
 
-(C) Copyright 2020-Current by Jeremy Tammik. All rights reserved.
+&copy; Copyright 2020-2021 by Jeremy Tammik. All rights reserved.
 Please see the [LICENSE](LICENSE) file for full details.
