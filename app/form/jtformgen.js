@@ -369,7 +369,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 20, 260, 'Rheinfelden, den 15. Juli 2020' );
     */
 
-    //doc.moveDown();
+    doc.moveDown();
     labels.forEach( (line) => {
       doc.text( line, { width: 220, align: 'right'} ); } );
 
