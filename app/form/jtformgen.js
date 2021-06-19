@@ -207,19 +207,21 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   // PDF setup
   
-  global.window = {document: {createElementNS: () => {return {}} }};
-  global.navigator = {};
-  global.html2pdf = {};
-  global.btoa = () => {};
+  //global.window = {document: {createElementNS: () => {return {}} }};
+  //global.navigator = {};
+  //global.html2pdf = {};
+  //global.btoa = () => {};
+  
   const fs = require('fs');
   var pdfname = `nk-${uid}-${year}.pdf`;
   
   //const { jsPDF } = require('jspdf');
   //const doc = new jsPDF( 'p', 'mm', 'dina4' );
+  
   const PDFDocument = require( 'pdfkit' );
   const doc = new PDFDocument();
   const path = __dirname + '/../../public/nk/' + pdfname;
-  console.log( path );
+  //console.log( path );
   doc.pipe( fs.createWriteStream( path ) );
 
   //doc.setFontSize(16);
@@ -336,11 +338,11 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
 
     var lines = [];
     lines.push( 'Weidenmüller GmbH, Todtmooser Strasse 67, D-79872 Bernau' );
-    lines.push( '' );
+    lines.push( '\n' );
     lines.push( c.salutation );
     lines.push( c.addressee );
     lines.push( c.address );
-    lines.push( '' );
+    lines.push( '\n' );
     lines.push( 'Mietvertrag ' + c.contract_id );
     
     //doc.text( 20, 20, lines );
@@ -367,7 +369,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.text( 20, 260, 'Rheinfelden, den 15. Juli 2020' );
     */
 
-    doc.moveDown();
+    //doc.moveDown();
     labels.forEach( (line) => {
       doc.text( line, { width: 220, align: 'right'} ); } );
 
@@ -377,6 +379,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     
     doc.moveDown();
     doc.text( 'Es ändert sich gar nichts.', 70 );
+    doc.moveDown();
     doc.text( 'Daraus ergibt sich folgende zukünftige Warmmiete:' );
 
     doc.moveDown();
@@ -388,7 +391,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
       doc.text( line, 300 ); } );
     
     doc.moveDown();
-    doc.text( 'Rheinfelden, den 23. Juni 2021', 70 );
+    doc.text( 'Rheinfelden, den 23. Juni 2021', 50 );
     
     //break; // after processing first contract for debugging
   }
