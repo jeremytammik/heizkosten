@@ -218,7 +218,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   //const doc = new jsPDF( 'p', 'mm', 'dina4' );
   const PDFDocument = require( 'pdfkit' );
   const doc = new PDFDocument();
-  const path = __dirname + '/../../public/' + pdfname;
+  const path = __dirname + '/../../public/nk/' + pdfname;
   console.log( path );
   doc.pipe( fs.createWriteStream( path ) );
 
@@ -406,7 +406,7 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
   
   var s2 = `<h1>${title}</h1>\n`;
   s2 +=  a.join('\n');
-  s2 += `\n<br/><p><a href="/${pdfname}">PDF</a></p>`;
+  s2 += `\n<br/><p><a href="/nk/${pdfname}">PDF</a></p>`;
   return wrap_html( s2 );
 }
 
