@@ -393,6 +393,9 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     doc.moveDown();
     doc.text( 'Rheinfelden, den 23. Juni 2021', 50 );
     
+    doc.path('M 300,500 L 340,500')
+   .stroke()    
+    
     //break; // after processing first contract for debugging
   }
   
