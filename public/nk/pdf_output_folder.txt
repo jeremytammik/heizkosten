@@ -1,0 +1,3 @@
+/public/nk/pdf_output_folder.txt
+
+Placeholder for PDF output.
