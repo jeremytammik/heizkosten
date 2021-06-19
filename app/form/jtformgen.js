@@ -390,10 +390,10 @@ function nkabrechnung_report( uid, year, map_contract_to_coal )
     values2.forEach( (line) => {
       doc.text( line, 300 ); } );
     
-    doc.moveDown();
+    doc.moveDown( 2 );
     doc.text( 'Rheinfelden, den 23. Juni 2021', 50 );
     
-    doc.path('M 150,480 L 220,480')
+    doc.path('M 170,480 L 270,480')
     doc.path('M 300,480 L 340,480')
    .stroke()    
     
