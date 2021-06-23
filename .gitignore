@@ -107,15 +107,15 @@ dist
 yarn.lock
 
 # protect personal data
-data/person.json
-data/contract.json
+#data/person.json
+#data/contract.json
 
-# ignore exported and burcu edited data 
+# ignore exported backup and burcu edited data 
 data/tmp/
 data/burcu/
-public/*.pdf
 
 # PDF output files
+public/*.pdf
 nk-001-2018.pdf
 nk-001-2019.pdf
 nk-001-2020.pdf
