@@ -113,6 +113,7 @@ yarn.lock
 # ignore exported backup and burcu edited data 
 data/tmp/
 data/burcu/
+!data/tmp/tmp_backup_folder.txt
 
 # PDF output files
 public/*.pdf
