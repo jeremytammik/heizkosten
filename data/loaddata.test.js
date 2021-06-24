@@ -213,8 +213,15 @@ test('contract referenced unit and apartment match contract id', () => {
 
 test('contract begin and end are dates', () => {
   for (const [key, value] of Object.entries(loaddata.contracts)) {
+    // valid date format
     expect( value.begin ).toMatch( jtregex.date_format );
     if( value.end ) { expect( value.begin ).toMatch( jtregex.date_format ); }
+    expect.validate_begin_end_date( value.begin )
+    // begin and end must both be first of month or mid-month
+    var a = jtvalidators.validate_begin_end_date( value.begin );
+    var b = value.end ? jtvalidators.validate_dict_date_amount_string( value.end ) : true;
+    expect(a).toBe(true);
+    expect(b).toBe(true);    
   }
 });
 
