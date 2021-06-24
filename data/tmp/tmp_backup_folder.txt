@@ -1,0 +1,3 @@
+/data/tmp/tmp_backup_folder.txt
+
+Placeholder for tmp folder containing JSON database backup files.
