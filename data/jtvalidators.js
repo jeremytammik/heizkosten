@@ -1,5 +1,6 @@
 const jtregex = require( './jtregex' );
 
+// begin and end dates must occur on the first or in the middle of the month
 function validate_begin_end_date( s ) {
   if( !jtregex.valid_date.test( s ) ) { return false; }
   //const mon = 1 * str.slice(5, 7);
