@@ -85,10 +85,11 @@ function save_data_for_model( model, res, req )
       console.log(d);
     }
 
-    var fs = require('fs');
-    var ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
-    var fn = `data/tmp/${model.route}_${ts}.json`;
-    fs.writeFile( fn, JSON.stringify( d, null, 2 ), 'utf8',
+    const fs = require('fs');
+    const ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
+    const fn = `data/tmp/${model.route}_${ts}.json`;
+    const str_json = JSON.stringify( d, null, 2 );
+    fs.writeFile( fn, str_json, 'utf8',
       function (err) {
         if (err) { console.error(err); return res.send(err.toString()); }
         return res.send( `${model.thing_en} data saved in '${fn}'` );
