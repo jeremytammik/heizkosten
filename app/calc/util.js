@@ -151,7 +151,7 @@ function get_duration_in_given_year( ts_begin, ts_end, year ) {
 
   var no_end = !ts_end;
 
-  //console.log( 'in', ts_begin, ts_end, no_end, year );
+  console.log( 'in', ts_begin, ts_end, no_end, year );
 
   // adjust begin and end to contract begin and end in given year
 
