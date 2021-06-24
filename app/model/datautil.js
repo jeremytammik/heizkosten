@@ -1,4 +1,4 @@
-//const stringify = require('json-stable-stringify');
+const stringify = require('json-stable-stringify');
 const jtformgen = require('../form/jtformgen');
 
 function load_data_for_model( model, res, req )
@@ -89,8 +89,8 @@ function save_data_for_model( model, res, req )
     const fs = require('fs');
     const ts = new Date().toISOString().substr( 0, 19 ).replace( /[T\:\-]/g, '' );
     const fn = `data/tmp/${model.route}_${ts}.json`;
-    const str_json = JSON.stringify( d, null, 2 );
-    //const str_json = stringify( d, { space: 2 } );
+    //const str_json = JSON.stringify( d, null, 2 );
+    const str_json = stringify( d, { space: 2 } );
     fs.writeFile( fn, str_json, 'utf8',
       function (err) {
         if (err) { console.error(err); return res.send(err.toString()); }
