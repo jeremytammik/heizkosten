@@ -216,7 +216,6 @@ test('contract begin and end are dates', () => {
     // valid date format
     expect( value.begin ).toMatch( jtregex.date_format );
     if( value.end ) { expect( value.begin ).toMatch( jtregex.date_format ); }
-    expect.validate_begin_end_date( value.begin )
     // begin and end must both be first of month or mid-month
     var a = jtvalidators.validate_begin_end_date( value.begin );
     var b = value.end ? jtvalidators.validate_dict_date_amount_string( value.end ) : true;
